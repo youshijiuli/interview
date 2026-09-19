@@ -2177,3 +2177,38 @@ class SystemMonitor:
 4. **生产环境必须配置日志**，而不是使用 `print()` 进行调试
 5. **正则表达式先编译再使用**，在需要多次匹配的场景中可以提高效率
 6. **不要从不受信任的来源加载 pickle 数据**，存在安全风险
+
+
+
+
+
+
+
+## 面试题
+
+
+
+## 4 Python命名中的单下划线(_)和双下划线(__)
+
+在Python中，双下划线开头和结尾的命名默认为Python的内部变量/方法，用以区分用户变量。例如场景的`__init__()`,`__dict__`,`__dir__`等。
+
+单下划线开头的命名默认为私有变量，不会在`from a import *`中被导入
+
+双下划线开头，但是没有下划线结尾的命名，Python在解释的时候会默认对其进行重命名为`_类名__变量`。
+
+```python
+class A():
+    def __init__(self) -> None:
+        self._b = "self._b"
+        self.__c = "self.__c"
+a = A()
+print(a._b) # 输出：self._b
+# print(a.__c) # 报错：AttributeError: 'A' object has no attribute '__c'
+print(a.__dict__) # 输出：{'_b': 'self._b', '_A__c': 'self.__c'}
+# 我们发现__c变量被自动重命名为_A__c了
+print(a._A__c) # 输出：self.__c
+```
+
+在Python中，当一个文件夹下有一个`__init__.py`文件，则Python会识别这个文件夹为一个Python包
+
+
