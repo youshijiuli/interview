@@ -9,15 +9,24 @@
 """
 
 
-class MyMeta(type):
-    def __new__(cls, name, bases, dct):
-        print(f"Creating class {name}")
-        return super().__new__(cls, name, bases, dct)
+# class MyMeta(type):
+#     def __new__(cls, name, bases, dct):
+#         print(f"Creating class {name}")
+#         return super().__new__(cls, name, bases, dct)
+#
+#
+# class MyClass(metaclass=MyMeta):
+#     pass
+#
+#
+# if __name__ == '__main__':
+#     my_class = MyClass()
 
 
-class MyClass(metaclass=MyMeta):
-    pass
+def func(lst=[]):
+    lst.append(1)
+    return lst
 
-
-if __name__ == '__main__':
-    my_class = MyClass()
+print(func())
+print(func())
+print(func())

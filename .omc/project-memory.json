@@ -1,0 +1,302 @@
+{
+  "version": "1.0.0",
+  "lastScanned": 1789738863195,
+  "projectRoot": "c:\\Users\\ZhuanZ\\Desktop\\interview",
+  "techStack": {
+    "languages": [],
+    "frameworks": [],
+    "packageManager": null,
+    "runtime": null
+  },
+  "build": {
+    "buildCommand": null,
+    "testCommand": null,
+    "lintCommand": null,
+    "devCommand": null,
+    "scripts": {}
+  },
+  "conventions": {
+    "namingStyle": null,
+    "importStyle": null,
+    "testPattern": null,
+    "fileOrganization": null
+  },
+  "structure": {
+    "isMonorepo": false,
+    "workspaces": [],
+    "mainDirectories": [],
+    "gitBranches": {
+      "defaultBranch": "master",
+      "branchingStrategy": null
+    }
+  },
+  "customNotes": [],
+  "directoryMap": {
+    "01.binary": {
+      "path": "01.binary",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1789738863164,
+      "keyFiles": [
+        "demo01.py"
+      ]
+    },
+    "02.flow": {
+      "path": "02.flow",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1789738863165,
+      "keyFiles": [
+        "trest1.py"
+      ]
+    },
+    "03.datastructure": {
+      "path": "03.datastructure",
+      "purpose": null,
+      "fileCount": 28,
+      "lastAccessed": 1789738863165,
+      "keyFiles": [
+        "average_00.py",
+        "change.py",
+        "clsvar_and_insvar.py",
+        "collection_others.md",
+        "collection_type.md"
+      ]
+    },
+    "04.file_handle": {
+      "path": "04.file_handle",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1789738863166,
+      "keyFiles": [
+        "04-Python文件操作与异常.md",
+        "big_file.py"
+      ]
+    },
+    "05.functions": {
+      "path": "05.functions",
+      "purpose": null,
+      "fileCount": 14,
+      "lastAccessed": 1789738863167,
+      "keyFiles": [
+        "02-Python函数与模块.md",
+        "args_kwargs.py",
+        "bibao1.py",
+        "decorators.md",
+        "demo01.py"
+      ]
+    },
+    "06.object": {
+      "path": "06.object",
+      "purpose": null,
+      "fileCount": 13,
+      "lastAccessed": 1789738863167,
+      "keyFiles": [
+        "03-Python面向对象.md",
+        "class_instance.md",
+        "extend.md",
+        "method.py",
+        "readme.md"
+      ]
+    },
+    "07.module": {
+      "path": "07.module",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1789738863167,
+      "keyFiles": [
+        "05-Python常用标准库.md"
+      ]
+    },
+    "08.exception": {
+      "path": "08.exception",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1789738863168,
+      "keyFiles": [
+        "demo01.py"
+      ]
+    },
+    "10.design_pattern": {
+      "path": "10.design_pattern",
+      "purpose": null,
+      "fileCount": 25,
+      "lastAccessed": 1789738863168,
+      "keyFiles": [
+        "index.md",
+        "创建型模式-单例模式.py",
+        "创建型模式-原型模式.py",
+        "创建型模式-工厂模式.py",
+        "创建型模式-建造者模式.py"
+      ]
+    },
+    "11.db": {
+      "path": "11.db",
+      "purpose": null,
+      "fileCount": 8,
+      "lastAccessed": 1789738863169,
+      "keyFiles": [
+        "mysql事务.md",
+        "Mysql基础.md",
+        "Mysql存储优化.md",
+        "Mysql查询优化.md",
+        "Mysql索引.md"
+      ]
+    },
+    "12.net_parallel": {
+      "path": "12.net_parallel",
+      "purpose": null,
+      "fileCount": 20,
+      "lastAccessed": 1789738863169,
+      "keyFiles": [
+        "HTTP.md",
+        "https.md",
+        "HTTP状态码.md",
+        "HTTP请求报文和HTTP响应报文.md",
+        "HTTP首部.md"
+      ]
+    },
+    "13.flask": {
+      "path": "13.flask",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1789738863170,
+      "keyFiles": [
+        "14-Flask框架.md"
+      ]
+    },
+    "14.django": {
+      "path": "14.django",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1789738863170,
+      "keyFiles": [
+        "11-DRF框架.md"
+      ]
+    },
+    "15.fastAPI": {
+      "path": "15.fastAPI",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1789738863170,
+      "keyFiles": [
+        "15-FastAPI框架.md"
+      ]
+    },
+    "bat": {
+      "path": "bat",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1789738863171,
+      "keyFiles": [
+        "get_similar_words.py",
+        "most_ip.py",
+        "n_largest_num.py",
+        "README.md",
+        "simlar_words.py"
+      ]
+    },
+    "doc": {
+      "path": "doc",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1789738863171,
+      "keyFiles": [
+        "4 Python中单下划线和双下划线.md",
+        "5 args and kwargs.md",
+        "6 面向切面编程AOP和装饰器.md",
+        "7 单例模式.md",
+        "8 Python 函数式编程.md"
+      ]
+    },
+    "MySQL": {
+      "path": "MySQL",
+      "purpose": null,
+      "fileCount": 7,
+      "lastAccessed": 1789738863171,
+      "keyFiles": [
+        "MySQL篇.md",
+        "MySQL索引.md",
+        "MySQL调优.md",
+        "MySQL面试.md",
+        "MySQL面试题及答案.md"
+      ]
+    },
+    "problem": {
+      "path": "problem",
+      "purpose": null,
+      "fileCount": 9,
+      "lastAccessed": 1789738863172,
+      "keyFiles": [
+        "1_program_theory.md",
+        "2020_interview.md",
+        "2_python_principle.md",
+        "3_python_usage.md",
+        "4_common_module.md"
+      ]
+    },
+    "Redis": {
+      "path": "Redis",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1789738863172,
+      "keyFiles": [
+        "常见面试题.md"
+      ]
+    },
+    "stackoverflow-about-Python": {
+      "path": "stackoverflow-about-Python",
+      "purpose": null,
+      "fileCount": 31,
+      "lastAccessed": 1789738863173,
+      "keyFiles": [
+        "join的问题.md",
+        "name=main的作用.md",
+        "Python中关键字yield有什么作用.md",
+        "Python中如何在一个函数中加入多个装饰器.md",
+        "Python中的元类(metaclass)是什么.md"
+      ]
+    },
+    "操作系统": {
+      "path": "操作系统",
+      "purpose": null,
+      "fileCount": 3,
+      "lastAccessed": 1789738863173,
+      "keyFiles": [
+        "常见面试题.md",
+        "我的整理.md",
+        "知识整理.md"
+      ]
+    },
+    "核心击破": {
+      "path": "核心击破",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1789738863173,
+      "keyFiles": [
+        "重要面试问题.md"
+      ]
+    },
+    "消息队列": {
+      "path": "消息队列",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1789738863173,
+      "keyFiles": [
+        "常见面试题.md"
+      ]
+    },
+    "网络": {
+      "path": "网络",
+      "purpose": null,
+      "fileCount": 2,
+      "lastAccessed": 1789738863174,
+      "keyFiles": [
+        "常见面试题.md",
+        "我的整理.md"
+      ]
+    }
+  },
+  "hotPaths": [],
+  "userDirectives": []
+}

@@ -84,33 +84,4 @@ print(dtime + "在一年中的天数是: " + tnum + "天。")
 * 这个模块可以将几乎任何的python对象(甚至是python的代码)，转换为字符串表示，这个过程称为pickling。
 * 从存储的字符串中检索原始Python对象的过程称为unpickling。
 
-###  【re】search()和match()的区别？
-
-* match()函数是在string的开始位置匹配，如果不匹配，则返回None;
-
-* search()会扫描整个string查找匹配;
-
-```
-import re
-print(re.match('hello','helloworld').span())  # 开头匹配到 (0, 5)
-print(re.match('hello','nicehelloworld').span()) # 开头没有匹配到  NoneType
-print(re.search('a','abc')) # Match object; span=(0, 1)
-print(re.search('a','bac').span()) # (1, 2)
-```
-
-###  【random】search()和match()的区别？
-
-```python
-
-import random
-random.randint(1,10) # 生成随机整数
-random.random() # 0-1 随机小数
-``` 
-
-**利用 np.random**
-
-```python
-import numpy as np
-np.random.randn(5)  生成5个随机小数
-```
 
