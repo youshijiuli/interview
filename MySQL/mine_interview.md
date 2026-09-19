@@ -1,0 +1,72 @@
+## Mysql
+
+
+##### select语句获取前面20条数据
+
+select * from app_event order by id limit 0,20
+
+##### mysql索引原理
+
+B + tree
+
+##### mysql 什么是事务
+
+多个sql原子性操作，保证数据正确
+
+##### mysql查询出来的数据进行分页
+
+select * from table limit 0,10
+
+##### char和vachar的区别？
+
+VARCHAR 类型用于存储可变长字符串，是最常见的字符串数据类型。
+
+vachar 适合一下
+
+- 字符串列的最大长度比平均长度大很多
+- 列的更新很少，所以碎片不是问题
+- 使用了像 UTF-8 这样复杂的字符集，每个字符都使用不同的字节数进行存储
+
+CHAR 类型是定长的：MySQL 总是根据定义的字符串长度分配足够的空间。
+
+CHAR 适合存储很短的字符串，或者所有值都接近同一个长度。例如，CHAR 非常适合存储密码的 MD5 值
+
+##### mysql多表联查
+
+内连接: select * from 表1，表2 where 表1.公共字段=表2.公共字段
+
+左外连接: select * from 表1 left join 表2 on 表1.公共字段=表2.公共字段
+
+右外连接: select * from 表1 right join 表2 on 表1.公共字段=表2.公共字段
+
+交叉连接: select * from 表1 cross join 表2
+
+自然连接: select * from stuinfo natural join stumarks;
+
+##### 如何保证mysql与redis数据的一致性
+
+##### 并发扣款时，保证数据一致性，及数据一致性
+
+##### mysql 模糊查询最后一个单词 like %a
+
+##### mysql 视图
+
+##### mysql 读写分离的作用是什么
+
+##### mysql 读写分离怎么提高性能
+
+##### mysql 设计一张表，应该考虑些什么
+
+##### mysql 用户表太多怎么分表
+
+##### mysql主从复制的几种方式，你们用了哪种
+
+##### mysql 的隔离级别
+
+##### 主键索引的底层是什么？
+
+##### 10G 的数据表，20G 的索引，怎么排查问题
+
+##### 如何保证商品数据的一致性？采用什么方法？具体如果操作？
+
+##### MySQL支持事务吗？详细说一下

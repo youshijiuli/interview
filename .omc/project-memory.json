@@ -297,6 +297,307 @@
       ]
     }
   },
-  "hotPaths": [],
+  "hotPaths": [
+    {
+      "path": "interview.md",
+      "accessCount": 9,
+      "lastAccessed": 1789818434212,
+      "type": "file"
+    },
+    {
+      "path": "py_interview.md",
+      "accessCount": 2,
+      "lastAccessed": 1789818414412,
+      "type": "file"
+    },
+    {
+      "path": "_split_tmp.py",
+      "accessCount": 2,
+      "lastAccessed": 1789818818910,
+      "type": "file"
+    },
+    {
+      "path": "python-job.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818415237,
+      "type": "file"
+    },
+    {
+      "path": "Python阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818422713,
+      "type": "file"
+    },
+    {
+      "path": "01-Python基础语法.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818428401,
+      "type": "file"
+    },
+    {
+      "path": "mine_interview.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818429277,
+      "type": "file"
+    },
+    {
+      "path": "Python面试题及答案1.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818430767,
+      "type": "file"
+    },
+    {
+      "path": "README4.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818435823,
+      "type": "file"
+    },
+    {
+      "path": "README3.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818436066,
+      "type": "file"
+    },
+    {
+      "path": "Python面试宝典-2020.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818441573,
+      "type": "file"
+    },
+    {
+      "path": "demo07.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818442168,
+      "type": "file"
+    },
+    {
+      "path": "1.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818449692,
+      "type": "file"
+    },
+    {
+      "path": "基础部分.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818449751,
+      "type": "file"
+    },
+    {
+      "path": "demo03.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818453107,
+      "type": "file"
+    },
+    {
+      "path": "03.datastructure\\Python基础-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818669251,
+      "type": "file"
+    },
+    {
+      "path": "10.design_pattern\\单例模式-宝典2020.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818686186,
+      "type": "file"
+    },
+    {
+      "path": "05.functions\\闭包-宝典2020.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818686603,
+      "type": "file"
+    },
+    {
+      "path": "bat\\数组查找与重复-宝典2020.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818686846,
+      "type": "file"
+    },
+    {
+      "path": "05.functions\\函数-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818698490,
+      "type": "file"
+    },
+    {
+      "path": "07.module\\模块-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818708587,
+      "type": "file"
+    },
+    {
+      "path": "06.object\\面向对象-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818719667,
+      "type": "file"
+    },
+    {
+      "path": "12.net_parallel\\网络和并发编程-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818730921,
+      "type": "file"
+    },
+    {
+      "path": "11.db\\数据库-MySQL-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818748942,
+      "type": "file"
+    },
+    {
+      "path": "Redis\\Redis-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818751186,
+      "type": "file"
+    },
+    {
+      "path": "前端\\前端-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818760374,
+      "type": "file"
+    },
+    {
+      "path": "13.web框架\\Django-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818770460,
+      "type": "file"
+    },
+    {
+      "path": "13.web框架\\Flask-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818772663,
+      "type": "file"
+    },
+    {
+      "path": "03.datastructure\\Python基础-字符串列表集合与推导式-python-job.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818776878,
+      "type": "file"
+    },
+    {
+      "path": "06.object\\Python基础-单下划线双下划线命名-python-job.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818777260,
+      "type": "file"
+    },
+    {
+      "path": "13.web框架\\Tornado-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818781646,
+      "type": "file"
+    },
+    {
+      "path": "13.web框架\\API-RESTful-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818783004,
+      "type": "file"
+    },
+    {
+      "path": "00.enviroment\\Git-版本管理-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818784291,
+      "type": "file"
+    },
+    {
+      "path": "爬虫\\爬虫-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818786320,
+      "type": "file"
+    },
+    {
+      "path": "算法\\算法和数据结构-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818812338,
+      "type": "file"
+    },
+    {
+      "path": "操作系统\\Linux-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818825594,
+      "type": "file"
+    },
+    {
+      "path": "problem\\设计题-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818837063,
+      "type": "file"
+    },
+    {
+      "path": "核心击破\\客观题-软技能-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818852948,
+      "type": "file"
+    },
+    {
+      "path": "problem\\客观题-逻辑推理-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818856304,
+      "type": "file"
+    },
+    {
+      "path": "12.net_parallel\\RPC-远程过程调用-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818857524,
+      "type": "file"
+    },
+    {
+      "path": "消息队列\\消息队列-RabbitMQ-Kafka-celery-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818858810,
+      "type": "file"
+    },
+    {
+      "path": "核心击破\\上线流程与bug管理-阶段面试题v2.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818860099,
+      "type": "file"
+    },
+    {
+      "path": "_verify_names.txt",
+      "accessCount": 1,
+      "lastAccessed": 1789818861096,
+      "type": "file"
+    },
+    {
+      "path": "_split_py_interview.py",
+      "accessCount": 1,
+      "lastAccessed": 1789818883055,
+      "type": "file"
+    },
+    {
+      "path": "03.datastructure\\垃圾回收-README4.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818889378,
+      "type": "file"
+    },
+    {
+      "path": "12.net_parallel\\网络编程-README3.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818889732,
+      "type": "file"
+    },
+    {
+      "path": "06.object\\高级特性-README4.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818889979,
+      "type": "file"
+    },
+    {
+      "path": "操作系统\\计算机基础与操作系统-01-Python基础语法.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818911778,
+      "type": "file"
+    },
+    {
+      "path": "00.enviroment\\Python环境搭建-01-Python基础语法.md",
+      "accessCount": 1,
+      "lastAccessed": 1789818924622,
+      "type": "file"
+    },
+    {
+      "path": "_merge_splits.py",
+      "accessCount": 1,
+      "lastAccessed": 1789820287052,
+      "type": "file"
+    }
+  ],
   "userDirectives": []
 }
