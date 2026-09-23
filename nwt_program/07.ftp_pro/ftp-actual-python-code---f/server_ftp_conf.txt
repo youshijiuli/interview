@@ -1,0 +1,13 @@
+listen_IP=127.0.0.1
+listen_port=21
+connect_from_port=20
+pasv_enable=yes
+idle_session_timeout=600
+pasv_min_port=65400
+pasv_max_port=65410
+local_dir=D:\case_ftp服务\ftp服务器
+user_db=C:\Users\lenovo\PycharmProjects\pythonProject1\project_FTP\user.db
+local_enable=yes
+write_enable=yes
+anonymous_enable=yes
+anon_upload_enable=yes

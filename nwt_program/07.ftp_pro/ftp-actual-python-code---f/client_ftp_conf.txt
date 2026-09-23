@@ -1,0 +1,4 @@
+listen_min_port=45100
+listen_max_port=45200
+PASV=no
+listen_ip=127.0.0.1

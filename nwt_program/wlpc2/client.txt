@@ -1,0 +1,128 @@
+ow_help()
+                    continue
+                if command.lower() == "exit":
+                    break
+                if command.startswith("get "):
+                    self.handle_file_download(command)
+                    continue
+                if command.startswith("put "):
+                    self.handle_file_upload(command)
+                    continue
+                if command.startswith("chat "):
+                    self.send_command(command)
+                    try:
+                        # 设置10秒超时
+                        encrypted_resp = self.sock.recv(4096)
+                        response = CryptoUtils.decrypt_with_aes(self.aes_key, encrypted_resp).decode()
+                        print(response)
+                    except socket.timeout:
+                        print("Server didn't respond in time")
+                    continue
+
+                # 普通命令处理
+                encrypted_cmd = CryptoUtils.encrypt_with_aes(self.aes_key, command.encode())
+                self.sock.send(encrypted_cmd)
+
+                try:
+                    # 设置接收超时
+                    encrypted_resp = self.sock.recv(4096)
+                    response = CryptoUtils.decrypt_with_aes(self.aes_key, encrypted_resp).decode()
+                    print(response)
+                except socket.timeout:
+                    print("Server response timeout")
+
+            except KeyboardInterrupt:
+                break
+            except Exception as e:
+                print(f"Error: {e}")
+                break
+        self.connected = False
+        self.sock.close()
+
+    def show_help(self):
+        help_text = """
+        FTP Client Commands:
+        --------------------
+        list                - List current directory contents
+        cd <directory>      - Change current directory
+        pwd                 - Show current working directory
+        mkdir <dirname>     - Create new directory
+        get <filename>      - Download file
+        put <filename>      - Upload file
+        rename <old> <new>  - Rename file/directory
+        attrib <filename>   - View file attributes
+        create <filename>   - Create empty file
+        chat <message>      - Send message to server
+        add <user> <pass>   - Add new user (admin only)
+        exit                - Exit client
+        help                - Show this help
+        """
+        print(help_text)
+
+    def handle_file_download(self, command):
+        filename = command.split()[1]
+
+        # 发送下载请求
+        encrypted_cmd = CryptoUtils.encrypt_with_aes(self.aes_key, command.encode())
+        self.sock.send(encrypted_cmd)
+
+        # 接收文件大小
+        size_info = CryptoUtils.decrypt_with_aes(self.aes_key, self.sock.recv(4096)).decode()
+        if not size_info.startswith("FILE_SIZE:"):
+            print("File transfer error")
+            return
+
+        file_size = int(size_info.split(":")[1])
+        print(f"Downloading {filename} ({file_size} bytes)")
+
+        # 接收文件内容 (优化版本)
+        received = 0
+        with open(filename, 'wb') as f:
+            while received < file_size:
+                # 计算剩余需要接收的字节数
+                remaining = file_size - received
+                # 每次最多接收4096字节或剩余字节数
+                chunk_size = 4096 if remaining > 4096 else remaining
+
+                encrypted_chunk = self.sock.recv(chunk_size)
+                if not encrypted_chunk:
+                    break
+
+                chunk = CryptoUtils.decrypt_with_aes(self.aes_key, encrypted_chunk)
+                f.write(chunk)
+                received += len(chunk)
+                print(f"Downloaded {received}/{file_size} bytes", end='\r')
+
+        # 检查是否完整接收
+        if received == file_size:
+            print(f"\nFile downloaded successfully: {filename}")
+        else:
+            print(f"\nFile transfer incomplete. Received {received}/{file_size} bytes")le_file_upload(self, command):
+        filename = command.split()[1]
+
+        if not os.path.isfile(filename):
+            print(f"File not found: {filename}")
+            return
+
+        # 发送上传请求
+        encrypted_cmd = CryptoUtils.encrypt_with_aes(self.aes_key, command.encode())
+        self.sock.send(encrypted_cmd)
+
+        # 发送文件大小
+        file_size = os.path.getsize(filename)
+        size_info = f"FILE_SIZE:{file_size}".encode()
+        encrypted_size = CryptoUtils.encrypt_with_aes(self.aes_key, size_info)
+        self.sock.send(encrypted_size)
+
+        print(f"Uploading {filename} ({file_size} bytes)")
+
+        # 发送文件内容
+        sent = 0
+        with open(filename, 'rb') as f:
+            while True:
+                chunk = f.read(4096)
+                if not chunk:
+                    break
+                encrypted_chunk = CryptoUtils.encrypt_with_aes(self.aes_key, chunk)
+                self.sock.send(encrypted_chunk)
+                sent

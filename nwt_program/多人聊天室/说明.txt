@@ -1,0 +1,186 @@
+https://www.cnblogs.com/mfmdaoyou/p/7301028.html
+
+聊天室server主要完毕以下两件事：
+
+接收多个client的连接
+从每一个client读入消息病广播到其他连接的client
+我们定义一个 list 型变量 CONNECTION_LIST 表示监听多个 socket 事件的可读事件，那么利用上面介绍的我们的server使用 select 来处理多路复用 I/O 的代码例如以下：
+
+# 通过select获取准备读取的列表套接字
+read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST,[],[])
+当 select 返回时，说明在 read_sockets 上有可读的数据，这里又分为两种情况：
+
+假设是主 socket（即server開始创建的 socket，一直处于监听状态）有数据可读，表示有新的连接请求能够接收。此时须要调用 accept 函数来接收新的client连接，并将其连接信息广播到其他client。
+假设是其他 sockets（即与client已经建立连接的 sockets）有数据可读，那么表示client发送消息到server端，使用 recv 函数读消息，并将消息转发到其他全部连接的client。
+上面两种情况到涉及到广播消息的过程。广播也就是将从某个 socket 获得的消息通过 CONNECTION_LIST 的每一个 socket （除了自身和主 socket）一个个发送出去：
+
+def broadcast_data (sock, message):
+    #Do not send the message to master socket and the client who has send us the message
+    for socket in CONNECTION_LIST:
+        if socket != server_socket and socket != sock :
+            try :
+                socket.send(message)
+            except :
+                # broken socket connection may be, chat client pressed ctrl+c for example
+                socket.close()
+                CONNECTION_LIST.remove(socket)
+如果发送失败，我们如果某个client已经断开了连接。关闭该 socket 病将其从连接列表中删除。
+
+完整的聊天室server源码例如以下：
+
+# Tcp Chat server
+
+import socket, select
+
+#Function to broadcast chat messages to all connected clients
+def broadcast_data (sock, message):
+    #Do not send the message to master socket and the client who has send us the message
+    for socket in CONNECTION_LIST:
+        if socket != server_socket and socket != sock :
+            try :
+                socket.send(message)
+            except :
+                # broken socket connection may be, chat client pressed ctrl+c for example
+                socket.close()
+                CONNECTION_LIST.remove(socket)
+
+if __name__ == "__main__":
+
+    # List to keep track of socket descriptors
+    CONNECTION_LIST = []
+    RECV_BUFFER = 4096 # Advisable to keep it as an exponent of 2
+    PORT = 5000
+
+    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    # this has no effect, why ?
+
+    server_socket.setsockopt(socket.SOL_SOCKET, socket.SO_REUSEADDR, 1)
+    server_socket.bind(("0.0.0.0", PORT))
+    server_socket.listen(10)
+
+    # Add server socket to the list of readable connections
+    CONNECTION_LIST.append(server_socket)
+
+    print "Chat server started on port " + str(PORT)
+
+    while 1:
+        # Get the list sockets which are ready to be read through select
+        read_sockets,write_sockets,error_sockets = select.select(CONNECTION_LIST,[],[])
+
+        for sock in read_sockets:
+            #New connection
+            if sock == server_socket:
+                # Handle the case in which there is a new connection recieved through server_socket
+                sockfd, addr = server_socket.accept()
+                CONNECTION_LIST.append(sockfd)
+                print "Client (%s, %s) connected" % addr
+
+                broadcast_data(sockfd, "[%s:%s] entered room\n" % addr)
+
+            #Some incoming message from a client
+            else:
+                # Data recieved from client, process it
+                try:
+                    #In Windows, sometimes when a TCP program closes abruptly,
+                    # a "Connection reset by peer" exception will be thrown
+                    data = sock.recv(RECV_BUFFER)
+                    if data:
+                        broadcast_data(sock, "\r" + '<' + str(sock.getpeername()) + '> ' + data)
+
+                except:
+                    broadcast_data(sock, "Client (%s, %s) is offline" % addr)
+                    print "Client (%s, %s) is offline" % addr
+                    sock.close()
+                    CONNECTION_LIST.remove(sock)
+                    continue
+
+    server_socket.close()
+在控制台下执行该程序：
+
+$ python chat_server.py
+Chat server started on port 5000
+聊天室client
+我们写一个client程序能够连接到上面的server，完毕发送消息和接收消息的过程。主要做以下两件事：
+
+监听server是否有消息发送过来
+检查用户的输入，假设用户输入某条消息，须要发送到server
+这里有两个 I/O 事件须要监听：连接到server的 socket 和标准输入。相同我们能够使用 select 来完毕：
+
+rlist = [sys.stdin, s]
+
+# Get the list sockets which are readable
+read_list, write_list, error_list = select.select(rlist , [], [])
+那逻辑就非常easy了，假设是 sys.stdin 有数据可读，表示用户从控制台输入数据并按下回车，那么就从标准输入读数据，并发送到server；假设是与server连接的 socket 有数据可读，表示server发送消息给该client。那么就从 socket 接收数据。加上一些提示信息及异常处理的完整client代码例如以下：
+
+# telnet program example
+import socket, select, string, sys
+
+def prompt() :
+    sys.stdout.write('<You> ')
+    sys.stdout.flush()
+
+#main function
+if __name__ == "__main__":
+
+    if(len(sys.argv) < 3) :
+        print 'Usage : python telnet.py hostname port'
+        sys.exit()
+
+    host = sys.argv[1]
+    port = int(sys.argv[2])
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.settimeout(2)
+
+    # connect to remote host
+    try :
+        s.connect((host, port))
+    except :
+        print 'Unable to connect'
+        sys.exit()
+
+    print 'Connected to remote host. Start sending messages'
+    prompt()
+
+    while 1:
+        rlist = [sys.stdin, s]
+
+        # Get the list sockets which are readable
+        read_list, write_list, error_list = select.select(rlist , [], [])
+
+        for sock in read_list:
+            #incoming message from remote server
+            if sock == s:
+                data = sock.recv(4096)
+                if not data :
+                    print '\nDisconnected from chat server'
+                    sys.exit()
+                else :
+                    #print data
+                    sys.stdout.write(data)
+                    prompt()
+
+            #user entered a message
+            else :
+                msg = sys.stdin.readline()
+                s.send(msg)
+                prompt()
+能够在多个终端下执行该代码：
+
+$ python telnet.py localhost 5000
+Connected to remote host. Start sending messages
+<You> hello
+<You> I am fine
+<('127.0.0.1', 38378)> ok good
+<You>
+在还有一个终端显示的信息：
+
+<You> [127.0.0.1:39339] entered room
+<('127.0.0.1', 39339)> hello
+<('127.0.0.1', 39339)> I am fine
+<You> ok good
+总结
+上面的代码注意两点：
+
+聊天室client代码不能在 windows 下执行，由于代码使用 select 同一时候监听 socket 和输入流，在 Windows 下 select 函数是由 WinSock 库提供，不能处理不是由 WinSock 定义的文件描写叙述符。
+client代码还有个缺陷是，当某个client在输入消息但还未发送出去时，server也发送消息过来，这样会冲刷掉client正在输入的消息。这眼下来看没办法解决的，唯一的解决方法是使用像 ncurses 终端库使用户输入和输出独立开，或者写一个 GUI 的程序。

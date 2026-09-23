@@ -1,0 +1,3 @@
+tkinter
+ftplib
+Pillow==9.5.0 
