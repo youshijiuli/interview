@@ -141,3 +141,81 @@ docker run -d --name rabbitmq \
 ```
 
 ---
+
+
+# 第十八章 其他
+
+> 来源：Python阶段面试题v2.md
+
+2. 简述 RabbitMQ、Kafka、ZeroMQ的区别？
+3. RabbitMQ如果在消费者获取任务后未处理完前就挂掉时，保证数据不丢失？
+4. RabbitMQ如何对消息做持久化？
+5. RabbitMQ如何控制消息被消费的顺序？
+6. 以下RabbitMQ的exchange type分别代表什么意思？如：fanout、direct、topic。
+7. 简述 celery 是什么以及应用场景？
+8. 简述celery运行机制。
+9. celery如何实现定时任务？
+10. 简述 celery多任务结构目录？
+11. celery中装饰器 @apptask 和 @shared_task的区别？
+
+
+---
+135. rabbitmq 的使用场景有哪些？
+
+136. rabbitmq 有哪些重要的角色？
+
+137. rabbitmq 有哪些重要的组件？
+
+138. rabbitmq 中 vhost 的作用是什么？
+
+139. rabbitmq 的消息是怎么发送的？
+
+140. rabbitmq 怎么保证消息的稳定性？
+
+141. rabbitmq 怎么避免消息丢失？
+
+142. 要保证消息持久化成功的条件有哪些？
+
+143. rabbitmq 持久化有什么缺点？
+
+144. rabbitmq 有几种广播类型？
+
+145. rabbitmq 怎么实现延迟消息队列？
+
+146. rabbitmq 集群有什么用？
+
+147. rabbitmq 节点的类型有哪些？
+
+148. rabbitmq 集群搭建需要注意哪些问题？
+
+149. rabbitmq 每个节点是其他节点的完整拷贝吗？为什么？
+
+150. rabbitmq 集群中唯一一个磁盘节点崩溃了会发生什么情况？
+
+151. rabbitmq 对集群节点停止顺序有要求吗？
+
+
+
+### 9. kafka 的原理，以及使用中遇到的问题
+### 2. 消息可达性和唯一消费
+### 8. mq：kafka，rocketmq，同步机制和事务机制
+
+# rocketmq
+
+‌rocketmq为例看结构
+- name server 命名查询服务器
+- producer 消息生产者
+- message broker 消息队列
+- consumer group 消费组
+- consumer 消息消费者
+- topic 消息主题
+- partition 消息分片/队列
+- replication 消息副本（rocketmq无）
+
+
+‌消息消费确认
+- ack
+- offset
+
+
+消息队列集群的结构，常见的名词

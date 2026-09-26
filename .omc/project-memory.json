@@ -1,6 +1,6 @@
 {
   "version": "1.0.0",
-  "lastScanned": 1790178241179,
+  "lastScanned": 1790329501474,
   "projectRoot": "c:\\Users\\ZhuanZ\\Desktop\\interview",
   "techStack": {
     "languages": [],
@@ -35,21 +35,21 @@
     "00.enviroment": {
       "path": "00.enviroment",
       "purpose": null,
-      "fileCount": 12,
-      "lastAccessed": 1790178241089,
+      "fileCount": 10,
+      "lastAccessed": 1790329501393,
       "keyFiles": [
-        "mine_interview.md",
         "python-job.md",
         "Python基础语法-环境搭建.md",
         "Python基础语法-语法基础.md",
-        "Python阶段面试题v2.md"
+        "Python面试宝典-2020.md",
+        "Python面试宝典-2021.md"
       ]
     },
     "01.binary": {
       "path": "01.binary",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1790178241091,
+      "lastAccessed": 1790329501394,
       "keyFiles": [
         "demo01.py",
         "Python基础语法-运算符与编码.md",
@@ -60,7 +60,7 @@
       "path": "02.flow",
       "purpose": null,
       "fileCount": 6,
-      "lastAccessed": 1790178241092,
+      "lastAccessed": 1790329501394,
       "keyFiles": [
         "mine_interview.md",
         "Python基础语法-流程控制.md",
@@ -73,7 +73,7 @@
       "path": "03.datastructure",
       "purpose": null,
       "fileCount": 52,
-      "lastAccessed": 1790178241093,
+      "lastAccessed": 1790329501395,
       "keyFiles": [
         "01.number.md",
         "02.str.md",
@@ -86,7 +86,7 @@
       "path": "04.file_handle",
       "purpose": null,
       "fileCount": 11,
-      "lastAccessed": 1790178241094,
+      "lastAccessed": 1790329501396,
       "keyFiles": [
         "04-Python文件操作与异常.md",
         "big_file.py",
@@ -99,7 +99,7 @@
       "path": "05.functions",
       "purpose": null,
       "fileCount": 38,
-      "lastAccessed": 1790178241095,
+      "lastAccessed": 1790329501397,
       "keyFiles": [
         "02-Python函数与模块.md",
         "6 面向切面编程AOP和装饰器.md",
@@ -112,7 +112,7 @@
       "path": "06.object",
       "purpose": null,
       "fileCount": 26,
-      "lastAccessed": 1790178241095,
+      "lastAccessed": 1790329501401,
       "keyFiles": [
         "03-Python面向对象.md",
         "class_instance.md",
@@ -125,7 +125,7 @@
       "path": "07.module",
       "purpose": null,
       "fileCount": 11,
-      "lastAccessed": 1790178241096,
+      "lastAccessed": 1790329501415,
       "keyFiles": [
         "05-Python常用标准库.md",
         "mine_interview.md",
@@ -138,7 +138,7 @@
       "path": "08.exception",
       "purpose": null,
       "fileCount": 11,
-      "lastAccessed": 1790178241097,
+      "lastAccessed": 1790329501417,
       "keyFiles": [
         "demo01.py",
         "demo02.py",
@@ -151,7 +151,7 @@
       "path": "10.design_pattern",
       "purpose": null,
       "fileCount": 29,
-      "lastAccessed": 1790178241099,
+      "lastAccessed": 1790329501423,
       "keyFiles": [
         "index.md",
         "mine_interview.md",
@@ -164,7 +164,7 @@
       "path": "11.db",
       "purpose": null,
       "fileCount": 14,
-      "lastAccessed": 1790178241100,
+      "lastAccessed": 1790329501424,
       "keyFiles": [
         "mine_interview.md",
         "mysql事务.md",
@@ -173,37 +173,37 @@
         "Mysql查询优化.md"
       ]
     },
-    "12.net_parallel": {
-      "path": "12.net_parallel",
+    "12.net": {
+      "path": "12.net",
       "purpose": null,
-      "fileCount": 40,
-      "lastAccessed": 1790178241100,
+      "fileCount": 10,
+      "lastAccessed": 1790329501430,
       "keyFiles": [
+        "base",
+        "config.ini",
+        "README.md",
+        "test_config.py",
+        "work.md"
+      ]
+    },
+    "13.parallel": {
+      "path": "13.parallel",
+      "purpose": null,
+      "fileCount": 46,
+      "lastAccessed": 1790329501431,
+      "keyFiles": [
+        "04.并发编程.md",
         "06-网络编程.md",
         "07-并发编程.md",
         "GIL与协程-demo03.md",
-        "HTTP.md",
-        "https.md"
-      ]
-    },
-    "13.web框架": {
-      "path": "13.web框架",
-      "purpose": null,
-      "fileCount": 11,
-      "lastAccessed": 1790178241101,
-      "keyFiles": [
-        "Django-19面试指南.md",
-        "interview.md",
-        "mine_interview.md",
-        "python-job.md",
-        "Python阶段面试题v2.md"
+        "HTTP.md"
       ]
     },
     "14.projects": {
       "path": "14.projects",
       "purpose": null,
       "fileCount": 6,
-      "lastAccessed": 1790178241102,
+      "lastAccessed": 1790329501437,
       "keyFiles": [
         "GIL.md",
         "Python面试宝典-2020.md",
@@ -212,24 +212,37 @@
         "py_interview.md"
       ]
     },
+    "15.web框架": {
+      "path": "15.web框架",
+      "purpose": null,
+      "fileCount": 11,
+      "lastAccessed": 1790329501438,
+      "keyFiles": [
+        "Django-19面试指南.md",
+        "interview.md",
+        "mine_interview.md",
+        "python-job.md",
+        "Python阶段面试题v2.md"
+      ]
+    },
     "bat": {
       "path": "bat",
       "purpose": null,
-      "fileCount": 10,
-      "lastAccessed": 1790178241104,
+      "fileCount": 11,
+      "lastAccessed": 1790329501438,
       "keyFiles": [
+        "BAT.md",
         "get_similar_words.py",
         "most_ip.py",
         "n_largest_num.py",
-        "Python面试宝典-2020.md",
-        "Python面试宝典-2021.md"
+        "Python面试宝典-2020.md"
       ]
     },
     "Docker": {
       "path": "Docker",
       "purpose": null,
       "fileCount": 1,
-      "lastAccessed": 1790178241105,
+      "lastAccessed": 1790329501439,
       "keyFiles": [
         "Docker-19面试指南.md"
       ]
@@ -238,7 +251,7 @@
       "path": "git-base",
       "purpose": null,
       "fileCount": 8,
-      "lastAccessed": 1790178241105,
+      "lastAccessed": 1790329501443,
       "keyFiles": [
         "Git 命令大全.md",
         "Git.md",
@@ -247,11 +260,20 @@
         "如何多人协同开发同一个项目？.md"
       ]
     },
+    "h_parallel-code": {
+      "path": "h_parallel-code",
+      "purpose": null,
+      "fileCount": 1,
+      "lastAccessed": 1790329501445,
+      "keyFiles": [
+        "README.md"
+      ]
+    },
     "linux-base": {
       "path": "linux-base",
       "purpose": null,
       "fileCount": 2,
-      "lastAccessed": 1790178241106,
+      "lastAccessed": 1790329501448,
       "keyFiles": [
         "Linux.md",
         "基础.md"
@@ -260,8 +282,8 @@
     "MySQL": {
       "path": "MySQL",
       "purpose": null,
-      "fileCount": 13,
-      "lastAccessed": 1790178241108,
+      "fileCount": 14,
+      "lastAccessed": 1790329501450,
       "keyFiles": [
         "08-MySQL数据库.md",
         "interview.md",
@@ -274,7 +296,7 @@
       "path": "problem",
       "purpose": null,
       "fileCount": 18,
-      "lastAccessed": 1790178241108,
+      "lastAccessed": 1790329501451,
       "keyFiles": [
         "1_program_theory.md",
         "2020_interview.md",
@@ -286,21 +308,21 @@
     "Redis": {
       "path": "Redis",
       "purpose": null,
-      "fileCount": 8,
-      "lastAccessed": 1790178241111,
+      "fileCount": 12,
+      "lastAccessed": 1790329501452,
       "keyFiles": [
+        "image.png",
         "interview.md",
         "mine_interview.md",
         "python-job.md",
-        "Python阶段面试题v2.md",
-        "py_interview.md"
+        "Python阶段面试题v2.md"
       ]
     },
     "rules": {
       "path": "rules",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1790178241111,
+      "lastAccessed": 1790329501452,
       "keyFiles": [
         "mine_interview.md",
         "PEP8.md",
@@ -313,7 +335,7 @@
       "path": "shell",
       "purpose": null,
       "fileCount": 4,
-      "lastAccessed": 1790178241113,
+      "lastAccessed": 1790329501453,
       "keyFiles": [
         "100个shell脚本.md",
         "Index.md",
@@ -321,23 +343,11 @@
         "案例.md"
       ]
     },
-    "前端": {
-      "path": "前端",
-      "purpose": null,
-      "fileCount": 4,
-      "lastAccessed": 1790178241114,
-      "keyFiles": [
-        "interview.md",
-        "python-job.md",
-        "Python阶段面试题v2.md",
-        "py_interview.md"
-      ]
-    },
     "图片和附件": {
       "path": "图片和附件",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1790178241114,
+      "lastAccessed": 1790329501455,
       "keyFiles": [
         "001_vi键盘.png",
         "002_删除交换文件.png",
@@ -350,7 +360,7 @@
       "path": "操作系统",
       "purpose": null,
       "fileCount": 7,
-      "lastAccessed": 1790178241115,
+      "lastAccessed": 1790329501456,
       "keyFiles": [
         "interview.md",
         "Python阶段面试题v2.md",
@@ -363,7 +373,7 @@
       "path": "核心击破",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1790178241115,
+      "lastAccessed": 1790329501457,
       "keyFiles": [
         "Python阶段面试题v2.md",
         "求职面试-19面试指南.md",
@@ -374,7 +384,7 @@
       "path": "消息队列",
       "purpose": null,
       "fileCount": 3,
-      "lastAccessed": 1790178241116,
+      "lastAccessed": 1790329501458,
       "keyFiles": [
         "Python阶段面试题v2.md",
         "RabbitMQ-19面试指南.md",
@@ -385,7 +395,7 @@
       "path": "爬虫",
       "purpose": null,
       "fileCount": 5,
-      "lastAccessed": 1790178241117,
+      "lastAccessed": 1790329501458,
       "keyFiles": [
         "python-job.md",
         "Python阶段面试题v2.md",
@@ -398,7 +408,7 @@
       "path": "算法",
       "purpose": null,
       "fileCount": 10,
-      "lastAccessed": 1790178241118,
+      "lastAccessed": 1790329501459,
       "keyFiles": [
         "interview.md",
         "mine_interview.md",

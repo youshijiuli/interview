@@ -1,10 +1,4 @@
-## 6 字典推导式
 
-可能你见过列表推导时,却没有见过字典推导式,在2.7中才加入的:
-
-```python
-d = {key: value for (key, value) in iterable.items()}
-```
 
 ## 7 Python中单下划线和双下划线
 
