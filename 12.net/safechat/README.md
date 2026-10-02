@@ -333,7 +333,7 @@ Uchat
    }
    ```
 
-   例子中data\['parameters']['target_type']=0表示文本信息，从id为1的用户发出信息，发给id标号为2的人，发送方昵称为‘1’。给服务器发送的操作码为109。
+   例子中data['parameters']['target_type']=0表示文本信息，从id为1的用户发出信息，发给id标号为2的人，发送方昵称为‘1’。给服务器发送的操作码为109。
 
 ### 安全传输
 
@@ -442,7 +442,7 @@ Uchat
 
      通过调用util/socket_listener文件下的remove_listener函数来关闭事件监听，同时调用库函数destroy()关闭窗口、清空客户端缓存信息。
 
-3. \__init__(self,master=None)
+3. __init__(self,master=None)
 
    - 位置
 
@@ -471,7 +471,7 @@ Uchat
 
      检查输入的用户名、密码、邮箱是否合法；判断两次输入的密码是否相同；调用get_ip()函数获取客户端的IP地址和端口号；向服务器发送注册请求，并通过调用函数send()将注册输入的用户名、密码、邮箱、性别、年龄以及用户的IP地址和端口号等信息发送给服务器；构造数字证书，命名为IP地址+“——cert.pem”，内容为用户名+邮箱+用户公钥
 
-5. .\__init__(self,master=None)
+5. .__init__(self,master=None)
 
    - 位置
 
@@ -484,7 +484,7 @@ Uchat
 
    - 功能
 
-     通过库函数super()实现子类\_\_init\_\_()对父类\__init__()的继承；对登录窗口进行布局，包括确定注册界面的长宽，确定背景、标签、输入框、按钮等的位置、颜色、类型、链接等；初始化安全信道；通过socket_listener()函数和add_listener()函数将服务器端加入到监听列表中。
+     通过库函数super()实现子类__init__()对父类__init__()的继承；对登录窗口进行布局，包括确定注册界面的长宽，确定背景、标签、输入框、按钮等的位置、颜色、类型、链接等；初始化安全信道；通过socket_listener()函数和add_listener()函数将服务器端加入到监听列表中。
 
 6. do_login(self)
 
@@ -514,7 +514,7 @@ Uchat
 
      与注册按钮关联，通过点击按钮调用库函数Toplevel()跳转到注册页面。
 
-8. .\__init__(self,master=None)
+8. .__init__(self,master=None)
 
    - 位置
 
@@ -527,7 +527,7 @@ Uchat
 
    - 功能
 
-     通过库函数super()实现子类\__init\_\_()对父类\_\_init__()的继承；对好友列表窗口布局，确定好友列表的长宽、按钮的位置、颜色、类型、链接等；调用VerticalScrolledFrame()函数，将列表设置滚动条＋图片背景；初始化安全信道；通过socket_listener()函数和remove_socket_listener_and_close()函数控制对客户端socket事件监听和关闭。
+     通过库函数super()实现子类__init__()对父类__init__()的继承；对好友列表窗口布局，确定好友列表的长宽、按钮的位置、颜色、类型、链接等；调用VerticalScrolledFrame()函数，将列表设置滚动条＋图片背景；初始化安全信道；通过socket_listener()函数和remove_socket_listener_and_close()函数控制对客户端socket事件监听和关闭。
 
 9. refresh_contacts(self)
 
@@ -570,9 +570,9 @@ Uchat
 
     - 功能
 
-      被该文件下的另一个函数\_\_init\_\_()调用用来添加或删除列表中的好友。
+      被该文件下的另一个函数__init__()调用用来添加或删除列表中的好友。
 
-12. \__init__(self,target,master=None)
+12. __init__(self,target,master=None)
 
     - 位置
 
@@ -617,7 +617,7 @@ Uchat
 
       通过分析传输的数据包，摘取消息的时间戳、发送者、消息类型，为布局做准备。
 
-15. \__init__(self,parent,onclick)
+15. __init__(self,parent,onclick)
 
     - 位置
 
@@ -635,7 +635,7 @@ Uchat
 
       ![](https://leeyuxun-1258157351.cos.ap-beijing.myqcloud.com/img/20200714140712.png)
 
-16. \__init__(self,parent,*args,**kw)
+16. __init__(self,parent,*args,**kw)
 
     - 位置
 
@@ -668,11 +668,11 @@ Uchat
 
      利用prime.generate_big_prime()函数产生一个大的素数作为私钥，然后利用相应算法计算出自己的公钥，将公钥和私钥保存成文件，公钥可写入证书，私钥单独保存不传输
 
-2. \_serialize_xxx(xxx)
+2. _serialize_xxx(xxx)
 
    - 位置
 
-     - common\message\__init__.py
+     - common\message__init__.py
 
    - 参数：要序列化的数据类型
 
@@ -682,11 +682,11 @@ Uchat
 
      主要用_serialize_list(list):_serialize_list(list)数据打包格式如下：|——1ByteTypeofparams——|——4BytesLengthofbody——|——Body(self-evidentlength)——|——Body(selfevidentlength)——|——Body(self-evidentlength)——|..即第一字节为列表类型，然后4字节的数据长度，由每种数据类型占用长度不同分配不同的BODY长度，每一个BODY可以是如list,int,float等数据类型。
 
-3. \_deserialize_xxx(bytes)
+3. _deserialize_xxx(bytes)
 
    - 位置
 
-     - common\message\__init__.py
+     - common\message__init__.py
 
    - 参数：二进制数据
 
@@ -772,7 +772,7 @@ Uchat
 
    - 位置
 
-     - common\utli\socket_listener\\_\_init__.py
+     - common\utli\socket_listener\__init__.py
 
    - 参数
 
@@ -784,13 +784,13 @@ Uchat
 
    - 算法描述
 
-     obj\['message']['type']判断0与1.type0-文字消息1-图片消息。
+     obj['message']['type']判断0与1.type0-文字消息1-图片消息。
 
 9. socket_listener_thread(sc,tk_root)
 
    - 位置
 
-     - common\socket_listener\__init.py
+     - common\socket_listener__init.py
 
    - 参数
 
@@ -815,7 +815,7 @@ Uchat
 
     - 位置
 
-      - common\socket_listene\\\_\_init__.py
+      - common\socket_listene\\__init__.py
 
     - 参数
 
@@ -834,7 +834,7 @@ Uchat
 
     - 位置
 
-      - common\socket_listener\\_\_init__.py
+      - common\socket_listener\__init__.py
 
     - 参数
 
@@ -852,7 +852,7 @@ Uchat
 
     - 位置
 
-      - common\socket_listener\_\_init__.py
+      - common\socket_listener__init__.py
 
     - 参数
 
@@ -872,7 +872,7 @@ Uchat
 
    - 位置
 
-     - server\event_handler\__init__.py
+     - server\event_handler__init__.py
 
    - 参数
 
@@ -1025,7 +1025,7 @@ Uchat
 
    - 位置
 
-     - server\util\database\\_\_init\_\_.py
+     - server\util\database\__init__.py
 
    - 参数
 
@@ -1043,7 +1043,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 
@@ -1061,7 +1061,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 
@@ -1079,7 +1079,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 
@@ -1097,7 +1097,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 
@@ -1115,7 +1115,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 
@@ -1133,7 +1133,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 
@@ -1152,7 +1152,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 
@@ -1171,7 +1171,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 
@@ -1190,7 +1190,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 
@@ -1208,7 +1208,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 
@@ -1230,7 +1230,7 @@ Uchat
 
     - 位置
 
-      - server\util\database\\_\_init__.py
+      - server\util\database\__init__.py
 
     - 参数
 

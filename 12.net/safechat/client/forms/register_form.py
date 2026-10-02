@@ -165,7 +165,7 @@ class RegisterForm(tk.Frame):
         if password != password_confirmation:
             messagebox.showerror("Error", "两次密码输入不一致")
             return
-        if not re.match(r'^[0-9a-zA-Z_]{0,19}@[0-9a-zA-Z]{1,13}\.[com,cn,net]{1,3}$',email):
+        if not re.match(r'^[0-9a-zA-Z_]{0,19}@[0-9a-zA-Z]{1,13}.[com,cn,net]{1,3}$',email):
             messagebox.showerror("Error", "邮箱格式错误")
             return
         self.sc.send(MessageType.register, [username, password, email, ip, port, sex, age])
