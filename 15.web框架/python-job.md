@@ -37,7 +37,7 @@ con.add(q2, 'AND')
 models.Tb1.objects.filter(con)  
 ```
 
-### simple\_tag用法  
+### simple_tag用法  
 ```python
 from django import template  
 register = template.Library()  
@@ -102,4 +102,4 @@ Future对象 代表将来执行或没有执行的任务的结果。
 gen.coroutine主要是使用协程的方式实现类似异步的处理效果  
 它简化异步代码的编写，避免写回调函数，加快开发效率，提高代码可读性，通过结合 pyhton 的 yield 语句实现协程  
 通过 @gen.coroutine 修饰的函数返回值变为 Future, 在调用结束的时候会调用  
-Future.set\_result，这样就会调用与 Future 相关联的回调
+Future.set_result，这样就会调用与 Future 相关联的回调

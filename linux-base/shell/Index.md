@@ -100,7 +100,7 @@ lrwxrwxrwx. 1 root root      4 5月  27 2017 sh -> bash
 
 脚本以\#\!/bin/bash开头（指定解析器）。
 
-**第一个Shell脚本：helloworld\.sh**
+**第一个Shell脚本：helloworld.sh**
 
 - 需求：创建一个Shell脚本，输出helloworld。
 
@@ -113,7 +113,7 @@ lrwxrwxrwx. 1 root root      4 5月  27 2017 sh -> bash
 
 
 
-在helloworld\.sh中输入如下内容
+在helloworld.sh中输入如下内容
 
 ```Bash
 #!/bin/bash
@@ -126,45 +126,45 @@ echo "helloworld"
 
 sh\+脚本的相对路径。
 
-\[atguigu@hadoop101 shells\]$ sh \./helloworld\.sh 
+[atguigu@hadoop101 shells]$ sh ./helloworld.sh 
 
 Helloworld
 
 sh\+脚本的绝对路径。
 
-\[atguigu@hadoop101 shells\]$ sh /home/atguigu/shells/helloworld\.sh 
+[atguigu@hadoop101 shells]$ sh /home/atguigu/shells/helloworld.sh 
 
 helloworld
 
 bash\+脚本的相对路径。
 
-\[atguigu@hadoop101 shells\]$ bash \./helloworld\.sh 
+[atguigu@hadoop101 shells]$ bash ./helloworld.sh 
 
 Helloworld
 
 bash\+脚本的绝对路径。
 
-\[atguigu@hadoop101 shells\]$ bash /home/atguigu/shells/helloworld\.sh 
+[atguigu@hadoop101 shells]$ bash /home/atguigu/shells/helloworld.sh 
 
 Helloworld
 
 第二种：采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限\+x）。
 
-① 首先要赋予helloworld\.sh 脚本的\+x权限。
+① 首先要赋予helloworld.sh 脚本的\+x权限。
 
-\[atguigu@hadoop101 shells\]$ chmod \+x helloworld\.sh
+[atguigu@hadoop101 shells]$ chmod \+x helloworld.sh
 
 ② 执行脚本。
 
 相对路径。
 
-\[atguigu@hadoop101 shells\]$ \./helloworld\.sh
+[atguigu@hadoop101 shells]$ ./helloworld.sh
 
 Helloworld
 
 绝对路径。
 
-\[atguigu@hadoop101 shells\]$ /home/atguigu/shells/helloworld\.sh 
+[atguigu@hadoop101 shells]$ /home/atguigu/shells/helloworld.sh 
 
 Helloworld
 
@@ -186,9 +186,9 @@ Helloworld
 
 shell 语法中，注释是特殊的语句，会被 shell 解释器忽略。
 
-- 单行注释 \- 以 `#` 开头，到行尾结束。
+- 单行注释 - 以 `#` 开头，到行尾结束。
 
-- 多行注释 \- 以 `:<<EOF` 开头，到 `EOF` 结束。
+- 多行注释 - 以 `:<<EOF` 开头，到 `EOF` 结束。
 
 **💻 『示例源码』**
 
@@ -418,21 +418,21 @@ $HOME、$PWD、$SHELL、$USER等
 
     - 查看系统变量的值。
 
-\[atguigu@hadoop101 shells\]$ echo $HOME
+[atguigu@hadoop101 shells]$ echo $HOME
 
 /home/atguigu
 
 - 显示当前Shell中所有变量：set。
 
-\[atguigu@hadoop101 shells\]$ set
+[atguigu@hadoop101 shells]$ set
 
 BASH=/bin/bash
 
-BASH\_ALIASES=\(\)
+BASH_ALIASES=()
 
-BASH\_ARGC=\(\)
+BASH_ARGC=()
 
-BASH\_ARGV=\(\)
+BASH_ARGV=()
 
 **自定义变量**
 
@@ -458,55 +458,55 @@ BASH\_ARGV=\(\)
 
     - 定义变量A。
 
-\[atguigu@hadoop101 shells\]$ A=5
+[atguigu@hadoop101 shells]$ A=5
 
-\[atguigu@hadoop101 shells\]$ echo $A
+[atguigu@hadoop101 shells]$ echo $A
 
 5
 
 - 给变量A重新赋值。
 
-\[atguigu@hadoop101 shells\]$ A=8
+[atguigu@hadoop101 shells]$ A=8
 
-\[atguigu@hadoop101 shells\]$ echo $A
+[atguigu@hadoop101 shells]$ echo $A
 
 8
 
 - 撤销变量A。
 
-\[atguigu@hadoop101 shells\]$ unset A
+[atguigu@hadoop101 shells]$ unset A
 
-\[atguigu@hadoop101 shells\]$ echo $A
+[atguigu@hadoop101 shells]$ echo $A
 
 - 声明静态的变量B=2，不能unset。
 
-\[atguigu@hadoop101 shells\]$ readonly B=2
+[atguigu@hadoop101 shells]$ readonly B=2
 
-\[atguigu@hadoop101 shells\]$ echo $B
+[atguigu@hadoop101 shells]$ echo $B
 
 2
 
-\[atguigu@hadoop101 shells\]$ B=9
+[atguigu@hadoop101 shells]$ B=9
 
-\-bash: B: readonly variable
+-bash: B: readonly variable
 
 - 在bash中，变量默认类型都是字符串类型，无法直接进行数值运算。
 
-\[atguigu@hadoop102 \~\]$ C=1\+2
+[atguigu@hadoop102 \~]$ C=1\+2
 
-\[atguigu@hadoop102 \~\]$ echo $C
+[atguigu@hadoop102 \~]$ echo $C
 
 1\+2
 
 - 变量的值如果有空格，需要使用双引号或单引号括起来。
 
-\[atguigu@hadoop102 \~\]$ D=I love banzhang
+[atguigu@hadoop102 \~]$ D=I love banzhang
 
-\-bash: world: command not found
+-bash: world: command not found
 
-\[atguigu@hadoop102 \~\]$ D="I love banzhang"
+[atguigu@hadoop102 \~]$ D="I love banzhang"
 
-\[atguigu@hadoop102 \~\]$ echo $D
+[atguigu@hadoop102 \~]$ echo $D
 
 I love banzhang
 
@@ -514,9 +514,9 @@ I love banzhang
 
 export 变量名
 
-\[atguigu@hadoop101 shells\]$ vim helloworld\.sh 
+[atguigu@hadoop101 shells]$ vim helloworld.sh 
 
-在helloworld\.sh文件中增加echo $B。
+在helloworld.sh文件中增加echo $B。
 
 \#\!/bin/bash
 
@@ -528,15 +528,15 @@ echo $B
 
 
 
-\[atguigu@hadoop101 shells\]$ \./helloworld\.sh 
+[atguigu@hadoop101 shells]$ ./helloworld.sh 
 
 Helloworld
 
 发现并没有打印输出变量B的值。
 
-\[atguigu@hadoop101 shells\]$ export B
+[atguigu@hadoop101 shells]$ export B
 
-\[atguigu@hadoop101 shells\]$ \./helloworld\.sh 
+[atguigu@hadoop101 shells]$ ./helloworld.sh 
 
 helloworld
 
@@ -550,13 +550,13 @@ helloworld
 
     - **基本语法**
 
-$n （功能描述：n为数字，$0代表该脚本名称，$1\-$9代表第一到第九个参数，十以上的参数需要用大括号包含，如$\{10\}。）
+$n （功能描述：n为数字，$0代表该脚本名称，$1-$9代表第一到第九个参数，十以上的参数需要用大括号包含，如$\{10\}。）
 
 - **案例实操**
 
-\[atguigu@hadoop101 shells\]$ touch parameter\.sh 
+[atguigu@hadoop101 shells]$ touch parameter.sh 
 
-\[atguigu@hadoop101 shells\]$ vim parameter\.sh
+[atguigu@hadoop101 shells]$ vim parameter.sh
 
 \#\!/bin/bash
 
@@ -570,13 +570,13 @@ echo $2
 
 
 
-\[atguigu@hadoop101 shells\]$ chmod 777 parameter\.sh
+[atguigu@hadoop101 shells]$ chmod 777 parameter.sh
 
-\[atguigu@hadoop101 shells\]$ \./parameter\.sh cls xz
+[atguigu@hadoop101 shells]$ ./parameter.sh cls xz
 
 ==========$n==========
 
-\./parameter\.sh
+./parameter.sh
 
 cls
 
@@ -590,7 +590,7 @@ $\# （功能描述：获取所有输入参数个数，常用于循环，判断�
 
 - **案例实操**
 
-\[atguigu@hadoop101 shells\]$ vim parameter\.sh
+[atguigu@hadoop101 shells]$ vim parameter.sh
 
 \#\!/bin/bash
 
@@ -608,13 +608,13 @@ echo $\#
 
 
 
-\[atguigu@hadoop101 shells\]$ chmod 777 parameter\.sh
+[atguigu@hadoop101 shells]$ chmod 777 parameter.sh
 
-\[atguigu@hadoop101 shells\]$ \./parameter\.sh cls xz
+[atguigu@hadoop101 shells]$ ./parameter.sh cls xz
 
 ==========$n==========
 
-\./parameter\.sh
+./parameter.sh
 
 cls
 
@@ -624,17 +624,17 @@ xz
 
 2
 
-2. **$\*、$@**
+2. **$*、$@**
 
     - **基本语法**
 
-$\* （功能描述：这个变量代表命令行中所有的参数，$\*把所有的参数看成一个整体）
+$* （功能描述：这个变量代表命令行中所有的参数，$*把所有的参数看成一个整体）
 
 $@ （功能描述：这个变量也代表命令行中所有的参数，不过$@把每个参数区分对待）
 
 - **案例实操**
 
-\[atguigu@hadoop101 shells\]$ vim parameter\.sh
+[atguigu@hadoop101 shells]$ vim parameter.sh
 
 \#\!/bin/bash
 
@@ -650,19 +650,19 @@ echo '==========$\#=========='
 
 echo $\#
 
-echo '==========$\*=========='
+echo '==========$*=========='
 
-echo $\*
+echo $*
 
 echo '==========$@=========='
 
 echo $@
 
-\[atguigu@hadoop101 shells\]$ \./parameter\.sh a b c d e f g
+[atguigu@hadoop101 shells]$ ./parameter.sh a b c d e f g
 
 ==========$n==========
 
-\./parameter\.sh
+./parameter.sh
 
 a
 
@@ -672,7 +672,7 @@ b
 
 7
 
-==========$\*==========
+==========$*==========
 
 a b c d e f g
 
@@ -688,13 +688,13 @@ $？ （功能描述：最后一次执行的命令的返回状态。如果这个
 
 - **案例实操**
 
-判断helloworld\.sh脚本是否正确执行。
+判断helloworld.sh脚本是否正确执行。
 
-\[atguigu@hadoop101 shells\]$ \./helloworld\.sh 
+[atguigu@hadoop101 shells]$ ./helloworld.sh 
 
 hello world
 
-\[atguigu@hadoop101 shells\]$ echo $?
+[atguigu@hadoop101 shells]$ echo $?
 
 0
 
@@ -753,7 +753,7 @@ Bash 中没有数据类型，bash 中的变量可以保存一个数字、一个�
 
 - 命名只能使用英文字母，数字和下划线，首个字符不能以数字开头。
 
-- 中间不能有空格，可以使用下划线（\_）。
+- 中间不能有空格，可以使用下划线（_）。
 
 - 不能使用标点符号。
 
@@ -798,9 +798,9 @@ Output: （空）
 
 变量类型
 
-- **局部变量** \- 局部变量是仅在某个脚本内部有效的变量。它们不能被其他的程序和脚本访问。
+- **局部变量** - 局部变量是仅在某个脚本内部有效的变量。它们不能被其他的程序和脚本访问。
 
-- **环境变量** \- 环境变量是对当前 shell 会话内所有的程序或脚本都可见的变量。创建它们跟创建局部变量类似，但使用的是 `export` 关键字，shell 脚本也可以定义环境变量。
+- **环境变量** - 环境变量是对当前 shell 会话内所有的程序或脚本都可见的变量。创建它们跟创建局部变量类似，但使用的是 `export` 关键字，shell 脚本也可以定义环境变量。
 
 常见的环境变量：
 
@@ -885,15 +885,15 @@ done
 
 - **基本语法**
 
-“$\(\(运算式\)\)” 或 “$\[运算式\]”
+“$((运算式))” 或 “$[运算式]”
 
 - **案例实操： **
 
-计算（2\+3）\* 4的值
+计算（2\+3）* 4的值
 
-\[atguigu@hadoop101 shells\]\# S=$\[\(2\+3\)\*4\]
+[atguigu@hadoop101 shells]\# S=$[(2\+3)*4]
 
-\[atguigu@hadoop101 shells\]\# echo $S
+[atguigu@hadoop101 shells]\# echo $S
 
 - **条件判断**
 
@@ -901,75 +901,75 @@ done
 
         - test condition
 
-        - \[ condition \]（注意condition前后要有空格）
+        - [ condition ]（注意condition前后要有空格）
 
-注意：条件非空即为true，\[ atguigu \]返回true，\[  \] 返回false。
+注意：条件非空即为true，[ atguigu ]返回true，[  ] 返回false。
 
 - **常用判断条件**
 
     - 两个整数之间比较
 
-- \-eq 等于（equal）
+- -eq 等于（equal）
 
-- \-ne 不等于（not equal）
+- -ne 不等于（not equal）
 
-- \-lt 小于（less than）
+- -lt 小于（less than）
 
-- \-le 小于等于（less equal）
+- -le 小于等于（less equal）
 
-- \-gt 大于（greater than）
+- -gt 大于（greater than）
 
-- \-ge 大于等于（greater equal） 
+- -ge 大于等于（greater equal） 
 
     - 按照文件权限进行判断
 
-- \-r 有读的权限（read） 
+- -r 有读的权限（read） 
 
-- \-w 有写的权限（write）
+- -w 有写的权限（write）
 
-- \-x 有执行的权限（execute）
+- -x 有执行的权限（execute）
 
     - 按照文件类型进行判断
 
-- \-e 文件存在（existence）
+- -e 文件存在（existence）
 
-- \-f 文件存在并且是一个常规的文件（file）
+- -f 文件存在并且是一个常规的文件（file）
 
-- \-d 文件存在并且是一个目录（directory）
+- -d 文件存在并且是一个目录（directory）
 
     - **案例实操**
 
         - 23是否大于等于22。
 
-\[atguigu@hadoop101 shells\]$ \[ 23 \-ge 22 \]
+[atguigu@hadoop101 shells]$ [ 23 -ge 22 ]
 
-\[atguigu@hadoop101 shells\]$ echo $?
-
-0
-
-- helloworld\.sh是否具有写权限。
-
-\[atguigu@hadoop101 shells\]$ \[ \-w helloworld\.sh \]
-
-\[atguigu@hadoop101 shells\]$ echo $?
+[atguigu@hadoop101 shells]$ echo $?
 
 0
 
-- /home/atguigu/cls\.txt目录中的文件是否存在。
+- helloworld.sh是否具有写权限。
 
-\[atguigu@hadoop101 shells\]$ \[ \-e /home/atguigu/cls\.txt \]
+[atguigu@hadoop101 shells]$ [ -w helloworld.sh ]
 
-\[atguigu@hadoop101 shells\]$ echo $?
+[atguigu@hadoop101 shells]$ echo $?
+
+0
+
+- /home/atguigu/cls.txt目录中的文件是否存在。
+
+[atguigu@hadoop101 shells]$ [ -e /home/atguigu/cls.txt ]
+
+[atguigu@hadoop101 shells]$ echo $?
 
 1
 
 - 多条件判断（\&\& 表示前一条命令执行成功时，才执行后一条命令，\|\| 表示上一条命令执行失败后，才执行下一条命令）。
 
-\[atguigu@hadoop101 \~\]$ \[ atguigu \] \&\& echo OK \|\| echo notOK
+[atguigu@hadoop101 \~]$ [ atguigu ] \&\& echo OK \|\| echo notOK
 
 OK
 
-\[atguigu@hadoop101 shells\]$ \[ \] \&\& echo OK \|\| echo notOK
+[atguigu@hadoop101 shells]$ [ ] \&\& echo OK \|\| echo notOK
 
 notOK
 
@@ -1001,7 +1001,7 @@ echo "${x} + ${y} = $val"
 val=`expr ${x} - ${y}`
 echo "${x} - ${y} = $val"
 
-val=`expr ${x} \* ${y}`
+val=`expr ${x} * ${y}`
 echo "${x} * ${y} = $val"
 
 val=`expr ${y} / ${x}`
@@ -1041,7 +1041,7 @@ val=expr $a + $b
 echo "a + b : $val" #a + b : 30
 val=expr $a - $b
 echo "a - b : $val" #a - b : -10
-val=expr $a \* $b
+val=expr $a * $b
 echo "a * b : $val" #a * b : 200
 val=expr $b / $a
 echo "b / a : $val" #b / a : 2
@@ -1326,7 +1326,7 @@ fi
 
 注意事项：
 
-① \[ 条件判断式 \]，中括号和条件判断式之间必须有空格
+① [ 条件判断式 ]，中括号和条件判断式之间必须有空格
 
 ② if后要有空格
 
@@ -1334,9 +1334,9 @@ fi
 
 输入一个数字，如果是1，则输出banzhang zhen shuai，如果是2，则输出cls zhen mei，如果是其它，什么也不输出。
 
-\[atguigu@hadoop101 shells\]$ touch if\.sh
+[atguigu@hadoop101 shells]$ touch if.sh
 
-\[atguigu@hadoop101 shells\]$ vim if\.sh
+[atguigu@hadoop101 shells]$ vim if.sh
 
 
 
@@ -1344,13 +1344,13 @@ fi
 
 
 
-if \[ $1 \-eq 1 \]
+if [ $1 -eq 1 ]
 
 then
 
 echo "banzhang zhen shuai"
 
-elif \[ $1 \-eq 2 \]
+elif [ $1 -eq 2 ]
 
 then
 
@@ -1360,9 +1360,9 @@ fi
 
 
 
-\[atguigu@hadoop101 shells\]$ chmod 777 if\.sh 
+[atguigu@hadoop101 shells]$ chmod 777 if.sh 
 
-\[atguigu@hadoop101 shells\]$ \./if\.sh 1
+[atguigu@hadoop101 shells]$ ./if.sh 1
 
 banzhang zhen shuai
 
@@ -1391,7 +1391,7 @@ Output: abc -eq abc result is: true
 
 
 （2）if else 语句
-同样，我们可以使用if\.\.else语句，例如：
+同样，我们可以使用if..else语句，例如：
 
 ```Bash
 if [[ 2 -ne 1 ]]; then
@@ -1471,7 +1471,7 @@ esac
 
 （2）双分号“;;”表示命令序列结束，相当于java中的break。
 
-（3）最后的“\*）”表示默认模式，相当于java中的default。
+（3）最后的“*）”表示默认模式，相当于java中的default。
 
 每种情况都是匹配了某个模式的表达式。`|`用来分割多个模式，`)`用来结束一个模式序列。第一个匹配上的模式对应的命令将会被执行。`*`代表任何不匹配以上给定模式的模式。命令块儿之间要用`;;`分隔。
 
@@ -1539,7 +1539,7 @@ case ${oper} in
     echo "${x} - ${y} = ${val}"
   ;;
   "*")
-    val=`expr ${x} \* ${y}`
+    val=`expr ${x} * ${y}`
     echo "${x} * ${y} = ${val}"
   ;;
   "/")
@@ -1664,7 +1664,7 @@ done
 
 **基本语法1**
 
-for \(\( 初始值;循环控制条件;变量变化 \)\) 
+for (( 初始值;循环控制条件;变量变化 )) 
 
 do 
 
@@ -1676,9 +1676,9 @@ done
 
 从1加到100。
 
-\[atguigu@hadoop101 shells\]$ touch for1\.sh
+[atguigu@hadoop101 shells]$ touch for1.sh
 
-\[atguigu@hadoop101 shells\]$ vim for1\.sh
+[atguigu@hadoop101 shells]$ vim for1.sh
 
 
 
@@ -1688,11 +1688,11 @@ done
 
 sum=0
 
-for\(\(i=0;i\<=100;i\+\+\)\)
+for((i=0;i\<=100;i\+\+))
 
 do
 
-sum=$\[$sum\+$i\]
+sum=$[$sum\+$i]
 
 done
 
@@ -1700,9 +1700,9 @@ echo $sum
 
 
 
-\[atguigu@hadoop101 shells\]$ chmod 777 for1\.sh 
+[atguigu@hadoop101 shells]$ chmod 777 for1.sh 
 
-\[atguigu@hadoop101 shells\]$ \./for1\.sh 
+[atguigu@hadoop101 shells]$ ./for1.sh 
 
 5050
 
@@ -1720,9 +1720,9 @@ done
 
     - 打印所有输入参数。
 
-\[atguigu@hadoop101 shells\]$ touch for2\.sh
+[atguigu@hadoop101 shells]$ touch for2.sh
 
-\[atguigu@hadoop101 shells\]$ vim for2\.sh
+[atguigu@hadoop101 shells]$ vim for2.sh
 
 
 
@@ -1742,9 +1742,9 @@ done
 
 
 
-\[atguigu@hadoop101 shells\]$ chmod 777 for2\.sh 
+[atguigu@hadoop101 shells]$ chmod 777 for2.sh 
 
-\[atguigu@hadoop101 shells\]$ \./for2\.sh
+[atguigu@hadoop101 shells]$ ./for2.sh
 
 ban zhang love cls
 
@@ -1752,21 +1752,21 @@ ban zhang love mly
 
 ban zhang love wls
 
-- 比较$\*和$@区别。
+- 比较$*和$@区别。
 
 $*和$@都表示传递给函数或脚本的所有参数，不被双引号“”包含时，都以$1 $2 …$n的形式输出所有参数。
 
-\[atguigu@hadoop101 shells\]$ touch for3\.sh
+[atguigu@hadoop101 shells]$ touch for3.sh
 
-\[atguigu@hadoop101 shells\]$ vim for3\.sh
+[atguigu@hadoop101 shells]$ vim for3.sh
 
 
 
 \#\!/bin/bash 
 
-echo '=============$\*============='
+echo '=============$*============='
 
-for i in $\*
+for i in $*
 
 do
 
@@ -1786,11 +1786,11 @@ done
 
 
 
-\[atguigu@hadoop101 shells\]$ chmod 777 for3\.sh
+[atguigu@hadoop101 shells]$ chmod 777 for3.sh
 
-\[atguigu@hadoop101 shells\]$ \./for3\.sh cls mly wls
+[atguigu@hadoop101 shells]$ ./for3.sh cls mly wls
 
-=============$\*=============
+=============$*=============
 
 banzhang love cls
 
@@ -1806,19 +1806,19 @@ banzhang love mly
 
 banzhang love wls
 
-当它们被双引号“”包含时，$\*会将所有的参数作为一个整体，以“$1 $2 …$n”的形式输出所有参数；$@会将各个参数分开，以“$1” “$2”…“$n”的形式输出所有参数。
+当它们被双引号“”包含时，$*会将所有的参数作为一个整体，以“$1 $2 …$n”的形式输出所有参数；$@会将各个参数分开，以“$1” “$2”…“$n”的形式输出所有参数。
 
-\[atguigu@hadoop101 shells\]$ vim for4\.sh
+[atguigu@hadoop101 shells]$ vim for4.sh
 
 
 
 \#\!/bin/bash 
 
-echo '=============$\*============='
+echo '=============$*============='
 
-for i in "$\*" 
+for i in "$*" 
 
-\#$\*中的所有参数看成是一个整体，所以这个for循环只会循环一次 
+\#$*中的所有参数看成是一个整体，所以这个for循环只会循环一次 
 
 do
 
@@ -1842,11 +1842,11 @@ done
 
 
 
-\[atguigu@hadoop101 shells\]$ chmod 777 for4\.sh
+[atguigu@hadoop101 shells]$ chmod 777 for4.sh
 
-\[atguigu@hadoop101 shells\]$ \./for4\.sh cls mly wls
+[atguigu@hadoop101 shells]$ ./for4.sh cls mly wls
 
-=============$\*=============
+=============$*=============
 
 banzhang love cls mly wls
 
@@ -1894,9 +1894,9 @@ done
 
 从1加到100。
 
-\[atguigu@hadoop101 shells\]$ touch while\.sh
+[atguigu@hadoop101 shells]$ touch while.sh
 
-\[atguigu@hadoop101 shells\]$ vim while\.sh
+[atguigu@hadoop101 shells]$ vim while.sh
 
 
 
@@ -1906,12 +1906,12 @@ sum=0
 
 i=1
 
-while \[ $i \-le 100 \]
+while [ $i -le 100 ]
 
 do
 
-sum=$\[$sum\+$i\]
-        i=$\[$i\+1\]
+sum=$[$sum\+$i]
+        i=$[$i\+1]
 
 done
 
@@ -1921,9 +1921,9 @@ echo $sum
 
 
 
-\[atguigu@hadoop101 shells\]$ chmod 777 while\.sh 
+[atguigu@hadoop101 shells]$ chmod 777 while.sh 
 
-\[atguigu@hadoop101 shells\]$ \./while\.sh 
+[atguigu@hadoop101 shells]$ ./while.sh 
 
 5050
 
@@ -1937,9 +1937,9 @@ read  （选项）  （参数）
 
 ① 选项：
 
-- \-p：指定读取值时的提示符。
+- -p：指定读取值时的提示符。
 
-- \-t：指定读取值时等待的时间（秒）如果\-t不加表示一直等待。
+- -t：指定读取值时等待的时间（秒）如果-t不加表示一直等待。
 
 ② 参数
 
@@ -1949,9 +1949,9 @@ read  （选项）  （参数）
 
 提示7秒内，读取控制台输入的名称。
 
-\[atguigu@hadoop101 shells\]$ touch read\.sh
+[atguigu@hadoop101 shells]$ touch read.sh
 
-\[atguigu@hadoop101 shells\]$ vim read\.sh
+[atguigu@hadoop101 shells]$ vim read.sh
 
 
 
@@ -1959,13 +1959,13 @@ read  （选项）  （参数）
 
 
 
-read \-t 7 \-p "Enter your name in 7 seconds :" NN
+read -t 7 -p "Enter your name in 7 seconds :" NN
 
 echo $NN
 
 
 
-\[atguigu@hadoop101 shells\]$ \./read\.sh 
+[atguigu@hadoop101 shells]$ ./read.sh 
 
 Enter your name in 7 seconds : atguigu
 
@@ -2799,7 +2799,7 @@ bash 函数定义语法如下：
 > 
 > 1. 函数定义时，`function` 关键字可有可无。
 > 
-> 2. 函数返回值 \- return 返回函数返回值，返回值类型只能为整数（0\-255）。如果不加 return 语句，shell 默认将以最后一条命令的运行结果，作为函数返回值。
+> 2. 函数返回值 - return 返回函数返回值，返回值类型只能为整数（0-255）。如果不加 return 语句，shell 默认将以最后一条命令的运行结果，作为函数返回值。
 > 
 > 3. 函数返回值在调用该函数后通过 `$?` 来获得。
 > 
@@ -2814,7 +2814,7 @@ bash 函数定义语法如下：
 
 calc(){
   PS3="choose the oper: "
-  select oper in + - \* / # 生成操作符选择菜单
+  select oper in + - * / # 生成操作符选择菜单
   do
   echo -n "enter first num: " && read x # 读取输入参数
   echo -n "enter second num: " && read y # 读取输入参数
@@ -2933,7 +2933,7 @@ $ ./function-demo2.sh 10 20
 函数第二个入参：20
 ```
 
-执行 `./variable-demo4.sh hello world` ，然后在脚本中通过 `$1`、`$2` \.\.\. 读取第 1 个参数、第 2 个参数。。。
+执行 `./variable-demo4.sh hello world` ，然后在脚本中通过 `$1`、`$2` ... 读取第 1 个参数、第 2 个参数。。。
 
 ### 函数处理参数
 
@@ -3019,7 +3019,7 @@ funWithParam 1 2 3 4 5 6 7 8 9 34 73
 
     - **基本语法**
 
-basename \[string / pathname\] \[suffix\]   （功能描述：basename命令会删掉所有的前缀包括最后一个（‘/’）字符，然后将字符串显示出来）
+basename [string / pathname] [suffix]   （功能描述：basename命令会删掉所有的前缀包括最后一个（‘/’）字符，然后将字符串显示出来）
 
 basename 可以理解为取路径里的文件名称。
 
@@ -3029,13 +3029,13 @@ suffix为后缀，如果suffix被指定了，basename会将pathname或string中�
 
 - **案例实操**
 
-截取该/home/atguigu/banzhang\.txt路径的文件名称。
+截取该/home/atguigu/banzhang.txt路径的文件名称。
 
-\[atguigu@hadoop101 shells\]$ basename /home/atguigu/banzhang\.txt 
+[atguigu@hadoop101 shells]$ basename /home/atguigu/banzhang.txt 
 
-banzhang\.txt
+banzhang.txt
 
-\[atguigu@hadoop101 shells\]$ basename /home/atguigu/banzhang\.txt \.txt
+[atguigu@hadoop101 shells]$ basename /home/atguigu/banzhang.txt .txt
 
 banzhang
 
@@ -3049,9 +3049,9 @@ dirname 可以理解为取文件路径的绝对路径名称。
 
 - **案例实操**
 
-获取banzhang\.txt文件的路径。
+获取banzhang.txt文件的路径。
 
-\[atguigu@hadoop101 \~\]$ dirname /home/atguigu/banzhang\.txt 
+[atguigu@hadoop101 \~]$ dirname /home/atguigu/banzhang.txt 
 
 /home/atguigu
 
@@ -3059,13 +3059,13 @@ dirname 可以理解为取文件路径的绝对路径名称。
 
     - **基本语法**
 
-\[ function \] funname\[\(\)\]
+[ function ] funname[()]
 
 \{
 
 Action;
 
-\[return int;\]
+[return int;]
 
 \}
 
@@ -3073,44 +3073,44 @@ Action;
 
     - 在调用函数地方之前，必须先声明函数。shell脚本是逐行运行，不会像其它语言一样先编译。
 
-    - 函数返回值，只能通过$?系统变量获得，可以显示加：return返回，如果不加，将以最后一条命令运行结果，作为返回值。return后跟数值n（0\-255）。
+    - 函数返回值，只能通过$?系统变量获得，可以显示加：return返回，如果不加，将以最后一条命令运行结果，作为返回值。return后跟数值n（0-255）。
 
 - **案例实操**
 
 计算两个输入参数的和。
 
-\[atguigu@hadoop101 shells\]$ touch fun\.sh
+[atguigu@hadoop101 shells]$ touch fun.sh
 
-\[atguigu@hadoop101 shells\]$ vim fun\.sh
+[atguigu@hadoop101 shells]$ vim fun.sh
 
 
 
 \#\!/bin/bash
 
-function sum\(\)
+function sum()
 
 \{
 
 s=0
 
-s=$\[$1\+$2\]
+s=$[$1\+$2]
     echo "$s"
 
 \}
 
 
 
-read \-p "Please input the number1: " n1;
+read -p "Please input the number1: " n1;
 
-read \-p "Please input the number2: " n2;
+read -p "Please input the number2: " n2;
 
 sum $n1 $n2;
 
 
 
-\[atguigu@hadoop101 shells\]$ chmod 777 fun\.sh
+[atguigu@hadoop101 shells]$ chmod 777 fun.sh
 
-\[atguigu@hadoop101 shells\]$ \./fun\.sh 
+[atguigu@hadoop101 shells]$ ./fun.sh 
 
 Please input the number1: 2
 
@@ -3134,7 +3134,7 @@ cut的工作就是“剪”，具体的说就是在文件中负责剪切数据�
 
 - **基本用法**
 
-cut  \[选项参数\]  filename
+cut  [选项参数]  filename
 
 说明：默认分隔符是制表符
 
@@ -3144,9 +3144,9 @@ cut  \[选项参数\]  filename
 
     - 数据准备。
 
-\[atguigu@hadoop101 shells\]$ touch cut\.txt
+[atguigu@hadoop101 shells]$ touch cut.txt
 
-\[atguigu@hadoop101 shells\]$ vim cut\.txt
+[atguigu@hadoop101 shells]$ vim cut.txt
 
 dong shen
 
@@ -3158,9 +3158,9 @@ lai  lai
 
 le  le
 
-- 切割cut\.txt第一列。
+- 切割cut.txt第一列。
 
-\[atguigu@hadoop101 shells\]$ cut \-d " " \-f 1 cut\.txt 
+[atguigu@hadoop101 shells]$ cut -d " " -f 1 cut.txt 
 
 dong
 
@@ -3172,35 +3172,35 @@ lai
 
 le
 
-- 切割cut\.txt第二、三列。
+- 切割cut.txt第二、三列。
 
-\[atguigu@hadoop101 shells\]$ cut \-d " " \-f 2,3 cut\.txt
+[atguigu@hadoop101 shells]$ cut -d " " -f 2,3 cut.txt
 
 Le 
 
-- 在cut\.txt文件中切割出guan。
+- 在cut.txt文件中切割出guan。
 
-\[atguigu@hadoop101 shells\]$  cat cut\.txt \|grep guan \| cut \-d " " \-f 1
+[atguigu@hadoop101 shells]$  cat cut.txt \|grep guan \| cut -d " " -f 1
 
 guan
 
 - 选取系统PATH变量值，第2个“：”开始后的所有路径。
 
-\[atguigu@hadoop101 shells\]$ echo $PATH
+[atguigu@hadoop101 shells]$ echo $PATH
 
-/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/atguigu/\.local/bin:/home/atguigu/bin
+/usr/local/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/home/atguigu/.local/bin:/home/atguigu/bin
 
 
 
-\[atguigu@hadoop101 shells\]$ echo $PATH \| cut \-d ":" \-f 3\-
+[atguigu@hadoop101 shells]$ echo $PATH \| cut -d ":" -f 3-
 
-/usr/local/sbin:/usr/sbin:/home/atguigu/\.local/bin:/home/atguigu/bin
+/usr/local/sbin:/usr/sbin:/home/atguigu/.local/bin:/home/atguigu/bin
 
 - 切割ifconfig 后打印的IP地址。
 
-\[atguigu@hadoop101 shells\]$ ifconfig ens33 \| grep netmask \| cut \-d "i" \-f 2 \| cut \-d " " \-f 2
+[atguigu@hadoop101 shells]$ ifconfig ens33 \| grep netmask \| cut -d "i" -f 2 \| cut -d " " -f 2
 
-192\.168\.6\.101
+192.168.6.101
 
 6. **awk**
 
@@ -3208,7 +3208,7 @@ guan
 
 - **基本用法**
 
-awk  \[选项参数\] ‘/pattern1/\{action1\}  /pattern2/\{action2\}\.\.\.’ filename
+awk  [选项参数] ‘/pattern1/\{action1\}  /pattern2/\{action2\}...’ filename
 
 pattern：表示awk在数据中查找的内容，就是匹配模式。
 
@@ -3220,21 +3220,21 @@ action：在找到匹配内容时所执行的一系列命令。
 
     - 数据准备。
 
-\[atguigu@hadoop101 shells\]$ sudo cp /etc/passwd \./
+[atguigu@hadoop101 shells]$ sudo cp /etc/passwd ./
 
 passwd数据的含义
 
-用户名:密码\(加密过后的\):用户id:组id:注释:用户家目录:shell解析器
+用户名:密码(加密过后的):用户id:组id:注释:用户家目录:shell解析器
 
 - 搜索passwd文件以root关键字开头的所有行，并输出该行的第7列。
 
-\[atguigu@hadoop101 shells\]$ awk \-F : '/^root/\{print $7\}' passwd 
+[atguigu@hadoop101 shells]$ awk -F : '/^root/\{print $7\}' passwd 
 
 /bin/bash
 
 - 搜索passwd文件以root关键字开头的所有行，并输出该行的第1列和第7列，中间以“，”号分割。
 
-\[atguigu@hadoop101 shells\]$ awk \-F : '/^root/\{print $1","$7\}' passwd 
+[atguigu@hadoop101 shells]$ awk -F : '/^root/\{print $1","$7\}' passwd 
 
 root,/bin/bash
 
@@ -3242,7 +3242,7 @@ root,/bin/bash
 
 - 只显示/etc/passwd的第一列和第七列，以逗号分割，且在所有行前面添加列名user，shell在最后一行添加"dahaige，/bin/zuishuai"。
 
-\[atguigu@hadoop101 shells\]$ awk \-F : 'BEGIN\{print "user, shell"\} \{print $1","$7\} END\{print "dahaige,/bin/zuishuai"\}' passwd
+[atguigu@hadoop101 shells]$ awk -F : 'BEGIN\{print "user, shell"\} \{print $1","$7\} END\{print "dahaige,/bin/zuishuai"\}' passwd
 
 user, shell
 
@@ -3260,7 +3260,7 @@ dahaige,/bin/zuishuai
 
 - 将passwd文件中的用户id增加数值1并输出
 
-\[atguigu@hadoop101 shells\]$ awk \-v i=1 \-F : '\{print $3\+i\}' passwd
+[atguigu@hadoop101 shells]$ awk -v i=1 -F : '\{print $3\+i\}' passwd
 
 1
 
@@ -3276,7 +3276,7 @@ dahaige,/bin/zuishuai
 
     - 统计passwd文件名，每行的行号，每行的列数。
 
-\[atguigu@hadoop101 shells\]$ awk \-F : '\{print "filename:" FILENAME  ",linenum:" NR ",col:"NF\}' passwd 
+[atguigu@hadoop101 shells]$ awk -F : '\{print "filename:" FILENAME  ",linenum:" NR ",col:"NF\}' passwd 
 
 filename:passwd,linenum:1,col:7
 
@@ -3288,7 +3288,7 @@ filename:passwd,linenum:3,col:7
 
 - 查询ifconfig命令输出结果中的空行所在的行号。
 
-\[atguigu@hadoop101 shells\]$ ifconfig \| awk '/^$/\{print NR\}'
+[atguigu@hadoop101 shells]$ ifconfig \| awk '/^$/\{print NR\}'
 
 9
 
@@ -3298,9 +3298,9 @@ filename:passwd,linenum:3,col:7
 
 - 切割IP。
 
-\[atguigu@hadoop101 shells\]$ ifconfig ens33 \| grep netmask \| awk \-F "inet" '\{print $2\}' \| awk \-F " " '\{print $1\}' 
+[atguigu@hadoop101 shells]$ ifconfig ens33 \| grep netmask \| awk -F "inet" '\{print $2\}' \| awk -F " " '\{print $1\}' 
 
-192\.168\.6\.101
+192.168.6.101
 
 
 
@@ -3314,7 +3314,7 @@ filename:passwd,linenum:3,col:7
 
 一串不包含特殊字符的正则表达式匹配它自己，例如：
 
-\[atguigu@hadoop101 shells\]$ cat /etc/passwd \| grep atguigu
+[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep atguigu
 
 就会匹配所有包含atguigu的行。
 
@@ -3324,7 +3324,7 @@ filename:passwd,linenum:3,col:7
 
 ^ 匹配一行的开头，例如：
 
-\[atguigu@hadoop101 shells\]$ cat /etc/passwd \| grep ^a
+[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep ^a
 
 会匹配出所有以a开头的行。
 
@@ -3332,47 +3332,47 @@ filename:passwd,linenum:3,col:7
 
 $ 匹配一行的结束，例如：
 
-\[atguigu@hadoop101 shells\]$ cat /etc/passwd | grep t$
+[atguigu@hadoop101 shells]$ cat /etc/passwd | grep t$
 
 会匹配出所有以t结尾的行。
 
 思考：^$ 匹配什么？
 
-- **特殊字符：**\.
+- **特殊字符：**.
 
-\. 匹配一个任意的字符，例如：
+. 匹配一个任意的字符，例如：
 
-\[atguigu@hadoop101 shells\]$ cat /etc/passwd \| grep r\.\.t
+[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep r..t
 
 会匹配包含rabt,rbbt,rxdt,root等的所有行。
 
-- **特殊字符：**\*
+- **特殊字符：***
 
-\* 不单独使用，他和上一个字符连用，表示匹配上一个字符0次或多次，例如：
+* 不单独使用，他和上一个字符连用，表示匹配上一个字符0次或多次，例如：
 
-\[atguigu@hadoop101 shells\]$ cat /etc/passwd \| grep ro\*t
+[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep ro*t
 
 会匹配rt, rot, root, rooot, roooot等所有行。
 
-思考：\.\* 匹配什么？
+思考：.* 匹配什么？
 
-- **特殊字符：**\[ \]
+- **特殊字符：**[ ]
 
-\[ \] 表示匹配某个范围内的一个字符，例如
+[ ] 表示匹配某个范围内的一个字符，例如
 
-\[6,8\]\-\-\-\-\-\-匹配6或者8
+[6,8]------匹配6或者8
 
-\[0\-9\]\-\-\-\-\-\-匹配一个0\-9的数字
+[0-9]------匹配一个0-9的数字
 
-\[0\-9\]\*\-\-\-\-\-\-匹配任意长度的数字字符串
+[0-9]*------匹配任意长度的数字字符串
 
-\[a\-z\]\-\-\-\-\-\-匹配一个a\-z之间的字符
+[a-z]------匹配一个a-z之间的字符
 
-\[a\-z\]\* \-\-\-\-\-\-匹配任意长度的字母字符串
+[a-z]* ------匹配任意长度的字母字符串
 
-\[a\-c, e\-f\]\-匹配a\-c或者e\-f之间的任意字符
+[a-c, e-f]-匹配a-c或者e-f之间的任意字符
 
-\[atguigu@hadoop101 shells\]$ cat /etc/passwd \| grep r\[a,b,c\]\*t
+[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep r[a,b,c]*t
 
 会匹配rt,rat, rbt, rabt, rbact,rabccbaaacbt等等所有行。
 
@@ -3380,7 +3380,7 @@ $ 匹配一行的结束，例如：
 
 \\ 表示转义，并不会单独使用。由于所有特殊字符都有其特定匹配模式，当我们想匹配某一特殊字符本身时（例如，我想找出所有包含 '$' 的行），就会碰到困难。此时我们就要将转义字符和特殊字符连用，来表示特殊字符本身，例如。
 
-\[atguigu@hadoop101 shells\]$ cat /etc/passwd \| grep a\\$b
+[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep a\\$b
 
 就会匹配所有包含 a$b 的行。
 
@@ -3491,7 +3491,7 @@ This's
 
 
 
-- 用法2：`awk -F`  \#\-F相当于内置变量FS, 指定分割字符
+- 用法2：`awk -F`  \#-F相当于内置变量FS, 指定分割字符
 
 ```Bash
 # 1、使用","分割
@@ -3624,7 +3624,7 @@ There orange,apple,mongo
 
 - `-a`：file 从文件中读入作为sdtin
 
-- `-e`：flag ，注意有的时候可能会是\-E，flag必须是一个以空格分隔的标志，当xargs分析到含有flag这个标志的时候就停止。
+- `-e`：flag ，注意有的时候可能会是-E，flag必须是一个以空格分隔的标志，当xargs分析到含有flag这个标志的时候就停止。
 
 - `-p`：当每次执行一个argument的时候询问一次用户。
 
@@ -3632,19 +3632,19 @@ There orange,apple,mongo
 
 - `-t`：表示先打印命令，然后再执行。
 
-- `-i`：或者是\-I，这得看linux支持了，将xargs的每项名称，一般是一行一行赋值给 \{\}，可以用 \{\} 代替。
+- `-i`：或者是-I，这得看linux支持了，将xargs的每项名称，一般是一行一行赋值给 \{\}，可以用 \{\} 代替。
 
-- `-r`：no\-run\-if\-empty 当xargs的输入为空的时候则停止xargs，不用再去执行了。
+- `-r`：no-run-if-empty 当xargs的输入为空的时候则停止xargs，不用再去执行了。
 
 - `-s`：num 命令行的最大字符数，指的是 xargs 后面那个命令的最大命令行字符数。
 
 - `-L`：num 从标准输入一次读取 num 行送给 command 命令。
 
-- `-l`：同 \-L。
+- `-l`：同 -L。
 
 - `-d`：delim 分隔符，默认的xargs分隔符是回车，argument的分隔符是空格，这里修改的是xargs的分隔符。
 
-- `-x`：exit的意思，主要是配合\-s使用。。
+- `-x`：exit的意思，主要是配合-s使用。。
 
 - `-P`：修改最大的进程数，默认是1，为0时候为as many as it can ，这个例子我没有想到，应该平时都用不到的吧。
 
@@ -3705,15 +3705,15 @@ cat url-list.txt | xargs wget -c
 
 - 动作：
 
-    - `a`：新增， a 的后面可以接字串，而这些字串会在新的一行出现\(目前的下一行\)～
+    - `a`：新增， a 的后面可以接字串，而这些字串会在新的一行出现(目前的下一行)～
 
     - `c`：取代， c 的后面可以接字串，这些字串可以取代 n1,n2 之间的行！
 
     - `d`：删除， d 后面通常不接任何东西；
 
-    - `i`：插入， i 的后面可以接字串，而这些字串会在新的一行出现\(目前的上一行\)；
+    - `i`：插入， i 的后面可以接字串，而这些字串会在新的一行出现(目前的上一行)；
 
-    - `p`：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed \-n 一起运行～
+    - `p`：打印，亦即将某个选择的数据印出。通常 p 会与参数 sed -n 一起运行～
 
     - `s`：取代，可以直接进行取代的工作，通常这个 s 的动作可以搭配正规表示法！例如 1,20s/old/new/g
 
@@ -3771,7 +3771,7 @@ nl $TEST_LOG | sed -e '3,$d' -e 's/bash/blueshell/'
 
 # 修改文件内容
 # 将$TEST_LOG中每行结尾的.替换成！
-sed -i 's/\.$/\!/g' $TEST_LOG
+sed -i 's/.$/\!/g' $TEST_LOG
 # 在$TEST_LOG最后一行添加 #This is a test
 sed -i '$a # This is a test' $TEST_LOG
 
@@ -3783,11 +3783,11 @@ sed -i '$a # This is a test' $TEST_LOG
 
 ## 面试题
 
-1\.1 Linux\&Shell
+1.1 Linux\&Shell
 
-1\.1\.1 Linux常用高级命令
+1.1.1 Linux常用高级命令
 
-1\.1\.2 Shell常用工具及写过的脚本
+1.1.2 Shell常用工具及写过的脚本
 
 1）awk、sed、cut、sort
 
@@ -3801,7 +3801,7 @@ sed -i '$a # This is a test' $TEST_LOG
 
 case $1 in 
 
-"start"\)
+"start")
 
 for i in hadoop102 hadoop103 hadoop104
 
@@ -3813,13 +3813,13 @@ done
 
 ;;
 
-"stop"\)
+"stop")
 
 
 
 ;;
 
-（2）数仓层级内部的导入：ods\-\>dwd\-\>dws \-\>ads
+（2）数仓层级内部的导入：ods-\>dwd-\>dws -\>ads
 
 ①\#\!/bin/bash 
 
@@ -3831,49 +3831,49 @@ done
 
 ④sql="
 
-先按照当前天 写sql =\> 遇到时间 $do\_date  遇到表 \{$APP\}\.
+先按照当前天 写sql =\> 遇到时间 $do_date  遇到表 \{$APP\}.
 
-自定义函数 UDF  UDTF    \{$APP\}\.
+自定义函数 UDF  UDTF    \{$APP\}.
 
 "
 
 ⑤执行sql
 
-1\.1\.3 Shell中单引号和双引号区别
+1.1.3 Shell中单引号和双引号区别
 
-1）在/home/atguigu/bin创建一个test\.sh文件
+1）在/home/atguigu/bin创建一个test.sh文件
 
-\[atguigu@hadoop102 bin\]$ vim test\.sh
+[atguigu@hadoop102 bin]$ vim test.sh
 
 在文件中添加如下内容
 
 \#\!/bin/bash
 
-do\_date=$1
+do_date=$1
 
 
 
-echo '$do\_date'
+echo '$do_date'
 
-echo "$do\_date"
+echo "$do_date"
 
-echo "'$do\_date'"
+echo "'$do_date'"
 
-echo '"$do\_date"'
+echo '"$do_date"'
 
 echo `date`
 
 2）查看执行结果
 
-\[atguigu@hadoop102 bin\]$ test\.sh 2022\-02\-10
+[atguigu@hadoop102 bin]$ test.sh 2022-02-10
 
-$do\_date
+$do_date
 
-2022\-02\-10
+2022-02-10
 
-'2022\-02\-10'
+'2022-02-10'
 
-"$do\_date"
+"$do_date"
 
 2022年 05月 02日 星期四 21:02:08 CST
 

@@ -6,15 +6,15 @@
 
 # 第1章 Linux入门
 
-## 1\.1 概述
+## 1.1 概述
 
-## 1\.2 Linux和Windows区别
+## 1.2 Linux和Windows区别
 
-## 1\.3 CentOS下载地址
+## 1.3 CentOS下载地址
 
-网易镜像：http://mirrors\.163\.com/centos/7/isos/
+网易镜像：http://mirrors.163.com/centos/7/isos/
 
-搜狐镜像：https://mirrors\.sohu\.com/centos/7/isos/
+搜狐镜像：https://mirrors.sohu.com/centos/7/isos/
 
 # 第2章 VMware与CentOS的安装
 
@@ -79,15 +79,15 @@ service network restart
 
 # 第3章 Linux文件与目录结构
 
-## 3\.1 Linux文件
+## 3.1 Linux文件
 
 Linux系统中一切皆文件。
 
-## 3\.2 Linux目录结构
+## 3.2 Linux目录结构
 
 
 
-![image\-20210906114619712\.png](./images/image-20210906114619712.png)
+![image-20210906114619712.png](./images/image-20210906114619712.png)
 
 
 
@@ -140,17 +140,17 @@ drwxr-xr-x.  19 root root  4096 8月  20 2025 var
 |/var|这个目录中存放着在不断扩充着的东西，我们习惯将那些经常被修改的目录放在这个目录下。包括各种日志文件|
 |/selinux|SELinux是一种安全子系统,它能控制程序只能访问特定文件|
 
-## 3\.3 垃圾桶
+## 3.3 垃圾桶
 
-1\.首先第一步：创建一个文件夹充当回收站
+1.首先第一步：创建一个文件夹充当回收站
 
-mkdir \-p \~/\.trash
+mkdir -p \~/.trash
 
 
 
-2\.使用vim编辑器定义一个回收站脚本
+2.使用vim编辑器定义一个回收站脚本
 
-vim \~/\.bashrc\_trash
+vim \~/.bashrc_trash
 
 ```Bash
 alias del=trash
@@ -192,9 +192,9 @@ cls() {
 }
 ```
 
-3\.第三步配置环境变量
+3.第三步配置环境变量
 
-vim \~/\.bashrc
+vim \~/.bashrc
 
 ```Bash
 
@@ -208,7 +208,7 @@ AI写代码
 
 bash
 
-4\.最后加载环境变量使脚本生效
+4.最后加载环境变量使脚本生效
 
 ```Bash
 source ~/.bashrc
@@ -218,19 +218,19 @@ source ~/.bashrc
 
 说明（对脚本配置的一个使用说明）：
 
-1\.删除命令 del \+ 要删除的文件名
+1.删除命令 del \+ 要删除的文件名
 
-2\.查看回收站命令 lr
+2.查看回收站命令 lr
 
-3\.将回收站中的文件找回到当前文件夹 ur \+ 需要找回的文件名
+3.将回收站中的文件找回到当前文件夹 ur \+ 需要找回的文件名
 
-4\.清空回收站 cls
+4.清空回收站 cls
 
 
 
 # 第5章 网络配置和系统管理操作
 
-## 5\.1 查看网络IP 和 网关
+## 5.1 查看网络IP 和 网关
 
 **1）查看虚拟网络编辑器**
 
@@ -244,9 +244,9 @@ source ~/.bashrc
 
 
 
-## 5\.2 配置网络ip地址
+## 5.2 配置网络ip地址
 
-### 5\.2\.1 ifconfig 配置网络接口
+### 5.2.1 ifconfig 配置网络接口
 
 ifconfig :network interfaces configuring网络接口配置。
 
@@ -258,9 +258,9 @@ ifconfig  （功能描述：显示所有网络接口的配置信息）
 
 （1）查看当前网络IP
 
-\[root@hadoop100 桌面\]\# ifconfig
+[root@hadoop100 桌面]\# ifconfig
 
-### 5\.2\.2 ping 测试主机之间网络连通性
+### 5.2.2 ping 测试主机之间网络连通性
 
 **1）基本语法**
 
@@ -274,7 +274,7 @@ ping 目的主机 （功能描述：测试当前服务器是否可以连接目�
 [root@hadoop100 桌面]# ping [www.baidu.com](http://www.baidu.com)
 ```
 
-### 5\.2\.3 修改IP地址
+### 5.2.3 修改IP地址
 
 **1）查看IP配置文件**
 
@@ -298,9 +298,9 @@ DNS2=8.8.8.8
 
 **2）执行systemctl restart network重启网络**
 
-## 5\.3 配置主机名
+## 5.3 配置主机名
 
-### 5\.3\.1 修改主机名称
+### 5.3.1 修改主机名称
 
 **1）基本语法**
 
@@ -322,7 +322,7 @@ hostname  （功能描述：查看当前服务器的主机名称）
 
 注意：修改完成后重启生效。 
 
-### 5\.3\.2 修改hosts映射文件 
+### 5.3.2 修改hosts映射文件 
 
 **1）修改linux的主机映射文件（hosts文件）**
 
@@ -360,9 +360,9 @@ hostname  （功能描述：查看当前服务器的主机名称）
 
 （4）将桌面hosts文件覆盖C:\\Windows\\System32\\drivers\\etc路径hosts文件
 
-## 5\.4 关闭防火墙
+## 5.4 关闭防火墙
 
-### 5\.4\.1 systemctl
+### 5.4.1 systemctl
 
 **1）基本语法**
 
@@ -401,19 +401,19 @@ systemctl  start \| stop \| restart \| status   服务名
 [root@hadoop100 桌面]# systemctl restart firewalld 
 ```
 
-### 5\.4\.2 systemctl 设置后台服务的自启配置
+### 5.4.2 systemctl 设置后台服务的自启配置
 
 **1）基本语法**
 
-- systemctl list\-unit\-files         （功能描述：查看服务开机启动状态）
+- systemctl list-unit-files         （功能描述：查看服务开机启动状态）
 
 - systemctl disable 服务名  （功能描述：关掉指定服务的自动启动）
 
 - systemctl enable 服务名   （功能描述：开启指定服务的自动启动）
 
-- systemctl is\-enabled 服务名  （查看服务是否允许开机自启）
+- systemctl is-enabled 服务名  （查看服务是否允许开机自启）
 
-### 5\.4\.3 关闭防火墙
+### 5.4.3 关闭防火墙
 
 **1）临时关闭防火墙**
 
@@ -451,7 +451,7 @@ disabled 表示开机不自启
 enabled 表示开机自启
 ```
 
-## 5\.5 关机重启命令
+## 5.5 关机重启命令
 
 在linux领域内大多用在服务器上，很少遇到关机的操作。毕竟服务器上跑一个服务是永无止境的，除非特殊情况下，不得已才会关机。
 
@@ -461,11 +461,11 @@ enabled 表示开机自启
 
 - sync     （功能描述：将数据由内存同步到硬盘中）
 
-- halt    （功能描述：关闭系统，等同于shutdown \-h now 和 poweroff）
+- halt    （功能描述：关闭系统，等同于shutdown -h now 和 poweroff）
 
-- reboot    （功能描述：就是重启，等同于 shutdown \-r now）
+- reboot    （功能描述：就是重启，等同于 shutdown -r now）
 
-- shutdown \[选项\] 时间 
+- shutdown [选项] 时间 
 
 
 
@@ -473,8 +473,8 @@ enabled 表示开机自启
 
 |选项|功能|
 |---|---|
-|\-h|\-h=halt关机|
-|\-r|\-r=reboot重启|
+|-h|-h=halt关机|
+|-r|-r=reboot重启|
 
 |参数|功能|
 |---|---|
@@ -587,9 +587,9 @@ ssh  s2的ip地址
 
 目前位置，我们有两台服务器，node1 和 node2
 
-node1 =\> 192\.168\.88\.161
+node1 =\> 192.168.88.161
 
-node2 =\> 192\.168\.88\.162
+node2 =\> 192.168.88.162
 
 两者之间要想互相访问，必须通过IP地址进行实现，但是IP地址太长了，记不住怎么办？
 
@@ -616,7 +616,7 @@ ping node1
 
 连接node2服务器：
 
-![image\-20230108113920484\.png](./images/image-20230108113920484.png)
+![image-20230108113920484.png](./images/image-20230108113920484.png)
 
 **远程连接指令（向日葵）**
 
@@ -648,7 +648,7 @@ Enter password:123456
 选项说明：-r，代表递归下载，主要用于文件夹下载过程
 ```
 
-案例：把node2中/root路径下的node2\.txt文件下载到本机的/root目录中
+案例：把node2中/root路径下的node2.txt文件下载到本机的/root目录中
 
 ```Bash
 [root@node1 ~] # scp root@192.168.88.162:/root/node2.txt ./
@@ -662,23 +662,23 @@ Enter password:123456
 
 图解演示：
 
-![image\-20230108115602773\.png](./images/image-20230108115602773.png)
+![image-20230108115602773.png](./images/image-20230108115602773.png)
 
 ## 远程上传指令
 
-\[root@node1 \~\] \# scp 选项 本地文件路径  账号@主机名称或IP地址:路径
+[root@node1 \~] \# scp 选项 本地文件路径  账号@主机名称或IP地址:路径
 
-案例：把本地的node1\.txt文件上传到远程服务器
+案例：把本地的node1.txt文件上传到远程服务器
 
-\[root@node1 \~\] \# scp \./node1\.txt root@192\.168\.88\.162:/root/
+[root@node1 \~] \# scp ./node1.txt root@192.168.88.162:/root/
 
 案例：把本地的bigdata文件夹上传到远程服务器
 
-\[root@node1 \~\] \# scp \-r \./bigdata root@192\.168\.88\.162:/root/
+[root@node1 \~] \# scp -r ./bigdata root@192.168.88.162:/root/
 
 图解演示：
 
-![image\-20230108115951384\.png](./images/image-20230108115951384.png)
+![image-20230108115951384.png](./images/image-20230108115951384.png)
 
 
 
@@ -686,7 +686,7 @@ Enter password:123456
 
 1、任务要求
 
-![image\-20230108121439720\.png](./images/image-20230108121439720.png)
+![image-20230108121439720.png](./images/image-20230108121439720.png)
 
 
 
@@ -698,7 +698,7 @@ Enter password:123456
 
 2、免密登录原理（非对称加密）
 
-![image\-20220706081033923\.png](./images/image-20220706081033923.png)
+![image-20220706081033923.png](./images/image-20220706081033923.png)
 
 
 
@@ -718,7 +718,7 @@ Enter password:123456
 
 主服务生成一个密钥对（公钥 和 私钥），公钥是给要免密的从服务器，私钥是自己保存的，将来用于解密操作。
 
-密钥对放置的目录默认都在\~/\.ssh隐藏文件夹
+密钥对放置的目录默认都在\~/.ssh隐藏文件夹
 
 3、任务解决方案
 
@@ -741,13 +741,13 @@ node1服务器：
 
 # 第7章 常用基本命令
 
-## 7\.1 帮助命令
+## 7.1 帮助命令
 
-### 7\.1\.1 man 获得帮助信息
+### 7.1.1 man 获得帮助信息
 
 **1）基本语法**
 
-man \[命令或配置文件\]  （功能描述：获得帮助信息）
+man [命令或配置文件]  （功能描述：获得帮助信息）
 
 **2）显示说明**
 
@@ -763,9 +763,9 @@ man \[命令或配置文件\]  （功能描述：获得帮助信息）
 
 （1）查看ls命令的帮助信息
 
-\[root@hadoop101 \~\]\# man ls
+[root@hadoop101 \~]\# man ls
 
-### 7\.1\.2 help 获得shell内置命令的帮助信息
+### 7.1.2 help 获得shell内置命令的帮助信息
 
 **1）基本语法**
 
@@ -775,22 +775,22 @@ help 命令 （功能描述：获得shell内置命令的帮助信息）
 
 （1）查看cd命令的帮助信息
 
-\[root@hadoop101 \~\]\# help cd
+[root@hadoop101 \~]\# help cd
 
-### 7\.1\.3 常用快捷键
+### 7.1.3 常用快捷键
 
 |常用快捷键|功能|
 |---|---|
 |ctrl \+ c|停止进程|
 |ctrl\+l|清屏；彻底清屏是：reset|
 |ctrl \+ q|退出|
-|善于用tab键|提示\(更重要的是可以防止敲错\)|
+|善于用tab键|提示(更重要的是可以防止敲错)|
 |上下键|查找执行过的命令|
 |ctrl \+u|清除当前敲的命令|
 
-## 7\.2 文件目录类
+## 7.2 文件目录类
 
-### 7\.2\.1 pwd 显示当前工作目录的绝对路径
+### 7.2.1 pwd 显示当前工作目录的绝对路径
 
 pwd:print working directory 打印工作目录
 
@@ -802,24 +802,24 @@ pwd  （功能描述：显示当前工作目录的绝对路径）
 
 （1）显示当前工作目录的绝对路径
 
-\[root@hadoop101 \~\]\# pwd
+[root@hadoop101 \~]\# pwd
 
 /root
 
-### 7\.2\.2 ls 列出目录的内容
+### 7.2.2 ls 列出目录的内容
 
 ls:list 列出目录内容
 
 **1）基本语法**
 
-ls \[选项\] \[目录或是文件\]
+ls [选项] [目录或是文件]
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-a|全部的文件，连同隐藏档\( 开头为 \. 的文件\) 一起列出来\(常用\)|
-|\-l|长数据串列出，包含文件的属性与权限等等数据；\(常用\)|
+|-a|全部的文件，连同隐藏档( 开头为 . 的文件) 一起列出来(常用)|
+|-l|长数据串列出，包含文件的属性与权限等等数据；(常用)|
 
 **3）显示说明**
 
@@ -829,25 +829,25 @@ ls \[选项\] \[目录或是文件\]
 
 （1）查看当前目录的所有内容信息
 
-\[atguigu@hadoop101 \~\]$ ls \-al
+[atguigu@hadoop101 \~]$ ls -al
 
 总用量 44
 
-drwx\-\-\-\-\-\-\. 5 atguigu atguigu 4096 5月  27 15:15 \.
+drwx------. 5 atguigu atguigu 4096 5月  27 15:15 .
 
-drwxr\-xr\-x\. 3 root    root    4096 5月  27 14:03 \.\.
+drwxr-xr-x. 3 root    root    4096 5月  27 14:03 ..
 
-drwxrwxrwx\. 2 root    root    4096 5月  27 14:14 hello
+drwxrwxrwx. 2 root    root    4096 5月  27 14:14 hello
 
-\-rwxrw\-r\-\-\. 1 atguigu atguigu   34 5月  27 14:20 test\.txt
+-rwxrw-r--. 1 atguigu atguigu   34 5月  27 14:20 test.txt
 
-### 7\.2\.3 cd 切换目录
+### 7.2.3 cd 切换目录
 
 cd:Change Directory切换路径
 
 **1）基本语法**
 
-cd  \[参数\]
+cd  [参数]
 
 **2）参数说明**
 
@@ -856,59 +856,59 @@ cd  \[参数\]
 |cd 绝对路径|切换路径|
 |cd相对路径|切换路径|
 |cd \~或者cd|回到自己的家目录|
-|cd \-|回到上一次所在目录|
-|cd \.\.|回到当前目录的上一级目录|
-|cd \-P|跳转到实际物理路径，而非快捷方式路径|
+|cd -|回到上一次所在目录|
+|cd ..|回到当前目录的上一级目录|
+|cd -P|跳转到实际物理路径，而非快捷方式路径|
 
 **3）案例实操**
 
 （1）使用绝对路径切换到root目录
 
-\[root@hadoop101 \~\]\# cd /root/
+[root@hadoop101 \~]\# cd /root/
 
 （2）使用相对路径切换到“公共的”目录
 
-\[root@hadoop101 \~\]\# cd 公共的/
+[root@hadoop101 \~]\# cd 公共的/
 
 （3）表示回到自己的家目录，亦即是/root这个目录
 
-\[root@hadoop101 公共的\]\# cd \~
+[root@hadoop101 公共的]\# cd \~
 
-（4）cd\- 回到上一次所在目录
+（4）cd- 回到上一次所在目录
 
-\[root@hadoop101 \~\]\# cd \-
+[root@hadoop101 \~]\# cd -
 
 （5）表示回到当前目录的上一级目录，亦即是 “/root/公共的”的上一级目录的意思；
 
-\[root@hadoop101 公共的\]\# cd \.\.
+[root@hadoop101 公共的]\# cd ..
 
-### 7\.2\.4 mkdir 创建一个新的目录
+### 7.2.4 mkdir 创建一个新的目录
 
 mkdir:Make directory 建立目录
 
 **1）基本语法**
 
-mkdir \[选项\] 要创建的目录
+mkdir [选项] 要创建的目录
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-p|创建多层目录|
+|-p|创建多层目录|
 
 **3）案例实操**
 
 （1）创建一个目录
 
-\[root@hadoop101 \~\]\# mkdir xiyou
+[root@hadoop101 \~]\# mkdir xiyou
 
-\[root@hadoop101 \~\]\# mkdir xiyou/mingjie
+[root@hadoop101 \~]\# mkdir xiyou/mingjie
 
 （2）创建一个多级目录
 
-\[root@hadoop101 \~\]\# mkdir \-p xiyou/dssz/meihouwang
+[root@hadoop101 \~]\# mkdir -p xiyou/dssz/meihouwang
 
-### 7\.2\.5 rmdir 删除一个空的目录
+### 7.2.5 rmdir 删除一个空的目录
 
 rmdir:Remove directory 移动目录
 
@@ -920,9 +920,9 @@ rmdir 要删除的空目录
 
 （1）删除一个空的文件夹
 
-\[root@hadoop101 \~\]\# rmdir xiyou/dssz/meihouwang
+[root@hadoop101 \~]\# rmdir xiyou/dssz/meihouwang
 
-### 7\.2\.6 touch 创建空文件
+### 7.2.6 touch 创建空文件
 
 **1）基本语法**
 
@@ -930,19 +930,19 @@ touch 文件名称
 
 **2）案例实操**
 
-\[root@hadoop101 \~\]\# touch xiyou/dssz/sunwukong\.txt
+[root@hadoop101 \~]\# touch xiyou/dssz/sunwukong.txt
 
-### 7\.2\.7 cp 复制文件或目录
+### 7.2.7 cp 复制文件或目录
 
 **1）基本语法**
 
-cp \[选项\] source dest     （功能描述：复制source文件到dest）
+cp [选项] source dest     （功能描述：复制source文件到dest）
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-r|递归复制整个文件夹|
+|-r|递归复制整个文件夹|
 
 **3）参数说明**
 
@@ -959,37 +959,37 @@ cp \[选项\] source dest     （功能描述：复制source文件到dest）
 
 （1）复制文件
 
-\[root@hadoop101 \~\]\# cp xiyou/dssz/suwukong\.txt xiyou/mingjie/
+[root@hadoop101 \~]\# cp xiyou/dssz/suwukong.txt xiyou/mingjie/
 
 （2）递归复制整个文件夹
 
-\[root@hadoop101 \~\]\# cp \-r xiyou/dssz/ \./
+[root@hadoop101 \~]\# cp -r xiyou/dssz/ ./
 
-### 7\.2\.8 rm 删除文件或目录
+### 7.2.8 rm 删除文件或目录
 
 **1）基本语法**
 
-rm \[选项\] deleteFile   （功能描述：递归删除目录中所有内容）
+rm [选项] deleteFile   （功能描述：递归删除目录中所有内容）
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-r|递归删除目录中所有内容|
-|\-f|强制执行删除操作，而不提示用于进行确认。|
-|\-v|显示指令的详细执行过程|
+|-r|递归删除目录中所有内容|
+|-f|强制执行删除操作，而不提示用于进行确认。|
+|-v|显示指令的详细执行过程|
 
 **3）案例实操**
 
 （1）删除目录中的内容
 
-\[root@hadoop101 \~\]\# rm xiyou/mingjie/sunwukong\.txt
+[root@hadoop101 \~]\# rm xiyou/mingjie/sunwukong.txt
 
 （2）递归删除目录中所有内容
 
-\[root@hadoop101 \~\]\# rm \-rf dssz/
+[root@hadoop101 \~]\# rm -rf dssz/
 
-### 7\.2\.9 mv 移动文件与目录或重命名
+### 7.2.9 mv 移动文件与目录或重命名
 
 **1）基本语法**
 
@@ -1001,25 +1001,25 @@ rm \[选项\] deleteFile   （功能描述：递归删除目录中所有内容�
 
 （1）重命名
 
-\[root@hadoop101 \~\]\# mv xiyou/dssz/suwukong\.txt xiyou/dssz/houge\.txt
+[root@hadoop101 \~]\# mv xiyou/dssz/suwukong.txt xiyou/dssz/houge.txt
 
 （2）移动文件
 
-\[root@hadoop101 \~\]\# mv xiyou/dssz/houge\.txt \./
+[root@hadoop101 \~]\# mv xiyou/dssz/houge.txt ./
 
-### 7\.2\.10 cat 查看文件内容
+### 7.2.10 cat 查看文件内容
 
 查看文件内容，从第一行开始显示。
 
 **1）基本语法**
 
-cat  \[选项\] 要查看的文件
+cat  [选项] 要查看的文件
 
 **2）选项说明**
 
 |选项|功能描述|
 |---|---|
-|\-n|显示所有行的行号，包括空行。|
+|-n|显示所有行的行号，包括空行。|
 
 **3）经验技巧**
 
@@ -1029,9 +1029,9 @@ cat  \[选项\] 要查看的文件
 
 （1）查看文件内容并显示行号
 
-\[atguigu@hadoop101 \~\]$ cat \-n houge\.txt 
+[atguigu@hadoop101 \~]$ cat -n houge.txt 
 
-### 7\.2\.11 more 文件内容分屏查看器
+### 7.2.11 more 文件内容分屏查看器
 
 more指令是一个基于VI编辑器的文本过滤器，它以全屏幕的方式按页显示文本文件的内容。more指令中内置了若干快捷键，详见操作说明。
 
@@ -1043,7 +1043,7 @@ more 要查看的文件
 
 |操作|功能说明|
 |---|---|
-|空白键 \(space\)|代表向下翻一页；|
+|空白键 (space)|代表向下翻一页；|
 |Enter|代表向下翻『一行』；|
 |q|代表立刻离开 more ，不再显示该文件内容。|
 |Ctrl\+F|向下滚动一屏|
@@ -1055,9 +1055,9 @@ more 要查看的文件
 
 （1）采用more查看文件
 
-\[root@hadoop101 \~\]\# more smartd\.conf
+[root@hadoop101 \~]\# more smartd.conf
 
-### 7\.2\.12 less 分屏显示文件内容
+### 7.2.12 less 分屏显示文件内容
 
 less指令用来分屏查看文件内容，它的功能与more指令类似，但是比more指令更加强大，支持各种显示终端。less指令在显示文件内容时，并不是一次将整个文件加载之后才显示，而是根据显示需要加载内容，对于显示大型文件具有较高的效率。
 
@@ -1070,23 +1070,23 @@ less 要查看的文件
 |操作|功能说明|
 |---|---|
 |空白键|向下翻动一页；|
-|\[pagedown\]|向下翻动一行|
-|\[pageup\]|向上翻动一行；|
+|[pagedown]|向下翻动一行|
+|[pageup]|向上翻动一行；|
 |/字串|向下搜寻『字串』的功能；n：向下查找；N：向上查找；|
 |?字串|向上搜寻『字串』的功能；n：向上查找；N：向下查找；|
 |q  |离开 less 这个程序；|
 
 **3）经验技巧**
 
-用SecureCRT时\[pagedown\]和\[pageup\]可能会出现无法识别的问题。
+用SecureCRT时[pagedown]和[pageup]可能会出现无法识别的问题。
 
 **4）案例实操**
 
 （1）采用less查看文件
 
-\[root@hadoop101 \~\]\# less smartd\.conf
+[root@hadoop101 \~]\# less smartd.conf
 
-### 7\.2\.14 head 显示文件头部内容
+### 7.2.14 head 显示文件头部内容
 
 head用于显示文件的开头部分内容，默认情况下head指令显示文件的前10行内容。
 
@@ -1094,21 +1094,21 @@ head用于显示文件的开头部分内容，默认情况下head指令显示文
 
 head 文件       （功能描述：查看文件头10行内容）
 
-head \-n 5 文件      （功能描述：查看文件头5行内容，5可以是任意行数）
+head -n 5 文件      （功能描述：查看文件头5行内容，5可以是任意行数）
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-n\<行数\>|指定显示头部内容的行数|
+|-n\<行数\>|指定显示头部内容的行数|
 
 **3）案例实操**
 
 （1）查看文件的头2行
 
-\[root@hadoop101 \~\]\# head \-n 2 smartd\.conf
+[root@hadoop101 \~]\# head -n 2 smartd.conf
 
-### 7\.2\.15 tail 输出文件尾部内容
+### 7.2.15 tail 输出文件尾部内容
 
 tail用于输出文件中尾部的内容，默认情况下tail指令显示文件的后10行内容。
 
@@ -1116,38 +1116,38 @@ tail用于输出文件中尾部的内容，默认情况下tail指令显示文件
 
 （1）tail  文件    （功能描述：查看文件尾部10行内容）
 
-（2）tail  \-n  5 文件  （功能描述：查看文件尾部5行内容，5可以是任意行数）
+（2）tail  -n  5 文件  （功能描述：查看文件尾部5行内容，5可以是任意行数）
 
-（3）tail  \-f  文件  （功能描述：实时追踪该文档的所有更新）
+（3）tail  -f  文件  （功能描述：实时追踪该文档的所有更新）
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-n\<行数\>|输出文件尾部n行内容|
-|\-f|显示文件最新追加的内容，监视文件变化|
+|-n\<行数\>|输出文件尾部n行内容|
+|-f|显示文件最新追加的内容，监视文件变化|
 
 **3）案例实操**
 
 （1）查看文件尾1行内容
 
-\[root@hadoop101 \~\]\# tail \-n 1 smartd\.conf 
+[root@hadoop101 \~]\# tail -n 1 smartd.conf 
 
 （2）实时追踪该档的所有更新
 
-\[root@hadoop101 \~\]\# tail \-f houge\.txt
+[root@hadoop101 \~]\# tail -f houge.txt
 
-### 7\.2\.13 echo
+### 7.2.13 echo
 
 echo输出内容到控制台
 
 **1）基本语法**
 
-echo \[选项\] \[输出内容\]
+echo [选项] [输出内容]
 
 选项： 
 
-\-e：  支持反斜线控制的字符转换
+-e：  支持反斜线控制的字符转换
 
 |控制字符  |作用 |
 |---|---|
@@ -1157,21 +1157,21 @@ echo \[选项\] \[输出内容\]
 
 **2）案例实操**
 
-\[atguigu@hadoop101 \~\]$ echo "hello\\tworld"
+[atguigu@hadoop101 \~]$ echo "hello\\tworld"
 
 hello\\tworld
 
-\[atguigu@hadoop101 \~\]$ echo \-e  "hello\\tworld"
+[atguigu@hadoop101 \~]$ echo -e  "hello\\tworld"
 
 hello  world
 
-### 7\.2\.16 \> 输出重定向和 \>\> 追加
+### 7.2.16 \> 输出重定向和 \>\> 追加
 
 **1）基本语法**
 
-（1）ls \-l  \> 文件  （功能描述：列表的内容写入文件a\.txt中（**覆盖写**））
+（1）ls -l  \> 文件  （功能描述：列表的内容写入文件a.txt中（**覆盖写**））
 
-（2）ls \-al  \>\> 文件  （功能描述：列表的内容**追加**到文件aa\.txt的末尾）
+（2）ls -al  \>\> 文件  （功能描述：列表的内容**追加**到文件aa.txt的末尾）
 
 （3）cat 文件1 \> 文件2 （功能描述：将文件1的内容覆盖到文件2）
 
@@ -1181,27 +1181,27 @@ hello  world
 
 （1）将ls查看信息写入到文件中
 
-\[root@hadoop101 \~\]\# ls \-l\>houge\.txt
+[root@hadoop101 \~]\# ls -l\>houge.txt
 
 （2）将ls查看信息追加到文件中
 
-\[root@hadoop101 \~\]\# ls \-l\>\>houge\.txt
+[root@hadoop101 \~]\# ls -l\>\>houge.txt
 
 （3）采用echo将hello单词追加到文件中
 
-\[root@hadoop101 \~\]\# echo hello\>\>houge\.txt
+[root@hadoop101 \~]\# echo hello\>\>houge.txt
 
-### 7\.2\.17 ln 软链接
+### 7.2.17 ln 软链接
 
 软链接也成为符号链接，类似于windows里的快捷方式，有自己的数据块，主要存放了链接其他文件的路径。
 
 **1）基本语法**
 
-ln \-s \[原文件或目录\] \[软链接名\]  （功能描述：给原文件创建一个软链接）
+ln -s [原文件或目录] [软链接名]  （功能描述：给原文件创建一个软链接）
 
 **2）经验技巧**
 
-删除软链接： rm \-rf 软链接名，而不是rm \-rf 软链接名/
+删除软链接： rm -rf 软链接名，而不是rm -rf 软链接名/
 
 查询：通过ll就可以查看，列表属性第1位是l，尾部会有位置指向。
 
@@ -1209,27 +1209,27 @@ ln \-s \[原文件或目录\] \[软链接名\]  （功能描述：给原文件�
 
 （1）创建软连接
 
-\[root@hadoop101 \~\]\# mv houge\.txt xiyou/dssz/
+[root@hadoop101 \~]\# mv houge.txt xiyou/dssz/
 
-\[root@hadoop101 \~\]\# ln \-s xiyou/dssz/houge\.txt \./houzi
+[root@hadoop101 \~]\# ln -s xiyou/dssz/houge.txt ./houzi
 
-\[root@hadoop101 \~\]\# ll
+[root@hadoop101 \~]\# ll
 
-lrwxrwxrwx\. 1 root    root      20 6月  17 12:56 houzi \-\> xiyou/dssz/houge\.txt
+lrwxrwxrwx. 1 root    root      20 6月  17 12:56 houzi -\> xiyou/dssz/houge.txt
 
 （2）删除软连接
 
-\[root@hadoop101 \~\]\# rm \-rf houzi
+[root@hadoop101 \~]\# rm -rf houzi
 
-注意：rm \-rf houzi/  这样删是删不掉的 不能再软连接后面加/
+注意：rm -rf houzi/  这样删是删不掉的 不能再软连接后面加/
 
 （3）进入软连接实际物理路径
 
-\[root@hadoop101 \~\]\# ln \-s xiyou/dssz/ \./dssz
+[root@hadoop101 \~]\# ln -s xiyou/dssz/ ./dssz
 
-\[root@hadoop101 \~\]\# cd \-P dssz/
+[root@hadoop101 \~]\# cd -P dssz/
 
-### 7\.2\.18 history 查看已经执行过历史命令
+### 7.2.18 history 查看已经执行过历史命令
 
 **1）基本语法**
 
@@ -1239,20 +1239,20 @@ history      （功能描述：查看已经执行过历史命令）
 
 （1）查看已经执行过的历史命令
 
-\[root@hadoop101 test1\]\# history
+[root@hadoop101 test1]\# history
 
-## 7\.3 时间日期类
+## 7.3 时间日期类
 
 **1）基本语法**
 
-date \[OPTION\]\.\.\. \[\+FORMAT\]
+date [OPTION]... [\+FORMAT]
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-d\<时间字符串\>|显示指定的“时间字符串”表示的时间，而非当前时间|
-|\-s\<日期时间\>|设置系统日期时间|
+|-d\<时间字符串\>|显示指定的“时间字符串”表示的时间，而非当前时间|
+|-s\<日期时间\>|设置系统日期时间|
 
 **3）参数说明**
 
@@ -1260,7 +1260,7 @@ date \[OPTION\]\.\.\. \[\+FORMAT\]
 |---|---|
 |\<\+日期时间格式\>|指定显示时使用的日期时间格式|
 
-### 7\.3\.1 date 显示当前时间
+### 7.3.1 date 显示当前时间
 
 **1）基本语法**
 
@@ -1272,67 +1272,67 @@ date \[OPTION\]\.\.\. \[\+FORMAT\]
 
 4. date \+%d       （功能描述：显示当前是哪一天）
 
-5. date "\+%Y\-%m\-%d %H:%M:%S"  （功能描述：显示年月日时分秒）
+5. date "\+%Y-%m-%d %H:%M:%S"  （功能描述：显示年月日时分秒）
 
 **2）案例实操**
 
 （1）显示当前时间信息
 
-\[root@hadoop101 \~\]\# date
+[root@hadoop101 \~]\# date
 
 2017年 06月 19日 星期一 20:53:30 CST
 
 （2）显示当前时间年月日
 
-\[root@hadoop101 \~\]\# date \+%Y%m%d
+[root@hadoop101 \~]\# date \+%Y%m%d
 
 20170619
 
 （3）显示当前时间年月日时分秒
 
-\[root@hadoop101 \~\]\# date "\+%Y\-%m\-%d %H:%M:%S"
+[root@hadoop101 \~]\# date "\+%Y-%m-%d %H:%M:%S"
 
-2017\-06\-19 20:54:58
+2017-06-19 20:54:58
 
-### 7\.3\.2 date 显示非当前时间
+### 7.3.2 date 显示非当前时间
 
 **1）基本语法**
 
-（1）date \-d '1 days ago'   （功能描述：显示前一天时间）
+（1）date -d '1 days ago'   （功能描述：显示前一天时间）
 
-（2）date \-d '\-1 days ago'   （功能描述：显示明天时间）
+（2）date -d '-1 days ago'   （功能描述：显示明天时间）
 
 **2）案例实操**
 
 （1）显示前一天
 
-\[root@hadoop101 \~\]\# date \-d '1 days ago'
+[root@hadoop101 \~]\# date -d '1 days ago'
 
 2017年 06月 18日 星期日 21:07:22 CST
 
 （2）显示明天时间
 
-\[root@hadoop101 \~\]\#date \-d '\-1 days ago'
+[root@hadoop101 \~]\#date -d '-1 days ago'
 
 2017年 06月 20日 星期日 21:07:22 CST
 
-### 7\.3\.3 date 设置系统时间
+### 7.3.3 date 设置系统时间
 
 **1）基本语法**
 
-date \-s 字符串时间
+date -s 字符串时间
 
 **2）案例实操**
 
 （1）设置系统当前时间
 
-\[root@hadoop101 \~\]\# date \-s "2017\-06\-19 20:52:18"
+[root@hadoop101 \~]\# date -s "2017-06-19 20:52:18"
 
-### 7\.3\.4 cal 查看日历
+### 7.3.4 cal 查看日历
 
 **1）基本语法**
 
-cal \[选项\]   （功能描述：不加选项，显示本月日历）
+cal [选项]   （功能描述：不加选项，显示本月日历）
 
 **2）选项说明**
 
@@ -1344,31 +1344,31 @@ cal \[选项\]   （功能描述：不加选项，显示本月日历）
 
 （1）查看当前月的日历
 
-\[root@hadoop101 \~\]\# cal
+[root@hadoop101 \~]\# cal
 
 （2）查看2017年的日历
 
-\[root@hadoop101 \~\]\# cal 2017
+[root@hadoop101 \~]\# cal 2017
 
-## 7\.4 用户管理命令
+## 7.4 用户管理命令
 
-### 7\.4\.1 useradd 添加新用户
+### 7.4.1 useradd 添加新用户
 
 **1）基本语法**
 
 useradd 用户名   （功能描述：添加新用户）
 
-useradd \-g 组名 用户名 （功能描述：添加新用户到某个组）
+useradd -g 组名 用户名 （功能描述：添加新用户到某个组）
 
 **2）案例实操**
 
 （1）添加一个用户
 
-\[root@hadoop101 \~\]\# useradd tangseng
+[root@hadoop101 \~]\# useradd tangseng
 
-\[root@hadoop101 \~\]\#ll /home/
+[root@hadoop101 \~]\#ll /home/
 
-### 7\.4\.2 passwd 设置用户密码
+### 7.4.2 passwd 设置用户密码
 
 **1）基本语法**
 
@@ -1378,9 +1378,9 @@ passwd 用户名 （功能描述：设置用户密码）
 
 （1）设置用户的密码
 
-\[root@hadoop101 \~\]\# passwd tangseng
+[root@hadoop101 \~]\# passwd tangseng
 
-### 7\.4\.3 id 查看用户是否存在
+### 7.4.3 id 查看用户是否存在
 
 **1）基本语法**
 
@@ -1390,15 +1390,15 @@ id 用户名
 
 （1）查看用户是否存在
 
-\[root@hadoop101 \~\]\#id tangseng
+[root@hadoop101 \~]\#id tangseng
 
-### 7\.4\.4 cat  /etc/passwd 查看创建了哪些用户
+### 7.4.4 cat  /etc/passwd 查看创建了哪些用户
 
 **1）基本语法**
 
-\[root@hadoop101 \~\]\# cat  /etc/passwd
+[root@hadoop101 \~]\# cat  /etc/passwd
 
-### 7\.4\.5 su 切换用户
+### 7.4.5 su 切换用户
 
 su: swith user 切换用户
 
@@ -1406,65 +1406,65 @@ su: swith user 切换用户
 
 su 用户名称   （功能描述：切换用户，只能获得用户的执行权限，不能获得环境变量）
 
-su \- 用户名称  （功能描述：切换到用户并获得该用户的环境变量及执行权限）
+su - 用户名称  （功能描述：切换到用户并获得该用户的环境变量及执行权限）
 
 **2）案例实操**
 
 （1）切换用户
 
-\[root@hadoop101 \~\]\#su tangseng
+[root@hadoop101 \~]\#su tangseng
 
 
 
-\[root@hadoop101 \~\]\#echo $PATH
+[root@hadoop101 \~]\#echo $PATH
 
-/usr/lib64/qt\-3\.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
+/usr/lib64/qt-3.3/bin:/usr/local/sbin:/usr/local/bin:/sbin:/bin:/usr/sbin:/usr/bin:/root/bin
 
-\[root@hadoop101 \~\]\#exit
+[root@hadoop101 \~]\#exit
 
-\[root@hadoop101 \~\]\#su \- tangseng
+[root@hadoop101 \~]\#su - tangseng
 
-\[root@hadoop101 \~\]\#echo $PATH
+[root@hadoop101 \~]\#echo $PATH
 
-/usr/lib64/qt\-3\.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/tangseng/bin
+/usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/tangseng/bin
 
-### 7\.4\.6 userdel 删除用户
+### 7.4.6 userdel 删除用户
 
 **1）基本语法**
 
 （1）userdel  用户名  （功能描述：删除用户但保存用户主目录）
 
-（2）userdel \-r 用户名  （功能描述：用户和用户主目录，都删除）
+（2）userdel -r 用户名  （功能描述：用户和用户主目录，都删除）
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-r|删除用户的同时，删除与用户相关的所有文件。|
+|-r|删除用户的同时，删除与用户相关的所有文件。|
 
 **3）案例实操**
 
 （1）删除用户但保存用户主目录
 
-\[root@hadoop101 \~\]\#userdel tangseng
+[root@hadoop101 \~]\#userdel tangseng
 
 
 
-\[root@hadoop101 \~\]\#ll /home/
+[root@hadoop101 \~]\#ll /home/
 
 （2）删除用户和用户主目录，都删除
 
-\[root@hadoop101 \~\]\#useradd zhubajie
+[root@hadoop101 \~]\#useradd zhubajie
 
-\[root@hadoop101 \~\]\#ll /home/
+[root@hadoop101 \~]\#ll /home/
 
 
 
-\[root@hadoop101 \~\]\#userdel \-r zhubajie
+[root@hadoop101 \~]\#userdel -r zhubajie
 
-\[root@hadoop101 \~\]\#ll /home/
+[root@hadoop101 \~]\#ll /home/
 
-### 7\.4\.7 who 查看登录用户信息
+### 7.4.7 who 查看登录用户信息
 
 **1）基本语法**
 
@@ -1476,41 +1476,41 @@ su \- 用户名称  （功能描述：切换到用户并获得该用户的环境
 
 （1）显示自身用户名称
 
-\[root@hadoop101 opt\]\# whoami
+[root@hadoop101 opt]\# whoami
 
 （2）显示登录用户的用户名
 
-\[root@hadoop101 opt\]\# who am i
+[root@hadoop101 opt]\# who am i
 
-### 7\.4\.8 sudo 设置普通用户具有root权限
+### 7.4.8 sudo 设置普通用户具有root权限
 
 **1）添加atguigu用户，并对其设置密码。**
 
-\[root@hadoop101 \~\]\#useradd atguigu
+[root@hadoop101 \~]\#useradd atguigu
 
 
 
-\[root@hadoop101 \~\]\#passwd atguigu
+[root@hadoop101 \~]\#passwd atguigu
 
 **2）修改配置文件**
 
-\[root@hadoop101 \~\]\#visudo
+[root@hadoop101 \~]\#visudo
 
-修改 /etc/sudoers 文件，找到下面一行\(91行\)，在root下面添加一行，如下所示：
+修改 /etc/sudoers 文件，找到下面一行(91行)，在root下面添加一行，如下所示：
 
 ## Allow root to run any commands anywhere
 
-root    ALL=\(ALL\)     ALL
+root    ALL=(ALL)     ALL
 
-atguigu   ALL=\(ALL\)     ALL
+atguigu   ALL=(ALL)     ALL
 
 或者配置成采用sudo命令时，不需要输入密码
 
 ## Allow root to run any commands anywhere
 
-root      ALL=\(ALL\)     ALL
+root      ALL=(ALL)     ALL
 
-atguigu   ALL=\(ALL\)     NOPASSWD:ALL
+atguigu   ALL=(ALL)     NOPASSWD:ALL
 
 修改完毕，现在可以用atguigu帐号登录，然后用命令 sudo ，即可获得root权限进行操作。
 
@@ -1518,29 +1518,29 @@ atguigu   ALL=\(ALL\)     NOPASSWD:ALL
 
 （1）用普通用户在/opt目录下创建一个文件夹
 
-\[atguigu@hadoop101 opt\]$ sudo mkdir module
+[atguigu@hadoop101 opt]$ sudo mkdir module
 
-\[root@hadoop101 opt\]\# chown atguigu:atguigu module/
+[root@hadoop101 opt]\# chown atguigu:atguigu module/
 
-### 7\.4\.9 usermod 修改用户
+### 7.4.9 usermod 修改用户
 
 **1）基本语法**
 
-usermod \-l 新用户名 老用户名
+usermod -l 新用户名 老用户名
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-l|改变用户名|
+|-l|改变用户名|
 
 **3）案例实操**
 
 （1）改变用户名
 
-\[root@hadoop101 opt\]\#usermod \-l pengyuyan huge
+[root@hadoop101 opt]\#usermod -l pengyuyan huge
 
-## 7\.5 用户组管理命令
+## 7.5 用户组管理命令
 
 每个用户都有一个用户组，系统可以对一个用户组中的所有用户进行集中管理。不同Linux 系统对用户组的规定有所不同。
 
@@ -1548,7 +1548,7 @@ usermod \-l 新用户名 老用户名
 
 用户组的管理涉及用户组的添加、删除和修改。组的增加、删除和修改实际上就是对/etc/group文件的更新。
 
-### 7\.5\.1 groupadd 新增组
+### 7.5.1 groupadd 新增组
 
 **1）基本语法**
 
@@ -1558,9 +1558,9 @@ groupadd 组名
 
 （1）添加一个xitianqujing组
 
-\[root@hadoop101 opt\]\#groupadd xitianqujing
+[root@hadoop101 opt]\#groupadd xitianqujing
 
-### 7\.5\.2 groupdel 删除组
+### 7.5.2 groupdel 删除组
 
 **1）基本语法**
 
@@ -1570,53 +1570,53 @@ groupdel 组名
 
 （1）删除xitianqujing组
 
-\[root@hadoop101 opt\]\# groupdel xitianqujing
+[root@hadoop101 opt]\# groupdel xitianqujing
 
-### 7\.5\.3 groupmod 修改组
+### 7.5.3 groupmod 修改组
 
 **1）基本语法**
 
-groupmod \-n 新组名 老组名
+groupmod -n 新组名 老组名
 
 **2）选项说明**
 
 |选项|功能描述|
 |---|---|
-|\-n\<新组名\>|指定工作组的新组名|
+|-n\<新组名\>|指定工作组的新组名|
 
 **3）案例实操**
 
 （1）修改xitianqujing组名称为xitian
 
-\[root@hadoop101 \~\]\#groupadd xitianqujing
+[root@hadoop101 \~]\#groupadd xitianqujing
 
-\[root@hadoop101 \~\]\#groupmod \-n xitian xitianqujing
+[root@hadoop101 \~]\#groupmod -n xitian xitianqujing
 
-### 7\.5\.3 usermod 修改用户组
+### 7.5.3 usermod 修改用户组
 
 **1）基本语法**
 
-usermod \-g 组名 用户名
+usermod -g 组名 用户名
 
 **2）选项说明**
 
 |选项|功能描述|
 |---|---|
-|\-g|指定用户需要加入的用户组 得写id|
+|-g|指定用户需要加入的用户组 得写id|
 
 **3）案例实操**
 
 （1）将用户切换一个组
 
-\[root@hadoop101 \~\]\#useradd zhubajie
+[root@hadoop101 \~]\#useradd zhubajie
 
-\[root@hadoop101 \~\]\#usermod \-g xitian zhubajie
+[root@hadoop101 \~]\#usermod -g xitian zhubajie
 
-### 7\.5\.4 cat  /etc/group 查看创建了哪些组
+### 7.5.4 cat  /etc/group 查看创建了哪些组
 
 **1）基本操作**
 
-\[root@hadoop101 atguigu\]\# cat  /etc/group
+[root@hadoop101 atguigu]\# cat  /etc/group
 
 
 
@@ -1684,13 +1684,13 @@ id 用户名
 
 - 实操案例
 
-    - \(1\) 查看创建的所有用户
+    - (1) 查看创建的所有用户
 
 ```Plain Text
 [root@centos100 ~]# cat /etc/passwd
 ```
 
-> su\(switch user \)切换用户
+> su(switch user )切换用户
 > 
 > 
 
@@ -1715,7 +1715,7 @@ su - 用户名称    （功能描述：切换到用户并获得该用户的环�
 /usr/lib64/qt-3.3/bin:/usr/local/bin:/bin:/usr/bin:/usr/local/sbin:/usr/sbin:/sbin:/home/tangseng/bin
 ```
 
-- \(2\) exit 回退到上一个用户
+- (2) exit 回退到上一个用户
 
 ```Plain Text
 [root@centos100 ~]#exit
@@ -1789,14 +1789,14 @@ sudo 命令
 
 - 实操案例
 
-    - \(1\) 添加atguigu用户，并对其设置密码
+    - (1) 添加atguigu用户，并对其设置密码
 
 ```Plain Text
 [root@centos100 ~]#useradd atguigu
 [root@centos100 ~]#passwd atguigu
 ```
 
-- \(2\)修改配置文件
+- (2)修改配置文件
 
 ```Plain Text
 [root@centos100 ~]#vi /etc/sudoers
@@ -1820,7 +1820,7 @@ atguigu  ALL=(ALL)   NOPASSWD:ALL
 修改完毕，现在可以用atguigu帐号登录，然后用命令 sudo ，即可获得root权限进行操作。
 ```
 
-- \(3\)用普通用户在/opt目录下创建一个文件夹
+- (3)用普通用户在/opt目录下创建一个文件夹
 
 ```Plain Text
 [atguigu@centos100 opt]$ sudo mkdir module
@@ -1904,63 +1904,63 @@ usermod -g 用户组 用户名
 
 
 
-## 7\.6 文件权限类
+## 7.6 文件权限类
 
-### 7\.6\.1 文件属性
+### 7.6.1 文件属性
 
-Linux系统是一种典型的多用户系统，不同的用户处于不同的地位，拥有不同的权限。为了保护系统的安全性，Linux系统对不同的用户访问同一文件（包括目录文件）的权限做了不同的规定。在Linux中我们可以使用ll或者ls \-l命令来显示一个文件的属性以及文件所属的用户和组。
+Linux系统是一种典型的多用户系统，不同的用户处于不同的地位，拥有不同的权限。为了保护系统的安全性，Linux系统对不同的用户访问同一文件（包括目录文件）的权限做了不同的规定。在Linux中我们可以使用ll或者ls -l命令来显示一个文件的属性以及文件所属的用户和组。
 
 **1）文件属性：从左到右的10个字符表示**
 
 
 
-如果没有权限，就会出现减号\[ \- \]而已。从左至右用0\-9这些数字来表示:
+如果没有权限，就会出现减号[ - ]而已。从左至右用0-9这些数字来表示:
 
 （1）0首位表示类型
 
 在Linux中第一个字符代表这个文件是目录、文件或链接文件等等
 
-\- 代表文件
+- 代表文件
 
 d 代表目录
 
-l 链接文档\(link file\)；
+l 链接文档(link file)；
 
-（2）第1\-3位确定属主（该文件的所有者）拥有该文件的权限。\-\-\-User
+（2）第1-3位确定属主（该文件的所有者）拥有该文件的权限。---User
 
-（3）第4\-6位确定属组（所有者的同组用户）拥有该文件的权限，\-\-\-Group
+（3）第4-6位确定属组（所有者的同组用户）拥有该文件的权限，---Group
 
-（4）第7\-9位确定其他用户拥有该文件的权限 \-\-\-Other
+（4）第7-9位确定其他用户拥有该文件的权限 ---Other
 
 **2）rxw作用文件和目录的不同解释**
 
 （1）作用到文件：
 
-\[ r \]代表可读（read）: 可以读取，查看
+[ r ]代表可读（read）: 可以读取，查看
 
-\[ w \]代表可写（write）: 可以修改，但是不代表可以删除该文件，删除一个文件的前提条件是对该文件所在的目录有写权限，才能删除该文件\.
+[ w ]代表可写（write）: 可以修改，但是不代表可以删除该文件，删除一个文件的前提条件是对该文件所在的目录有写权限，才能删除该文件.
 
-\[ x \]代表可执行（execute）:可以被系统执行
+[ x ]代表可执行（execute）:可以被系统执行
 
 （2）作用到目录：
 
-\[ r \]代表可读（read）: 可以读取，ls查看目录内容
+[ r ]代表可读（read）: 可以读取，ls查看目录内容
 
-\[ w \]代表可写（write）: 可以修改，目录内创建\+删除\+重命名目录
+[ w ]代表可写（write）: 可以修改，目录内创建\+删除\+重命名目录
 
-\[ x \]代表可执行（execute）:可以进入该目录
+[ x ]代表可执行（execute）:可以进入该目录
 
 **3）案例实操**
 
-\[root@hadoop101 \~\]\# ll
+[root@hadoop101 \~]\# ll
 
 总用量 104
 
-\-rw\-\-\-\-\-\-\-\. 1 root root  1248 1月   8 17:36 anaconda\-ks\.cfg
+-rw-------. 1 root root  1248 1月   8 17:36 anaconda-ks.cfg
 
-drwxr\-xr\-x\. 2 root root  4096 1月  12 14:02 dssz
+drwxr-xr-x. 2 root root  4096 1月  12 14:02 dssz
 
-lrwxrwxrwx\. 1 root root    20 1月  12 14:32 houzi \-\> xiyou/dssz/houge\.tx
+lrwxrwxrwx. 1 root root    20 1月  12 14:32 houzi -\> xiyou/dssz/houge.tx
 
 （1）文件基本属性介绍
 
@@ -1968,25 +1968,25 @@ lrwxrwxrwx\. 1 root root    20 1月  12 14:32 houzi \-\> xiyou/dssz/houge\.tx
 
 （2）如果查看到是文件：链接数指的是硬链接个数。创建硬链接方法
 
-ln \[原文件\] \[目标文件\]  
+ln [原文件] [目标文件]  
 
-\[root@hadoop101 \~\]\# ln xiyou/dssz/houge\.txt \./hg\.txt
+[root@hadoop101 \~]\# ln xiyou/dssz/houge.txt ./hg.txt
 
 （3）如果查看的是文件夹：链接数指的是子文件夹个数。
 
-\[root@hadoop101 \~\]\# ls \-al xiyou/
+[root@hadoop101 \~]\# ls -al xiyou/
 
 总用量 16
 
-drwxr\-xr\-x\.  4 root root 4096 1月  12 14:00 \.
+drwxr-xr-x.  4 root root 4096 1月  12 14:00 .
 
-dr\-xr\-x\-\-\-\. 29 root root 4096 1月  12 14:32 \.\.
+dr-xr-x---. 29 root root 4096 1月  12 14:32 ..
 
-drwxr\-xr\-x\.  2 root root 4096 1月  12 14:30 dssz
+drwxr-xr-x.  2 root root 4096 1月  12 14:30 dssz
 
-drwxr\-xr\-x\.  2 root root 4096 1月  12 14:04 mingjie
+drwxr-xr-x.  2 root root 4096 1月  12 14:04 mingjie
 
-### 7\.6\.2 chmod 改变权限
+### 7.6.2 chmod 改变权限
 
 **1）基本语法**
 
@@ -1994,15 +1994,15 @@ drwxr\-xr\-x\.  2 root root 4096 1月  12 14:04 mingjie
 
 （1）第一种方式变更权限
 
-chmod  \[\{ugoa\}\{\+\-=\}\{rwx\}\] 文件或目录
+chmod  [\{ugoa\}\{\+-=\}\{rwx\}] 文件或目录
 
 （2）第二种方式变更权限
 
-chmod  \[mode=421 \]  \[文件或目录\]
+chmod  [mode=421 ]  [文件或目录]
 
 **2）经验技巧**
 
-u:所有者  g:所有组  o:其他人  a:所有人\(u、g、o的总和\)
+u:所有者  g:所有组  o:其他人  a:所有人(u、g、o的总和)
 
 r=4 w=2 x=1        rwx=4\+2\+1=7
 
@@ -2010,77 +2010,77 @@ r=4 w=2 x=1        rwx=4\+2\+1=7
 
 （1）修改文件使其所属主用户具有执行权限
 
-\[root@hadoop101 \~\]\# cp xiyou/dssz/houge\.txt \./
+[root@hadoop101 \~]\# cp xiyou/dssz/houge.txt ./
 
-\[root@hadoop101 \~\]\# chmod u\+x houge\.txt
+[root@hadoop101 \~]\# chmod u\+x houge.txt
 
 （2）修改文件使其所属组用户具有执行权限
 
-\[root@hadoop101 \~\]\# chmod g\+x houge\.txt
+[root@hadoop101 \~]\# chmod g\+x houge.txt
 
 （3）修改文件所属主用户执行权限,并使其他用户具有执行权限
 
-\[root@hadoop101 \~\]\# chmod u\-x,o\+x houge\.txt
+[root@hadoop101 \~]\# chmod u-x,o\+x houge.txt
 
 （4）采用数字的方式，设置文件所有者、所属组、其他用户都具有可读可写可执行权限。
 
-\[root@hadoop101 \~\]\# chmod 777 houge\.txt
+[root@hadoop101 \~]\# chmod 777 houge.txt
 
 （5）修改整个文件夹里面的所有文件的所有者、所属组、其他用户都具有可读可写可执行权限。
 
-\[root@hadoop101 \~\]\# chmod \-R 777 xiyou/
+[root@hadoop101 \~]\# chmod -R 777 xiyou/
 
-### 7\.6\.3 chown 改变所有者（所属用户，所属主）
+### 7.6.3 chown 改变所有者（所属用户，所属主）
 
 **1）基本语法**
 
-chown \[选项\] \[最终用户\] \[文件或目录\]  （功能描述：改变文件或者目录的所有者）
+chown [选项] [最终用户] [文件或目录]  （功能描述：改变文件或者目录的所有者）
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-R|递归操作|
+|-R|递归操作|
 
 **3）案例实操**
 
 （1）修改文件所有者
 
-\[root@hadoop101 \~\]\# chown atguigu houge\.txt 
+[root@hadoop101 \~]\# chown atguigu houge.txt 
 
-\[root@hadoop101 \~\]\# ls \-al
+[root@hadoop101 \~]\# ls -al
 
-\-rwxrwxrwx\. 1 atguigu root 551 5月  23 13:02 houge\.txt
+-rwxrwxrwx. 1 atguigu root 551 5月  23 13:02 houge.txt
 
 （2）递归改变文件所有者和所有组
 
-\[root@hadoop101 xiyou\]\# ll
+[root@hadoop101 xiyou]\# ll
 
-drwxrwxrwx\. 2 root root 4096 9月   3 21:20 xiyou
+drwxrwxrwx. 2 root root 4096 9月   3 21:20 xiyou
 
-\[root@hadoop101 xiyou\]\# chown \-R atguigu:atguigu xiyou/
+[root@hadoop101 xiyou]\# chown -R atguigu:atguigu xiyou/
 
-\[root@hadoop101 xiyou\]\# ll
+[root@hadoop101 xiyou]\# ll
 
-drwxrwxrwx\. 2 atguigu atguigu 4096 9月   3 21:20 xiyou
+drwxrwxrwx. 2 atguigu atguigu 4096 9月   3 21:20 xiyou
 
-### 7\.6\.4 chgrp 改变所属组
+### 7.6.4 chgrp 改变所属组
 
 **1）基本语法**
 
-chgrp \[最终用户组\] \[文件或目录\] （功能描述：改变文件或者目录的所属组）
+chgrp [最终用户组] [文件或目录] （功能描述：改变文件或者目录的所属组）
 
 **2）案例实操**
 
 （1）修改文件的所属组
 
-\[root@hadoop101 \~\]\# chgrp root houge\.txt
+[root@hadoop101 \~]\# chgrp root houge.txt
 
-\[root@hadoop101 \~\]\# ls \-al
+[root@hadoop101 \~]\# ls -al
 
-\-rwxrwxrwx\. 1 atguigu root 551 5月  23 13:02 houge\.txt
+-rwxrwxrwx. 1 atguigu root 551 5月  23 13:02 houge.txt
 
-## 7\.7 搜索查找类
+## 7.7 搜索查找类
 
 ```Bash
 1.查找可执行的命令：
@@ -2147,7 +2147,7 @@ a* : 任意多个a(零个或多个a)
 a? : 零个或一个a
 a+ : 一个或多个a
 .* : 任意多个任意字符
-\. : 转义.
+. : 转义.
 \<h.*p\> ：以h开头，p结尾的一个单词
 o\{2\} : o重复两次
 
@@ -2167,35 +2167,35 @@ grep '^[^h-r]' /etc/passwd
 
 ```
 
-### 7\.7\.1 find 查找文件或者目录
+### 7.7.1 find 查找文件或者目录
 
 find指令将从指定目录向下递归地遍历其各个子目录，将满足条件的文件显示在终端。
 
 **1）基本语法**
 
-find \[搜索范围\] \[选项\]
+find [搜索范围] [选项]
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-name\<查询方式\>|按照指定的文件名查找模式查找文件|
-|\-user\<查询方式\>|查找属于指定用户名所有文件|
-|\-size\<文件大小\>|按照指定的文件大小查找文件,单位为:** **<br>**b** —— 块（512字节）<br>**c** —— 字节<br>**w** —— 字（2字节）<br>**k** —— 千字节<br>**M** —— 兆字节<br>**G** —— 吉字节|
+|-name\<查询方式\>|按照指定的文件名查找模式查找文件|
+|-user\<查询方式\>|查找属于指定用户名所有文件|
+|-size\<文件大小\>|按照指定的文件大小查找文件,单位为:** **<br>**b** —— 块（512字节）<br>**c** —— 字节<br>**w** —— 字（2字节）<br>**k** —— 千字节<br>**M** —— 兆字节<br>**G** —— 吉字节|
 
 **3）案例实操**
 
-（1）按文件名：根据名称查找/目录下的filename\.txt文件。
+（1）按文件名：根据名称查找/目录下的filename.txt文件。
 
-\[root@hadoop101 \~\]\# find / \-name \*\.txt
+[root@hadoop101 \~]\# find / -name *.txt
 
-（2）按拥有者：查找/opt目录下，用户名称为\-user的文件
+（2）按拥有者：查找/opt目录下，用户名称为-user的文件
 
-\[root@hadoop101 \~\]\# find /opt \-user atguigu
+[root@hadoop101 \~]\# find /opt -user atguigu
 
-（3）按文件大小：在/home目录下查找大于200m的文件（\+n 大于  \-n小于   n等于）
+（3）按文件大小：在/home目录下查找大于200m的文件（\+n 大于  -n小于   n等于）
 
-\[root@hadoop101 \~\]find /home \-size \+204800c
+[root@hadoop101 \~]find /home -size \+204800c
 
 
 
@@ -2216,19 +2216,19 @@ find [搜索范围] [选项]
 
 - 实操案例
 
-    - （1）按文件名：根据名称查找/目录下的filename\.txt文件。
+    - （1）按文件名：根据名称查找/目录下的filename.txt文件。
 
 ```Plain Text
 [root@centos100 ~]# find xiyou/ -name “*.txt”
 ```
 
-- （2）按拥有者：查找/opt目录下，用户名称为\-user的文件
+- （2）按拥有者：查找/opt目录下，用户名称为-user的文件
 
 ```Plain Text
 [root@centos100 ~]# find opt/ -user atguigu
 ```
 
-- （3）按文件大小：在/home目录下查找大于200m的文件（\+n 大于 \-n小于 n等于）
+- （3）按文件大小：在/home目录下查找大于200m的文件（\+n 大于 -n小于 n等于）
 
 ```Plain Text
 [root@centos100 ~]find /home -size +204800
@@ -2263,7 +2263,7 @@ grep 选项 查找内容 源文件
 
 
 
-### 7\.7\.2 locate快速定位文件路径
+### 7.7.2 locate快速定位文件路径
 
 locate指令利用事先建立的系统中所有文件名称及路径的locate数据库实现快速定位给定的文件。Locate指令无需遍历整个文件系统，查询速度较快。为了保证查询结果的准确度，管理员必须定期更新locate时刻,注意locate这个命令不能搜索/tmp目录下的文件。
 
@@ -2279,11 +2279,11 @@ locate 搜索文件
 
 （1）查询文件夹
 
-\[root@hadoop101 \~\]\# updatedb
+[root@hadoop101 \~]\# updatedb
 
-\[root@hadoop101 \~\]\#locate tmp
+[root@hadoop101 \~]\#locate tmp
 
-### 7\.7\.3 grep 过滤查找及“\|”管道符
+### 7.7.3 grep 过滤查找及“\|”管道符
 
 管道符，“\|”，表示将前一个命令的处理结果输出传递给后面的命令处理。
 
@@ -2295,23 +2295,23 @@ grep 选项 查找内容 源文件
 
 |选项|功能|
 |---|---|
-|\-n|显示匹配行及行号。|
+|-n|显示匹配行及行号。|
 
 **3）案例实操**
 
 （1）查找某文件在第几行
 
-\[root@hadoop101 \~\]\# ls \| grep \-n test
+[root@hadoop101 \~]\# ls \| grep -n test
 
-## 7\.8 压缩和解压类
+## 7.8 压缩和解压类
 
-### 7\.8\.1 gzip/gunzip 压缩
+### 7.8.1 gzip/gunzip 压缩
 
 **1）基本语法**
 
-gzip 文件  （功能描述：压缩文件，只能将文件压缩为\*\.gz文件）
+gzip 文件  （功能描述：压缩文件，只能将文件压缩为*.gz文件）
 
-gunzip 文件\.gz （功能描述：解压缩文件命令）
+gunzip 文件.gz （功能描述：解压缩文件命令）
 
 **2）经验技巧**
 
@@ -2323,43 +2323,43 @@ gunzip 文件\.gz （功能描述：解压缩文件命令）
 
 （1）gzip压缩
 
-\[root@hadoop101 \~\]\# ls
+[root@hadoop101 \~]\# ls
 
-test\.java
+test.java
 
-\[root@hadoop101 \~\]\# gzip houge\.txt
+[root@hadoop101 \~]\# gzip houge.txt
 
-\[root@hadoop101 \~\]\# ls
+[root@hadoop101 \~]\# ls
 
-houge\.txt\.gz
+houge.txt.gz
 
 （2）gunzip解压缩文件
 
-\[root@hadoop101 \~\]\# gunzip houge\.txt\.gz 
+[root@hadoop101 \~]\# gunzip houge.txt.gz 
 
-\[root@hadoop101 \~\]\# ls
+[root@hadoop101 \~]\# ls
 
-houge\.txt
+houge.txt
 
-### 7\.8\.2 zip/unzip 压缩
+### 7.8.2 zip/unzip 压缩
 
 **1）基本语法**
 
-zip  \[选项\] XXX\.zip  将要压缩的内容   （功能描述：压缩文件和目录的命令）
+zip  [选项] XXX.zip  将要压缩的内容   （功能描述：压缩文件和目录的命令）
 
-unzip \[选项\] XXX\.zip      （功能描述：解压缩文件）
+unzip [选项] XXX.zip      （功能描述：解压缩文件）
 
 **2）选项说明**
 
 |zip选项|功能|
 |---|---|
-|\-r|压缩目录|
+|-r|压缩目录|
 
 
 
 |unzip选项|功能|
 |---|---|
-|\-d\<目录\>|指定解压后文件的存放目录|
+|-d\<目录\>|指定解压后文件的存放目录|
 
 **3）经验技巧**
 
@@ -2367,79 +2367,79 @@ zip 压缩命令在window/linux都通用，可以压缩目录且保留源文件�
 
 **4）案例实操**
 
-（1）压缩 1\.txt 和2\.txt，压缩后的名称为mypackage\.zip 
+（1）压缩 1.txt 和2.txt，压缩后的名称为mypackage.zip 
 
-\[root@hadoop101 opt\]\# touch bailongma\.txt
-
-
-
-\[root@hadoop101 \~\]\# zip mypackage\.zip houge\.txt bailongma\.txt
-
-adding: houge\.txt \(stored 0%\)
-
-adding: bailongma\.txt \(stored 0%\)
+[root@hadoop101 opt]\# touch bailongma.txt
 
 
 
-\[root@hadoop101 opt\]\# ls
+[root@hadoop101 \~]\# zip mypackage.zip houge.txt bailongma.txt
 
-houge\.txt bailongma\.txt houma\.zip 
+adding: houge.txt (stored 0%)
 
-（2）解压 mypackage\.zip
-
-\[root@hadoop101 \~\]\# unzip mypackage\.zip 
-
-Archive:  houma\.zip
-
-extracting: houge\.txt extracting: bailongma\.txt       
+adding: bailongma.txt (stored 0%)
 
 
 
-\[root@hadoop101 \~\]\# ls
+[root@hadoop101 opt]\# ls
 
-houge\.txt bailongma\.txt houma\.zip 
+houge.txt bailongma.txt houma.zip 
 
-（3）解压mypackage\.zip到指定目录\-d
+（2）解压 mypackage.zip
 
-\[root@hadoop101 \~\]\# unzip houma\.zip \-d /opt
+[root@hadoop101 \~]\# unzip mypackage.zip 
 
-\[root@hadoop101 \~\]\# ls /opt/
+Archive:  houma.zip
 
-### 7\.8\.3 tar 打包
+extracting: houge.txt extracting: bailongma.txt       
+
+
+
+[root@hadoop101 \~]\# ls
+
+houge.txt bailongma.txt houma.zip 
+
+（3）解压mypackage.zip到指定目录-d
+
+[root@hadoop101 \~]\# unzip houma.zip -d /opt
+
+[root@hadoop101 \~]\# ls /opt/
+
+### 7.8.3 tar 打包
 
 **1）基本语法**
 
-tar  \[选项\]  XXX\.tar\.gz  将要打包进去的内容  （功能描述：打包目录，压缩后的文件格式\.tar\.gz）
+tar  [选项]  XXX.tar.gz  将要打包进去的内容  （功能描述：打包目录，压缩后的文件格式.tar.gz）
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-c|产生\.tar打包文件|
-|\-v|显示详细信息|
-|\-f|指定被处理的档案名|
-|\-z|用gzip对存档进行压缩或解压|
-|\-x|解包\.tar文件|
+|-c|产生.tar打包文件|
+|-v|显示详细信息|
+|-f|指定被处理的档案名|
+|-z|用gzip对存档进行压缩或解压|
+|-x|解包.tar文件|
 
 **3）案例实操**
 
 （1）压缩多个文件
 
-\[root@hadoop101 opt\]\# tar \-zcvf houma\.tar\.gz houge\.txt bailongma\.txt 
+[root@hadoop101 opt]\# tar -zcvf houma.tar.gz houge.txt bailongma.txt 
 
-houge\.txt
+houge.txt
 
-bailongma\.txt
+bailongma.txt
 
 
 
-\[root@hadoop101 opt\]\# ls
+[root@hadoop101 opt]\# ls
 
-houma\.tar\.gz houge\.txt bailongma\.txt 
+houma.tar.gz houge.txt bailongma.txt 
 
 （2）压缩目录
 
-\[root@hadoop101 \~\]\# tar \-zcvf xiyou\.tar\.gz xiyou/
+[root@hadoop101 \~]\# tar -zcvf xiyou.tar.gz xiyou/
 
 xiyou/
 
@@ -2447,17 +2447,17 @@ xiyou/mingjie/
 
 xiyou/dssz/
 
-xiyou/dssz/houge\.txt
+xiyou/dssz/houge.txt
 
 （3）解压到当前目录
 
-\[root@hadoop101 \~\]\# tar \-zxvf houma\.tar\.gz
+[root@hadoop101 \~]\# tar -zxvf houma.tar.gz
 
 （4）解压到指定目录
 
-\[root@hadoop101 \~\]\# tar \-zxvf xiyou\.tar\.gz \-C /opt
+[root@hadoop101 \~]\# tar -zxvf xiyou.tar.gz -C /opt
 
-\[root@hadoop101 \~\]\# ll /opt/
+[root@hadoop101 \~]\# ll /opt/
 
 
 
@@ -2546,7 +2546,7 @@ houge.txt bailongma.txt  houma.zip
 houge.txt bailongma.txt  houma.zip
 ```
 
-- （3）解压到指定目录\-d
+- （3）解压到指定目录-d
 
 ```Plain Text
 [root@centos100 ~]# unzip houma.zip -d /opt
@@ -2663,9 +2663,9 @@ tar -jxvf a.tar.bz2
 
 
 
-## 7\.9 磁盘分区类
+## 7.9 磁盘分区类
 
-### 7\.9\.1 df 查看磁盘空间使用情况 
+### 7.9.1 df 查看磁盘空间使用情况 
 
 df: disk free 空余硬盘
 
@@ -2677,23 +2677,23 @@ df  选项 （功能描述：列出文件系统的整体磁盘使用量，检查
 
 |选项|功能|
 |---|---|
-|\-h|以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显示；|
+|-h|以人们较易阅读的 GBytes, MBytes, KBytes 等格式自行显示；|
 
 **3）案例实操**
 
 （1）查看磁盘使用情况
 
-\[root@hadoop101 \~\]\# df \-h
+[root@hadoop101 \~]\# df -h
 
 Filesystem      Size  Used Avail Use% Mounted on
 
-/dev/sda2        15G  3\.5G   11G  26% /
+/dev/sda2        15G  3.5G   11G  26% /
 
 tmpfs           939M  224K  939M   1% /dev/shm
 
 /dev/sda1       190M   39M  142M  22% /boot
 
-### 7\.9\.2 du 文件和目录的磁盘使用空间 
+### 7.9.2 du 文件和目录的磁盘使用空间 
 
 **1）基本语法**
 
@@ -2703,39 +2703,39 @@ du 目录/文件（功能描述：显示每个目录/文件的磁盘使用空间
 
 |选项|功能|
 |---|---|
-|\-a|显示当前目录下所有的文件目录及子目录大小|
+|-a|显示当前目录下所有的文件目录及子目录大小|
 
 **3）案例实操**
 
 （1）查看目录的空间使用情况
 
-\[root@hadoop101 \~\]\# du jinyong
+[root@hadoop101 \~]\# du jinyong
 
 jinyong/     
 
 
 
-\[root@hadoop101 \~\]\# du \-a jinyong
+[root@hadoop101 \~]\# du -a jinyong
 
-4 jinyong/linghuchong\.txt
+4 jinyong/linghuchong.txt
 
-2972 jinyong/xiaoaojianghu\.txt
+2972 jinyong/xiaoaojianghu.txt
 
-8 jinyong/catalina\.properties
+8 jinyong/catalina.properties
 
 2988 jinyong/
 
-### 7\.9\.3 fdisk 查看分区 
+### 7.9.3 fdisk 查看分区 
 
 **1）基本语法**
 
-fdisk \-l   （功能描述：查看磁盘分区详情）
+fdisk -l   （功能描述：查看磁盘分区详情）
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-l|显示所有硬盘的分区列表|
+|-l|显示所有硬盘的分区列表|
 
 **3）经验技巧**
 
@@ -2767,17 +2767,17 @@ System：分区类型
 
 （1）查看系统分区情况
 
-\[root@hadoop101 /\]\# fdisk \-l
+[root@hadoop101 /]\# fdisk -l
 
-Disk /dev/sda: 21\.5 GB, 21474836480 bytes
+Disk /dev/sda: 21.5 GB, 21474836480 bytes
 
 255 heads, 63 sectors/track, 2610 cylinders
 
-Units = cylinders of 16065 \* 512 = 8225280 bytes
+Units = cylinders of 16065 * 512 = 8225280 bytes
 
-Sector size \(logical/physical\): 512 bytes / 512 bytes
+Sector size (logical/physical): 512 bytes / 512 bytes
 
-I/O size \(minimum/optimal\): 512 bytes / 512 bytes
+I/O size (minimum/optimal): 512 bytes / 512 bytes
 
 Disk identifier: 0x0005e654
 
@@ -2785,15 +2785,15 @@ Disk identifier: 0x0005e654
 
 Device Boot      Start         End      Blocks   Id  System
 
-/dev/sda1   \*           1          26      204800   83  Linux
+/dev/sda1   *           1          26      204800   83  Linux
 
-Partition 1 does not end on cylinder boundary\.
+Partition 1 does not end on cylinder boundary.
 
 /dev/sda2              26        1332    10485760   83  Linux
 
 /dev/sda3            1332        1593     2097152   82  Linux swap / Solaris
 
-### 7\.9\.4 lsblk 查看设备挂载情况
+### 7.9.4 lsblk 查看设备挂载情况
 
 **1）基本语法**
 
@@ -2803,9 +2803,9 @@ lsblk    （功能描述：查看设备挂载情况）
 
 |选项|功能|
 |---|---|
-|\-f|查看详细的设备挂载情况，显示文件系统信息|
+|-f|查看详细的设备挂载情况，显示文件系统信息|
 
-### 7\.9\.5 mount/umount 挂载/卸载
+### 7.9.5 mount/umount 挂载/卸载
 
 对于Linux用户来讲，不论有几个分区，分别分给哪一个目录使用，它总归就是一个根目录、一个独立且唯一的文件结构。
 
@@ -2817,7 +2817,7 @@ Linux中每个分区都是用来组成整个文件系统的一部分，它在用
 
 **2）基本语法**
 
-mount \[\-t vfstype\] \[\-o options\] device dir （功能描述：挂载设备）
+mount [-t vfstype] [-o options] device dir （功能描述：挂载设备）
 
 umount 设备文件名或挂载点   （功能描述：卸载设备）
 
@@ -2825,10 +2825,10 @@ umount 设备文件名或挂载点   （功能描述：卸载设备）
 
 |参数|功能|
 |---|---|
-|\-t vfstype|指定文件系统的类型，通常不必指定。mount 会自动选择正确的类型。常用类型有：<br>光盘或光盘镜像：iso9660<br>DOS fat16文件系统：msdos<br>[Windows](http://blog.csdn.net/hancunai0017/article/details/6995284) 9x fat32文件系统：vfat<br>Windows NT ntfs文件系统：ntfs<br>Mount Windows文件[网络](http://blog.csdn.net/hancunai0017/article/details/6995284)共享：smbfs<br>[UNIX](http://blog.csdn.net/hancunai0017/article/details/6995284)\(LINUX\) 文件网络共享：nfs|
-|\-o options|主要用来描述设备或档案的挂接方式。常用的参数有：<br>loop：用来把一个文件当成硬盘分区挂接上系统<br>ro：采用只读方式挂接设备<br>rw：采用读写方式挂接设备<br>　  iocharset：指定访问文件系统所用字符集|
-|device|要挂接\(mount\)的设备|
-|dir|设备在系统上的挂接点\(mount point\)|
+|-t vfstype|指定文件系统的类型，通常不必指定。mount 会自动选择正确的类型。常用类型有：<br>光盘或光盘镜像：iso9660<br>DOS fat16文件系统：msdos<br>[Windows](http://blog.csdn.net/hancunai0017/article/details/6995284) 9x fat32文件系统：vfat<br>Windows NT ntfs文件系统：ntfs<br>Mount Windows文件[网络](http://blog.csdn.net/hancunai0017/article/details/6995284)共享：smbfs<br>[UNIX](http://blog.csdn.net/hancunai0017/article/details/6995284)(LINUX) 文件网络共享：nfs|
+|-o options|主要用来描述设备或档案的挂接方式。常用的参数有：<br>loop：用来把一个文件当成硬盘分区挂接上系统<br>ro：采用只读方式挂接设备<br>rw：采用读写方式挂接设备<br>　  iocharset：指定访问文件系统所用字符集|
+|device|要挂接(mount)的设备|
+|dir|设备在系统上的挂接点(mount point)|
 
 **4）案例实操**
 
@@ -2836,21 +2836,21 @@ umount 设备文件名或挂载点   （功能描述：卸载设备）
 
 ①建立挂载点
 
-\[root@hadoop101 \~\]\# mkdir /mnt/cdrom/      
+[root@hadoop101 \~]\# mkdir /mnt/cdrom/      
 
 ②设备/dev/cdrom挂载到 挂载点：/mnt/cdrom中
 
-\[root@hadoop101 \~\]\# mount \-t iso9660 /dev/cdrom /mnt/cdrom/ 
+[root@hadoop101 \~]\# mount -t iso9660 /dev/cdrom /mnt/cdrom/ 
 
-\[root@hadoop101 \~\]\# ll /mnt/cdrom/
+[root@hadoop101 \~]\# ll /mnt/cdrom/
 
 （2）卸载光盘镜像文件
 
-\[root@hadoop101 \~\]\# umount /mnt/cdrom
+[root@hadoop101 \~]\# umount /mnt/cdrom
 
 **5）设置开机自动挂载**
 
-\[root@hadoop101 \~\]\# vi /etc/fstab
+[root@hadoop101 \~]\# vi /etc/fstab
 
 添加红框中内容，保存退出。
 
@@ -2860,7 +2860,7 @@ umount 设备文件名或挂载点   （功能描述：卸载设备）
 
 
 
-> df \(disk free 空余硬盘\)查看磁盘空间使用情况
+> df (disk free 空余硬盘)查看磁盘空间使用情况
 > 
 > 
 
@@ -2949,7 +2949,7 @@ Partition 1 does not end on cylinder boundary.
 Linux中每个分区都是用来组成整个文件系统的一部分，它在用一种叫做“挂载”的处理方法，它整个文件系统中包含了一整套的文件和目录，并将一个分区和一个目录联系起来，要载入的那个分区将使它的存储空间在这个目录下获得。
 ```
 
-- \(1\)挂载前准备（必须要有光盘或者已经连接镜像文件） 
+- (1)挂载前准备（必须要有光盘或者已经连接镜像文件） 
 
 - 基本语法
 
@@ -2984,7 +2984,7 @@ umount 设备文件名或挂载点         （功能描述：卸载设备）
 
 - 添加红框中内容，保存退出
 
-![HsjjbEwiioHK8VxB1wocqxo0nag\.png](./images/HsjjbEwiioHK8VxB1wocqxo0nag.png)
+![HsjjbEwiioHK8VxB1wocqxo0nag.png](./images/HsjjbEwiioHK8VxB1wocqxo0nag.png)
 
 
 
@@ -3004,7 +3004,7 @@ umount 设备文件名或挂载点         （功能描述：卸载设备）
 
     - `-H` ：以 M=1000K 取代 M=1024K 的进位方式；
 
-    - `-T` ：显示文件系统类型, 连同该 partition 的 filesystem 名称 \(例如 ext3\) 也列出；
+    - `-T` ：显示文件系统类型, 连同该 partition 的 filesystem 名称 (例如 ext3) 也列出；
 
     - `-i` ：不用硬盘容量，而以 inode 的数量来显示
 
@@ -3012,11 +3012,11 @@ umount 设备文件名或挂载点         （功能描述：卸载设备）
 
     - `-a` ：列出所有的文件与目录容量，因为默认仅统计目录底下的文件量而已。
 
-    - `-h` ：以人们较易读的容量格式 \(G/M\) 显示；
+    - `-h` ：以人们较易读的容量格式 (G/M) 显示；
 
     - `-s` ：列出总量而已，而不列出每个各别的目录占用容量；
 
-    - `-S` ：不包括子目录下的总计，与 \-s 有点差别。
+    - `-S` ：不包括子目录下的总计，与 -s 有点差别。
 
     - `-k` ：以 KBytes 列出容量显示；
 
@@ -3024,11 +3024,11 @@ umount 设备文件名或挂载点         （功能描述：卸载设备）
 
 - `fdisk`：用于磁盘分区
 
-    - `-l` ：输出后面接的装置所有的分区内容。若仅有 fdisk \-l 时， 则系统将会把整个系统内能够搜寻到的装置的分区均列出来。
+    - `-l` ：输出后面接的装置所有的分区内容。若仅有 fdisk -l 时， 则系统将会把整个系统内能够搜寻到的装置的分区均列出来。
 
 - `mkfs [-t 文件系统格式] 装置文件名` 磁盘格式化
 
-    - `-t` ：可以接文件系统格式，例如 ext3, ext2, vfat 等\(系统有支持才会生效\)
+    - `-t` ：可以接文件系统格式，例如 ext3, ext2, vfat 等(系统有支持才会生效)
 
 - `fsck [-t 文件系统] [-ACay] 装置名称` 磁盘检验,用来检查和维护不一致的文件系统。若系统掉电或磁盘发生问题，可利用fsck命令对文件系统进行检查。
 
@@ -3042,9 +3042,9 @@ umount 设备文件名或挂载点         （功能描述：卸载设备）
 
     - `-d` : 打印出 e2fsck 的 debug 结果
 
-    - `-p` : 同时有 \-A 条件时，同时有多个 fsck 的检查一起执行
+    - `-p` : 同时有 -A 条件时，同时有多个 fsck 的检查一起执行
 
-    - `-R` : 同时有 \-A 条件时，省略 / 不检查
+    - `-R` : 同时有 -A 条件时，省略 / 不检查
 
     - `-V` : 详细显示模式
 
@@ -3052,13 +3052,13 @@ umount 设备文件名或挂载点         （功能描述：卸载设备）
 
     - `-r` : 如果检查有错则由使用者回答是否修复
 
-    - `-y` : 选项指定检测每个文件是自动输入yes，在不确定那些是不正常的时候，可以执行 \# fsck \-y 全部检查修复。
+    - `-y` : 选项指定检测每个文件是自动输入yes，在不确定那些是不正常的时候，可以执行 \# fsck -y 全部检查修复。
 
 - `mount [-t 文件系统] [-L Label名] [-o 额外选项] [-n]  装置文件名  挂载点` 磁盘挂载与卸除
 
 - `umount [-fn] 装置文件名或挂载点` 磁盘卸除
 
-    - `-f` ：强制卸除！可用在类似网络文件系统 \(NFS\) 无法读取到的情况下；
+    - `-f` ：强制卸除！可用在类似网络文件系统 (NFS) 无法读取到的情况下；
 
     - `-n` ：不升级 /etc/mtab 情况下卸除。
 
@@ -3066,11 +3066,11 @@ umount 设备文件名或挂载点         （功能描述：卸载设备）
 
 
 
-## 7\.10 进程线程类
+## 7.10 进程线程类
 
 进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源。
 
-> ps \(process status 进程状态\)查看当前系统进程状态
+> ps (process status 进程状态)查看当前系统进程状态
 > 
 > 
 
@@ -3085,7 +3085,7 @@ ps -ef  | grep xxx     （功能描述：可以查看子父进程之间的关系
 
 - 功能说明
 
-    - （1）ps \-aux显示信息说明
+    - （1）ps -aux显示信息说明
 
 ```Plain Text
 USER：该进程是由哪个用户产生的
@@ -3101,7 +3101,7 @@ TIME：该进程占用CPU的运算时间，注意不是系统时间
 COMMAND：产生此进程的命令名
 ```
 
-- （2）ps \-ef显示信息说明
+- （2）ps -ef显示信息说明
 
 ```Plain Text
 UID：用户ID 
@@ -3127,13 +3127,13 @@ CMD：启动进程所用的命令和参数
 [root@centos100 datas]# ps -aux
 ```
 
-![GWAzbYAltoAFJHxEKlTcyst8nVc\.png](./images/GWAzbYAltoAFJHxEKlTcyst8nVc.png)
+![GWAzbYAltoAFJHxEKlTcyst8nVc.png](./images/GWAzbYAltoAFJHxEKlTcyst8nVc.png)
 
 ```Plain Text
 [root@centos100 datas]# ps -ef
 ```
 
-![TQKDbq800otPbhxnSyDcgYDtnLb\.png](./images/TQKDbq800otPbhxnSyDcgYDtnLb.png)
+![TQKDbq800otPbhxnSyDcgYDtnLb.png](./images/TQKDbq800otPbhxnSyDcgYDtnLb.png)
 
 > kill终止进程
 > 
@@ -3202,27 +3202,27 @@ kill -9 4333
 
 进程是正在执行的一个程序或命令，每一个进程都是一个运行的实体，都有自己的地址空间，并占用一定的系统资源。
 
-### 7\.10\.1 ps 查看当前系统进程状态
+### 7.10.1 ps 查看当前系统进程状态
 
 ps:process status 进程状态
 
 **1）基本语法**
 
-ps \-aux \| grep xxx  （功能描述：查看系统中所有进程）
+ps -aux \| grep xxx  （功能描述：查看系统中所有进程）
 
-ps \-ef \| grep xxx  （功能描述：可以查看子父进程之间的关系）
+ps -ef \| grep xxx  （功能描述：可以查看子父进程之间的关系）
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-a|选择所有进程|
-|\-u|显示所有用户的所有进程|
-|\-x|显示没有终端的进程|
+|-a|选择所有进程|
+|-u|显示所有用户的所有进程|
+|-x|显示没有终端的进程|
 
 **3）功能说明**
 
-（1）ps \-aux显示信息说明
+（1）ps -aux显示信息说明
 
 USER：该进程是由哪个用户产生的
 
@@ -3236,7 +3236,7 @@ VSZ：该进程占用虚拟内存的大小，单位KB；
 
 RSS：该进程占用实际物理内存的大小，单位KB；
 
-TTY：该进程是在哪个终端中运行的。其中tty1\-tty7代表本地控制台终端，tty1\-tty6是本地的字符界面终端，tty7是图形终端。pts/0\-255代表虚拟终端。
+TTY：该进程是在哪个终端中运行的。其中tty1-tty7代表本地控制台终端，tty1-tty6是本地的字符界面终端，tty7是图形终端。pts/0-255代表虚拟终端。
 
 STAT：进程状态。常见的状态有：R：运行、S：睡眠、T：停止状态、s：包含子进程、\+：位于后台
 
@@ -3246,7 +3246,7 @@ TIME：该进程占用CPU的运算时间，注意不是系统时间
 
 COMMAND：产生此进程的命令名
 
-（2）ps \-ef显示信息说明
+（2）ps -ef显示信息说明
 
 UID：用户ID 
 
@@ -3274,21 +3274,21 @@ CMD：启动进程所用的命令和参数
 
 （1）查看进程的CPU占用率和内存占用率
 
-\[root@hadoop101 datas\]\# ps aux
+[root@hadoop101 datas]\# ps aux
 
 
 
 （2）查看进程的父进程ID
 
-\[root@hadoop101 datas\]\# ps \-ef
+[root@hadoop101 datas]\# ps -ef
 
 
 
-### 7\.10\.2 kill 终止进程
+### 7.10.2 kill 终止进程
 
 **1）基本语法**
 
-kill  \[选项\] 进程号  （功能描述：通过进程号杀死进程）
+kill  [选项] 进程号  （功能描述：通过进程号杀死进程）
 
 killall 进程名称   （功能描述：通过进程名称杀死进程，也支持通配符，这在系统因负载过大而变得很慢时很有用） 
 
@@ -3296,54 +3296,54 @@ killall 进程名称   （功能描述：通过进程名称杀死进程，也支
 
 |选项|功能|
 |---|---|
-|\-9|表示强迫进程立即停止|
+|-9|表示强迫进程立即停止|
 
 **3）案例实操**
 
 （1）杀死浏览器进程
 
-\[root@hadoop101 桌面\]\# kill \-9 5102
+[root@hadoop101 桌面]\# kill -9 5102
 
 （2）通过进程名称杀死进程
 
-\[root@hadoop101 桌面\]\# killall firefox
+[root@hadoop101 桌面]\# killall firefox
 
-### 7\.10\.3 pstree 查看进程树
+### 7.10.3 pstree 查看进程树
 
 **1）基本语法**
 
-pstree \[选项\]
+pstree [选项]
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-p|显示进程的PID |
-|\-u|显示进程的所属用户|
+|-p|显示进程的PID |
+|-u|显示进程的所属用户|
 
 **3）案例实操**
 
 （1）显示进程pid
 
-\[root@hadoop101 datas\]\# pstree \-p
+[root@hadoop101 datas]\# pstree -p
 
 （2）显示进程所属用户
 
-\[root@hadoop101 datas\]\# pstree \-u
+[root@hadoop101 datas]\# pstree -u
 
-### 7\.10\.4 top 查看系统健康状态
+### 7.10.4 top 查看系统健康状态
 
 **1）基本命令**
 
-top \[选项\] 
+top [选项] 
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-d 秒数|指定top命令每隔几秒更新。默认是3秒在top命令的交互模式当中可以执行的命令：|
-|\-i|使top不显示任何闲置或者僵死进程。|
-|\-p|通过指定监控进程ID来仅仅监控某个进程的状态。|
+|-d 秒数|指定top命令每隔几秒更新。默认是3秒在top命令的交互模式当中可以执行的命令：|
+|-i|使top不显示任何闲置或者僵死进程。|
+|-p|通过指定监控进程ID来仅仅监控某个进程的状态。|
 
 **3）操作说明**
 
@@ -3363,7 +3363,7 @@ top \[选项\]
 |12:26:46|系统当前时间|
 |up 1 day, 13:32|系统的运行时间，本机已经运行1天<br>13小时32分钟|
 |2 users|当前登录了两个用户|
-|load  average:  0\.00, 0\.00, 0\.00|系统在之前1分钟，5分钟，15分钟的平均负载。一般认为小于1时，负载较小。如果大于1，系统已经超出负荷。|
+|load  average:  0.00, 0.00, 0.00|系统在之前1分钟，5分钟，15分钟的平均负载。一般认为小于1时，负载较小。如果大于1，系统已经超出负荷。|
 
 第二行为进程信息
 
@@ -3376,15 +3376,15 @@ top \[选项\]
 
 第三行为CPU信息
 
-|Cpu\(s\):  0\.1%us|用户模式占用的CPU百分比|
+|Cpu(s):  0.1%us|用户模式占用的CPU百分比|
 |---|---|
-|0\.1%sy|系统模式占用的CPU百分比|
-|0\.0%ni|改变过优先级的用户进程占用的CPU百分比|
-|99\.7%id|空闲CPU的CPU百分比|
-|0\.1%wa|等待输入/输出的进程的占用CPU百分比|
-|0\.0%hi|硬中断请求服务占用的CPU百分比|
-|0\.1%si|软中断请求服务占用的CPU百分比|
-|0\.0%st|st（Steal  time）虚拟时间百分比。就是当有虚拟机时，虚拟CPU等待实际CPU的时间百分比。|
+|0.1%sy|系统模式占用的CPU百分比|
+|0.0%ni|改变过优先级的用户进程占用的CPU百分比|
+|99.7%id|空闲CPU的CPU百分比|
+|0.1%wa|等待输入/输出的进程的占用CPU百分比|
+|0.0%hi|硬中断请求服务占用的CPU百分比|
+|0.1%si|软中断请求服务占用的CPU百分比|
+|0.0%st|st（Steal  time）虚拟时间百分比。就是当有虚拟机时，虚拟CPU等待实际CPU的时间百分比。|
 
 第四行为物理内存信息
 
@@ -3404,81 +3404,81 @@ top \[选项\]
 
 **5）案例实操**
 
-\[root@hadoop101 atguigu\]\# top \-d 1
+[root@hadoop101 atguigu]\# top -d 1
 
-\[root@hadoop101 atguigu\]\# top \-i
+[root@hadoop101 atguigu]\# top -i
 
-\[root@hadoop101 atguigu\]\# top \-p 2575
+[root@hadoop101 atguigu]\# top -p 2575
 
 执行上述命令后，可以按P、M、N对查询出的进程结果进行排序。
 
-### 7\.10\.5 netstat 显示网络统计信息和端口占用情况
+### 7.10.5 netstat 显示网络统计信息和端口占用情况
 
 **1）基本语法**
 
-netstat \-anp \|grep 进程号 （功能描述：查看该进程网络信息）
+netstat -anp \|grep 进程号 （功能描述：查看该进程网络信息）
 
-netstat \-nlp \| grep 端口号 （功能描述：查看网络端口号占用情况）
+netstat -nlp \| grep 端口号 （功能描述：查看网络端口号占用情况）
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-n|拒绝显示别名，能显示数字的全部转化成数字|
-|\-l|仅列出有在listen（监听）的服务状态|
-|\-p|表示显示哪个进程在调用|
+|-n|拒绝显示别名，能显示数字的全部转化成数字|
+|-l|仅列出有在listen（监听）的服务状态|
+|-p|表示显示哪个进程在调用|
 
 **3）案例实操**
 
 （1）通过进程号查看该进程的网络信息
 
-\[root@hadoop101 hadoop\-2\.7\.2\]\# netstat \-anp \| grep 火狐浏览器进程号
+[root@hadoop101 hadoop-2.7.2]\# netstat -anp \| grep 火狐浏览器进程号
 
 
 
-unix  2      \[ ACC \]     STREAM     LISTENING     20670  3115/firefox        /tmp/orbit\-root/linc\-c2b\-0\-5734667cbe29
+unix  2      [ ACC ]     STREAM     LISTENING     20670  3115/firefox        /tmp/orbit-root/linc-c2b-0-5734667cbe29
 
-unix  3      \[ \]         STREAM     CONNECTED     20673  3115/firefox        /tmp/orbit\-root/linc\-c2b\-0\-5734667cbe29
+unix  3      [ ]         STREAM     CONNECTED     20673  3115/firefox        /tmp/orbit-root/linc-c2b-0-5734667cbe29
 
-unix  3      \[ \]         STREAM     CONNECTED     20668  3115/firefox        
+unix  3      [ ]         STREAM     CONNECTED     20668  3115/firefox        
 
-unix  3      \[ \]         STREAM     CONNECTED     20666  3115/firefox     
+unix  3      [ ]         STREAM     CONNECTED     20666  3115/firefox     
 
 
 
 （2）查看某端口号是否被占用
 
-\[root@hadoop101 桌面\]\# netstat \-nlp \| grep 20670 
+[root@hadoop101 桌面]\# netstat -nlp \| grep 20670 
 
 
 
-unix  2      \[ ACC \]     STREAM     LISTENING     20670  3115/firefox        /tmp/orbit\-root/linc\-c2b\-0\-5734667cbe29
+unix  2      [ ACC ]     STREAM     LISTENING     20670  3115/firefox        /tmp/orbit-root/linc-c2b-0-5734667cbe29
 
-## 7\.11 crontab 系统定时任务
+## 7.11 crontab 系统定时任务
 
-### 7\.11\.1 crontab 服务管理
+### 7.11.1 crontab 服务管理
 
 **1）重新启动crond服务**
 
-\[root@hadoop101 \~\]\# systemctl restart crond
+[root@hadoop101 \~]\# systemctl restart crond
 
-### 7\.11\.2 crontab 定时任务设置
+### 7.11.2 crontab 定时任务设置
 
 **1）基本语法**
 
-crontab \[选项\]
+crontab [选项]
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-e|编辑crontab定时任务|
-|\-l|查询crontab任务|
-|\-r|删除当前用户所有的crontab任务|
+|-e|编辑crontab定时任务|
+|-l|查询crontab任务|
+|-r|删除当前用户所有的crontab任务|
 
 **3）参数说明**
 
-\[root@hadoop101 \~\]\# crontab \-e 
+[root@hadoop101 \~]\# crontab -e 
 
 （1）进入crontab编辑界面。会打开vim编辑你的工作。
 
@@ -3486,37 +3486,37 @@ crontab \[选项\]
 
 |项目  |含义  |范围|
 |---|---|---|
-|第一个“\*”|一小时当中的第几分钟|0\-59|
-|第二个“\*”|一天当中的第几小时|0\-23|
-|第三个“\*”|一个月当中的第几天|1\-31|
-|第四个“\*”|一年当中的第几月|1\-12|
-|第五个“\*”|一周当中的星期几|0\-7（0和7都代表星期日）|
+|第一个“*”|一小时当中的第几分钟|0-59|
+|第二个“*”|一天当中的第几小时|0-23|
+|第三个“*”|一个月当中的第几天|1-31|
+|第四个“*”|一年当中的第几月|1-12|
+|第五个“*”|一周当中的星期几|0-7（0和7都代表星期日）|
 
 （2）特殊符号
 
 |特殊符号|含义|
 |---|---|
-|\*|代表任何时间。比如第一个“\*”就代表一小时中每分钟都执行一次的意思。|
-|，|代表不连续的时间。比如“0 8,12,16 \* \* \* 命令”，就代表在每天的8点0分，12点0分，16点0分都执行一次命令|
-|\-|代表连续的时间范围。比如“0 5  \*  \*  1\-6命令”，代表在周一到周六的凌晨5点0分执行命令|
-|\*/n|代表每隔多久执行一次。比如“\*/10  \*  \*  \*  \*  命令”，代表每隔10分钟就执行一遍命令|
+|*|代表任何时间。比如第一个“*”就代表一小时中每分钟都执行一次的意思。|
+|，|代表不连续的时间。比如“0 8,12,16 * * * 命令”，就代表在每天的8点0分，12点0分，16点0分都执行一次命令|
+|-|代表连续的时间范围。比如“0 5  *  *  1-6命令”，代表在周一到周六的凌晨5点0分执行命令|
+|*/n|代表每隔多久执行一次。比如“*/10  *  *  *  *  命令”，代表每隔10分钟就执行一遍命令|
 
 （3）特定时间执行命令
 
 |时间  |含义|
 |---|---|
-|45 22 \* \* \* 命令|在22点45分执行命令|
-|0 17 \* \* 1 命令|每周1 的17点0分执行命令|
-|0 5 1,15 \* \* 命令|每月1号和15号的凌晨5点0分执行命令|
-|40 4 \* \* 1\-5 命令|每周一到周五的凌晨4点40分执行命令|
-|\*/10 4 \* \* \* 命令|每天的凌晨4点，每隔10分钟执行一次命令|
-|0 0 1,15 \* 1 命令|每月1号和15号，每周1的0点0分都会执行命令。注意：星期几和几号最好不要同时出现，因为他们定义的都是天。非常容易让管理员混乱。|
+|45 22 * * * 命令|在22点45分执行命令|
+|0 17 * * 1 命令|每周1 的17点0分执行命令|
+|0 5 1,15 * * 命令|每月1号和15号的凌晨5点0分执行命令|
+|40 4 * * 1-5 命令|每周一到周五的凌晨4点40分执行命令|
+|*/10 4 * * * 命令|每天的凌晨4点，每隔10分钟执行一次命令|
+|0 0 1,15 * 1 命令|每月1号和15号，每周1的0点0分都会执行命令。注意：星期几和几号最好不要同时出现，因为他们定义的都是天。非常容易让管理员混乱。|
 
 **4）案例实操**
 
-（1）每隔1分钟，向/root/bailongma\.txt文件中添加一个11的数字
+（1）每隔1分钟，向/root/bailongma.txt文件中添加一个11的数字
 
-\*/1 \* \* \* \* /bin/echo ”11” \>\> /root/bailongma\.txt
+*/1 * * * * /bin/echo ”11” \>\> /root/bailongma.txt
 
 
 
@@ -3524,19 +3524,19 @@ crontab \[选项\]
 
 优先级一
 
-1\.vi/vim
+1.vi/vim
 
-2\.服务
+2.服务
 
-3\.文件目录类
+3.文件目录类
 
 
 
 优先级二
 
-1\.用户管理命令
+1.用户管理命令
 
-2\.用户组管理命令
+2.用户组管理命令
 
 
 
@@ -3544,7 +3544,7 @@ crontab \[选项\]
 
 优先级三
 
-1\.时间日期类
+1.时间日期类
 
 
 
@@ -3574,7 +3574,7 @@ crontab [选项]
 
 - 参数说明
 
-    - （1）进入crontab编辑界面。会打开vim编辑你的工作,通过 "\* " 定义任务周期。
+    - （1）进入crontab编辑界面。会打开vim编辑你的工作,通过 "* " 定义任务周期。
 
     ```Plain Text
     [root@centos100 ~]# crontab -e 
@@ -3590,7 +3590,7 @@ crontab [选项]
 
 - 实参案例
 
-    - （1）每隔1分钟，向/root/bailongma\.txt文件中添加一一些内容
+    - （1）每隔1分钟，向/root/bailongma.txt文件中添加一一些内容
 
 ```Plain Text
 */1 * * * * /bin/echo ”11” >> /root/bailongma.txt
@@ -3640,17 +3640,17 @@ command : 是要定时执行的指令，一般不会写复杂指令，如果需�
 
 
 
-![微信图片\_20240901144552\.png](./images/微信图片_20240901144552.png)
+![微信图片_20240901144552.png](./images/微信图片_20240901144552.png)
 
 ## 认知权限信息
 
 ## su exit 切换用户退出
 
-**语法:** su\[\-\] \[用户名\]
+**语法:** su[-] [用户名]
 
 **选项：**
 
-—符号是可选的，表示是否在切换用户后加载环境变量\(后续讲解\)，建议带上
+—符号是可选的，表示是否在切换用户后加载环境变量(后续讲解)，建议带上
 
 **参数:**
 
@@ -3672,13 +3672,13 @@ sudo 命令
 
 **配置：**
 
-1\.切换到root用户，执行visudo命令,会自动通过vi编辑器打开:/etc/sudoers
+1.切换到root用户，执行visudo命令,会自动通过vi编辑器打开:/etc/sudoers
 
-2\.在文件的最后添加:itheima ALL=\(ALL\)   NOPASSWD: ALL
+2.在文件的最后添加:itheima ALL=(ALL)   NOPASSWD: ALL
 
 其中最后的NOPASSWD:ALL表示使用sudo命令,无需输入密码最后通过 wq 保存
 
-3\.切换回普通用户
+3.切换回普通用户
 
 执行的命令，均以root运行
 
@@ -3686,20 +3686,20 @@ sudo 命令
 
 ### 创建用户
 
-**语法：**useradd \[\-g \-d\] 用户名
+**语法：**useradd [-g -d] 用户名
 
 **选项：**
 
-选项:\-g指定用户的组，不指定\-8，会创建同名组并自动加入，指定\-g需要组已经存在，如已存在同名组，必须使用\-g
+选项:-g指定用户的组，不指定-8，会创建同名组并自动加入，指定-g需要组已经存在，如已存在同名组，必须使用-g
 
-选项:\-d指定用户H0ME路径，不指定，HOME目录默认在:/home/用户名
+选项:-d指定用户H0ME路径，不指定，HOME目录默认在:/home/用户名
 
 ### 删除用户
 
-**语法：**userdel \[\-r\] 用户名
+**语法：**userdel [-r] 用户名
 
 **选项：**
-选项:\-r，删除用户的HOME目录，不使用\-r，删除用户时，HOME目录保留
+选项:-r，删除用户的HOME目录，不使用-r，删除用户时，HOME目录保留
 查看用户所属组
 
 ### 改密码
@@ -3714,7 +3714,7 @@ sudo 命令
 
 ### 修改用户所属组
 
-**语法：**usermod \-ad 用户组 用户名
+**语法：**usermod -ad 用户组 用户名
 
 **参数**
 
@@ -3744,9 +3744,9 @@ group 用户组
 
 ## chmod 修改文件、文件夹的权限细节
 
-**语法：**chmod\[\-R\]权限 文件或文件夹
+**语法：**chmod[-R]权限 文件或文件夹
 
-**选项:** \-R,对文件夹内的全部内容应用同样规则
+**选项:** -R,对文件夹内的全部内容应用同样规则
 
 **说明 ：**只能是文件、文件夹的所属用户或root有权修改
 
@@ -3754,9 +3754,9 @@ group 用户组
 
 **限制** 只可root执行s
 
-**语法:** chown\[\-R\] \[用户\] \[:\]  \[用户组\]文件或文件夹
+**语法:** chown[-R] [用户] [:]  [用户组]文件或文件夹
 
-**选项：**\-R,同chmod,对文件夹内全部内容应用相同规则
+**选项：**-R,同chmod,对文件夹内全部内容应用相同规则
 
 
 
@@ -3861,7 +3861,7 @@ find ./ -name "*.txt" -type f | xargs chmod 644
 
 - 文件类型和权限的表示
 
-![WC5abS8Rmo4X0VxXNYycMNpon7f\.png](./images/WC5abS8Rmo4X0VxXNYycMNpon7f.png)
+![WC5abS8Rmo4X0VxXNYycMNpon7f.png](./images/WC5abS8Rmo4X0VxXNYycMNpon7f.png)
 
 - rwx作用到目录和文件的不同含义
 
@@ -3883,7 +3883,7 @@ find ./ -name "*.txt" -type f | xargs chmod 644
 
 - 实操案例
 
-    - \(1\)查看文件权限信息
+    - (1)查看文件权限信息
 
 ```Plain Text
 [root@centos100 ~]# ll
@@ -3893,15 +3893,15 @@ drwxr-xr-x. 2 root root 4096 1月 12 14:02 qujing
 lrwxrwxrwx. 1 root root  20 1月 12 14:32 houzi -> xiyou/qujing/houge.tx
 ```
 
-- \(2\)文件属性介绍
+- (2)文件属性介绍
 
 ```Plain Text
 ls -l
 ```
 
-![O6eXbhTxYoqGabx4InhcP4MlnoH\.png](./images/O6eXbhTxYoqGabx4InhcP4MlnoH.png)
+![O6eXbhTxYoqGabx4InhcP4MlnoH.png](./images/O6eXbhTxYoqGabx4InhcP4MlnoH.png)
 
-- \*\* 如果查看到是文件：链接数指的是硬链接个数\*\* \*\* 如果查看的是文件夹：链接数指的是子文件夹个数 \*\*
+- ** 如果查看到是文件：链接数指的是硬链接个数** ** 如果查看的是文件夹：链接数指的是子文件夹个数 **
 
 > chmod改变文件权限
 > 
@@ -3909,7 +3909,7 @@ ls -l
 
 - 基本语法
 
-![Kav2bVklroXbDrxLUTrcndkanqd\.png](./images/Kav2bVklroXbDrxLUTrcndkanqd.png)
+![Kav2bVklroXbDrxLUTrcndkanqd.png](./images/Kav2bVklroXbDrxLUTrcndkanqd.png)
 
 ```Plain Text
 chmod [{ugoa}{+-=}{rwx}] 文件或目录
@@ -4027,13 +4027,13 @@ chgrp [最终用户组] [文件或目录]   （功能描述：改变文件或者
 
 
 
-## 用户\-用户组
+## 用户-用户组
 
 - `useradd 选项 用户名`：添加新的用户账号,`# useradd –d  /home/sam -m sam`,`# useradd -s /bin/sh -g group –G adm,root gem`
 
     - `-c` comment 指定一段注释性描述。
 
-    - `-d` 目录 指定用户主目录，如果此目录不存在，则同时使用\-m选项，可以创建主目录。
+    - `-d` 目录 指定用户主目录，如果此目录不存在，则同时使用-m选项，可以创建主目录。
 
     - `-g` 用户组 指定用户所属的用户组。
 
@@ -4041,7 +4041,7 @@ chgrp [最终用户组] [文件或目录]   （功能描述：改变文件或者
 
     - `-s` Shell文件 指定用户的登录Shell。
 
-    - `-u` 用户号 指定用户的用户号，如果同时有\-o选项，则可以重复使用其他用户的标识号。
+    - `-u` 用户号 指定用户的用户号，如果同时有-o选项，则可以重复使用其他用户的标识号。
 
 - `userdel 选项 用户名`：删除帐号
 
@@ -4065,7 +4065,7 @@ chgrp [最终用户组] [文件或目录]   （功能描述：改变文件或者
 
     - `-g` GID 指定新用户组的组标识号（GID）。
 
-    - `-o` 一般与\-g选项同时使用，表示新用户组的GID可以与系统已有用户组的GID相同。
+    - `-o` 一般与-g选项同时使用，表示新用户组的GID可以与系统已有用户组的GID相同。
 
 - `groupdel 用户组` 删除用户组
 
@@ -4073,7 +4073,7 @@ chgrp [最终用户组] [文件或目录]   （功能描述：改变文件或者
 
     - `-g` GID 为用户组指定新的组标识号。
 
-    - `-o` 与\-g选项同时使用，用户组的新GID可以与系统已有用户组的GID相同。
+    - `-o` 与-g选项同时使用，用户组的新GID可以与系统已有用户组的GID相同。
 
     - `-n`新用户组 将用户组的名字改为新名字
 
@@ -4185,60 +4185,60 @@ usermod -g zhangsan zhangsan
 
 # 第8章 软件包管理
 
-## 8\.1 RPM
+## 8.1 RPM
 
-### 8\.1\.1 RPM概述
+### 8.1.1 RPM概述
 
-RPM（RedHat Package Manager），RedHat软件包管理工具，类似windows里面的setup\.exe
+RPM（RedHat Package Manager），RedHat软件包管理工具，类似windows里面的setup.exe
 
 是Linux这系列操作系统里面的打包安装工具，它虽然是RedHat的标志，但理念是通用的。
 
 RPM包的名称格式
 
-Apache\-1\.3\.23\-11\.i386\.rpm
+Apache-1.3.23-11.i386.rpm
 
 - “apache” 软件名称
 
-- “1\.3\.23\-11”软件的版本号，主版本和此版本
+- “1.3.23-11”软件的版本号，主版本和此版本
 
 - “i386”是软件所运行的硬件平台，Intel 32位微处理器的统称
 
 - “rpm”文件扩展名，代表RPM包
 
-### 8\.1\.2 RPM查询命令（rpm \-qa）
+### 8.1.2 RPM查询命令（rpm -qa）
 
 **1）基本语法**
 
-rpm \-qa    （功能描述：查询所安装的所有rpm软件包）
+rpm -qa    （功能描述：查询所安装的所有rpm软件包）
 
 **2）经验技巧**
 
-由于软件包比较多，一般都会采取过滤。rpm \-qa \| grep rpm软件包
+由于软件包比较多，一般都会采取过滤。rpm -qa \| grep rpm软件包
 
 **3）案例实操**
 
 （1）查询firefox软件安装情况
 
-\[root@hadoop101 Packages\]\# rpm \-qa \|grep firefox 
+[root@hadoop101 Packages]\# rpm -qa \|grep firefox 
 
 
 
-firefox\-45\.0\.1\-1\.el6\.centos\.x86\_64
+firefox-45.0.1-1.el6.centos.x86_64
 
-### 8\.1\.3 RPM卸载命令（rpm \-e）
+### 8.1.3 RPM卸载命令（rpm -e）
 
 **1）基本语法**
 
-（1）rpm \-e RPM软件包   
+（1）rpm -e RPM软件包   
 
-（2） rpm \-e \-\-nodeps 软件包  
+（2） rpm -e --nodeps 软件包  
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-e|卸载软件包|
-|\-\-nodeps|卸载软件时，不检查依赖。这样的话，那些使用该软件包的软件在此之后可能就不能正常工作了。|
+|-e|卸载软件包|
+|--nodeps|卸载软件时，不检查依赖。这样的话，那些使用该软件包的软件在此之后可能就不能正常工作了。|
 
 **3）案例实操**
 
@@ -4248,20 +4248,20 @@ firefox\-45\.0\.1\-1\.el6\.centos\.x86\_64
 [root@hadoop101 Packages]# rpm -e firefox
 ```
 
-### 8\.1\.4 RPM安装命令（rpm \-ivh）
+### 8.1.4 RPM安装命令（rpm -ivh）
 
 **1）基本语法**
 
-rpm \-ivh RPM包全名
+rpm -ivh RPM包全名
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-i|\-i=install，安装|
-|\-v|\-v=verbose，显示详细信息|
-|\-h|\-h=hash，进度条|
-|\-\-nodeps|\-\-nodeps，不检测依赖进度|
+|-i|-i=install，安装|
+|-v|-v=verbose，显示详细信息|
+|-h|-h=hash，进度条|
+|--nodeps|--nodeps，不检测依赖进度|
 
 **3）案例实操**
 
@@ -4278,23 +4278,23 @@ rpm \-ivh RPM包全名
    1:firefox-52.7.0-1.el7.centos      ################################# [100%]
 ```
 
-## 8\.2 YUM仓库配置
+## 8.2 YUM仓库配置
 
-### 8\.2\.1 YUM概述
+### 8.2.1 YUM概述
 
 YUM（全称为 Yellow dog Updater, Modified）是一个在Fedora和RedHat以及CentOS中的Shell前端软件包管理器。基于RPM包管理，能够从指定的服务器自动下载RPM包并且安装，可以自动处理依赖性关系，并且一次安装所有依赖的软件包，无须繁琐地一次次下载、安装。
 
-### 8\.2\.2 YUM的常用命令
+### 8.2.2 YUM的常用命令
 
 **1）基本语法**
 
-yum \[选项\] \[参数\]
+yum [选项] [参数]
 
 **2）选项说明**
 
 |选项|功能|
 |---|---|
-|\-y|对所有提问都回答“yes”|
+|-y|对所有提问都回答“yes”|
 
 **3）参数说明**
 
@@ -4302,7 +4302,7 @@ yum \[选项\] \[参数\]
 |---|---|
 |install|安装rpm软件包|
 |update|更新rpm软件包|
-|check\-update|检查是否有可用的更新rpm软件包|
+|check-update|检查是否有可用的更新rpm软件包|
 |remove|删除指定的rpm软件包|
 |list|显示软件包信息|
 |clean all|清理yum过期的缓存|
@@ -4317,7 +4317,7 @@ yum \[选项\] \[参数\]
 [root@hadoop101 ~]#yum -y install firefox.x86_64
 ```
 
-### 8\.2\.3 修改网络YUM源
+### 8.2.3 修改网络YUM源
 
 默认的系统YUM源，需要连接国外apache网站，网速比较慢，可以修改关联的网络YUM源为国内镜像的网站，比如网易163，aliyun等。
 
@@ -4327,7 +4327,7 @@ yum \[选项\] \[参数\]
 [root@hadoop101 ~] yum install wget
 ```
 
-（2）在/etc/yum\.repos\.d/目录下，备份默认的repos文件, 
+（2）在/etc/yum.repos.d/目录下，备份默认的repos文件, 
 
 ```Shell
 [root@hadoop101 yum.repos.d] pwd
@@ -4349,7 +4349,7 @@ yum \[选项\] \[参数\]
 
 （4）使用下载好的repos文件替换默认的repos文件
 
-例如：用Centos\-7\.repo替换CentOS\-Base\.repo
+例如：用Centos-7.repo替换CentOS-Base.repo
 
 ```Shell
 [root@hadoop101 yum.repos.d]# mv  Centos-7.repo  CentOS-Base.repo
@@ -4385,7 +4385,7 @@ du -s   # 使用此选项时，du只显示目录所占用磁盘空间的大小�
 du -a   # 使用此选项时，显示目录和目录下子目录和文件占用磁盘空间的大小
 ```
 
-参考：[https://blog\.csdn\.net/adminitrator\_owen/article/details/64492331](https://blog.csdn.net/adminitrator_owen/article/details/64492331)
+参考：[https://blog.csdn.net/adminitrator_owen/article/details/64492331](https://blog.csdn.net/adminitrator_owen/article/details/64492331)
 
 一个文件按行存储着许多的id值，如何统计总数，如何对id去重, 给出命令 ?
 
@@ -4395,7 +4395,7 @@ du -a   # 使用此选项时，显示目录和目录下子目录和文件占用�
 
 
 
-linux怎么查看端口有没有被监听？\(2020/11/19\)
+linux怎么查看端口有没有被监听？(2020/11/19)
 
 > - 选项说明：`-t`（TCP）、`-u`（UDP）、`-l`（监听中）、`-n`（不解析域名）、`-P`（不解析端口名）。
 > 
@@ -4414,7 +4414,7 @@ lsof -i -P -n | grep LISTEN
 
 
 
-查看进程端口的命令？\(2020/11/19\)
+查看进程端口的命令？(2020/11/19)
 
 > - 示例：查看 PID 为 1234 的进程端口：`netstat -tulnp | grep 1234`。
 > 
@@ -4431,7 +4431,7 @@ lsof -i -P -n | grep <进程名>
 
 
 
-找出/data/目录下，文件名称是test\.txt的文件，假设找到后文件路径是/data/tmp/test\.txt然后统计该文件的行数。写下这个过程涉及的命令\(2021/3/9\)
+找出/data/目录下，文件名称是test.txt的文件，假设找到后文件路径是/data/tmp/test.txt然后统计该文件的行数。写下这个过程涉及的命令(2021/3/9)
 
 ```Shell
 # 步骤1：查找文件（从 /data 目录递归搜索）
@@ -4446,7 +4446,7 @@ find /data -name "test.txt" -exec wc -l {} \;
 
 
 
-查看系统中最耗cpu的进程，假设找到后的PID是1122，再查看其占用的进程端口。写下这个过程涉及的命令\(2021/3/9\)
+查看系统中最耗cpu的进程，假设找到后的PID是1122，再查看其占用的进程端口。写下这个过程涉及的命令(2021/3/9)
 
 ```Markdown
 # 步骤1：查看最耗 CPU 的进程（按 CPU 使用率排序，取前几行）
@@ -4461,7 +4461,7 @@ ss -tulnp | grep 1122
 
 
 
-修改test\.sh的归属用户为 who用户，且加上可执行权限。\(2021/3/9\)
+修改test.sh的归属用户为 who用户，且加上可执行权限。(2021/3/9)
 
 ```Markdown
 # 步骤1：修改归属用户（需 root 权限）
@@ -4476,7 +4476,7 @@ chown who test.sh && chmod +x test.sh
 
 
 
-找出进程名为cost\_test（ID 122）的进程，并且强制停止。写出大概的过程命令\(2021/3/9\)
+找出进程名为cost_test（ID 122）的进程，并且强制停止。写出大概的过程命令(2021/3/9)
 
 ```Markdown
 # 步骤1：确认进程（可选，验证进程是否存在）
@@ -4491,23 +4491,23 @@ pkill -9 cost_test
 
 
 
-**1\.下面哪个Linux命令可以一次显示一页内容？**\(\)
-A\. pause
-B\. cat
-C\. more
-D\. grep
+**1.下面哪个Linux命令可以一次显示一页内容？**()
+A. pause
+B. cat
+C. more
+D. grep
 
 
 
-3\.**下面哪条命令可以把f1\.txt复制为f2\.txt?**\(\)
-A\. cp f1\.txt \| f2\.txt
-B\. cat f1\.txt \| f2\.txt
-C\. cat f1\.txt \> f2\.txt
-D\. copy f1\.txt \| f2\.txt
+3.**下面哪条命令可以把f1.txt复制为f2.txt?**()
+A. cp f1.txt \| f2.txt
+B. cat f1.txt \| f2.txt
+C. cat f1.txt \> f2.txt
+D. copy f1.txt \| f2.txt
 
 
 
-5\.什么命令可以终止程序\(\)
+5.什么命令可以终止程序()
 
 A ctrl\+d
 
@@ -4517,35 +4517,35 @@ C ctrl \+W
 
 D ctrl \+c
 
-6\.检测服务器网络连接的命令？ping
+6.检测服务器网络连接的命令？ping
 
-7\.什么符号代表root目录\*\*? \~
+7.什么符号代表root目录**? \~
 
-8\.**什么符号代表当前目录?\.**
-
-
-
-9\.什么符号代表上级目录?\*\*\.\.
-
-10\.**什么命令代表上一次所在的目录**?cd \-
+8.**什么符号代表当前目录?.**
 
 
 
-13\.mv都具有什么功能？移动文件和重命名文件
+9.什么符号代表上级目录?**..
 
-14\.tail  命令是用来做什么的？查看文件结尾几行内容
-
-15\.tab键是用来做什么的？自动补全文件名和目录名
-
-16\.less中 想要查找单词的命令是什么？/单词
+10.**什么命令代表上一次所在的目录**?cd -
 
 
 
-17\.使用绝对路径在根目录下的root用户下面创建父目录为bigdata子目录为yunzhida的文件夹（图片粘贴至下方）\> mkdir \-p /bigdata/yunzhida
+13.mv都具有什么功能？移动文件和重命名文件
+
+14.tail  命令是用来做什么的？查看文件结尾几行内容
+
+15.tab键是用来做什么的？自动补全文件名和目录名
+
+16.less中 想要查找单词的命令是什么？/单词
 
 
 
-18\.将yunzhida目录下面分别创建hive\.sql     spark\.txt   flume\.sh文件并展示
+17.使用绝对路径在根目录下的root用户下面创建父目录为bigdata子目录为yunzhida的文件夹（图片粘贴至下方）\> mkdir -p /bigdata/yunzhida
+
+
+
+18.将yunzhida目录下面分别创建hive.sql     spark.txt   flume.sh文件并展示
 
 ```Bash
 cd /bigdata/yunzhida/
@@ -4553,25 +4553,25 @@ touch hive.sql spark.txt flume.sh
 ls
 ```
 
-19\.查看spark\.txt里面的内容，并追加写入，大数据是技术的未来
+19.查看spark.txt里面的内容，并追加写入，大数据是技术的未来
 
 ```Bash
 echo "大数据是技术的未来" >> spark.txt | cat spark.txt
 ```
 
-将spark\.txt复制到根目录并且从命名为hadoop\.txt
+将spark.txt复制到根目录并且从命名为hadoop.txt
 
 ```Bash
 cat spark.txt > /hadoop.txt
 ```
 
-练习1: 将 123\.tar 解压到 当前目录中
+练习1: 将 123.tar 解压到 当前目录中
 
-> tar \-xvf 123\.tar
+> tar -xvf 123.tar
 > 
 > 
 
-练习2: 将 aaa\.tar 解包到 /root/test\_tar/test/a1/b1/c1/ 目录中
+练习2: 将 aaa.tar 解包到 /root/test_tar/test/a1/b1/c1/ 目录中
 
 ```Bash
 mkdir -p /root/test_tar/test/a1/b1/c1/
@@ -4579,51 +4579,51 @@ mkdir -p /root/test_tar/test/a1/b1/c1/
 tar xvf aaa.tar -C /root/test_tar/test/a1/b1/c1/
 ```
 
-练习1: 将1\.txt、2\.txt、3\.txt 打包压缩成 123\.tar\.gz文件\(gzip压缩格式\)
+练习1: 将1.txt、2.txt、3.txt 打包压缩成 123.tar.gz文件(gzip压缩格式)
 
-> tar cvzf 123\.tar\.gz 1\.txt 2\.txt 3\.txt 
+> tar cvzf 123.tar.gz 1.txt 2.txt 3.txt 
 > 
 > 
 
-练习2: 将有内容的aaa目录 打包成 aaa\.tar\.gz 文件\(gzip压缩格式\)
+练习2: 将有内容的aaa目录 打包成 aaa.tar.gz 文件(gzip压缩格式)
 
-> tar cvzf aaa\.tar\.gz aaa/\*
+> tar cvzf aaa.tar.gz aaa/*
 > 
 > 
 
-练习3: 将 123\.tar\.gz 解压到 当前目录中\(gzip压缩格式\)
+练习3: 将 123.tar.gz 解压到 当前目录中(gzip压缩格式)
 
-> tar xvzf 123\.tar\.gz
+> tar xvzf 123.tar.gz
 > 
 > 
 
-练习4: 将 aaa\.tar\.gz 解包到 /root/test\_tar/bbb 目录中\(gzip压缩格式\)
+练习4: 将 aaa.tar.gz 解包到 /root/test_tar/bbb 目录中(gzip压缩格式)
 
-> tar xvzf aaa\.tar\.gz \-C /root/test\_tar/bbb
+> tar xvzf aaa.tar.gz -C /root/test_tar/bbb
 > 
 > 
 
-练习1：将1\.txt、2\.txt、3\.txt打包压缩成123\.tar\.bz2文件\(bzip2压缩格式\)
+练习1：将1.txt、2.txt、3.txt打包压缩成123.tar.bz2文件(bzip2压缩格式)
 
-> tar cvjf 123\.tar\.bz2 1\.txt 2\.txt 3\.txt 
+> tar cvjf 123.tar.bz2 1.txt 2.txt 3.txt 
 > 
 > 
 
-练习2: 将有内容的aaa目录 打包成 aaa\.tar\.bz2 文件\(bzip2压缩格式\)
+练习2: 将有内容的aaa目录 打包成 aaa.tar.bz2 文件(bzip2压缩格式)
 
-> tar cvjf aaa\.tar\.bz2 aaa/\*
+> tar cvjf aaa.tar.bz2 aaa/*
 > 
 > 
 
-练习3: 将 123\.tar\.bz2 解压到 当前目录中\(bzip2压缩格式\)
+练习3: 将 123.tar.bz2 解压到 当前目录中(bzip2压缩格式)
 
-> tar xvjf 123\.tar\.bz2
+> tar xvjf 123.tar.bz2
 > 
 > 
 
-练习4: 将 aaa\.tar\.bz2 解包到 /root/test\_tar/bbb 目录中\(bzip2压缩格式\)
+练习4: 将 aaa.tar.bz2 解包到 /root/test_tar/bbb 目录中(bzip2压缩格式)
 
-> tar xvjf aaa\.tar\.bz2 \-C /root/test\_tar/bbb
+> tar xvjf aaa.tar.bz2 -C /root/test_tar/bbb
 > 
 > 
 
@@ -4635,7 +4635,7 @@ linux高级命令，linux怎么查看端口，查看ip
 
 
 
-22\.问了几个linux的命令（查看磁盘IO，查看端口占用，知不知道awk，怎么修改权限，怎么在一堆文件中查找某些字母？？）
+22.问了几个linux的命令（查看磁盘IO，查看端口占用，知不知道awk，怎么修改权限，怎么在一堆文件中查找某些字母？？）
 
 find \+ grep/sed
 
@@ -4693,15 +4693,11 @@ linux怎么用top命令杀死进程
 
 
 
-sed \-n '10p' 文件名    或
+sed -n '10p' 文件名    或
 
 
 
-head \-n 10 文件名 \| tail \-n 1
-
-
-
-
+head -n 10 文件名 \| tail -n 1
 
 
 
@@ -4709,7 +4705,11 @@ head \-n 10 文件名 \| tail \-n 1
 
 
 
-7\.考察linux命令，场景题，从kafka日志中快速定位到错误位置
+
+
+
+
+7.考察linux命令，场景题，从kafka日志中快速定位到错误位置
 
 
 
@@ -4723,7 +4723,7 @@ head \-n 10 文件名 \| tail \-n 1
 
 
 
-2\.linux缓存机制
+2.linux缓存机制
 
 
 
@@ -4741,13 +4741,13 @@ head \-n 10 文件名 \| tail \-n 1
 
     
 
-9\.用过其它语言Python/C等做过什么？
+9.用过其它语言Python/C等做过什么？
 
-\(1\)用Python写过数据采集相关的内容，使用requests库，解析模块使用的是bs4和xpath等
+(1)用Python写过数据采集相关的内容，使用requests库，解析模块使用的是bs4和xpath等
 
-\(2\)用Python\+shell写脚本,比如说批量导入脚本
+(2)用Python\+shell写脚本,比如说批量导入脚本
 
-\(3\)用Java写的最多的是Flink API接口
+(3)用Java写的最多的是Flink API接口
 
 
 
@@ -4769,11 +4769,11 @@ shell脚本（$0,$1,怎么取文件所在目录），
 
 
 
-5\.Shell命令，怎么查看文件夹中的文件，怎么查看子文件个数，怎么查看文件内行数，怎么查找文件中的‘xxx’，怎将文件中‘xxx’替换为‘yyy’
+5.Shell命令，怎么查看文件夹中的文件，怎么查看子文件个数，怎么查看文件内行数，怎么查找文件中的‘xxx’，怎将文件中‘xxx’替换为‘yyy’
 
 cat、find？
 
-wc \-l
+wc -l
 
 sed
 
@@ -4787,11 +4787,11 @@ sed
 
 
 
-5\.shell查看文件内容、怎么给3列值用shell怎么进行排序、查找文件、磁盘情况
+5.shell查看文件内容、怎么给3列值用shell怎么进行排序、查找文件、磁盘情况
 
 
 
-11\.shell脚本会写吗，用啥工具，编辑shell的工具，写shell脚本遇到过什么问题吗，shell脚本写完给啥权限，具体点1\.4\.2都代表啥
+11.shell脚本会写吗，用啥工具，编辑shell的工具，写shell脚本遇到过什么问题吗，shell脚本写完给啥权限，具体点1.4.2都代表啥
 
 
 
@@ -4805,27 +4805,27 @@ sed
 
 
 
-12\.有三个字符abc在shell脚本里面，放到一个数组里面，怎么写
+12.有三个字符abc在shell脚本里面，放到一个数组里面，怎么写
 
 
 
-13\.查看日志前5行 head \-n 5
+13.查看日志前5行 head -n 5
 
 
 
-14\.实时查看日志的方式
+14.实时查看日志的方式
 
 
 
-15\.在文件中查文本，关键字
+15.在文件中查文本，关键字
 
 
 
-16\.路径下磁盘使用情况
+16.路径下磁盘使用情况
 
 
 
-7\.LinuxJava端口号被占用怎么办 怎么根据端口号直接定位进程
+7.LinuxJava端口号被占用怎么办 怎么根据端口号直接定位进程
 
 
 
@@ -4839,7 +4839,7 @@ Linux查看Java进程命令
 
 
 
-\(4\)Linux中删除的命令，以及里面参数的意思
+(4)Linux中删除的命令，以及里面参数的意思
 
 
 
@@ -4851,15 +4851,15 @@ Linux查看Java进程命令
 
 
 
-1\.Linux系统命令：tail、find、scp
+1.Linux系统命令：tail、find、scp
 
 
 
-2\.shell脚本
+2.shell脚本
 
 
 
-3\.是否搭建过Hadoop集群
+3.是否搭建过Hadoop集群
 
 
 
@@ -4869,7 +4869,7 @@ Linux常用命令介绍下。如何查看Java进程，Linux查看java线程的�
 
 
 
-6\.linux常用命令，改变文件权限命令
+6.linux常用命令，改变文件权限命令
 
 
 
@@ -4885,13 +4885,13 @@ Linux常用命令介绍下。如何查看Java进程，Linux查看java线程的�
 
 
 
-9\.一个文件有10列，获取第5列的内容（使用shell命令）
+9.一个文件有10列，获取第5列的内容（使用shell命令）
 
 
 
 
 
-7\.在linux上运行java程序报错怎么定位，怎么解决
+7.在linux上运行java程序报错怎么定位，怎么解决
 
 
 
@@ -4903,15 +4903,15 @@ service crond restart 启动定时
 
 
 
-crontab \-e  进入crontab编辑界面。会打开vim编辑你的工作
+crontab -e  进入crontab编辑界面。会打开vim编辑你的工作
 
 
 
-如：每隔1分钟，向/root/bailongma\.txt文件中添加一个11的数字
+如：每隔1分钟，向/root/bailongma.txt文件中添加一个11的数字
 
 
 
-\*/1 \* \* \* \* /bin/echo ”11” \>\> /root/bailongma\.txt
+*/1 * * * * /bin/echo ”11” \>\> /root/bailongma.txt
 
 
 
@@ -4939,7 +4939,7 @@ linux命令用的多吗，说了几个高级命令
 
 
 
-找到前文件夹以及子文件所有以 \.log结尾的文件命令怎么写
+找到前文件夹以及子文件所有以 .log结尾的文件命令怎么写
 
 
 
@@ -4981,25 +4981,25 @@ linux文件拷贝的命令
 
 
 
-2\.如何查找不同文件里面的同一个字段？
+2.如何查找不同文件里面的同一个字段？
 
 
 
-grep \-Rn "关键字" 查询路径（会递归遍历文件路径，我没答出来，问面试官要的命令）
+grep -Rn "关键字" 查询路径（会递归遍历文件路径，我没答出来，问面试官要的命令）
 
 
 
-grep \-wf test\.text  test2\.text
+grep -wf test.text  test2.text
 
 
 
 
 
-10\.怎么给shell传参，使用shell调用系统命令或系统工具怎么使用
+10.怎么给shell传参，使用shell调用系统命令或系统工具怎么使用
 
 
 
-11\.Linux系统的环境变量你知道多少？我说了my\.env文件，又问了就这一个地方吗？还能再说几个？
+11.Linux系统的环境变量你知道多少？我说了my.env文件，又问了就这一个地方吗？还能再说几个？
 
 
 
@@ -5013,23 +5013,23 @@ grep \-wf test\.text  test2\.text
 
 
 
-5\.shell 里export $0 $1 $2表达什么，怎么获取字符长度
+5.shell 里export $0 $1 $2表达什么，怎么获取字符长度
 
 
 
 
 
-11, 使用shell如何获取函数返回值\-\-\-没回答上来
+11, 使用shell如何获取函数返回值---没回答上来
 
 
 
-14\.shell查看文本第三行第三列数据？AWK具体怎么写？
+14.shell查看文本第三行第三列数据？AWK具体怎么写？
 
 
 
 
 
-Shell脚本：hive \-e“”
+Shell脚本：hive -e“”
 
 
 
@@ -5049,19 +5049,19 @@ shell如何判断一行指令成功与否
 
 
 
-8\.shell命令:查看文件、查看端口、查看文件具体行数
+8.shell命令:查看文件、查看端口、查看文件具体行数
 
 
 
-8\.你shell怎么获得昨天的日期？
+8.你shell怎么获得昨天的日期？
 
 
 
-如何查询一个文件夹中某一个文件（grep \-r\)  ，如何获取第n行到第 i行的数据？（sed \-n）
+如何查询一个文件夹中某一个文件（grep -r)  ，如何获取第n行到第 i行的数据？（sed -n）
 
 
 
-4\.$0、$?、$@、$，分别什么意思有什么区别
+4.$0、$?、$@、$，分别什么意思有什么区别
 
 
 
@@ -5069,7 +5069,7 @@ shell脚本：实现kill一个父进程中所有子进程
 
 
 
-5\.写一个统计行的shell脚本？
+5.写一个统计行的shell脚本？
 
 
 
@@ -5079,7 +5079,7 @@ shell脚本：实现kill一个父进程中所有子进程
 
     
 
-A  =  \[0\]10 \[1\]20 
+A  =  [0]10 [1]20 
 
 
 
@@ -5095,31 +5095,31 @@ A  =  \[0\]10 \[1\]20
 
 
 
-23\.awk怎么用的？批量替换用什么命令？假设我们有一个文件，有几千行，要替换其中一个单词，怎么做？（不会）sed
+23.awk怎么用的？批量替换用什么命令？假设我们有一个文件，有几千行，要替换其中一个单词，怎么做？（不会）sed
 
 
 
-24\.一个目录下有上万个文件，只保留最近七天的，怎么做？
-
-
-
-
-
-16\.shell脚本中开头的bin/bash有什么作用
-
-
-
-13\.shell脚本 写从1\-100 的输出
-
-
-
-11\.awk的用法，linux工具
+24.一个目录下有上万个文件，只保留最近七天的，怎么做？
 
 
 
 
 
-14\.批量替换有什么命令？（忘了，然后问了解压缩包什么命令）  Sed Tar Unzip
+16.shell脚本中开头的bin/bash有什么作用
+
+
+
+13.shell脚本 写从1-100 的输出
+
+
+
+11.awk的用法，linux工具
+
+
+
+
+
+14.批量替换有什么命令？（忘了，然后问了解压缩包什么命令）  Sed Tar Unzip
 
 
 
@@ -5129,7 +5129,7 @@ A  =  \[0\]10 \[1\]20
 
 
 
-15\.如果说你想查看那个节点的 IO 使用情况呢？
+15.如果说你想查看那个节点的 IO 使用情况呢？
 
 
 
@@ -5137,7 +5137,7 @@ Iotop、iostat
 
 
 
-16\.怎么查找一个目录？下面就是7天前的文件，就是文件数很多，上万个，你只想保存最近7天的，你想把7天前的删掉应该怎么操作？（我说替换间隔符，转成csv，建表导入，然后where筛选）
+16.怎么查找一个目录？下面就是7天前的文件，就是文件数很多，上万个，你只想保存最近7天的，你想把7天前的删掉应该怎么操作？（我说替换间隔符，转成csv，建表导入，然后where筛选）
 
 
 
@@ -5153,7 +5153,7 @@ Iotop、iostat
 
 
 
-17\.你怎么找出一个目录下面超过10兆大小的文件呢？（直接说平时没做过）
+17.你怎么找出一个目录下面超过10兆大小的文件呢？（直接说平时没做过）
 
 
 
@@ -5165,11 +5165,11 @@ Wc
 
 
 
-18\.你可以讲讲 shell 里面的它的小括号、中号还有大括号的用法吗？
+18.你可以讲讲 shell 里面的它的小括号、中号还有大括号的用法吗？
 
 
 
-\[\] 判断
+[] 判断
 
 
 
@@ -5177,13 +5177,13 @@ Wc
 
 
 
-\(\) 传参
+() 传参
 
 
 
 
 
-6\.如何使用linux操作命令对一个文件去重？（每行一个单词，把这些单词去重，使用linux命令如何实现）
+6.如何使用linux操作命令对一个文件去重？（每行一个单词，把这些单词去重，使用linux命令如何实现）
 
 
 
@@ -5195,7 +5195,7 @@ Wc
 
 
 
-8\.你shell怎么获得昨天的日期？
+8.你shell怎么获得昨天的日期？
 
 
 
@@ -5209,7 +5209,7 @@ shell脚本实现了哪些功能？分发脚本的具体实现逻辑？
 
 
 
-shell写过吗？你们宕机了怎么重启服务\(不是干大数据的给我炫了一段写脚本\)
+shell写过吗？你们宕机了怎么重启服务(不是干大数据的给我炫了一段写脚本)
 
 
 
@@ -5217,11 +5217,11 @@ shell脚本目录多文件下text替换为text1
 
 
 
-1 shell有过哪些命令，然后你回答以后会随机问你，怎么用的，类似于awk你怎么用的，\-i后面应该写什么，vim你怎么查看行号，grep怎么查看行号
+1 shell有过哪些命令，然后你回答以后会随机问你，怎么用的，类似于awk你怎么用的，-i后面应该写什么，vim你怎么查看行号，grep怎么查看行号
 
 
 
-Awk \-F 分割符  \{pring $1\}
+Awk -F 分割符  \{pring $1\}
 
 
 
@@ -5233,7 +5233,7 @@ if条件里面有时候用小括号有时候用中括号，有什么区别？
 
 
 
-找到前文件夹以及子文件所有以 \.log结尾的文件命令怎么写
+找到前文件夹以及子文件所有以 .log结尾的文件命令怎么写
 
 
 
@@ -5263,23 +5263,23 @@ linux了解吗，怎么查看日志
 
 
 
-1\.Linux用过哪些命令 ? 我说的 ps top grep awk jmap ls df 
+1.Linux用过哪些命令 ? 我说的 ps top grep awk jmap ls df 
 
 
 
-2\.awk grep怎么用的? 如何查一条完整记录不是简单匹配?
+2.awk grep怎么用的? 如何查一条完整记录不是简单匹配?
 
 
 
-9\.一个文件有10列，获取第5列的内容（使用shell命令）
+9.一个文件有10列，获取第5列的内容（使用shell命令）
 
 
 
-5\.shell 里export $0 $1 $2表达什么，怎么获取字符长度
+5.shell 里export $0 $1 $2表达什么，怎么获取字符长度
 
 
 
-11, 使用shell如何获取函数返回值\-\-\-没回答上来
+11, 使用shell如何获取函数返回值---没回答上来
 
 
 
@@ -5287,31 +5287,31 @@ Abc = function
 
 
 
-6\.如果哪个进程挂掉了  然后如何去看
+6.如果哪个进程挂掉了  然后如何去看
 
 
 
-6\.你们服务器用的什么系统？linux。你编写jar包怎么传到服务器的？为了服务器安全，我说用u盘拷贝的，服务器配了一个显示器。 
+6.你们服务器用的什么系统？linux。你编写jar包怎么传到服务器的？为了服务器安全，我说用u盘拷贝的，服务器配了一个显示器。 
 
-7\.linux的常用命令？如果有一个文本文件，统计下里面重复的行有多少个怎么去做？统计一下手机号在文本文件里面出现了多少次？用shell文件。想过滤日志中想要的字符串怎么做？如何用正则过滤出来手机号格式的数据？
-
-
-
-2\.通过shell怎么剔除重复数据  （uniq）
+7.linux的常用命令？如果有一个文本文件，统计下里面重复的行有多少个怎么去做？统计一下手机号在文本文件里面出现了多少次？用shell文件。想过滤日志中想要的字符串怎么做？如何用正则过滤出来手机号格式的数据？
 
 
 
-从文件中剔除重复数据，并输出唯一行      uniq input\.txt \> output\.txt
+2.通过shell怎么剔除重复数据  （uniq）
 
 
 
-从标准输入中剔除重复数据，并输出唯一行     cat input\.txt \| uniq
+从文件中剔除重复数据，并输出唯一行      uniq input.txt \> output.txt
+
+
+
+从标准输入中剔除重复数据，并输出唯一行     cat input.txt \| uniq
 
 
 
 
 
-5\.shell 脚本a，b，c三个a和b需要同时执行，c需要等a和b执行完再执行，自己手写shell脚本实现
+5.shell 脚本a，b，c三个a和b需要同时执行，c需要等a和b执行完再执行，自己手写shell脚本实现
 
 
 
@@ -5319,11 +5319,11 @@ Abc = function
 
 
 
-15\.linux查找文件，自带的内部调度器
+15.linux查找文件，自带的内部调度器
 
 
 
-10\.用没用过Linux的调度
+10.用没用过Linux的调度
 
 
 
@@ -5343,23 +5343,23 @@ Abc = function
 
 
 
-1\.7  Linux
+1.7  Linux
 
 
 
-\\1\) 说说linux的常用命令？你们在什么时候会用top，top是看什么的？知道scp命令吗？会不会用？如果我要找关键字为err的文件日志要怎么找？具体命令是什么？
+\\1) 说说linux的常用命令？你们在什么时候会用top，top是看什么的？知道scp命令吗？会不会用？如果我要找关键字为err的文件日志要怎么找？具体命令是什么？
 
 
 
-\\2\) vim常用吗？是干什么的？如果我要在一个很大的文件中找到port这个关键字，要怎么找？不区分大小写查找应该怎么做？怎么显示行号 ：set nu
+\\2) vim常用吗？是干什么的？如果我要在一个很大的文件中找到port这个关键字，要怎么找？不区分大小写查找应该怎么做？怎么显示行号 ：set nu
 
 
 
-\\3\) var/usr分别是存储什么文件的？
+\\3) var/usr分别是存储什么文件的？
 
 
 
-\\4\) linux系统的配置文件一般存放在哪个文件夹？
+\\4) linux系统的配置文件一般存放在哪个文件夹？
 
 
 
@@ -5381,7 +5381,7 @@ Abc = function
 
 （4）使用Linux命令查询file1里面空行的所在行号
 
-（5）有文件chengji\.txt内容如下:
+（5）有文件chengji.txt内容如下:
 
 张三 40
 
@@ -5423,7 +5423,7 @@ Abc = function
 
 
 
-（13）awk \-F的作用
+（13）awk -F的作用
 
 （14）Linux 的inode干嘛用的
 
@@ -5435,7 +5435,7 @@ Abc = function
 
 
 
-（23）CentOS查看版本的命令（12\.1）
+（23）CentOS查看版本的命令（12.1）
 
 
 
@@ -5457,7 +5457,7 @@ vi命令：
 
 （3）粘贴：
 
-定时任务：脚本start\.sh每月1日早六点执行：
+定时任务：脚本start.sh每月1日早六点执行：
 
 
 
@@ -5469,13 +5469,13 @@ vi命令：
 
 13. Linux下查看进程占用的CPU的百分比，使用工具（）
 
-A\. ps
+A. ps
 
-B\. cat
+B. cat
 
-C\. more
+C. more
 
-D\. top
+D. top
 
 
 
@@ -5491,7 +5491,7 @@ D\. top
 
 分别写出linux/unix中对应下列操作的命令。列出当前目录下所有文件及目录，包括隐藏的
 
-（命令带参数）；查看PID为7724的进程占用系统资源的情况，每2秒自动更新（命令带参数）；在/home 目录下查找以“\.log”结尾的文件名（命令带参数）；查看8080端口的占用情况（命令带参数）；列出当前运行的Java进程（命令带参数）。
+（命令带参数）；查看PID为7724的进程占用系统资源的情况，每2秒自动更新（命令带参数）；在/home 目录下查找以“.log”结尾的文件名（命令带参数）；查看8080端口的占用情况（命令带参数）；列出当前运行的Java进程（命令带参数）。
 
 
 
@@ -5519,11 +5519,11 @@ aaa ggg hhh
 
 
 
-\(1\)查找以aaa开头的行，要求一行命令
+(1)查找以aaa开头的行，要求一行命令
 
-\(2\)将以aaa开头的那一行中的全部a换成大写A，要求一行命令。
+(2)将以aaa开头的那一行中的全部a换成大写A，要求一行命令。
 
-三  在Linux的/root/text\.txt中内容知下：
+三  在Linux的/root/text.txt中内容知下：
 
 aIsjdlfkjsdlkfjd
 
@@ -5545,7 +5545,7 @@ liaeaw
 
 
 
-（1）在Linux系统中每隔10天的23点55执行test\.sh脚本的怎么实现？
+（1）在Linux系统中每隔10天的23点55执行test.sh脚本的怎么实现？
 
 （2）Linux下查找目录下的所有文件中是否含有某个字符串，并且只打印出文件名
 
@@ -5553,7 +5553,7 @@ liaeaw
 
 
 
-（9）shell脚本用kill \-9 停止正在运行的hadoop和spark。
+（9）shell脚本用kill -9 停止正在运行的hadoop和spark。
 
 
 
@@ -5593,11 +5593,11 @@ liaeaw
 
 
 
-查看进程 ps \-ef 
+查看进程 ps -ef 
 
 
 
-查看内存 free \-h
+查看内存 free -h
 
 
 
@@ -5605,11 +5605,11 @@ liaeaw
 
 
 
-查看磁盘 df \-h
+查看磁盘 df -h
 
 
 
-查看进程 netstat \-anp
+查看进程 netstat -anp
 
 
 
@@ -5627,17 +5627,17 @@ liaeaw
 
 
 
-27\.Linux命令sed干什么的
+27.Linux命令sed干什么的
 
 
 
 
 
-33\.Linux资源使用情况，如何按照CPU、Memory排序
+33.Linux资源使用情况，如何按照CPU、Memory排序
 
 
 
-34\.VI编辑器，如何到第一行，和到最后一行?
+34.VI编辑器，如何到第一行，和到最后一行?
 
 
 
@@ -5657,15 +5657,15 @@ scp
 
 
 
-30\.linux 查看端口占用情况
+30.linux 查看端口占用情况
 
 netstat      ss
 
-31\.查看服务器运行多久的命令？我答top ,错了     uptime
+31.查看服务器运行多久的命令？我答top ,错了     uptime
 
 
 
-24\.Linux命令，基本命令有操作吗
+24.Linux命令，基本命令有操作吗
 
 
 
@@ -5679,7 +5679,7 @@ netstat      ss
 
 
 
-9\.shell和linux命令
+9.shell和linux命令
 
 怎么分发文件
 
@@ -5693,7 +5693,7 @@ find  \| xargs rm
 
 rsync 怎么delete掉不需要的文件
 
-rsync \-\-delete
+rsync --delete
 
 怎么查看挂载
 
@@ -5701,15 +5701,15 @@ mount
 
 
 
-14\.linux 常用命令，怎么打包 解包？怎么查看某个端口被哪个进程占用？
+14.linux 常用命令，怎么打包 解包？怎么查看某个端口被哪个进程占用？
 
 tar  
 
 zip、unzip
 
-netstat \-anp  8088
+netstat -anp  8088
 
-ps \-ef\|grep  进程号
+ps -ef\|grep  进程号
 
 
 
@@ -5769,7 +5769,7 @@ ps \-ef\|grep  进程号
 
 常用高级命令包括 `find`（查找文件）、`df`（查看磁盘空间）、`tar`（文件压缩 / 解压）、`ps`（查看进程）、`top`（实时监控系统资源）、`netstat`（查看网络连接）等。
 
-**3\.1\.2 系统监控类命令**
+**3.1.2 系统监控类命令**
 
 
 

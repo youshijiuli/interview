@@ -1745,7 +1745,7 @@ import re
 text = "联系方式: dream@qq.com, hope@163.com, admin@gmail.com"
 
 # 匹配所有邮箱
-pattern = r"\w+@\w+\.\w+"
+pattern = r"\w+@\w+.\w+"
 emails = re.findall(pattern, text)
 print(emails)
 # ['dream@qq.com', 'hope@163.com', 'admin@gmail.com']
@@ -1759,7 +1759,7 @@ import re
 text = "联系方式: dream@qq.com, hope@163.com"
 
 # search 返回第一个匹配的 Match 对象
-result = re.search(r"\w+@\w+\.\w+", text)
+result = re.search(r"\w+@\w+.\w+", text)
 if result:
     print(f"匹配内容: {result.group()}")   # dream@qq.com
     print(f"起始位置: {result.start()}")    # 6
@@ -1831,7 +1831,7 @@ print(f"替换结果: {result}, 替换次数: {count}")
 import re
 
 text = "联系方式: dream@qq.com, hope@163.com, admin@gmail.com"
-pattern = re.compile(r"\w+@(\w+)\.\w+")
+pattern = re.compile(r"\w+@(\w+).\w+")
 
 # finditer 返回迭代器，适合大量匹配的场景
 for match in re.finditer(pattern, text):
@@ -1888,13 +1888,13 @@ import re
 phone_pattern = r"^1[3456789]\d{9}$"
 
 # 邮箱：用户名@域名.后缀
-email_pattern = r"^\w+([-+.]\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$"
+email_pattern = r"^\w+([-+.]\w+)*@\w+([-.]\w+)*.\w+([-.]\w+)*$"
 
 # 身份证号（18位）
 id_card_pattern = r"^\d{17}[\dXx]$"
 
 # URL
-url_pattern = r"^https?://([\w-]+\.)+[\w-]+(/[\w-./?%&=]*)?$"
+url_pattern = r"^https?://([\w-]+.)+[\w-]+(/[\w-./?%&=]*)?$"
 
 # 日期格式 YYYY-MM-DD
 date_pattern = r"^\d{4}-\d{1,2}-\d{1,2}$"
@@ -1928,7 +1928,7 @@ import re
 def extract_log_info(log_line):
     """从单行日志中提取关键信息"""
     # 假设日志格式: [2024-08-02 10:30:45] [ERROR] [模块名] 错误描述
-    pattern = r"\[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})\] \[(\w+)\] \[(\w+)\] (.+)"
+    pattern = r"[(\d{4}-\d{2}-\d{2} \d{2}:\d{2}:\d{2})] [(\w+)] [(\w+)] (.+)"
     match = re.match(pattern, log_line)
     if match:
         return {

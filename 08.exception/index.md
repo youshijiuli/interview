@@ -62,12 +62,131 @@ except Exception as e:
     # raise e # 可以选择将异常抛出
 else:
     print('没有发生异常..')
+
+
+try:
+    num = int(input("请输入整数："))
+    result = 8 / num
+    print(result)
+except ValueError:
+    print("请输入正确的整数")
+except ZeroDivisionError:
+    print("除 0 错误")
 ```
 
 
 - 当 `Python` 解释器 **抛出异常** 时，**最后一行错误信息的第一个单词，就是错误类型**
 
 #### 异常类型捕获演练 —— 要求用户输入整数
+
+
+## 十四、异常捕获
+
+### 14.1 什么是异常
+
+异常是程序在运行过程中遇到的错误，会导致程序崩溃。我们应该在可能出错的地方进行异常捕获，使程序更健壮。
+
+```python
+# 常见的异常示例
+# print(1 / 0)          # ZeroDivisionError: division by zero
+# int("abc")            # ValueError: invalid literal for int()
+# print(unknown_var)    # NameError: name 'unknown_var' is not defined
+# [1, 2, 3][10]         # IndexError: list index out of range
+# {"a": 1}["b"]         # KeyError: 'b'
+```
+
+### 14.2 常见异常类型
+
+```python
+# BaseException          所有异常的基类
+#   +-- SystemExit       解释器请求退出
+#   +-- KeyboardInterrupt 用户中断执行（Ctrl+C）
+#   +-- Exception        常规错误的基类
+#        +-- ValueError          传入无效参数
+#        +-- TypeError           对类型无效的操作
+#        +-- NameError           未声明/初始化对象
+#        +-- IndexError          序列索引不存在
+#        +-- KeyError            映射键不存在
+#        +-- ZeroDivisionError   除零错误
+#        +-- FileNotFoundError   文件未找到
+#        +-- ImportError         导入模块失败
+#        +-- AttributeError      对象没有该属性
+#        +-- SyntaxError         Python 语法错误
+#        +-- IndentationError    缩进错误
+```
+
+### 14.3 try/except/else/finally 完整语法
+
+```python
+# 基础语法
+try:
+    # 可能发生异常的代码
+    result = 10 / 0
+except:
+    # 发生异常时执行的代码
+    print("发生了异常")
+
+# ======== 完整语法 ========
+
+try:
+    # 正常执行可能出错的代码
+    num = int(input("请输入数字："))
+    result = 100 / num
+except ValueError:
+    # 捕获特定类型的异常
+    print("输入的不是数字！")
+except ZeroDivisionError:
+    # 捕获除零异常
+    print("不能除以零！")
+except (TypeError, KeyError) as e:
+    # 同时捕获多种异常，并将异常信息赋值给变量 e
+    print(f"发生类型/键异常：{e}")
+except Exception as e:
+    # 捕获所有异常（Exception 是所有常规异常的基类）
+    print(f"发生未知异常：{e}")
+else:
+    # 没有发生任何异常时执行
+    print(f"100 / {num} = {result}")
+finally:
+    # 无论是否发生异常，都会执行
+    print("程序执行完毕")
+```
+
+### 14.4 主动抛出异常（raise）
+
+```python
+# raise 关键字用于主动抛出异常
+def check_age(age):
+    if age < 0:
+        raise ValueError("年龄不能为负数！")
+    if age > 150:
+        raise ValueError("年龄超出人类范围！")
+    return age
+
+try:
+    check_age(-5)
+except ValueError as e:
+    print(f"校验失败：{e}")
+```
+
+### 14.5 断言（assert）
+
+```python
+# assert 用于在程序中设置检查点
+# 语法：assert 条件, "异常信息"
+# 条件为 False 时抛出 AssertionError
+
+def divide(a, b):
+    assert b != 0, "除数不能为零！"
+    return a / b
+
+print(divide(10, 2))   # 5.0
+# print(divide(10, 0)) # AssertionError: 除数不能为零！
+
+# assert 常用于开发和测试阶段，生产环境可用 -O 参数禁用
+```
+
+
 
 **需求**
 
@@ -245,6 +364,46 @@ except Exception as result:
 
 ## 032、python中有哪些标准异常类
 
+
+```python
+
+
+
+# BaseException
+# 下面有SystemExit/KeyboardInterrupt/GeneratorExit/Exception(其他异常都属于它)
+
+
+class Exception1(Exception):
+    pass
+
+class Exception2(Exception):
+    pass
+
+
+
+try:
+     # func   # 可能会抛出异常的代码
+    print(1/0)
+except (Exception1, Exception2) as e:  # 可以捕获多个异常并处理
+    # 异常处理的代码
+    print(e)
+else:
+    pass
+    # pass  # 异常没有发生的时候代码逻辑
+finally:
+    pass     # 无论异常有没有发生都会执行的代码，一般处理资源的关闭和释放
+
+
+# 继承Exception实现自定义异常，给异常加上一些附加信息
+#
+# 不用baseException是因为这样的话ctrl+c的keybord异常就用不了了
+
+
+```
+
+
+### 类
+
 | 异常名称 | 描述 |
 |-----|-----|
 | BaseException	| 所有异常的基类 |
@@ -296,3 +455,113 @@ except Exception as result:
 | SyntaxWarning	| 可疑的语法的警告 |
 | UserWarning	| 用户代码生成的警告 |
 
+
+
+## Python
+
+##### 说一下异常的处理
+
+try...except...finally
+
+try 中代码没有异常，执行else
+
+finally 则为 不管 try 有没有异常都执行
+
+except 单个异常 as 别名
+
+except (多个异常):
+
+except Exception: 万能异常
+
+raise 主动抛出异常
+
+也可以自定义异常类， 继承BaseException
+
+##### 异常种类
+
+> AttributeError 试图访问一个对象没有的树形，比如foo.x，但是foo没有属性x
+> IOError 输入/输出异常；基本上是无法打开文件
+> ImportError 无法引入模块或包；基本上是路径问题或名称错误
+> IndentationError 语法错误（的子类） ；代码没有正确对齐
+> IndexError 下标索引超出序列边界，比如当x只有三个元素，却试图访问x[5]
+> KeyError 试图访问字典里不存在的键
+> KeyboardInterrupt Ctrl+C被按下
+> NameError 使用一个还未被赋予对象的变量
+> SyntaxError Python代码非法，代码不能编译(个人认为这是语法错误，写错了）
+> TypeError 传入对象类型与要求的不符合
+> UnboundLocalError 试图访问一个还未被设置的局部变量，基本上是由于另有一个同名的全局变量，
+> 导致你以为正在访问它
+> ValueError 传入一个调用者不期望的值，即使值的类型是正确的
+
+
+
+## 面试题
+
+##### 介绍一下try except的用法和作用？
+* 主要用来处理异常
+* 完整用法如下：
+```python
+try:
+     Normal execution block
+except A:
+     Exception A handle
+except B:
+     Exception B handle
+except:
+     Other exception handle
+else:
+     if no exception,get here
+finally:
+     print("finally")   
+```
+
+---
+
+##### 写出以下代码的输出结果：
+```python
+def test():
+    try:
+        raise ValueError('something wrong')
+    except ValueError as e:
+        print('error occured')
+        return
+    finally:
+        print('ok')
+test()
+```
+* 结果(finally无论怎样都会执行)
+>error occured
+>ok
+
+---
+
+##### 什么是断言(assert)?应用场景？
+[断言的参考](https://blog.csdn.net/shujuanyaning/article/details/47184541)
+
+* assert是用来检查一个条件，如果它为真，就不做任何事。如果它为假，则会抛出AssertError并且包含错误信息。
+* 应用场景：
+    1. 防御型编程
+    2. 运行时检查程序逻辑
+    3. 检查约定
+    4. 程序常量
+    5. 检查文档
+
+
+### 如何捕获异常，常用的异常机制有哪些？  
+如果我们没有对异常进行任何预防，那么在程序执行的过程中发生异常，就会中断程序，调用python默认的异常处理器，并在终端输出异常信息。  
+`try...except...finally`语句:当try语句执行时发生异常，回到try语句层，寻找后面是否有except语句。  
+找到except语句后，会调用这个自定义的异常处理器。except将异常处理完毕后，程序继续往下执行。finally语句表示，无论异常发生与否，finally中的语句都要执行。  
+assert语句：判断assert后面紧跟的语句是True还是False，如果是True则继续执行print，如果是False则中断程序，调用默认的异常处理器，同时输出assert语句逗号后面的提示信息。  
+with语句：如果with语句或语句块中发生异常，会调用默认的异常处理器处理，但文件还是会正常关闭。  
+
+
+#### 题目38：举例说明什么情况下会出现`KeyError`、`TypeError`、`ValueError`。
+
+举一个简单的例子，变量`a`是一个字典，执行`int(a['x'])`这个操作就有可能引发上述三种类型的异常。如果字典中没有键`x`，会引发`KeyError`；如果键`x`对应的值不是`str`、`float`、`int`、`bool`以及`bytes-like`类型，在调用`int`函数构造`int`类型的对象时，会引发`TypeError`；如果`a[x]`是一个字符串或者字节串，而对应的内容又无法处理成`int`时，将引发`ValueError`。
+
+
+#### 37 介绍一下except的用法和作用？
+答：try…except…except…[else…][finally…]
+执行try下的语句，如果引发异常，则执行过程会跳到except语句。对每个except分支顺序尝试执行，如果引发的异常与except中的异常组匹配，执行相应的语句。如果所有的except都不匹配，则异常会传递到下一个调用本代码的最高层try代码中。
+try下的语句正常执行，则执行else块代码。如果发生异常，就不会执行
+如果存在finally语句，最后总是会执行。

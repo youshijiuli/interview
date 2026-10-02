@@ -40,7 +40,7 @@ find ~ | grep "target"
 - 右边命令必须能够接收标准输入流，否则传递过程中数据会被抛弃
 - sed,awk,grep,cur,head,top,less,more,wc,join,sort,split等
 
-grep 'xxx\[true\]' xx.log | grep -o 'engine\[[0-9a-z]*\]'
+grep 'xxx[true]' xx.log | grep -o 'engine[[0-9a-z]*]'
 
 ps -ef | grep tomcat
 

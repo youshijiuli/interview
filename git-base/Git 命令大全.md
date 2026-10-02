@@ -8,7 +8,7 @@
 
 Git 一共有3个配置文件：
 
-1、仓库级的配置文件：在仓库的 `.git/.gitconfig`，该配置文件只对所在的仓库有效。 2、全局配置文件：Mac 系统在 `~/.gitconfig`，Windows 系统在 `C:\Users\<用户名>\.gitconfig`。 3、系统级的配置文件：在 Git 的安装目录下（Mac 系统下安装目录在 `/usr/local/git`）的 `etc` 文件夹中的 `gitconfig`。
+1、仓库级的配置文件：在仓库的 `.git/.gitconfig`，该配置文件只对所在的仓库有效。 2、全局配置文件：Mac 系统在 `~/.gitconfig`，Windows 系统在 `C:\Users\<用户名>.gitconfig`。 3、系统级的配置文件：在 Git 的安装目录下（Mac 系统下安装目录在 `/usr/local/git`）的 `etc` 文件夹中的 `gitconfig`。
 
 ```Plain Text
 *# 查看配置信息# --local：仓库级，--global：全局级，--system：系统级*
@@ -62,7 +62,7 @@ $ git clone <远程仓库的网址> -b <分支名称> <本地目录>
 
 ## git init
 
-初始化项目所在目录，初始化后会在当前目录下出现一个名为 \.git 的目录。
+初始化项目所在目录，初始化后会在当前目录下出现一个名为 .git 的目录。
 
 ```Plain Text
 *# 初始化本地仓库，在当前目录下生成 .git 文件夹*
@@ -150,7 +150,7 @@ $ git checkout --orphan <分支名称>
 $ git checkout <文件路径>
 ```
 
-## git cherry\-pick
+## git cherry-pick
 
 把已经提交的记录合并到当前分支。
 
@@ -360,7 +360,7 @@ $ git rm --cached
 
 ## Git操作场景示例
 
-### 1\. 删除掉本地不存在的远程分支
+### 1. 删除掉本地不存在的远程分支
 
 多人合作开发时，如果远程的分支被其他开发删除掉，在本地执行 `git branch --all` 依然会显示该远程分支，可使用下列的命令进行删除：
 
@@ -373,7 +373,7 @@ $ git fetch -p
 $ git fetch --prune origin
 ```
 
-### 2\. 解决超大文件上传错误的问题
+### 2. 解决超大文件上传错误的问题
 
 git版本推送远程服务器时出现错误如下：
 

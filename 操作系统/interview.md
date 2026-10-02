@@ -104,11 +104,11 @@ print(sorted_dict)
        # 规则C
    }
    
-   location ~* \.(gif|jpg|png|js|css)$ {
+   location ~* .(gif|jpg|png|js|css)$ {
        # 规则D
    }
    
-   location ~* \.png$ {
+   location ~* .png$ {
        # 规则E
    }
    ```

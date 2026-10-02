@@ -2004,7 +2004,7 @@ print(re.split("(\d+)", "dream1dream2dream3dream"))
 pattern_phone = r"^(?:\+86)?1[3-9]\d{9}$"
 
 # 邮箱
-pattern_email = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+pattern_email = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"
 
 # 身份证号
 pattern_id = r"^\d{17}[\dXx]$"

@@ -30,7 +30,7 @@ Git 和其它版本控制系统（包括 Subversion 和近似工具）的主要�
 
 Git 是分布式的。这是 Git 和其它非分布式的版本控制系统（例如 svn，cvs 等），最核心的区别。分布式带来以下好处：
 
-- 工作时不需要联网 \- 首先，分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。既然每个人电脑上都有一个完整的版本库，那多个人如何协作呢？比方说你在自己电脑上改了文件 A，你的同事也在他的电脑上改了文件 A，这时，你们俩之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。
+- 工作时不需要联网 - 首先，分布式版本控制系统根本没有“中央服务器”，每个人的电脑上都是一个完整的版本库，这样，你工作的时候，就不需要联网了，因为版本库就在你自己的电脑上。既然每个人电脑上都有一个完整的版本库，那多个人如何协作呢？比方说你在自己电脑上改了文件 A，你的同事也在他的电脑上改了文件 A，这时，你们俩之间只需把各自的修改推送给对方，就可以互相看到对方的修改了。
 
 - 更加安全
 
@@ -46,7 +46,7 @@ Git 是分布式的。这是 Git 和其它非分布式的版本控制系统（�
 
 当你一个项目到本地或创建一个 git 项目，项目目录下会有一个隐藏的 `.git` 子目录。这个目录是 git 用来跟踪管理版本库的，如果不熟悉其工作机制，千万不要手动修改。
 
-![ZDwvbvUEjoTfjIxApCRchcIwnKg\.png](图片和附件/ZDwvbvUEjoTfjIxApCRchcIwnKg.png)
+![ZDwvbvUEjoTfjIxApCRchcIwnKg.png](图片和附件/ZDwvbvUEjoTfjIxApCRchcIwnKg.png)
 
 - `hooks` 目录：包含客户端或服务端的钩子脚本（hook scripts）
 
@@ -68,7 +68,7 @@ Git 是分布式的。这是 Git 和其它非分布式的版本控制系统（�
 
 Git 中所有数据在存储前都计算校验和，然后以校验和来引用。 这意味着不可能在 Git 不知情时更改任何文件内容或目录内容。 这个功能构筑在 Git 底层，是 Git 的关键组件。 若你在传送过程中丢失信息或损坏文件，Git 就能发现。
 
-Git 计算校验和的使用 SHA\-1 哈希算法。 这是一个由 40 个十六进制字符（0\-9 和 a\-f）组成字符串，基于 Git 中文件的内容或目录结构计算出来。 SHA\-1 哈希值看起来是这样：
+Git 计算校验和的使用 SHA-1 哈希算法。 这是一个由 40 个十六进制字符（0-9 和 a-f）组成字符串，基于 Git 中文件的内容或目录结构计算出来。 SHA-1 哈希值看起来是这样：
 
 ```Plain Text
 24b9da6552252987aa493b52f8696cd6d3b00373
@@ -80,25 +80,25 @@ Git 中使用这种哈希值的情况很多，你将经常看到这种哈希值�
 
 在 GIt 中，你的文件可能会处于三种状态之一：
 
-- 已修改（modified） \- 已修改表示修改了文件，但还没保存到数据库中。
+- 已修改（modified） - 已修改表示修改了文件，但还没保存到数据库中。
 
-- 已暂存（staged） \- 已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。
+- 已暂存（staged） - 已暂存表示对一个已修改文件的当前版本做了标记，使之包含在下次提交的快照中。
 
-- 已提交（committed） \- 已提交表示数据已经安全的保存在本地数据库中。
+- 已提交（committed） - 已提交表示数据已经安全的保存在本地数据库中。
 
 #### 工作区域
 
 与文件状态对应的，不同状态的文件在 Git 中处于不同的工作区域。
 
-- 工作区（working） \- 当你 `git clone` 一个项目到本地，相当于在本地克隆了项目的一个副本。工作区是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。
+- 工作区（working） - 当你 `git clone` 一个项目到本地，相当于在本地克隆了项目的一个副本。工作区是对项目的某个版本独立提取出来的内容。 这些从 Git 仓库的压缩数据库中提取出来的文件，放在磁盘上供你使用或修改。
 
-- 暂存区（staging） \- 暂存区是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。 有时候也被称作\`‘索引’'，不过一般说法还是叫暂存区。
+- 暂存区（staging） - 暂存区是一个文件，保存了下次将提交的文件列表信息，一般在 Git 仓库目录中。 有时候也被称作\`‘索引’'，不过一般说法还是叫暂存区。
 
-- 本地仓库（local） \- 提交更新，找到暂存区域的文件，将快照永久性存储到 Git 本地仓库。
+- 本地仓库（local） - 提交更新，找到暂存区域的文件，将快照永久性存储到 Git 本地仓库。
 
-- 远程仓库（remote） \- 以上几个工作区都是在本地。为了让别人可以看到你的修改，你需要将你的更新推送到远程仓库。同理，如果你想同步别人的修改，你需要从远程仓库拉取更新。
+- 远程仓库（remote） - 以上几个工作区都是在本地。为了让别人可以看到你的修改，你需要将你的更新推送到远程仓库。同理，如果你想同步别人的修改，你需要从远程仓库拉取更新。
 
-![RKv6bXjZmow8dlxttMwcxfoJnDe\.png](图片和附件/RKv6bXjZmow8dlxttMwcxfoJnDe.png)
+![RKv6bXjZmow8dlxttMwcxfoJnDe.png](图片和附件/RKv6bXjZmow8dlxttMwcxfoJnDe.png)
 
 ## 分支管理
 
@@ -106,53 +106,53 @@ Git 中使用这种哈希值的情况很多，你将经常看到这种哈希值�
 
 Git Flow 应该是目前流传最广的 Git 分支管理策略。Git Flow 围绕的核心点是版本发布（release），它适用于迭代版本较长的项目。
 
-> ![CBc2bNgkZoYTKDxhvVcctu1WndE\.png](图片和附件/CBc2bNgkZoYTKDxhvVcctu1WndE.png)
+> ![CBc2bNgkZoYTKDxhvVcctu1WndE.png](图片和附件/CBc2bNgkZoYTKDxhvVcctu1WndE.png)
 > 
-> 详细内容，可以参考这篇文章：[Git 在团队中的最佳实践\-\-如何正确使用 Git Flow](https://gitee.com/link?target=http%3A%2F%2Fwww.cnblogs.com%2Fcnblogsfans%2Fp%2F5075073.html)
+> 详细内容，可以参考这篇文章：[Git 在团队中的最佳实践--如何正确使用 Git Flow](https://gitee.com/link?target=http%3A%2F%2Fwww.cnblogs.com%2Fcnblogsfans%2Fp%2F5075073.html)
 > 
 > 
 
 Git Flow 常用分支：
 
-- `master` \- 主线分支
+- `master` - 主线分支
 
-- `develop` \- 开发分支
+- `develop` - 开发分支
 
-- `feature` \- 特性分支
+- `feature` - 特性分支
 
-- `release` \- 发布分支
+- `release` - 发布分支
 
-- `hotfix` \- 问题修复分支
+- `hotfix` - 问题修复分支
 
 Git Flow 工作流程
 
-#### 2\.1\. 主干分支
+#### 2.1. 主干分支
 
 主干分支有两个，它们是伴随着项目生命周期长期存在的分支。
 
-- `master` \- 这个分支对应发布到生产环境的代码。这个分支只允许从其他分支合入代码，不能在这个分支直接修改。所有在 master 分支上的 Commit 都应该打 Tag。
+- `master` - 这个分支对应发布到生产环境的代码。这个分支只允许从其他分支合入代码，不能在这个分支直接修改。所有在 master 分支上的 Commit 都应该打 Tag。
 
-- `develop` \- 这个分支包含所有要发布到下一个 release 的代码，这个分支主要是从其他分支合入代码，比如 feature 分支。
+- `develop` - 这个分支包含所有要发布到下一个 release 的代码，这个分支主要是从其他分支合入代码，比如 feature 分支。
 
-#### 2\.2\. `feature` 分支
+#### 2.2. `feature` 分支
 
 这个分支主要是用来开发一个新的功能，一旦开发完成，我们合并回 develop 分支进入下一个 release。feature 分支开发结束后，必须合并回 develop 分支, 合并完分支后一般会删点这个 feature 分支，但是我们也可以保留。
 
-![JkuvbERZeoAhyIxv1Sqcd39In9g\.png](图片和附件/JkuvbERZeoAhyIxv1Sqcd39In9g.png)
+![JkuvbERZeoAhyIxv1Sqcd39In9g.png](图片和附件/JkuvbERZeoAhyIxv1Sqcd39In9g.png)
 
-#### 2\.3\. `release` 分支
+#### 2.3. `release` 分支
 
-release 分支基于 develop 分支创建，创建后，我们可以在这个 release 分支上进行测试，修复 Bug 等工作。同时，其它开发人员可以基于它开发新的 feature \(记住：一旦创建了 release 分支之后不要从 develop 分支上合并新的改动到 release 分支\)。
+release 分支基于 develop 分支创建，创建后，我们可以在这个 release 分支上进行测试，修复 Bug 等工作。同时，其它开发人员可以基于它开发新的 feature (记住：一旦创建了 release 分支之后不要从 develop 分支上合并新的改动到 release 分支)。
 
 发布 release 分支时，合并 release 到 master 和 develop， 同时在 master 分支上打个 Tag 记住 release 版本号，然后可以删除 release 分支了。
 
-#### 2\.4\. `hotfix` 分支
+#### 2.4. `hotfix` 分支
 
 当出现线上 bug 时，也意味着 master 存在 Bug。这时，我们需要基于 master 创建一个 hotfix 分支，在此分支上完成 bug 修复。修复后，我们应该将此分支合并回 master 和 develop 分支，同时在 master 上打一个 tag。所以，hotfix 的改动会进入下一个 release。
 
-![SAtvbZ6anovZPsxjJiMc9ZYWntf\.png](图片和附件/SAtvbZ6anovZPsxjJiMc9ZYWntf.png)
+![SAtvbZ6anovZPsxjJiMc9ZYWntf.png](图片和附件/SAtvbZ6anovZPsxjJiMc9ZYWntf.png)
 
-#### 2\.5\. 如何应用 Git Flow
+#### 2.5. 如何应用 Git Flow
 
 在实际开发中，如何具体落地 Git Flow 流程呢？
 
@@ -162,7 +162,7 @@ git 提供了 `git flow` 命令来手动管理，但是比较麻烦，所以还�
 > 
 > [A Successful Git Branching Model](https://gitee.com/link?target=http%3A%2F%2Fnvie.com%2Fposts%2Fa-successful-git-branching-model%2F)
 > 
-> [Git 在团队中的最佳实践\-\-如何正确使用 Git Flow](https://gitee.com/link?target=http%3A%2F%2Fwww.cnblogs.com%2Fcnblogsfans%2Fp%2F5075073.html)
+> [Git 在团队中的最佳实践--如何正确使用 Git Flow](https://gitee.com/link?target=http%3A%2F%2Fwww.cnblogs.com%2Fcnblogsfans%2Fp%2F5075073.html)
 > 
 > 
 
@@ -186,7 +186,7 @@ Git 每次提交代码，都要写 Commit message（提交说明），否则就�
 
 再来一张较好的 Commit message 范例，每次提交的是什么内容，做了什么一目了然。
 
-![HbEubvIDBoFUrhxtoiDcLYSynqe\.png](图片和附件/HbEubvIDBoFUrhxtoiDcLYSynqe.png)
+![HbEubvIDBoFUrhxtoiDcLYSynqe.png](图片和附件/HbEubvIDBoFUrhxtoiDcLYSynqe.png)
 
 ### Commit message 的作用
 
@@ -228,9 +228,9 @@ Commit message 的作用还不仅仅是理解历史信息，它的主要作用�
 
 - `test`：测试用例修改
 
-- `chore`：其他修改, 比如构建流程, 依赖管理\.
+- `chore`：其他修改, 比如构建流程, 依赖管理.
 
-- `scope`：commit 影响的范围, 比如：route, component, utils, build\.\.\.
+- `scope`：commit 影响的范围, 比如：route, component, utils, build...
 
 - `subject`：commit 的概述
 
@@ -246,11 +246,11 @@ Intellij 中有集成 [Angular Git Commit 规范](https://gitee.com/link?target=
 
 第一步，安装插件
 
-![O58JbFETMo3lhKxZ63McsIFLneh\.png](图片和附件/O58JbFETMo3lhKxZ63McsIFLneh.png)
+![O58JbFETMo3lhKxZ63McsIFLneh.png](图片和附件/O58JbFETMo3lhKxZ63McsIFLneh.png)
 
 第二步，提交代码时，按照模板填写 commit message
 
-![JmpLb7iGTovWqYxtyZNcKazOnYC\.png](图片和附件/JmpLb7iGTovWqYxtyZNcKazOnYC.png)
+![JmpLb7iGTovWqYxtyZNcKazOnYC.png](图片和附件/JmpLb7iGTovWqYxtyZNcKazOnYC.png)
 
 ### 生成 Change log
 
@@ -262,11 +262,11 @@ Intellij 中有集成 [Angular Git Commit 规范](https://gitee.com/link?target=
 
 - Bug fixes
 
-- Breaking changes\.
+- Breaking changes.
 
 每个部分都会罗列相关的 commit ，并且有指向这些 commit 的链接。当然，生成的文档允许手动修改，所以发布前，你还可以添加其他内容。
 
-[conventional\-changelog](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fajoslin%2Fconventional-changelog) 就是生成 Change log 的工具，运行下面的命令即可。
+[conventional-changelog](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fajoslin%2Fconventional-changelog) 就是生成 Change log 的工具，运行下面的命令即可。
 
 ```Plain Text
 $ npm install -g conventional-changelog
@@ -345,9 +345,9 @@ NrRFi9wrf+M7Q== schacon@mylaptop.local
 
 后面，你在克隆你的 Github 项目时使用 SSH 方式即可。
 
-如果觉得我的讲解还不够细致，可以参考：[adding\-a\-new\-ssh\-key\-to\-your\-github\-account](https://gitee.com/link?target=https%3A%2F%2Fhelp.github.com%2Farticles%2Fadding-a-new-ssh-key-to-your-github-account%2F)
+如果觉得我的讲解还不够细致，可以参考：[adding-a-new-ssh-key-to-your-github-account](https://gitee.com/link?target=https%3A%2F%2Fhelp.github.com%2Farticles%2Fadding-a-new-ssh-key-to-your-github-account%2F)
 
-### 使用 \.gitignore 忽略不必提交内容
+### 使用 .gitignore 忽略不必提交内容
 
 `.gitignore` 文件可能从字面含义也不难猜出：这个文件里配置的文件或目录，会自动被 git 所忽略，不纳入版本控制。
 
@@ -355,7 +355,7 @@ NrRFi9wrf+M7Q== schacon@mylaptop.local
 
 `.gitignore` 配置的规则很简单，也没什么可说的，看几个例子，自然就明白了。
 
-【示例】一份 Java 的 \.gitignore
+【示例】一份 Java 的 .gitignore
 
 ```Plain Text
 # Compiled class file
@@ -383,11 +383,11 @@ NrRFi9wrf+M7Q== schacon@mylaptop.local
 hs_err_pid*
 ```
 
-> 【推荐】这里推荐一个 Github 的开源项目：[gitignore](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fgithub%2Fgitignore)，在这里，你可以找到很多常用的 \.gitignore 模板，如：Java、Nodejs、C\+\+ 的 `.gitignore` 模板等等。
+> 【推荐】这里推荐一个 Github 的开源项目：[gitignore](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fgithub%2Fgitignore)，在这里，你可以找到很多常用的 .gitignore 模板，如：Java、Nodejs、C\+\+ 的 `.gitignore` 模板等等。
 > 
 > 
 
-### 使用 \.gitattributes 解决 LF 和 CRLF 问题
+### 使用 .gitattributes 解决 LF 和 CRLF 问题
 
 你有没有在和多人协同开发时遇到过以下烦恼？
 
@@ -399,7 +399,7 @@ hs_err_pid*
 
 `.gitattributes` 文件中，可以用 text 属性指定某类文件或目录下的文件，控制它的行结束标准化。当一个文本文件被标准化时，它的行尾将在存储库中转换为 `LF`。要控制工作目录中使用的行结束风格，请使用单个文件的`eol`属性和所有文本文件的 `core.eol` 配置变量。
 
-【示例】一份 \.gitattributes 示例
+【示例】一份 .gitattributes 示例
 
 ```Plain Text
 * text=auto eol=lf
@@ -429,7 +429,7 @@ hs_err_pid*
 *.exe binary
 ```
 
-> 【推荐】这里推荐一个 Github 的开源项目：[gitignore](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Falexkaratarakis%2Fgitattributes)，在这里，你可以找到很多常用的 \.gitignore 模板，如：Java、Nodejs、C\+\+ 的 `.gitignore` 模板等等。
+> 【推荐】这里推荐一个 Github 的开源项目：[gitignore](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Falexkaratarakis%2Fgitattributes)，在这里，你可以找到很多常用的 .gitignore 模板，如：Java、Nodejs、C\+\+ 的 `.gitignore` 模板等等。
 > 
 > 
 
@@ -491,9 +491,9 @@ hs_err_pid*
 
 示例，下面是携程 [apollo](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fctripcorp%2Fapollo) 的一个 Issue 模板，要求提问者填充 bug 描述、复现步骤、期望、截图、日志等细节。
 
-![EpJYbhNR2oZm7DxFu1kc2MOlnNf\.png](图片和附件/EpJYbhNR2oZm7DxFu1kc2MOlnNf.png)
+![EpJYbhNR2oZm7DxFu1kc2MOlnNf.png](图片和附件/EpJYbhNR2oZm7DxFu1kc2MOlnNf.png)
 
-> 更多模板：[Github issue\_templates 模板](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fstevemao%2Fgithub-issue-templates)
+> 更多模板：[Github issue_templates 模板](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fstevemao%2Fgithub-issue-templates)
 > 
 > 
 
@@ -505,7 +505,7 @@ hs_err_pid*
 
 （2）在 `.gitlab` 目录中添加 `issue_templates` 目录，在其中添加的 md 文件都会被 Gitlab 自动识，并将其作为 issue 的默认模板。
 
-> 更多模板：[Gitlab 官方 issue\_templates 模板](https://gitee.com/link?target=https%3A%2F%2Fgitlab.com%2Fgitlab-org%2Fgitlab%2F-%2Ftree%2Fmaster%2F.gitlab%2Fissue_templates)
+> 更多模板：[Gitlab 官方 issue_templates 模板](https://gitee.com/link?target=https%3A%2F%2Fgitlab.com%2Fgitlab-org%2Fgitlab%2F-%2Ftree%2Fmaster%2F.gitlab%2Fissue_templates)
 > 
 > 
 
@@ -519,7 +519,7 @@ Git 提供了 Git Hook 机制，允许使用者在特定的重要动作发生时
 
 - `pre-commit` 钩子：在提交信息前运行。 它用于检查即将提交的快照，例如，检查是否有所遗漏，确保测试运行，以及核查代码。 如果该钩子以非零值退出，Git 将放弃此次提交，不过你可以用 `git commit --no-verify` 来绕过这个环节。 你可以利用该钩子，来检查代码风格是否一致（运行类似 `lint` 的程序）、尾随空白字符是否存在（自带的钩子就是这么做的），或新方法的文档是否适当。
 
-- `prepare-commit-msg` 钩子：在启动提交信息编辑器之前，默认信息被创建之后运行。 它允许你编辑提交者所看到的默认信息。 该钩子接收一些选项：存有当前提交信息的文件的路径、提交类型和修补提交的提交的 SHA\-1 校验。 它对一般的提交来说并没有什么用；然而对那些会自动产生默认信息的提交，如提交信息模板、合并提交、压缩提交和修订提交等非常实用。 你可以结合提交模板来使用它，动态地插入信息。
+- `prepare-commit-msg` 钩子：在启动提交信息编辑器之前，默认信息被创建之后运行。 它允许你编辑提交者所看到的默认信息。 该钩子接收一些选项：存有当前提交信息的文件的路径、提交类型和修补提交的提交的 SHA-1 校验。 它对一般的提交来说并没有什么用；然而对那些会自动产生默认信息的提交，如提交信息模板、合并提交、压缩提交和修订提交等非常实用。 你可以结合提交模板来使用它，动态地插入信息。
 
 - `commit-msg` 钩子：接收一个参数，此参数即上文提到的，存有当前提交信息的临时文件的路径。 如果该钩子脚本以非零值退出，Git 将放弃提交，因此，可以用来在提交通过前验证项目状态或提交信息。 在本章的最后一节，我们将展示如何使用该钩子来核对提交信息是否遵循指定的模板。
 
@@ -537,7 +537,7 @@ Git 提供了 Git Hook 机制，允许使用者在特定的重要动作发生时
 npm i -D husky
 ```
 
-然后，在 package\.json 中添加配置：
+然后，在 package.json 中添加配置：
 
 ```Plain Text
 "husky": {

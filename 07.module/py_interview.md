@@ -36,7 +36,7 @@
 
 ```python
 import re
-pp=re.compile('[a-zA-Z0-9_-]+@[0-9A-Za-z]+(\.[0-9a-zA-Z]+)+')
+pp=re.compile('[a-zA-Z0-9_-]+@[0-9A-Za-z]+(.[0-9a-zA-Z]+)+')
 if pp.match('1403179190@qq.com'):
     print('ok')
 ```

@@ -6,7 +6,7 @@
 
 # 学习目标
 
-1\.熟悉shell脚本的原理和使用
+1.熟悉shell脚本的原理和使用
 
 2 熟悉shell的编程语法
 
@@ -106,7 +106,7 @@ Helloworld
 
 第二种：采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限\+x）
 
-（a）首先要赋予helloworld\.sh 脚本的\+x权限
+（a）首先要赋予helloworld.sh 脚本的\+x权限
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ chmod +x helloworld.sh
@@ -130,7 +130,7 @@ Helloworld
 
 注意：第一种执行方法，本质是bash解析器帮你执行脚本，所以脚本本身不需要执行权限。第二种执行方法，本质是脚本需要自己执行，所以需要执行权限。
 
-【了解】第三种：在脚本的路径前加上“\.”或者 source
+【了解】第三种：在脚本的路径前加上“.”或者 source
 
 （a）有以下脚本
 
@@ -144,7 +144,7 @@ A=5
 echo $A
 ```
 
-\(b\) 分别使用sh，bash，\./ 和 \. 的方式来执行，结果如下：
+(b) 分别使用sh，bash，./ 和 . 的方式来执行，结果如下：
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ bash test.sh 
@@ -176,13 +176,13 @@ echo $A
 
 前三种方式都是在当前shell中打开一个子shell来执行脚本内容，当脚本内容结束，则子shell关闭，回到父shell中。
 
-第四种，也就是使用在脚本路径前加“\.”或者 source的方式，可以使脚本内容在当前shell里执行，而无需打开子shell！这也是为什么我们每次要修改完/etc/profile文件以后，需要source一下的原因。
+第四种，也就是使用在脚本路径前加“.”或者 source的方式，可以使脚本内容在当前shell里执行，而无需打开子shell！这也是为什么我们每次要修改完/etc/profile文件以后，需要source一下的原因。
 
 开子shell与不开子shell的区别就在于，环境变量的继承关系，如在子shell中设置的当前变量，父shell是不可见的。
 
 # 第三节 变量
 
-## 3\.1 系统预定义变量
+## 3.1 系统预定义变量
 
 1）常用系统变量
 
@@ -212,7 +212,7 @@ BASH_ARGC=()
 BASH_ARGV=()
 ```
 
-## 3\*\*\.2\*\* 自定义变量
+## 3**.2** 自定义变量
 
 1）基本语法
 
@@ -308,7 +308,7 @@ export 变量名
 [atguigu@hadoop101 datas]$ vim helloworld.sh 
 ```
 
-在helloworld\.sh文件中增加echo $B
+在helloworld.sh文件中增加echo $B
 
 ```Plain Text
 #!/bin/bash
@@ -338,9 +338,9 @@ helloworld
 2
 ```
 
-## 3\*\*\.3\*\* 特殊变量
+## 3**.3** 特殊变量
 
-### 3\.3\.1 $n
+### 3.3.1 $n
 
 1）基本语法
 
@@ -378,7 +378,7 @@ cls
 xz
 ```
 
-### 3\.3\.2 $\#
+### 3.3.2 $\#
 
 1）基本语法
 
@@ -422,11 +422,11 @@ xz
 2
 ```
 
-### 3\.3\.3 ∗∗∗、@\*\*
+### 3.3.3 ∗∗∗、@**
 
 1）基本语法
 
-∗（功能描述：这个变量代表命令行中所有的参数，\*把所有的参数看成一个整体）
+∗（功能描述：这个变量代表命令行中所有的参数，*把所有的参数看成一个整体）
 
 @（功能描述：这个变量也代表命令行中所有的参数，不过@把每个参数区分对待）
 
@@ -480,7 +480,7 @@ a b c d e f g
 a b c d e f g
 ```
 
-### 3\.3\.4 $？
+### 3.3.4 $？
 
 1）基本语法
 
@@ -488,7 +488,7 @@ $？ （功能描述：最后一次执行的命令的返回状态。如果这个
 
 2）案例实操
 
-判断helloworld\.sh脚本是否正确执行
+判断helloworld.sh脚本是否正确执行
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ ./helloworld.sh 
@@ -504,11 +504,11 @@ hello world
 
 1）基本语法
 
-“\(\(运算式\)\)”或“\[运算式\]”
+“((运算式))”或“[运算式]”
 
 2）案例实操：
 
-计算（2\+3）\* 4的值
+计算（2\+3）* 4的值
 
 ```Plain Text
 [atguigu@hadoop101 datas]# S=$[(2+3)*4]
@@ -522,35 +522,35 @@ hello world
 
 （1）test condition
 
-（2）\[ condition \]（注意condition前后要有空格）
+（2）[ condition ]（注意condition前后要有空格）
 
-注意：条件非空即为true，\[ atguigu \]返回true，\[ \] 返回false。
+注意：条件非空即为true，[ atguigu ]返回true，[ ] 返回false。
 
 2）常用判断条件
 
 （1）两个整数之间比较
 
-\-eq 等于（equal） \-ne 不等于（not equal）
+-eq 等于（equal） -ne 不等于（not equal）
 
-\-lt 小于（less than） \-le 小于等于（less equal）
+-lt 小于（less than） -le 小于等于（less equal）
 
-\-gt 大于（greater than） \-ge 大于等于（greater equal）
+-gt 大于（greater than） -ge 大于等于（greater equal）
 
 （2）按照文件权限进行判断
 
-\-r 有读的权限（read）
+-r 有读的权限（read）
 
-\-w 有写的权限（write）
+-w 有写的权限（write）
 
-\-x 有执行的权限（execute）
+-x 有执行的权限（execute）
 
 （3）按照文件类型进行判断
 
-\-e 文件存在（existence）
+-e 文件存在（existence）
 
-\-f 文件存在并且是一个常规的文件（file）
+-f 文件存在并且是一个常规的文件（file）
 
-\-d 文件存在并且是一个目录（directory）
+-d 文件存在并且是一个目录（directory）
 
 3）案例实操
 
@@ -564,7 +564,7 @@ hello world
 0
 ```
 
-（2）helloworld\.sh是否具有写权限
+（2）helloworld.sh是否具有写权限
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ [ -w helloworld.sh ]
@@ -574,7 +574,7 @@ hello world
 0
 ```
 
-（3）/home/atguigu/cls\.txt目录中的文件是否存在
+（3）/home/atguigu/cls.txt目录中的文件是否存在
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ [ -e /home/atguigu/cls.txt ]
@@ -598,13 +598,13 @@ notOK
 
 # 第六节 流程控制（重点）
 
-## 6\.1 if判断
+## 6.1 if判断
 
 1）基本语法
 
 （1）单分支
 
-if \[ 条件判断式 \];then
+if [ 条件判断式 ];then
 
 程序
 
@@ -612,7 +612,7 @@ fi
 
 或者
 
-if \[ 条件判断式 \]
+if [ 条件判断式 ]
 
 then
 
@@ -622,13 +622,13 @@ fi
 
 （2）多分支
 
-if \[ 条件判断式 \]
+if [ 条件判断式 ]
 
 then
 
 程序
 
-elif \[ 条件判断式 \]
+elif [ 条件判断式 ]
 
 then
 
@@ -642,7 +642,7 @@ fi
 
 注意事项：
 
-（1）\[ 条件判断式 \]，中括号和条件判断式之间必须有空格
+（1）[ 条件判断式 ]，中括号和条件判断式之间必须有空格
 
 （2）if后要有空格
 
@@ -684,7 +684,7 @@ fi
 banzhang zhen shuai
 ```
 
-## 6\.2 case语句
+## 6.2 case语句
 
 1）基本语法
 
@@ -704,7 +704,7 @@ case $变量名 in
 
 …省略其他分支…
 
-\*）
+*）
 
 如果变量的值都不是以上的值，则执行此程序
 
@@ -718,7 +718,7 @@ esac
 
 （2）双分号“;;”表示命令序列结束，相当于java中的break。
 
-（3）最后的“\*）”表示默认模式，相当于java中的default。
+（3）最后的“*）”表示默认模式，相当于java中的default。
 
 2）案例实操
 
@@ -768,11 +768,11 @@ esac
 1
 ```
 
-## 6\.3 for循环
+## 6.3 for循环
 
 1）基本语法1
 
-for \(\( 初始值;循环控制条件;变量变化 \)\)
+for (( 初始值;循环控制条件;变量变化 ))
 
 do
 
@@ -976,11 +976,11 @@ banzhang love mly
 banzhang love wls
 ```
 
-## 6\.4 while循环
+## 6.4 while循环
 
 1）基本语法
 
-while \[ 条件判断式 \]
+while [ 条件判断式 ]
 
 do
 
@@ -988,7 +988,7 @@ do
 
 done
 
-2\*\*）案例实操\*\*
+2**）案例实操**
 
 从1加到100
 
@@ -1032,13 +1032,13 @@ echo $sum
 
 1）基本语法
 
-read \(选项\) \(参数\)
+read (选项) (参数)
 
 选项：
 
-\-p：指定读取值时的提示符；
+-p：指定读取值时的提示符；
 
-\-t：指定读取值时等待的时间（秒）。
+-t：指定读取值时等待的时间（秒）。
 
 参数
 
@@ -1074,13 +1074,13 @@ atguigu
 
 # 第八节 函数
 
-## 8\.1 系统函数
+## 8.1 系统函数
 
-### 8\.1\.1 basename
+### 8.1.1 basename
 
 1）基本语法
 
-basename \[string / pathname\] \[suffix\] （功能描述：basename命令会删掉所有的前缀包括最后一个（‘/’）字符，然后将字符串显示出来。
+basename [string / pathname] [suffix] （功能描述：basename命令会删掉所有的前缀包括最后一个（‘/’）字符，然后将字符串显示出来。
 
 选项：
 
@@ -1088,7 +1088,7 @@ suffix为后缀，如果suffix被指定了，basename会将pathname或string中�
 
 2）案例实操
 
-截取该/home/atguigu/banzhang\.txt路径的文件名称
+截取该/home/atguigu/banzhang.txt路径的文件名称
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ basename /home/atguigu/banzhang.txt 
@@ -1100,7 +1100,7 @@ banzhang.txt
 banzhang
 ```
 
-### 8\.1\.2 dirname
+### 8.1.2 dirname
 
 1）基本语法
 
@@ -1108,7 +1108,7 @@ dirname 文件绝对路径 （功能描述：从给定的包含绝对路径的�
 
 2）案例实操
 
-获取banzhang\.txt文件的路径
+获取banzhang.txt文件的路径
 
 ```Plain Text
 [atguigu@hadoop101 ~]$ dirname /home/atguigu/banzhang.txt 
@@ -1116,17 +1116,17 @@ dirname 文件绝对路径 （功能描述：从给定的包含绝对路径的�
 /home/atguigu
 ```
 
-## 8\.2 自定义函数
+## 8.2 自定义函数
 
 1）基本语法
 
-\[ function \] funname\[\(\)\]
+[ function ] funname[()]
 
 \{
 
 Action;
 
-\[return int;\]
+[return int;]
 
 \}
 
@@ -1134,7 +1134,7 @@ Action;
 
 （1）必须在调用函数地方之前，先声明函数，shell脚本是逐行运行。不会像其它语言一样先编译。
 
-（2）函数返回值，只能通过$?系统变量获得，可以显示加：return返回，如果不加，将以最后一条命令运行结果，作为返回值。return后跟数值n\(0\-255\)
+（2）函数返回值，只能通过$?系统变量获得，可以显示加：return返回，如果不加，将以最后一条命令运行结果，作为返回值。return后跟数值n(0-255)
 
 3）案例实操
 
@@ -1184,13 +1184,13 @@ Please input the number2: 5
 
 # 第九节 Shell工具（重点）
 
-## 9\.1 cut
+## 9.1 cut
 
 cut的工作就是“剪”，具体的说就是在文件中负责剪切数据用的。cut 命令从文件的每一行剪切字节、字符和字段并将这些字节、字符和字段输出。
 
 1）基本用法
 
-cut \[选项参数\] filename
+cut [选项参数] filename
 
 说明：默认分隔符是制表符
 
@@ -1216,7 +1216,7 @@ lai  lai
 le  le
 ```
 
-（2）切割cut\.txt第一列
+（2）切割cut.txt第一列
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ cut -d " " -f 1 cut.txt 
@@ -1232,7 +1232,7 @@ lai
 le
 ```
 
-（3）切割cut\.txt第二、三列
+（3）切割cut.txt第二、三列
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ cut -d " " -f 2,3 cut.txt 
@@ -1248,7 +1248,7 @@ zhen
  le
 ```
 
-（4）在cut\.txt文件中切割出guan
+（4）在cut.txt文件中切割出guan
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ cat cut.txt | grep "guan" | cut -d " " -f 1
@@ -1276,13 +1276,13 @@ guan
 192.168.6.101
 ```
 
-## 9\.2 awk
+## 9.2 awk
 
 一个强大的文本分析工具，把文件逐行的读入，以空格为默认分隔符将每行切片，切开的部分再进行分析处理。
 
 1）基本用法
 
-awk \[选项参数\] ‘/pattern1/\{action1\} /pattern2/\{action2\}\.\.\.’ filename
+awk [选项参数] ‘/pattern1/\{action1\} /pattern2/\{action2\}...’ filename
 
 pattern：表示awk在数据中查找的内容，就是匹配模式
 
@@ -1350,7 +1350,7 @@ dahaige,/bin/zuishuai
 4
 ```
 
-4\*\*）awk的内置变量\*\*
+4**）awk的内置变量**
 
 5）案例实操
 
@@ -1388,13 +1388,13 @@ filename:passwd,linenum:3,col:7
 192.168.6.101
 ```
 
-## 9\.3 sort
+## 9.3 sort
 
 sort命令是在Linux里非常有用，它将文件进行排序，并将排序结果标准输出。
 
 1）基本语法
 
-Sort \(选项\) \(参数\)
+Sort (选项) (参数)
 
 参数：指定待排序的文件列表
 
@@ -1434,13 +1434,13 @@ xz:50:2.3
 ss:30:1.6
 ```
 
-## 9\*\*\.4 wc\*\*
+## 9**.4 wc**
 
 wc命令用来统计文件信息。利用wc指令我们可以计算文件的行数，字节数、字符数等。
 
 1）基本语法
 
-wc \[选项参数\] filename
+wc [选项参数] filename
 
 2）案例实操
 
@@ -1458,7 +1458,7 @@ wc \[选项参数\] filename
 
 正则表达式使用单个字符串来描述、匹配一系列符合某个语法规则的字符串。在很多文本编辑器里，正则表达式通常被用来检索、替换那些符合某个模式的文本。在Linux中，grep，sed，awk等命令都支持通过正则表达式进行模式匹配。
 
-## 10\.1 常规匹配
+## 10.1 常规匹配
 
 一串不包含特殊字符的正则表达式匹配它自己，例如：
 
@@ -1468,7 +1468,7 @@ wc \[选项参数\] filename
 
 就会匹配所有包含atguigu的行
 
-## 10\.2 常用特殊字符
+## 10.2 常用特殊字符
 
 1）特殊字符：^
 
@@ -1492,9 +1492,9 @@ $ 匹配一行的结束，例如
 
 思考：^$ 匹配什么？
 
-3）特殊字符：\.
+3）特殊字符：.
 
-\. 匹配一个任意的字符，例如
+. 匹配一个任意的字符，例如
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ cat /etc/passwd | grep r..t
@@ -1502,7 +1502,7 @@ $ 匹配一行的结束，例如
 
 会匹配包含rabt,rbbt,rxdt,root等的所有行
 
-4）特殊字符：\*
+4）特殊字符：*
 
 - 不单独使用，他和上一个字符连用，表示匹配上一个字符0次或多次，例如
 
@@ -1512,23 +1512,23 @@ $ 匹配一行的结束，例如
 
 会匹配rt, rot, root, rooot, roooot等所有行
 
-思考：\.\* 匹配什么？
+思考：.* 匹配什么？
 
-5）特殊字符：\[ \]
+5）特殊字符：[ ]
 
-\[ \] 表示匹配某个范围内的一个字符，例如
+[ ] 表示匹配某个范围内的一个字符，例如
 
-\[6,8\]\-\-\-\-\-\-匹配6或者8
+[6,8]------匹配6或者8
 
-\[0\-9\]\-\-\-\-\-\-匹配一个0\-9的数字
+[0-9]------匹配一个0-9的数字
 
-\[0\-9\]\*\-\-\-\-\-\-匹配任意长度的数字字符串
+[0-9]*------匹配任意长度的数字字符串
 
-\[a\-z\]\-\-\-\-\-\-匹配一个a\-z之间的字符
+[a-z]------匹配一个a-z之间的字符
 
-\[a\-z\]\* \-\-\-\-\-\-匹配任意长度的字母字符串
+[a-z]* ------匹配任意长度的字母字符串
 
-\[a\-c, e\-f\]\-匹配a\-c或者e\-f之间的任意字符
+[a-c, e-f]-匹配a-c或者e-f之间的任意字符
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ cat /etc/passwd | grep r[a,b,c]*t

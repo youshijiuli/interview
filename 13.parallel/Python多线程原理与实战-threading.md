@@ -1,4 +1,4 @@
-# Python多线程原理与实战\-threading
+# Python多线程原理与实战-threading
 
 ## 常用
 
@@ -12,7 +12,7 @@
 
 - getName（）：返回线程名称
 
-- setName\(\) : 设置线程名称
+- setName() : 设置线程名称
 
 ## 目的：
 
@@ -26,11 +26,11 @@
 
 ### 线程是什么？
 
-线程是指进程内的一个执行单元,也是进程内的可调度实体\.
+线程是指进程内的一个执行单元,也是进程内的可调度实体.
 
-与进程的区别: \(1\) 地址空间:进程内的一个执行单元;进程至少有一个线程;它们共享进程的地址空间;而进程有自己独立的地址空间; \(2\) 资源拥有:进程是资源分配和拥有的单位,同一个进程内的线程共享进程的资源 \(3\) 线程是处理器调度的基本单位,但进程不是\. \(4\) 二者均可并发执行\.
+与进程的区别: (1) 地址空间:进程内的一个执行单元;进程至少有一个线程;它们共享进程的地址空间;而进程有自己独立的地址空间; (2) 资源拥有:进程是资源分配和拥有的单位,同一个进程内的线程共享进程的资源 (3) 线程是处理器调度的基本单位,但进程不是. (4) 二者均可并发执行.
 
-简而言之,一个程序至少有一个进程,一个进程至少有一个线程\.
+简而言之,一个程序至少有一个进程,一个进程至少有一个线程.
 
 线程的划分尺度小于进程，使得多线程程序的并发性高。 另外，进程在执行过程中拥有独立的内存单元，而多个线程共享内存，从而极大地提高了程序的运行效率。
 
@@ -40,19 +40,19 @@
 
 多线程可以共享全局变量，多进程不能。多线程中，所有子线程的进程号相同；多进程中，不同的子进程进程号不同。
 
-进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位\. 线程是进程的一个实体,是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位\.线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源\(如程序计数器,一组寄存器和栈\),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源\. 一个线程可以创建和撤销另一个线程;同一个进程中的多个线程之间可以并发执行\.
+进程是具有一定独立功能的程序关于某个数据集合上的一次运行活动,进程是系统进行资源分配和调度的一个独立单位. 线程是进程的一个实体,是CPU调度和分派的基本单位,它是比进程更小的能独立运行的基本单位.线程自己基本上不拥有系统资源,只拥有一点在运行中必不可少的资源(如程序计数器,一组寄存器和栈),但是它可与同属一个进程的其他的线程共享进程所拥有的全部资源. 一个线程可以创建和撤销另一个线程;同一个进程中的多个线程之间可以并发执行.
 
 ## Python线程模块
 
-python主要是通过thread和threading这两个模块来实现多线程支持。python的thread模块是比较底层的模块，python的threading模块是对thread做了一些封装，可以更加方便的被使用。但是python（cpython）由于GIL的存在无法使用threading充分利用CPU资源，如果想充分发挥多核CPU的计算能力需要使用multiprocessing模块\(Windows下使用会有诸多问题\)。
+python主要是通过thread和threading这两个模块来实现多线程支持。python的thread模块是比较底层的模块，python的threading模块是对thread做了一些封装，可以更加方便的被使用。但是python（cpython）由于GIL的存在无法使用threading充分利用CPU资源，如果想充分发挥多核CPU的计算能力需要使用multiprocessing模块(Windows下使用会有诸多问题)。
 
 ### 如何创建线程
 
-python3\.x中已经摒弃了Python2\.x中采用函数式thread模块中的start\_new\_thread\(\)函数来产生新线程方式。
+python3.x中已经摒弃了Python2.x中采用函数式thread模块中的start_new_thread()函数来产生新线程方式。
 
-python3\.x中通过threading模块创建新的线程有两种方法：一种是通过threading\.Thread\(Target=executable Method\)\-即传递给Thread对象一个可执行方法（或对象）;第二种是继承threading\.Thread定义子类并重写run\(\)方法。第二种方法中，唯一必须重写的方法是run\(\)
+python3.x中通过threading模块创建新的线程有两种方法：一种是通过threading.Thread(Target=executable Method)-即传递给Thread对象一个可执行方法（或对象）;第二种是继承threading.Thread定义子类并重写run()方法。第二种方法中，唯一必须重写的方法是run()
 
-### （1）通过threading\.Thread进行创建多线程
+### （1）通过threading.Thread进行创建多线程
 
 ```Plain Text
 **import** threading
@@ -79,9 +79,9 @@ the current threading MainThread is ended
 '''
 ```
 
-### （2）通过继承threading\.Thread定义子类创建多线程
+### （2）通过继承threading.Thread定义子类创建多线程
 
-使用Threading模块创建线程，直接从threading\.Thread继承，然后重写init方法和run方法：
+使用Threading模块创建线程，直接从threading.Thread继承，然后重写init方法和run方法：
 
 ```Plain Text
 **import** threading
@@ -202,35 +202,35 @@ Exiting Main Thread
 '''
 ```
 
-#### \(2\) 线程同步队列queue
+#### (2) 线程同步队列queue
 
-python2\.x中提供的Queue， Python3\.x中提供的是queue
+python2.x中提供的Queue， Python3.x中提供的是queue
 
-见import queue\.
+见import queue.
 
-Python的queue模块中提供了同步的、线程安全的队列类，包括FIFO（先入先出\)队列Queue，LIFO（后入先出）队列LifoQueue，和优先级队列PriorityQueue。这些队列都实现了锁原语，能够在多线程中直接使用。可以使用队列来实现线程间的同步。
+Python的queue模块中提供了同步的、线程安全的队列类，包括FIFO（先入先出)队列Queue，LIFO（后入先出）队列LifoQueue，和优先级队列PriorityQueue。这些队列都实现了锁原语，能够在多线程中直接使用。可以使用队列来实现线程间的同步。
 
 queue模块中的常用方法:
 
-- queue\.qsize\(\) 返回队列的大小
+- queue.qsize() 返回队列的大小
 
-- queue\.empty\(\) 如果队列为空，返回True,反之False
+- queue.empty() 如果队列为空，返回True,反之False
 
-- queue\.full\(\) 如果队列满了，返回True,反之False
+- queue.full() 如果队列满了，返回True,反之False
 
-- queue\.full 与 maxsize 大小对应
+- queue.full 与 maxsize 大小对应
 
-- queue\.get\(\[block\[, timeout\]\]\)获取队列，timeout等待时间
+- queue.get([block[, timeout]])获取队列，timeout等待时间
 
-- queue\.get\_nowait\(\) 相当Queue\.get\(False\)
+- queue.get_nowait() 相当Queue.get(False)
 
-- queue\.put\(item\) 写入队列，timeout等待时间
+- queue.put(item) 写入队列，timeout等待时间
 
-- queue\.put\_nowait\(item\) 相当Queue\.put\(item, False\)
+- queue.put_nowait(item) 相当Queue.put(item, False)
 
-- queue\.task\_done\(\) 在完成一项工作之后，Queue\.task\_done\(\)函数向任务已经完成的队列发送一个信号
+- queue.task_done() 在完成一项工作之后，Queue.task_done()函数向任务已经完成的队列发送一个信号
 
-- queue\.join\(\) 实际上意味着等到队列为空，再执行别的操作
+- queue.join() 实际上意味着等到队列为空，再执行别的操作
 
 案例1：
 
@@ -363,13 +363,13 @@ Thread-27 process 4
 
 - CPU计算，占用CPU
 
-- 不需要CPU计算，不占用CPU，等待IO返回，比如recv\(\), accept\(\), sleep\(\)等操作，具体操作就是比如 访问cache、RPC调用下游service、访问DB，等需要网络调用的操作
+- 不需要CPU计算，不占用CPU，等待IO返回，比如recv(), accept(), sleep()等操作，具体操作就是比如 访问cache、RPC调用下游service、访问DB，等需要网络调用的操作
 
 那么如果计算时间占50%， 等待时间50%，那么为了利用率达到最高，可以开2个线程： 假如工作时间是2秒， CPU计算完1秒后，线程等待IO的时候需要1秒，此时CPU空闲了，这时就可以切换到另外一个线程，让CPU工作1秒后，线程等待IO需要1秒，此时CPU又可以切回去，第一个线程这时刚好完成了1秒的IO等待，可以让CPU继续工作，就这样循环的在两个线程之前切换操作。
 
 那么如果计算时间占20%， 等待时间80%，那么为了利用率达到最高，可以开5个线程： 可以想象成完成任务需要5秒，CPU占用1秒，等待时间4秒，CPU在线程等待时，可以同时再激活4个线程，这样就把CPU和IO等待时间，最大化的重叠起来
 
-抽象一下，计算线程数设置的公式就是： N核服务器，通过执行业务的单线程分析出本地计算时间为x，等待时间为y，则工作线程数（线程池线程数）设置为 N\*\(x\+y\)/x，能让CPU的利用率最大化。 由于有GIL的影响，python只能使用到1个核，所以这里设置N=1
+抽象一下，计算线程数设置的公式就是： N核服务器，通过执行业务的单线程分析出本地计算时间为x，等待时间为y，则工作线程数（线程池线程数）设置为 N*(x\+y)/x，能让CPU的利用率最大化。 由于有GIL的影响，python只能使用到1个核，所以这里设置N=1
 
 ```Plain Text
 **import** queue
@@ -446,9 +446,9 @@ Python中的协程经历了很长的一段发展历程。其大概经历了如�
 
 > 1. 最初的生成器变形yield/send
 > 
-> 2. 引入@asyncio\.coroutine和yield from
+> 2. 引入@asyncio.coroutine和yield from
 > 
-> 3. 在最近的Python3\.5版本中引入async/await关键字
+> 3. 在最近的Python3.5版本中引入async/await关键字
 > 
 > 
 
@@ -485,13 +485,13 @@ Python中的协程经历了很长的一段发展历程。其大概经历了如�
    print(fib_res)
 ```
 
-当一个函数中包含yield语句时，python会自动将其识别为一个生成器。这时fib\(20\)并不会真正调用函数体，而是以函数体生成了一个生成器对象实例。
+当一个函数中包含yield语句时，python会自动将其识别为一个生成器。这时fib(20)并不会真正调用函数体，而是以函数体生成了一个生成器对象实例。
 
-yield在这里可以保留fib函数的计算现场，暂停fib的计算并将b返回。而将fib放入for…in循环中时，每次循环都会调用next\(fib\(20\)\)，唤醒生成器，执行到下一个yield语句处，直到抛出StopIteration异常。此异常会被for循环捕获，导致跳出循环。
+yield在这里可以保留fib函数的计算现场，暂停fib的计算并将b返回。而将fib放入for…in循环中时，每次循环都会调用next(fib(20))，唤醒生成器，执行到下一个yield语句处，直到抛出StopIteration异常。此异常会被for循环捕获，导致跳出循环。
 
-\(2\) Send来了
+(2) Send来了
 
-从上面的程序中可以看到，目前只有数据从fib\(20\)中通过yield流向外面的for循环；如果可以向fib\(20\)发送数据，那不是就可以在Python中实现协程了嘛。
+从上面的程序中可以看到，目前只有数据从fib(20)中通过yield流向外面的for循环；如果可以向fib(20)发送数据，那不是就可以在Python中实现协程了嘛。
 
 于是，Python中的生成器有了send函数，yield表达式也拥有了返回值。
 
@@ -527,15 +527,15 @@ fib_res = next(sfib) *#第一次必须要执行next（）函数，让程序控�
 
 在Python 2的时代，高性能的网络编程主要是使用Twisted、Tornado和Gevent这三个库，但是它们的异步代码相互之间既不兼容也不能移植。
 
-asyncio是Python 3\.4版本引入的标准库，直接内置了对异步IO的支持。
+asyncio是Python 3.4版本引入的标准库，直接内置了对异步IO的支持。
 
 `asyncio`的编程模型就是一个消息循环。我们从`asyncio`模块中直接获取一个`EventLoop`的引用，然后把需要执行的协程扔到`EventLoop`中执行，就实现了异步IO。
 
-Python的在3\.4中引入了协程的概念，可是这个还是以生成器对象为基础。
+Python的在3.4中引入了协程的概念，可是这个还是以生成器对象为基础。
 
-Python 3\.5添加了async和await这两个关键字，分别用来替换`asyncio.coroutine`和`yield from`。
+Python 3.5添加了async和await这两个关键字，分别用来替换`asyncio.coroutine`和`yield from`。
 
-python3\.5则确定了协程的语法。下面将简单介绍asyncio的使用。实现协程的不仅仅是asyncio，tornado和gevent， vloop都实现了类似的功能。
+python3.5则确定了协程的语法。下面将简单介绍asyncio的使用。实现协程的不仅仅是asyncio，tornado和gevent， vloop都实现了类似的功能。
 
 （1）协程定义
 
@@ -557,7 +557,7 @@ loop.run_until_complete(hello())
 loop.close()
 ```
 
-@asyncio\.coroutine`把一个generator标记为coroutine类型，然后，我们就把这个`coroutine`扔到`EventLoop`中执行。 hello()`会首先打印出`Hello world!`，然后，`yield from`语法可以让我们方便地调用另一个`generator`。由于`asyncio.sleep()`也是一个`coroutine`，所以线程不会等待`asyncio.sleep()`，而是直接中断并执行下一个消息循环。当`asyncio.sleep()`返回时，线程就可以从`yield from`拿到返回值（此处是`None`），然后接着执行下一行语句。
+@asyncio.coroutine`把一个generator标记为coroutine类型，然后，我们就把这个`coroutine`扔到`EventLoop`中执行。 hello()`会首先打印出`Hello world!`，然后，`yield from`语法可以让我们方便地调用另一个`generator`。由于`asyncio.sleep()`也是一个`coroutine`，所以线程不会等待`asyncio.sleep()`，而是直接中断并执行下一个消息循环。当`asyncio.sleep()`返回时，线程就可以从`yield from`拿到返回值（此处是`None`），然后接着执行下一行语句。
 
 把`asyncio.sleep(1)`看成是一个耗时1秒的IO操作，在此期间，主线程并未等待，而是去执行`EventLoop`中其他可以执行的`coroutine`了，因此可以实现并发执行。
 
@@ -596,7 +596,7 @@ asyncio案例实战
 
 我们用`asyncio`的异步网络连接来获取sina、sohu和163的网站首页：
 
-async\_wget\.py
+async_wget.py
 
 ```Plain Text
 **import** asyncio

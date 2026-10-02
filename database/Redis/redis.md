@@ -4,11 +4,11 @@
 
 
 
-Redis本质上是一个Key\-Value类型的内存数据库，很像memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据flush到硬盘上进行保存。因为是纯内存操作，Redis的性能非常出色，每秒可以处理超过 10万次读写操作，是已知性能最快的Key\-Value DB。
+Redis本质上是一个Key-Value类型的内存数据库，很像memcached，整个数据库统统加载在内存当中进行操作，定期通过异步操作把数据库数据flush到硬盘上进行保存。因为是纯内存操作，Redis的性能非常出色，每秒可以处理超过 10万次读写操作，是已知性能最快的Key-Value DB。
 
 
 
-Redis的出色之处不仅仅是性能，Redis最大的魅力是支持保存多种数据结构，此外单个value的最大限制是512M，不像 memcached只能保存1MB的数据，因此Redis可以用来实现很多有用的功能，比方说用他的List来做FIFO双向链表，实现一个轻量级的高性 能消息队列服务，用他的Set可以做高性能的tag系统等等。另外Redis也可以对存入的Key\-Value设置expire时间，因此也可以被当作一 个功能加强版的memcached来用。
+Redis的出色之处不仅仅是性能，Redis最大的魅力是支持保存多种数据结构，此外单个value的最大限制是512M，不像 memcached只能保存1MB的数据，因此Redis可以用来实现很多有用的功能，比方说用他的List来做FIFO双向链表，实现一个轻量级的高性 能消息队列服务，用他的Set可以做高性能的tag系统等等。另外Redis也可以对存入的Key-Value设置expire时间，因此也可以被当作一 个功能加强版的memcached来用。
 
 
 
@@ -20,15 +20,15 @@ Redis的主要缺点是数据库容量受到物理内存的限制，不能用作
 
 
 
-\(1\) memcached所有的值均是简单的字符串，redis作为其替代者，支持更为丰富的数据类型
+(1) memcached所有的值均是简单的字符串，redis作为其替代者，支持更为丰富的数据类型
 
 
 
-\(2\) redis的速度比memcached快很多
+(2) redis的速度比memcached快很多
 
 
 
-\(3\) redis可以持久化其数据
+(3) redis可以持久化其数据
 
 
 
@@ -64,23 +64,23 @@ noeviction:返回错误当内存限制达到并且客户端尝试执行会让更
 
 
 
-allkeys\-lru: 尝试回收最少使用的键（LRU），使得新添加的数据有空间存放。
+allkeys-lru: 尝试回收最少使用的键（LRU），使得新添加的数据有空间存放。
 
 
 
-volatile\-lru: 尝试回收最少使用的键（LRU），但仅限于在过期集合的键,使得新添加的数据有空间存放。
+volatile-lru: 尝试回收最少使用的键（LRU），但仅限于在过期集合的键,使得新添加的数据有空间存放。
 
 
 
-allkeys\-random: 回收随机的键使得新添加的数据有空间存放。
+allkeys-random: 回收随机的键使得新添加的数据有空间存放。
 
 
 
-volatile\-random: 回收随机的键使得新添加的数据有空间存放，但仅限于在过期集合的键。
+volatile-random: 回收随机的键使得新添加的数据有空间存放，但仅限于在过期集合的键。
 
 
 
-volatile\-ttl: 回收在过期集合的键，并且优先回收存活时间（TTL）较短的键,使得新添加的数据有空间存放。
+volatile-ttl: 回收在过期集合的键，并且优先回收存活时间（TTL）较短的键,使得新添加的数据有空间存放。
 
 
 
@@ -116,19 +116,19 @@ Redis为了达到最快的读写速度将数据都读到内存中，并通过异
 
 
 
-1\.twemproxy，大概概念是，它类似于一个代理方式，使用方法和普通redis无任何区别，设置好它下属的多个redis实例后，使用时在本需要连接redis的地方改为连接twemproxy，它会以一个代理的身份接收请求并使用一致性hash算法，将请求转接到具体redis，将结果再返回twemproxy。使用方式简便\(相对redis只需修改连接端口\)，对旧项目扩展的首选。 问题：twemproxy自身单端口实例的压力，使用一致性hash后，对redis节点数量改变时候的计算值的改变，数据无法自动移动到新的节点。
+1.twemproxy，大概概念是，它类似于一个代理方式，使用方法和普通redis无任何区别，设置好它下属的多个redis实例后，使用时在本需要连接redis的地方改为连接twemproxy，它会以一个代理的身份接收请求并使用一致性hash算法，将请求转接到具体redis，将结果再返回twemproxy。使用方式简便(相对redis只需修改连接端口)，对旧项目扩展的首选。 问题：twemproxy自身单端口实例的压力，使用一致性hash后，对redis节点数量改变时候的计算值的改变，数据无法自动移动到新的节点。
 
 
 
-2\.codis，目前用的最多的集群方案，基本和twemproxy一致的效果，但它支持在 节点数量改变情况下，旧节点数据可恢复到新hash节点。
+2.codis，目前用的最多的集群方案，基本和twemproxy一致的效果，但它支持在 节点数量改变情况下，旧节点数据可恢复到新hash节点。
 
 
 
-3\.redis cluster3\.0自带的集群，特点在于他的分布式算法不是一致性hash，而是hash槽的概念，以及自身支持节点设置从节点。具体看官方文档介绍。
+3.redis cluster3.0自带的集群，特点在于他的分布式算法不是一致性hash，而是hash槽的概念，以及自身支持节点设置从节点。具体看官方文档介绍。
 
 
 
-4\.在业务代码层实现，起几个毫无关联的redis实例，在代码层，对key 进行hash计算，然后去对应的redis实例操作数据。 这种方式对hash层代码要求比较高，考虑部分包括，节点失效后的替代算法方案，数据震荡后的自动脚本恢复，实例的监控，等等。
+4.在业务代码层实现，起几个毫无关联的redis实例，在代码层，对key 进行hash计算，然后去对应的redis实例操作数据。 这种方式对hash层代码要求比较高，考虑部分包括，节点失效后的替代算法方案，数据震荡后的自动脚本恢复，实例的监控，等等。
 
 
 
@@ -136,7 +136,7 @@ Redis为了达到最快的读写速度将数据都读到内存中，并通过异
 
 
 
-有A，B，C三个节点的集群,在没有复制模型的情况下,如果节点B失败了，那么整个集群就会以为缺少5501\-11000这个范围的槽而不可用。
+有A，B，C三个节点的集群,在没有复制模型的情况下,如果节点B失败了，那么整个集群就会以为缺少5501-11000这个范围的槽而不可用。
 
 
 
@@ -176,7 +176,7 @@ redis内存数据集大小上升到一定大小的时候，就会施行数据淘
 
 
 
-此外，对WordPress的用户来说，Pantheon有一个非常好的插件 wp\-redis，这个插件能帮助你以最快速度加载你曾浏览过的页面。
+此外，对WordPress的用户来说，Pantheon有一个非常好的插件 wp-redis，这个插件能帮助你以最快速度加载你曾浏览过的页面。
 
 
 
@@ -196,7 +196,7 @@ Reids在内存存储引擎领域的一大优点是提供 list 和 set 操作，�
 
 
 
-Redis在内存中对数字进行递增或递减的操作实现的非常好。集合（Set）和有序集合（Sorted Set）也使得我们在执行这些操作的时候变的非常简单，Redis只是正好提供了这两种数据结构。所以，我们要从排序集合中获取到排名最靠前的10个用户–我们称之为“user\_scores”，我们只需要像下面一样执行即可：
+Redis在内存中对数字进行递增或递减的操作实现的非常好。集合（Set）和有序集合（Sorted Set）也使得我们在执行这些操作的时候变的非常简单，Redis只是正好提供了这两种数据结构。所以，我们要从排序集合中获取到排名最靠前的10个用户–我们称之为“user_scores”，我们只需要像下面一样执行即可：
 
 
 
@@ -204,7 +204,7 @@ Redis在内存中对数字进行递增或递减的操作实现的非常好。集
 
 
 
-ZRANGE user\_scores 0 10 WITHSCORES
+ZRANGE user_scores 0 10 WITHSCORES
 
 
 
@@ -232,7 +232,7 @@ Redisson、Jedis、lettuce等等，官方推荐使用Redisson。
 
 
 
-Redisson是一个高级的分布式协调Redis客服端，能帮助用户在分布式环境中轻松实现一些Java的对象 \(Bloom filter, BitSet, Set, SetMultimap, ScoredSortedSet, SortedSet, Map, ConcurrentMap, List, ListMultimap, Queue, BlockingQueue, Deque, BlockingDeque, Semaphore, Lock, ReadWriteLock, AtomicLong, CountDownLatch, Publish / Subscribe, HyperLogLog\)。
+Redisson是一个高级的分布式协调Redis客服端，能帮助用户在分布式环境中轻松实现一些Java的对象 (Bloom filter, BitSet, Set, SetMultimap, ScoredSortedSet, SortedSet, Map, ConcurrentMap, List, ListMultimap, Queue, BlockingQueue, Deque, BlockingDeque, Semaphore, Lock, ReadWriteLock, AtomicLong, CountDownLatch, Publish / Subscribe, HyperLogLog)。
 
 
 
@@ -268,7 +268,7 @@ Redis集群没有使用一致性hash,而是引入了哈希槽的概念，Redis�
 
 
 
-为了使在部分节点失败或者大部分节点无法通信的情况下集群仍然可用，所以集群使用了主从复制模型,每个节点都会有N\-1个复制品\.
+为了使在部分节点失败或者大部分节点无法通信的情况下集群仍然可用，所以集群使用了主从复制模型,每个节点都会有N-1个复制品.
 
 
 
@@ -356,7 +356,7 @@ EXPIRE和PERSIST命令。
 
 
 
-尽可能使用散列表（hashes），散列表（是说散列表里面存储的数少）使用的内存非常小，所以你应该尽可能的将你的数据模型抽象到一个散列表里面。比如你的web系统中有一个用户对象，不要为这个用户的名称，姓氏，邮箱，密码设置单独的key,而是应该把这个用户的所有信息存储到一张散列表里面\.
+尽可能使用散列表（hashes），散列表（是说散列表里面存储的数少）使用的内存非常小，所以你应该尽可能的将你的数据模型抽象到一个散列表里面。比如你的web系统中有一个用户对象，不要为这个用户的名称，姓氏，邮箱，密码设置单独的key,而是应该把这个用户的所有信息存储到一张散列表里面.
 
 
 
@@ -396,7 +396,7 @@ LRU算法
 
 
 
-Redis2\.6开始redis\-cli支持一种新的被称之为pipe mode的新模式用于执行大量数据插入工作。
+Redis2.6开始redis-cli支持一种新的被称之为pipe mode的新模式用于执行大量数据插入工作。
 
 
 
@@ -420,7 +420,7 @@ Redis2\.6开始redis\-cli支持一种新的被称之为pipe mode的新模式用�
 
 
 
-查询路由\(Query routing\) 的意思是客户端随机地请求任意一个redis实例，然后由Redis将请求转发给正确的Redis节点。Redis Cluster实现了一种混合形式的查询路由，但并不是直接将请求从一个redis节点转发到另一个redis节点，而是在客户端的帮助下直接redirected到正确的redis节点。
+查询路由(Query routing) 的意思是客户端随机地请求任意一个redis实例，然后由Redis将请求转发给正确的Redis节点。Redis Cluster实现了一种混合形式的查询路由，但并不是直接将请求从一个redis节点转发到另一个redis节点，而是在客户端的帮助下直接redirected到正确的redis节点。
 
 
 
@@ -432,11 +432,11 @@ Redis2\.6开始redis\-cli支持一种新的被称之为pipe mode的新模式用�
 
 
 
-同时操作多个key,则不能使用Redis事务\.
+同时操作多个key,则不能使用Redis事务.
 
 
 
-分区使用的粒度是key，不能使用一个非常长的排序key存储一个数据集（The partitioning granularity is the key, so it is not possible to shard a dataset with a single huge key like a very big sorted set）\.
+分区使用的粒度是key，不能使用一个非常长的排序key存储一个数据集（The partitioning granularity is the key, so it is not possible to shard a dataset with a single huge key like a very big sorted set）.
 
 
 
@@ -456,7 +456,7 @@ Redis2\.6开始redis\-cli支持一种新的被称之为pipe mode的新模式用�
 
 
 
-如果Redis被当做一个持久化存储使用，必须使用固定的keys\-to\-nodes映射关系，节点的数量一旦确定不能变化。否则的话\(即Redis节点需要动态变化的情况），必须使用可以在运行时进行数据再平衡的一套系统，而当前只有Redis集群可以做到这样。
+如果Redis被当做一个持久化存储使用，必须使用固定的keys-to-nodes映射关系，节点的数量一旦确定不能变化。否则的话(即Redis节点需要动态变化的情况），必须使用可以在运行时进行数据再平衡的一套系统，而当前只有Redis集群可以做到这样。
 
 
 
@@ -480,11 +480,11 @@ Redis2\.6开始redis\-cli支持一种新的被称之为pipe mode的新模式用�
 
 
 
-Twemproxy是Twitter维护的（缓存）代理系统，代理Memcached的ASCII协议和Redis协议。它是单线程程序，使用c语言编写，运行起来非常快。它是采用Apache 2\.0 license的开源软件。
+Twemproxy是Twitter维护的（缓存）代理系统，代理Memcached的ASCII协议和Redis协议。它是单线程程序，使用c语言编写，运行起来非常快。它是采用Apache 2.0 license的开源软件。
 
 
 
-Twemproxy支持自动分区，如果其代理的其中一个Redis节点不可用时，会自动将该节点排除（这将改变原来的keys\-instances的映射关系，所以你应该仅在把Redis当缓存时使用Twemproxy\)。
+Twemproxy支持自动分区，如果其代理的其中一个Redis节点不可用时，会自动将该节点排除（这将改变原来的keys-instances的映射关系，所以你应该仅在把Redis当缓存时使用Twemproxy)。
 
 
 
@@ -500,11 +500,11 @@ Twemproxy是Redis客户端和服务器端的一个中间层，由它来处理分
 
 
 
-Redis\-rb、Predis等。
+Redis-rb、Predis等。
 
 
 
-40、Redis与其他key\-value存储有什么不同？
+40、Redis与其他key-value存储有什么不同？
 
 
 
@@ -536,7 +536,7 @@ Redis运行在内存中但是可以持久化到磁盘，所以在对不同数据
 
 
 
-如果你使用的是32位的Redis实例，可以好好利用Hash,list,sorted set,set等集合类型数据，因为通常情况下很多小的Key\-Value可以用更紧凑的方式存放到一起。
+如果你使用的是32位的Redis实例，可以好好利用Hash,list,sorted set,set等集合类型数据，因为通常情况下很多小的Key-Value可以用更紧凑的方式存放到一起。
 
 
 
@@ -588,23 +588,23 @@ info
 
 
 
-\(1\) Master最好不要做任何持久化工作，如RDB内存快照和AOF日志文件
+(1) Master最好不要做任何持久化工作，如RDB内存快照和AOF日志文件
 
 
 
-\(2\) 如果数据比较重要，某个Slave开启AOF备份数据，策略设置为每秒同步一次
+(2) 如果数据比较重要，某个Slave开启AOF备份数据，策略设置为每秒同步一次
 
 
 
-\(3\) 为了主从复制的速度和连接的稳定性，Master和Slave最好在同一个局域网内
+(3) 为了主从复制的速度和连接的稳定性，Master和Slave最好在同一个局域网内
 
 
 
-\(4\) 尽量避免在压力很大的主库上增加从库
+(4) 尽量避免在压力很大的主库上增加从库
 
 
 
-\(5\) 主从复制不要用图状结构，用单向链表结构更为稳定，即：Master \<\- Slave1 \<\- Slave2 \<\- Slave3\.\.\.
+(5) 主从复制不要用图状结构，用单向链表结构更为稳定，即：Master \<- Slave1 \<- Slave2 \<- Slave3...
 
 
 
@@ -616,19 +616,19 @@ info
 
 
 
-RDB持久化方式能够在指定的时间间隔能对你的数据进行快照存储\.
+RDB持久化方式能够在指定的时间间隔能对你的数据进行快照存储.
 
 
 
-AOF持久化方式记录每次对服务器写的操作,当服务器重启的时候会重新执行这些命令来恢复原始的数据,AOF命令以redis协议追加保存每次写的操作到文件末尾\.Redis还能对AOF文件进行后台重写,使得AOF文件的体积不至于过大\.
+AOF持久化方式记录每次对服务器写的操作,当服务器重启的时候会重新执行这些命令来恢复原始的数据,AOF命令以redis协议追加保存每次写的操作到文件末尾.Redis还能对AOF文件进行后台重写,使得AOF文件的体积不至于过大.
 
 
 
-如果你只希望你的数据在服务器运行的时候存在,你也可以不使用任何持久化方式\.
+如果你只希望你的数据在服务器运行的时候存在,你也可以不使用任何持久化方式.
 
 
 
-你也可以同时开启两种持久化方式, 在这种情况下, 当redis重启的时候会优先载入AOF文件来恢复原始的数据,因为在通常情况下AOF文件保存的数据集要比RDB文件保存的数据集要完整\.
+你也可以同时开启两种持久化方式, 在这种情况下, 当redis重启的时候会优先载入AOF文件来恢复原始的数据,因为在通常情况下AOF文件保存的数据集要比RDB文件保存的数据集要完整.
 
 
 
@@ -652,7 +652,7 @@ AOF持久化方式记录每次对服务器写的操作,当服务器重启的时�
 
 
 
-针对运行实例，有许多配置选项可以通过 CONFIG SET 命令进行修改，而无需执行任何形式的重启。 从 Redis 2\.2 开始，可以从 AOF 切换到 RDB 的快照持久性或其他方式而不需要重启 Redis。检索 ‘CONFIG GET \* ’ 命令获取更多信息。
+针对运行实例，有许多配置选项可以通过 CONFIG SET 命令进行修改，而无需执行任何形式的重启。 从 Redis 2.2 开始，可以从 AOF 切换到 RDB 的快照持久性或其他方式而不需要重启 Redis。检索 ‘CONFIG GET * ’ 命令获取更多信息。
 
 
 
