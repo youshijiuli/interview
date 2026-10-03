@@ -818,3 +818,52 @@ git push
 ---
 
 *最后更新：2026-10-03*
+
+---
+
+## 附录二：本地管理站使用指南（2026-10-03 新增）
+
+知识库已配套**本地管理站**，实现文档 CRUD、一键重建、自动 Git 推送双远端（GitHub + Gitee）。
+
+### 文件组成
+
+| 文件 | 作用 |
+|------|------|
+| `server.js` | Node 零依赖本地服务（端口 8877，可用 `KB_PORT` 环境变量改） |
+| `manage.html` | 管理界面（目录树 + Markdown 编辑器 + 工具栏） |
+| `start-manage.bat` | 双击启动服务并自动打开浏览器 |
+| `archive/` | 删除的文档移入这里（**不彻底删除**） |
+
+### 使用步骤
+
+```bash
+# 方式一：双击 start-manage.bat
+# 方式二：命令行启动
+cd C:\Users\ZhuanZ\Desktop\interview
+node server.js
+# 浏览器打开 http://localhost:8877
+```
+
+### 管理界面功能
+
+- **刷新目录**：重新扫描仓库
+- **＋ 新建文档**：指定目录 + 文件名 + 初始内容
+- **保存**：Ctrl+S 快捷保存当前文档
+- **重建站点**：调用 build.js 重新生成 `index.html`
+- **Git 推送**：`git add -A` + commit + push 双远端
+- **保存并推送**：保存 → 重建 → 推送，一步到位
+- **删除**：将文档移入 `archive/`（保留，可找回）
+
+### 阅读端联动
+
+`index.html` 顶栏新增两个按钮：
+- **管理**：打开 `http://localhost:8877`（需先启动管理服务）
+- **主题切换**：浅色/深色一键切换，选择记忆在 localStorage
+
+### 安全说明
+
+> ⚠️ 2026-10-03：django_learn 文档原含真实腾讯云密钥（作者留在公开 Gitee 仓库中），已在本副本脱敏为占位符（`AKID-REPLACE-WITH-YOUR-OWN`），避免推送到 GitHub 时被 secret scanning 拦截。源仓库 `https://gitee.com/mountain-cat/django_learn` 不受影响。
+
+---
+
+*最后更新：2026-10-03*
