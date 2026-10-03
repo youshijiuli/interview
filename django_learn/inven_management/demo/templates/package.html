@@ -1,0 +1,30 @@
+{% extends 'layout1.html' %}
+{% block content %}
+
+<table class="table table-bordered">
+    <a>库存盘点</a>
+
+    <thead>
+    <tr>
+        <th>单品号</th>
+        <th>商品名称</th>
+        <th>库存量</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in queryset %}
+    <tr>
+        <td>{{row.product_id}}</td>
+        <td>{{row.drug_name}}</td>
+        <td>{{row.package}}</td>
+        <td>
+            <a href="/in/act/?id={{row.id}}" class="btn btn-danger btn-xs">进货</a>
+            <a href="/edit/goods/?id={{row.id}}" class="btn btn-primary btn-xs">编辑-修改</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

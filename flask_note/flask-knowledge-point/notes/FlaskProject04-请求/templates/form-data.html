@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home Page</title>
+</head>
+<body>
+    <h1>发生GET和POST请求</h1>
+    <a href="/args?name=wangxin&age=10">GET请求</a>
+    <br>
+    <form method='post' action='/form' enctype='multipart/form-data'>
+        姓名：
+        <input type="text" name="name">
+        <br>
+        年龄：
+        <input type="text" name="age">
+        <br>
+        头像：
+        <input type="file" name="pic">
+        <br>
+        <input type="submit">
+    </form>
+</body>
+</html>

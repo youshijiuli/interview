@@ -1,0 +1,2 @@
+SECRET_KEY = "XIAODAI"
+SESSION_TYPE = 'filesystem'

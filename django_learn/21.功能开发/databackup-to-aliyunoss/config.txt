@@ -1,0 +1,14 @@
+[common]
+# access_id
+access_id = xxxxxxxxxxxxxxx
+
+# secret_key
+secret_key = xxxxxxxxxxxxxxxx
+
+[oss]
+# OSS endpoint
+endpoint = oss-cn-beijing-internal.aliyuncs.com 
+
+
+# OSS bucketname
+bucket_name = test

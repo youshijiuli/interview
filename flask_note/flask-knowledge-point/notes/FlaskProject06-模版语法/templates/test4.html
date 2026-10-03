@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jinja2模版语法</title>
+    </head>
+    <body>
+        <h3>Filter过滤器</h3>
+        <hr>
+        {# 当变量数据没有传入，可以给变量设置默认值 #}
+        <p>{{ name | default('游客') }}</p>
+
+        {# 字符串的大小写转换 #}
+        <p>{{ 'XYZ' | lower }}</p>
+
+        {# 反转字符串 #}
+        <p>{{ 'hello' | reverse }}</p>
+
+        {# 格式化字符串 #}
+        <p>{{ '今天是%d号，天气%s' | format(17, '晴') }}</p>        
+
+        {# 安全模式，禁止HTML自动转义 #}
+        <p>{{ '<em>name</em>' | safe }}</p> 
+
+        {# 去掉前后的空白字符 #}
+        <p>{{ ' hello world  ' | trim }}</p> 
+
+        {# 四舍五入 #}
+        <p>{{ 3.1415 | round }}</p> 
+
+        {# 保留n位小数 #}
+        <p>{{ 3.1415 | round(3) }}</p> 
+
+        {# 取绝对值 #}
+        <p>{{ -10 | abs }}</p> 
+
+        {# 保留n位小数 #}
+        <p>{{ 3.1415 | round(3) }}</p>
+
+        {# 定义一个numbers变量 #}
+        <p>{% set numbers = [3, 4, 1, 2, 8, 5] %}</p>
+
+        {# 获取列表的第一个元素 #}
+        <p>{{ numbers | first }}</p>
+
+        {# 获取列表的长度 #}
+        <p>{{ numbers | length }}</p>
+
+        {# 列表求和 #}
+        <p>{{ numbers | sum }}</p>
+
+        {# 列表排序 #}
+        <p>{{ numbers | sort }}</p>
+
+        {# 根据字典的内容来使用过滤器 #}
+        <p>{{ student_list | sort(attribute='age') }}</p>
+        <ul>
+        {% for stu in student_list | sort(attribute='age', reverse=false) %}
+            <li>{{ stu['name'] }}, {{ stu.age }}</li>
+        {% endfor %}
+        </ul>
+
+        {# 给数据分组 #}
+        <ul>
+            {% for group in student_list | groupby('gender') %}
+            <li>{{ group.grouper }}</li>
+                {% for stu in group.list %}
+                    <li>{{ stu.name }}, {{stu.gender}}</li>
+                {% endfor %}
+            {% endfor %}
+        </ul>
+
+
+        {# 取出字典中的某列，组成一个大的列表，然后再把列表变成字符串 #}
+        <p>{{ student_list | map(attribute='name') }}</p>
+        <p>{{ student_list | map(attribute='name') | join(',') }}</p>
+
+        {# 自定义的装饰使用 #}
+        <p>{{ [2, 3, 1, 0, 8] | list_split }}</p>
+        <p>{{ [2, 3, 1, 0, 8] | get_even }}</p>
+
+    </body>
+</html>

@@ -1,0 +1,39 @@
+{% load static %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-3.4.1/dist/css/bootstrap.min.css' %}">
+</head>
+<body>
+
+<div class="container" style="margin-top: 10px 0;">
+    <div class="panel panel-default">
+        <div class="panel-heading">修改部门</div>
+        <div class="panel-body">
+            <form class="form-inline" method="post" action="/add/member/?id_client={{member_obj.id_client}}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="sr-only">ID</label>
+                    <input type="text" class="form-control" name="id_client" placeholder="ID" value="{{member_obj.id_client}}">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">姓名</label>
+                    <input type="text" class="form-control" name="name" placeholder="姓名" value="{{member_obj.name}}">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">邮箱</label>
+                    <input type="text" class="form-control" name="email" placeholder="邮箱" value="{{member_obj.email}}">
+                </div>
+
+                <button type="submit" class="btn btn-primary">保存</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

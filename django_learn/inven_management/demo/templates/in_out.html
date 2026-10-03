@@ -1,0 +1,250 @@
+{% extends 'layout1.html' %}
+{% load static %}
+{% block content %}
+<table class="table table-bordered">
+    <div>
+        <a>当前您的余额是: {{balance}}￥</a>
+    </div>
+
+
+    <div class="panel panel-default">
+        <div class="panel-heading">
+            <h3 class="panel-title">折线图</h3>
+        </div>
+        <div class="panel-body">
+            <div id="m1" style="width:100%; height:200px;"></div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">柱状图</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="m2" style="width:100%; height:400px;"></div>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">饼状图</h3>
+                </div>
+                <div class="panel-body">
+                    <div id="m3" style="width:100%; height:400px;"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <a>销售单号</a>
+    <thead>
+    <tr>
+        <th>收支编号</th>
+        <th>药品</th>
+        <th>关联用户编号</th>
+        <th>数量</th>
+        <th>日期</th>
+        <th>公司全部财产</th>
+        <th>类别</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in queryset %}
+    <tr>
+        <td>{{row.io_number}}</td>
+        <td>{{row.drug_id}}</td>
+        <td>{{row.user_increment}}</td>
+        <td>{{row.number}}</td>
+        <td>{{row.date}}</td>
+        <td>{{row.money}}</td>
+        <td>{{row.type}}</td>
+        <td>
+            <a href="/delete/inout/?id={{row.id}}" class="btn btn-danger btn-xs">删除</a>
+            <a href="/edit/member/?id={{row.id}}" class="btn btn-primary btn-xs">编辑</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+<table class="table table-bordered">
+    <a>入库单品</a>
+
+    <thead>
+    <tr>
+        <th>入库ID</th>
+        <th>供应商编号</th>
+        <th>单品数量</th>
+        <th>流水单号</th>
+        <th>类别</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in queryset1 %}
+    <tr>
+        <td>{{row.in_id}}</td>
+        <td>{{row.provider_id}}</td>
+        <td>{{row.number}}</td>
+        <td>{{row.io_number}}</td>
+        <td>
+            <a href="/delete/inout/?id={{row.id}}" class="btn btn-danger btn-xs">删除</a>
+            <a href="/edit/member/?id={{row.id}}" class="btn btn-primary btn-xs">编辑</a>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block js%}
+<script src="{% static 'echarts.js'%}"></script>
+<script type="text/javascript">
+    $(function (){
+        m1();
+        m2();
+        m3();
+    });
+    function m1() {
+    var myChart = echarts.init(document.getElementById('m1'));
+      // 指定图表的配置项和数据
+     var option = {
+          title: {
+            text: '药品连续6天销量变换'
+          },
+          tooltip: {
+            trigger: 'axis'
+          },
+          legend: {
+            data: ['毒药', '毒药123', '肾宝片', '阿莫西林', '莲花清瘟']
+          },
+          grid: {
+            left: '3%',
+            right: '4%',
+            bottom: '3%',
+            containLabel: true
+          },
+          toolbox: {
+            feature: {
+              saveAsImage: {}
+            }
+          },
+          xAxis: {
+            type: 'category',
+            boundaryGap: false,
+            data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+          },
+          yAxis: {
+            type: 'value'
+          },
+          series: [
+            {
+              name: '毒药',
+              type: 'line',
+              stack: 'Total',
+              data: [120, 132, 101, 134, 90, 230, 210]
+            },
+            {
+              name: '毒药123',
+              type: 'line',
+              stack: 'Total',
+              data: [220, 182, 191, 234, 290, 330, 310]
+            },
+            {
+              name: '肾宝片',
+              type: 'line',
+              stack: 'Total',
+              data: [150, 232, 201, 154, 190, 330, 410]
+            },
+            {
+              name: '阿莫西林',
+              type: 'line',
+              stack: 'Total',
+              data: [320, 332, 301, 334, 390, 330, 320]
+            },
+            {
+              name: '莲花清瘟',
+              type: 'line',
+              stack: 'Total',
+              data: [820, 932, 901, 934, 1290, 1330, 1320]
+            }
+          ]
+        };
+     myChart.setOption(option);
+    }
+    function m2() {
+      var myChart = echarts.init(document.getElementById('m2'));
+      // 指定图表的配置项和数据
+      var option = {
+        title: {
+          text: '公司上年度业绩考察表',
+          textAlign:"auto",
+          left:"center",
+        },
+        tooltip: {},
+        legend: {
+          data: [],
+          bottom: 0
+        },
+        xAxis: {
+          data: []
+        },
+        yAxis: {},
+        series: []
+      };
+
+      $.ajax({
+        url:"/io_plot/",
+        type:"get",
+        dataType:"JSON",
+        success: function(res){
+            if(res.status){
+                option.legend.data = res.data.legend;
+                option.xAxis.data = res.data.x_axis;
+                option.series = res.data.series_list;
+                myChart.setOption(option);
+                }
+          }
+      });
+      }
+        function m3() {
+          var myChart = echarts.init(document.getElementById('m3'));
+          var option = {
+              title: {
+                text: '药品收入来源分布',
+                textAlign:"auto",
+                left: 'center',
+              },
+              tooltip: {
+                trigger: 'item'
+              },
+              legend: {
+                bottom: 0
+              },
+              series: [
+                {
+                  name: 'Access From',
+                  type: 'pie',
+                  radius: '50%',
+                  data: [
+                    { value: 1048, name: '毒药' },
+                    { value: 735, name: '毒药123' },
+                    { value: 580, name: '肾宝片' },
+                    { value: 484, name: '莲花清瘟' },
+                    { value: 300, name: '阿莫西林' }
+                  ],
+                  emphasis: {
+                    itemStyle: {
+                      shadowBlur: 10,
+                      shadowOffsetX: 0,
+                      shadowColor: 'rgba(0, 0, 0, 0.5)'
+                    }
+                  }
+                }
+              ]
+            };
+            myChart.setOption(option);
+      }
+</script>
+{% endblock %}

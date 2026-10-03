@@ -1,0 +1,81 @@
+{% extends 'layout1.html' %}
+{% block content %}
+<a>你舍不得我了吗</a>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>药品名</th>
+        <th>生产批号</th>
+        <th>产地</th>
+        <th>药品类别</th>
+        <th>进价</th>
+        <th>单价</th>
+        <th>会员折扣</th>
+        <th>库存量</th>
+        <th>规格</th>
+        <th>生产日期</th>
+        <th>有效期</th>
+        <th>选项</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{drug_obj.drug_name}}</td>
+        <td>{{drug_obj.product_id}}</td>
+        <td>{{drug_obj.product_place}}</td>
+        <td>{{drug_obj.type}}</td>
+        <td>{{drug_obj.in_price}}</td>
+        <td>{{drug_obj.single_price}}</td>
+        <td>{{drug_obj.discount}}</td>
+        <td>{{drug_obj.package}}</td>
+        <td>{{drug_obj.size}}</td>
+        <td>{{drug_obj.pro_date}}</td>
+        <td>{{drug_obj.valid_date}}</td>
+        <td>
+            <a href="/delete/goods/?id={{row.id}}" class="btn btn-danger btn-xs">删除</a>
+            <a href="/edit/goods/?id={{row.id}}" class="btn btn-primary btn-xs">编辑</a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+<a>球球你不要退货</a>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>收支编号</th>
+        <th>药品</th>
+        <th>关联用户编号</th>
+        <th>数量</th>
+        <th>日期</th>
+        <th>总额</th>
+        <th>类别</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>{{queryset.io_number}}</td>
+        <td>{{queryset.drug_id}}</td>
+        <td>{{queryset.user_increment}}</td>
+        <td>{{queryset.number}}</td>
+        <td>{{queryset.date}}</td>
+        <td>{{queryset.money}}</td>
+        <td>{{queryset.type}}</td>
+        <td>
+            <a href="/delete/inout/?id={{queryset.id}}" class="btn btn-danger btn-xs">取消退货</a>
+            <a href="/number/revise/?id={{queryset.id}}" class="btn btn-primary btn-xs">修改数量</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<hr>
+
+<div class="container">
+    <div style="margin-bottom: 10px">
+        <a href="/inout/" class="btn btn-success">确认退货</a>
+    </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,35 @@
+<!-- 继承名叫base.html的父模版 -->
+{% extends 'base.html' %}
+
+{% block title %}
+    子模板
+{% endblock %}
+
+{% block head %}
+    <!-- 继承后保留父模版中的内容 -->
+    {{ super() }}
+    <p>子模版的头</p>
+    <hr>
+{% endblock %}
+
+
+{% block content %}
+    <!-- 将其他的html包含进来 -->
+    {% include 'include.html' %}
+    <p>子模版中的内容</p>
+    <hr>
+{% endblock %}
+
+
+
+
+<!-- macro宏定义，可以在模版中定义函数，在其他的地方调用 -->
+{% macro hello(name, age) %}
+    <b>你好{{ age }} 岁的 {{ name }} ！</b>
+{% endmacro %}
+
+
+
+{% block foot %}
+    {{ hello("小呆", 18) }}
+{% endblock %}

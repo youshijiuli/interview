@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        首页
+    </title>
+</head>
+<body>
+    <h3>首页</h3>
+    <hr>
+    {% if uid %}
+
+    <p>姓名：{{ name }}</p>
+    <p>ID：{{ uid }}</p>
+    {% else %}
+    <a href="{{ url_for('login', uid=0, name='wx') }}">登录</a>
+    {% endif %}
+    
+</body>
+</html>

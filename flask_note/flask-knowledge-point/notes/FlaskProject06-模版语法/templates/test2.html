@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jinja2模版语法</title>
+    </head>
+    <body>
+        <h3>给模版出入列表</h3>
+        <hr>
+        student_list = {{ student_list }}
+        <br><br><br>
+        <table border="1px">
+            <tr>
+                <td>序号</td>
+                <td>name</td>
+                <td>age</td>
+                <td>gender</td>
+            </tr>
+            {% for student in student_list %}
+            <tr>
+                <td>{{ loop.index }}</td>
+                <td>{{ student.name }}</td>
+                <td>
+                    {% if student.age > 60 %}
+                        老年人
+                    {% elif student.age > 18 %}
+                        成年人
+                    {% else %}
+                        未成年
+                    {% endif %}
+                </td>
+                <td>{{ student['gender'] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

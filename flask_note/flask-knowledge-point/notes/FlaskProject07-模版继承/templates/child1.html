@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+
+{% block title %}
+子模版
+{% endblock %}
+
+
+
+{% block head %}
+<p>子模版:页首</p>
+{% endblock %}
+
+
+{% block container %}
+
+{{ super() }}
+<br>
+<p>子模版:主体内容</p>
+{% endblock %}
+
+
+{% block footer %}
+<p>子模版:页尾</p>
+{% endblock %}    

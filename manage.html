@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>知识库管理 · kb-manager</title>
+<style>
+:root {
+  --bg: #ffffff; --panel: #ffffff; --panel-2: #fbfcfe;
+  --border: #e3e8ef; --border-strong: #c9d4e0;
+  --text: #1f2d3d; --text-dim: #5b6b7f; --text-faint: #93a1b4;
+  --green: #0f9d6e; --green-dim: #0b7a56; --amber: #b8860b;
+  --red: #d5453c;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Consolas, monospace;
+  --font-body: -apple-system, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: var(--font-body); background: var(--bg); color: var(--text); height: 100vh; overflow: hidden; }
+
+/* 顶栏 */
+.topbar {
+  display: flex; align-items: center; gap: 16px;
+  height: 56px; padding: 0 18px;
+  background: var(--panel); border-bottom: 1px solid var(--border);
+  position: relative; z-index: 20;
+}
+.brand { display: flex; align-items: center; gap: 9px; font-weight: 700; font-size: 15px; }
+.brand .dot { width: 10px; height: 10px; border-radius: 3px; background: var(--green); }
+.brand .sub { font-size: 11px; color: var(--text-faint); font-weight: 400; }
+.topbar .spacer { flex: 1; }
+.tool-btn {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 7px 14px; border-radius: 8px; border: 1px solid var(--border-strong);
+  background: var(--panel); color: var(--text); cursor: pointer;
+  font-size: 13px; font-weight: 500; transition: all 0.15s ease;
+}
+.tool-btn:hover { border-color: var(--green-dim); color: var(--green); }
+.tool-btn.primary { background: var(--green); border-color: var(--green); color: #fff; }
+.tool-btn.primary:hover { background: var(--green-dim); }
+.tool-btn.danger:hover { border-color: var(--red); color: var(--red); }
+.tool-btn:disabled { opacity: 0.5; cursor: not-allowed; }
+.status {
+  font-family: var(--font-mono); font-size: 12px; color: var(--text-dim);
+  max-width: 420px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.status.ok { color: var(--green); }
+.status.err { color: var(--red); }
+
+/* 主体 */
+.main { display: flex; height: calc(100vh - 56px); }
+
+/* 左侧树 */
+.side {
+  width: 320px; flex-shrink: 0;
+  border-right: 1px solid var(--border);
+  background: var(--panel);
+  display: flex; flex-direction: column;
+}
+.side .search {
+  padding: 10px 12px; border-bottom: 1px solid var(--border);
+}
+.side .search input {
+  width: 100%; padding: 7px 10px; border-radius: 7px;
+  border: 1px solid var(--border); background: var(--panel-2);
+  font-family: var(--font-mono); font-size: 12.5px; color: var(--text);
+  outline: none;
+}
+.side .search input:focus { border-color: var(--green-dim); }
+.tree { flex: 1; overflow-y: auto; padding: 8px 6px 20px; scrollbar-width: thin; }
+.tree::-webkit-scrollbar { width: 8px; }
+.tree::-webkit-scrollbar-thumb { background: var(--border-strong); border-radius: 4px; }
+
+.t-node { margin-left: 14px; }
+.t-node > .t-row { position: relative; }
+.t-row {
+  display: flex; align-items: center; gap: 6px;
+  padding: 4px 8px; border-radius: 6px;
+  font-size: 13px; cursor: pointer; color: var(--text);
+  user-select: none;
+}
+.t-row:hover { background: rgba(15,157,110,0.05); }
+.t-row.dir { color: var(--amber); font-weight: 600; }
+.t-row.file { color: var(--text); font-weight: 400; }
+.t-row.active { background: rgba(15,157,110,0.1); color: var(--green-dim); }
+.t-row .chev {
+  width: 12px; height: 12px; flex-shrink: 0; color: var(--text-faint);
+  transition: transform 0.15s ease;
+}
+.t-row.open > .chev { transform: rotate(90deg); }
+.t-row .ico { width: 14px; height: 14px; flex-shrink: 0; color: inherit; opacity: 0.75; }
+.t-row .nm { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.t-row .meta { font-family: var(--font-mono); font-size: 10.5px; color: var(--text-faint); }
+.t-node.collapsed > .kids { display: none; }
+.t-row.html { color: var(--green); }
+.t-row.html .ico { color: var(--green); }
+
+/* 右侧编辑区 */
+.edit {
+  flex: 1; display: flex; flex-direction: column; min-width: 0;
+  background: var(--panel-2);
+}
+.edit-head {
+  display: flex; align-items: center; gap: 12px;
+  padding: 10px 18px; border-bottom: 1px solid var(--border);
+  background: var(--panel);
+}
+.edit-head .path {
+  font-family: var(--font-mono); font-size: 12.5px; color: var(--text-dim);
+  flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap;
+}
+.edit-head .size { font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint); }
+textarea.editor {
+  flex: 1; width: 100%; border: none; outline: none; resize: none;
+  padding: 18px 22px; font-family: var(--font-mono); font-size: 13.5px;
+  line-height: 1.7; color: var(--text); background: var(--panel-2);
+  tab-size: 2;
+}
+textarea.editor::placeholder { color: var(--text-faint); }
+.edit .hint {
+  padding: 8px 18px; border-top: 1px solid var(--border);
+  font-family: var(--font-mono); font-size: 11.5px; color: var(--text-faint);
+  background: var(--panel);
+}
+.edit-empty {
+  flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center;
+  color: var(--text-faint); gap: 10px; font-size: 14px;
+}
+.edit-empty .big { font-family: var(--font-mono); font-size: 30px; color: var(--green); }
+
+/* 新建弹层 */
+.modal-mask {
+  position: fixed; inset: 0; background: rgba(31,45,61,0.35); z-index: 100;
+  display: none; align-items: center; justify-content: center;
+}
+.modal-mask.show { display: flex; }
+.modal {
+  width: 460px; background: var(--panel); border-radius: 12px;
+  padding: 20px 22px; box-shadow: 0 12px 40px rgba(31,45,61,0.18);
+}
+.modal h3 { font-size: 16px; margin-bottom: 14px; }
+.modal label { display: block; font-size: 12.5px; color: var(--text-dim); margin: 10px 0 5px; }
+.modal input, .modal select {
+  width: 100%; padding: 8px 10px; border-radius: 7px;
+  border: 1px solid var(--border-strong); font-size: 13px; color: var(--text);
+  background: var(--panel-2); outline: none;
+}
+.modal input:focus, .modal select:focus { border-color: var(--green-dim); }
+.modal .row { display: flex; gap: 10px; margin-top: 16px; justify-content: flex-end; }
+</style>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="brand"><span class="dot"></span>知识库管理 <span class="sub">kb-manager</span></div>
+  <div class="spacer"></div>
+  <span class="status" id="status">就绪</span>
+  <button class="tool-btn" id="btnReload" type="button">刷新目录</button>
+  <button class="tool-btn" id="btnNew" type="button">＋ 新建文档</button>
+  <button class="tool-btn primary" id="btnSave" type="button" disabled>保存</button>
+  <button class="tool-btn" id="btnBuild" type="button" disabled>重建站点</button>
+  <button class="tool-btn" id="btnPush" type="button" disabled>Git 推送</button>
+  <button class="tool-btn" id="btnSavePush" type="button" disabled>保存并推送</button>
+</header>
+
+<div class="main">
+  <aside class="side">
+    <div class="search"><input id="treeFilter" type="text" placeholder="过滤目录…"></div>
+    <div class="tree" id="tree"></div>
+  </aside>
+  <section class="edit" id="edit">
+    <div class="edit-empty" id="emptyState">
+      <div class="big">~$ kb-manager</div>
+      <div>从左侧选择文档进行编辑，或点击「＋ 新建文档」</div>
+    </div>
+  </section>
+</div>
+
+<!-- 新建弹层 -->
+<div class="modal-mask" id="newMask">
+  <div class="modal">
+    <h3>新建 Markdown 文档</h3>
+    <label>所在目录（已存在的目录名，留空为根目录）</label>
+    <input id="newDir" type="text" placeholder="例如：04.file_handle 或 linux-base">
+    <label>文件名（无需 .md 后缀）</label>
+    <input id="newName" type="text" placeholder="例如：python-并发总结">
+    <label>初始内容（可选）</label>
+    <input id="newBody" type="text" placeholder="# 标题&#10;&#10;正文…（暂支持单行）">
+    <div class="row">
+      <button class="tool-btn" id="newCancel" type="button">取消</button>
+      <button class="tool-btn primary" id="newConfirm" type="button">创建</button>
+    </div>
+  </div>
+</div>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const statusEl = $("#status");
+let treeData = [];
+let currentPath = null;
+let dirty = false;
+
+function setStatus(msg, ok) {
+  statusEl.textContent = msg;
+  statusEl.className = "status" + (ok === undefined ? "" : ok ? " ok" : " err");
+}
+async function api(path, opt) {
+  const r = await fetch(path, opt);
+  let j; try { j = await r.json(); } catch (e) { j = null; }
+  if (!r.ok && !j) throw new Error("HTTP " + r.status);
+  return j;
+}
+
+/* ---------- 目录树 ---------- */
+async function loadTree() {
+  setStatus("加载目录…");
+  try {
+    treeData = await api("/api/tree");
+    renderTree(treeData);
+    setStatus("目录已加载（" + countFiles(treeData) + " 个文档）");
+    $("#btnSave").disabled = true;
+    $("#btnBuild").disabled = false;
+    $("#btnPush").disabled = false;
+    $("#btnSavePush").disabled = true;
+  } catch (e) {
+    setStatus("加载失败: " + e.message, false);
+  }
+}
+function countFiles(nodes) {
+  let c = 0;
+  for (const n of nodes) c += n.type === "file" ? 1 : countFiles(n.children);
+  return c;
+}
+
+const ICON_DIR = '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>';
+const ICON_FILE = '<svg class="ico" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6"/><path d="M9 13h6M9 17h6"/></svg>';
+const ICON_CHEV = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 6 6 6-6 6"/></svg>';
+
+function renderTree(nodes, parent) {
+  const container = parent || $("#tree");
+  container.innerHTML = "";
+  const ul = document.createElement("div");
+  container.appendChild(ul);
+  buildNodes(nodes, ul);
+}
+function buildNodes(nodes, ul, level) {
+  for (const n of nodes) {
+    if (n.type === "dir") {
+      const wrap = document.createElement("div");
+      wrap.className = "t-node collapsed";
+      const row = document.createElement("div");
+      row.className = "t-row dir";
+      row.innerHTML = ICON_CHEV + ICON_DIR + '<span class="nm"></span><span class="meta"></span>';
+      row.querySelector(".nm").textContent = n.name;
+      row.querySelector(".meta").textContent = countFiles(n.children);
+      row.addEventListener("click", () => {
+        wrap.classList.toggle("collapsed");
+        row.classList.toggle("open", !wrap.classList.contains("collapsed"));
+      });
+      const kids = document.createElement("div");
+      kids.className = "kids";
+      buildNodes(n.children, kids);
+      wrap.appendChild(row); wrap.appendChild(kids);
+      ul.appendChild(wrap);
+    } else {
+      const row = document.createElement("div");
+      row.className = "t-row file" + (/\.html$/i.test(n.name) ? " html" : "");
+      row.innerHTML = ICON_FILE + '<span class="nm"></span><span class="meta"></span>';
+      row.querySelector(".nm").textContent = n.name;
+      row.querySelector(".meta").textContent = (n.size / 1024).toFixed(0) + "KB";
+      row.addEventListener("click", () => selectFile(n.path, row));
+      ul.appendChild(row);
+    }
+  }
+}
+
+/* ---------- 文件选中与编辑 ---------- */
+async function selectFile(rel, rowEl) {
+  document.querySelectorAll(".t-row.active").forEach((r) => r.classList.remove("active"));
+  if (rowEl) rowEl.classList.add("active");
+  if (dirty && !confirm("当前文档有未保存修改，确定放弃吗？")) return;
+  setStatus("读取 " + rel + " …");
+  try {
+    const d = await api("/api/doc?path=" + encodeURIComponent(rel));
+    currentPath = rel;
+    dirty = false;
+    renderEditor(rel, d.content);
+    setStatus("已打开 " + rel);
+    $("#btnSave").disabled = false;
+    $("#btnSavePush").disabled = false;
+    $("#btnBuild").disabled = false;
+    $("#btnPush").disabled = false;
+  } catch (e) {
+    setStatus("读取失败: " + e.message, false);
+  }
+}
+
+function renderEditor(rel, content) {
+  const edit = $("#edit");
+  edit.innerHTML = `
+    <div class="edit-head">
+      <span class="path"></span>
+      <span class="size"></span>
+      <button class="tool-btn danger" id="btnDelete" type="button">删除（移入 archive）</button>
+    </div>
+    <textarea class="editor" id="editor" spellcheck="false"></textarea>
+    <div class="hint">Ctrl/Cmd + S 保存 · Markdown 原文编辑，保存后可一键重建站点并推送 GitHub/Gitee</div>`;
+  edit.querySelector(".path").textContent = rel;
+  edit.querySelector(".size").textContent = (new Blob([content]).size / 1024).toFixed(1) + " KB";
+  const ta = edit.querySelector("#editor");
+  ta.value = content;
+  ta.addEventListener("input", () => { dirty = true; setStatus("已修改：未保存"); });
+  ta.addEventListener("keydown", (e) => {
+    if ((e.ctrlKey || e.metaKey) && e.key === "s") { e.preventDefault(); saveFile(); }
+  });
+  edit.querySelector("#btnDelete").addEventListener("click", async () => {
+    if (!confirm("删除「" + rel + "」？（会移入 archive/ 目录，不彻底删除）")) return;
+    try {
+      const r = await api("/api/doc?path=" + encodeURIComponent(rel), { method: "DELETE" });
+      setStatus("已删除，移至 " + r.movedTo);
+      currentPath = null; dirty = false;
+      renderEditorEmpty();
+      loadTree();
+    } catch (e) { setStatus("删除失败: " + e.message, false); }
+  });
+}
+
+function renderEditorEmpty() {
+  $("#edit").innerHTML = `
+    <div class="edit-empty">
+      <div class="big">~$ kb-manager</div>
+      <div>从左侧选择文档进行编辑，或点击「＋ 新建文档」</div>
+    </div>`;
+}
+
+/* ---------- 保存 / 构建 / 推送 ---------- */
+async function saveFile(silent) {
+  if (!currentPath) return;
+  const content = $("#editor") ? $("#editor").value : "";
+  if (!silent) setStatus("保存中…");
+  try {
+    await api("/api/doc?path=" + encodeURIComponent(currentPath), { method: "PUT", body: JSON.stringify({ path: currentPath, content }) });
+    dirty = false;
+    if (!silent) setStatus("已保存 " + currentPath);
+    return true;
+  } catch (e) {
+    setStatus("保存失败: " + e.message, false);
+    return false;
+  }
+}
+
+$("#btnSave").addEventListener("click", () => saveFile());
+$("#btnBuild").addEventListener("click", async () => {
+  setStatus("重建站点中…");
+  try {
+    const r = await api("/api/build", { method: "POST" });
+    if (r.ok) setStatus("重建完成 " + r.detail, true);
+    else setStatus("重建失败: " + r.detail, false);
+  } catch (e) { setStatus("重建失败: " + e.message, false); }
+});
+$("#btnPush").addEventListener("click", async () => {
+  if (dirty) { if (!(await saveFile(true))) return; }
+  setStatus("Git 提交并推送中…");
+  try {
+    const r = await api("/api/git", { method: "POST", body: JSON.stringify({ message: "kb-manager: update docs" }) });
+    if (r.ok) setStatus("已推送 GitHub + Gitee ✓", true);
+    else setStatus("推送部分失败（查看控制台）: " + JSON.stringify(r).slice(0, 200), false);
+  } catch (e) { setStatus("推送失败: " + e.message, false); }
+});
+$("#btnSavePush").addEventListener("click", async () => {
+  if (!(await saveFile(true))) return;
+  setStatus("重建 + 推送中…");
+  try {
+    const b = await api("/api/build", { method: "POST" });
+    if (!b.ok) { setStatus("重建失败: " + b.detail, false); return; }
+    const g = await api("/api/git", { method: "POST", body: JSON.stringify({ message: "kb-manager: update docs" }) });
+    if (g.ok) setStatus("重建 ✓ 推送 ✓（GitHub + Gitee）", true);
+    else setStatus("重建 ✓ 推送异常: " + JSON.stringify(g).slice(0, 200), false);
+  } catch (e) { setStatus("操作失败: " + e.message, false); }
+});
+$("#btnReload").addEventListener("click", loadTree);
+
+/* ---------- 新建 ---------- */
+$("#btnNew").addEventListener("click", () => {
+  $("#newMask").classList.add("show");
+  $("#newName").value = ""; $("#newDir").value = ""; $("#newBody").value = "";
+  $("#newName").focus();
+});
+$("#newCancel").addEventListener("click", () => $("#newMask").classList.remove("show"));
+$("#newMask").addEventListener("click", (e) => { if (e.target === $("#newMask")) $("#newMask").classList.remove("show"); });
+$("#newConfirm").addEventListener("click", async () => {
+  const name = $("#newName").value.trim();
+  const dir = $("#newDir").value.trim();
+  if (!name) { alert("请填写文件名"); return; }
+  const rel = (dir ? dir.replace(/\\/g, "/").replace(/\/+$/g, "") + "/" : "") + name.replace(/\.md$/i, "") + ".md";
+  const content = $("#newBody").value.trim() || "# " + name.replace(/\.md$/i, "") + "\n\n";
+  try {
+    const r = await api("/api/doc", { method: "POST", body: JSON.stringify({ path: rel, content }) });
+    $("#newMask").classList.remove("show");
+    setStatus("已创建 " + rel, true);
+    loadTree();
+    const row = Array.from(document.querySelectorAll(".t-row.file")).find((el) => el.querySelector(".nm").textContent === name.replace(/\.md$/i, "") + ".md");
+    selectFile(r.path, row);
+  } catch (e) {
+    alert("创建失败: " + e.message);
+  }
+});
+
+/* ---------- 目录过滤 ---------- */
+$("#treeFilter").addEventListener("input", (e) => {
+  const q = e.target.value.trim().toLowerCase();
+  filterNodes(treeData, q);
+});
+function filterNodes(nodes, q) {
+  const container = $("#tree");
+  container.innerHTML = "";
+  const ul = document.createElement("div");
+  container.appendChild(ul);
+  const visible = nodes.filter((n) => {
+    if (n.type === "dir") return n.name.toLowerCase().includes(q) || filterNodesInner(n.children, q).length > 0;
+    return n.name.toLowerCase().includes(q);
+  });
+  buildNodesFiltered(visible, ul, q);
+}
+function filterNodesInner(nodes, q) {
+  return nodes.filter((n) => n.name.toLowerCase().includes(q));
+}
+function buildNodesFiltered(nodes, ul) {
+  for (const n of nodes) {
+    if (n.type === "dir") {
+      const wrap = document.createElement("div");
+      wrap.className = "t-node";
+      const row = document.createElement("div");
+      row.className = "t-row dir open";
+      row.innerHTML = ICON_CHEV + ICON_DIR + '<span class="nm"></span><span class="meta"></span>';
+      row.querySelector(".nm").textContent = n.name;
+      const kids = document.createElement("div");
+      kids.className = "kids";
+      buildNodesFiltered(n.children, kids);
+      wrap.appendChild(row); wrap.appendChild(kids);
+      ul.appendChild(wrap);
+    } else {
+      const row = document.createElement("div");
+      row.className = "t-row file" + (/\.html$/i.test(n.name) ? " html" : "");
+      row.innerHTML = ICON_FILE + '<span class="nm"></span>';
+      row.querySelector(".nm").textContent = n.name;
+      row.addEventListener("click", () => selectFile(n.path, row));
+      ul.appendChild(row);
+    }
+  }
+}
+
+/* 提示未保存退出 */
+window.addEventListener("beforeunload", (e) => {
+  if (dirty) { e.preventDefault(); e.returnValue = ""; }
+});
+
+loadTree();
+</script>
+</body>
+</html>

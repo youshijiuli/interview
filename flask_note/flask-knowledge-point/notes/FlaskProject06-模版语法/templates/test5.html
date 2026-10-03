@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jinja2模版语法</title>
+    </head>
+    <body>
+        <h3>Test测试器</h3>
+        <hr>
+        {# 检查变量是否被定义，也可以用undefined #}
+        {% if name is defined %}
+            <p>Name is: {{ name }}</p>
+        {% endif %}
+
+        {% if name is undefined %}
+            <p>name 没有定义</p>
+        {% endif %}
+
+        {# 检查是否所有字符都是大写 #}
+        {% if name is upper %}
+            <p>{{ name }} 都是大写</p>
+        {% endif %}
+
+
+        {# 检查是否为空 #}
+        {% if name is none %}
+            <p>变量为空</p>
+        {% endif %}
+
+        {# 检查是否为可迭代对象 #}
+        {% if [1, 2, 3] is iterable %}
+            <p>是可迭代对象</p>
+        {% endif %}
+
+        {# 检查是否为字典 #}
+        {% if {'name': 'wx'} is mapping %}
+            <p>是一个字典</p>
+        {% endif %}
+
+        <!-- 自定义测试器 -->
+        {% if '13011112222' is test_tel %}
+            <p>'13011112222'是个手机号</p>
+        {% endif %}
+
+        {% if 'Hello' is start_with 'HE' %}
+            <p>'Hello'是以'HE'开头的</p>
+        {% endif %}
+
+    </body>
+</html>

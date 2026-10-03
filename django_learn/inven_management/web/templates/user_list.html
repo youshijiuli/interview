@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>Title</title>
+</head>
+<h1>{{ message }}</h1>
+<body>
+    <ul>
+        {% for item in data_list %}
+        <li>{{ item }}</li>
+        {% endfor %}
+        <li>李欣鸿</li>
+        <li>航小天</li>
+    </ul>
+<a>{{data_list.0}}</a>
+<a>{{data_list.1}}</a>
+<a>{{data_list.2}}</a>
+
+<p>{{xx.name}}</p>
+<p>{{xx.age}}</p>
+<p>{{xx.gender}}</p>
+
+<ul>
+    {% for item in xx.keys %}
+    <li>{{item}}</li>
+    {% endfor %}
+</ul>
+ <hr/>
+<ul>
+    {% for item in xx.values %}
+    <li>{{item}}</li>
+    {% endfor %}
+</ul>
+<hr/>
+<ul>
+
+</ul>
+
+</body>
+</html>

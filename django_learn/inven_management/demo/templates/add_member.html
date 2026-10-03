@@ -1,0 +1,38 @@
+{% load static %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-3.4.1/dist/css/bootstrap.min.css' %}">
+</head>
+<body>
+
+<div class="container">
+    <div class="panel panel-default">
+        <div class="panel-heading">添加部门</div>
+        <div class="panel-body">
+            <form class="form-inline" method="post" action="/add/member/">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="sr-only">ID</label>
+                    <input type="text" class="form-control" name="id_client" placeholder="ID">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">姓名</label>
+                    <input type="text" class="form-control" name="name" placeholder="姓名">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">邮箱</label>
+                    <input type="text" class="form-control" name="email" placeholder="邮箱">
+                </div>
+
+                <button type="submit" class="btn btn-primary">保存</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+</body>
+</html>

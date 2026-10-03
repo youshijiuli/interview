@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html
+        PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+    <title>personal information</title>
+    <img src="/web/migration/static/1.jpg" width="200px" height="100px" >
+    <img src="1.png"  width="200px" height="100px"/>
+</head>
+<body>
+<div class="container">
+    <h1>号码列表</h1>
+    <table class="table  table-bordered">
+
+    <thead>
+    <tr>
+        <td>ID</td>
+        <td>手机号</td>
+        <td>归属地</td>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in data %}
+    <tr>
+        <td>{{ row.id }}</td>
+        <td>{{ row.phone }}</td>
+        <td>{{ row.city }}</td>
+    </tr>
+    {% endfor %}
+    <tr>
+        <td>1</td>
+        <td>1888888888</td>
+        <td>上海</td>
+    </tr>
+    </tbody>
+    </table>
+</div>
+</body>
+</html>

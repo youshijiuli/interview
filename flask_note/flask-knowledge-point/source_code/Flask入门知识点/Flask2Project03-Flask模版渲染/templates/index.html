@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>模板渲染</title>
+    <link rel="stylesheet" type="text/css" href="../static/css/index.css">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='index.css') }}">
+</head>
+<body>
+    <h4>name:{{ name }}</h4>
+    <p>render_template函数可以渲染模版</p>
+    <p>jsonify函数将Python字典反序列化成json字符串</p>
+</body>
+</html>

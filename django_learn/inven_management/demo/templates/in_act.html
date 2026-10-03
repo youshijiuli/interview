@@ -1,0 +1,37 @@
+{% extends 'layout1.html' %}
+{% block content %}
+<a>注意您的订购单品信息</a>
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>入库ID</th>
+        <th>商品名称</th>
+        <th>供应商ID</th>
+        <th>入库数量</th>
+        <th>收支编号</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+
+    <tr>
+        <td>{{queryset.in_id}}</td>
+        <td>{{queryset.name}}</td>
+        <td>{{queryset.provider_id}}</td>
+        <td>{{queryset.number}}</td>
+        <td>{{queryset.io_number}}</td>
+        <td>
+            <a href="/delete/inout/?id={{queryset.id}}" class="btn btn-danger btn-xs">删除</a>
+            <a href="/edit/member/?id={{queryset.id}}" class="btn btn-primary btn-xs">编辑</a>
+        </td>
+    </tr>
+
+    </tbody>
+</table>
+
+
+<div style="margin-bottom: 10px">
+    <a href="/inout/" class="btn btn-success">确认购买入库</a>
+</div>
+
+{% endblock %}

@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jinja2模版语法</title>
+    </head>
+    <body>
+        <h3>视图传参给模版</h3>
+        <hr>
+        name = {{ name }}
+        <br>
+        age = {{ age }}
+        <br>
+        gender = {{ gender }}
+
+
+        <h3>模版控制语句</h3>
+        <hr>
+        {# if和for是常用的模版控制语句 #}
+        {% if age >= 18 %}
+            <p>成年人</p>
+        {% endif %}
+
+        {% if gender == '男' %}
+            <p>男</p>
+        {% else %}
+            <p>女</p>
+        {% endif%}
+
+        {% for i in name %}
+            <p>{{ i }}</p>
+        {% endfor %}
+    </body>
+</html>

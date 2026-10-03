@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>jinja2模版语法</title>
+    </head>
+    <body>
+        <h3>给模版出入字典</h3>
+        <hr>
+        student_dict = {{ student_dict }}
+        <br><br><br>
+        <table border="1px">
+            <tr>
+                <td>序号</td>
+                <td>姓名</td>
+                <td>年龄</td>
+                <td>性别</td>
+            </tr>
+            {% for stu_key, stu_value in student_dict.items() %}
+            <tr>
+                <td>{{ loop.index0 }}: {{ stu_key }}</td>
+                <td>
+                    {{ stu_value.name }}
+                    {% if loop.first %}
+                        ,第一。
+                    {% endif %}
+                </td>
+                <td>{{ stu_value['age'] }}</td>
+                <td>{{ stu_value.get('gender') }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+    </body>
+</html>

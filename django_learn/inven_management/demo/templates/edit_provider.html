@@ -1,0 +1,47 @@
+{% load static %}
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'bootstrap-3.4.1/dist/css/bootstrap.min.css' %}">
+</head>
+<body>
+
+<div class="container" style="margin-top: 10px 0;">
+    <div class="panel panel-default">
+        <div class="panel-heading">修改供应商信息</div>
+        <div class="panel-body">
+            <form class="form-inline" method="post" action="/add/provider/?id={{provider_obj.id}}">
+                {% csrf_token %}
+                <div class="form-group">
+                    <label class="sr-only">供应商ID</label>
+                    <input type="text" class="form-control" name="provider_id" placeholder="provider_ID" value="{{provider_obj.provider_id}}">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">供应商名称</label>
+                    <input type="text" class="form-control" name="pro_name" placeholder="pro_name" value="{{provider_obj.pro_name}}">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">联系人</label>
+                    <input type="text" class="form-control" name="linkman" placeholder="联系人" value="{{provider_obj.linkman}}">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">联系方式</label>
+                    <input type="text" class="form-control" name="linkWay" placeholder="联系方式" value="{{provider_obj.linkWay}}">
+                </div>
+                <div class="form-group">
+                    <label class="sr-only">城市</label>
+                    <input type="text" class="form-control" name="city" placeholder="城市" value="{{provider_obj.city}}">
+                </div>
+
+                <button type="submit" class="btn btn-primary">保存</button>
+            </form>
+
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>

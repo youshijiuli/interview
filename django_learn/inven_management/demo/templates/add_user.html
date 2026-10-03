@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Title</title>
+</head>
+<body>
+<form method="post" novalidate>
+    <p>{{ form.user}} <span style="color: red">{{form.user.errors.0}}</span> </p>
+    <p>{{ form.password}}<span style="color: red">{{form.password.errors}}</span></p>
+    <p>{{ form.type }}<span style="color: red">{{form.type.errors}}</span></p>
+    <input type="submit" value="提交">
+</form>
+
+</body>
+</html>

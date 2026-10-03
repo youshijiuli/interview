@@ -1,0 +1,50 @@
+{% extends 'layout.html' %}
+{% block content %}
+<div style="margin-bottom: 10px">
+    <a href="/add/goods/" class="btn btn-success">创建进货单品</a>
+</div>
+
+
+<table class="table table-bordered">
+    <thead>
+    <tr>
+        <th>药品名</th>
+        <th>生产批号</th>
+        <th>产地</th>
+        <th>药品类别</th>
+        <th>进价</th>
+        <th>单价</th>
+        <th>会员折扣</th>
+        <th>库存量</th>
+        <th>规格</th>
+        <th>生产日期</th>
+        <th>有效期</th>
+        <th>选项</th>
+    </tr>
+    </thead>
+    <tbody>
+    {% for row in queryset %}
+        <tr>
+            <td>{{row.drug_name}}</td>
+            <td>{{row.product_id}}</td>
+            <td>{{row.product_place}}</td>
+            <td>{{row.type}}</td>
+            <td>{{row.in_price}}</td>
+            <td>{{row.single_price}}</td>
+            <td>{{row.discount}}</td>
+            <td>{{row.package}}</td>
+            <td>{{row.size}}</td>
+            <td>{{row.pro_date}}</td>
+            <td>{{row.valid_date}}</td>
+            <td>
+                <a href="/delete/goods/?id={{row.id}}" class="btn btn-danger btn-xs">删除</a>
+                <a href="/edit/goods/?id={{row.id}}" class="btn btn-primary btn-xs">编辑</a>
+                <a href="/in/act/?id={{row.id}}" class="btn btn-success btn-xs">进货</a>
+                <a href="/returning/?id={{row.id}}" class="btn btn-warning btn-xs">退货(退给经销商)</a>
+            </td>
+        </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}

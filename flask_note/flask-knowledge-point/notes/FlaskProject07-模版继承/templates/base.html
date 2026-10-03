@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+        父模版
+        {% endblock %}
+    </title>
+</head>
+<body>
+    {% block head %}
+    <p>父模版:页首</p>
+    {% endblock %}
+
+
+    {% block container %}
+    <p>父模版:主体内容</p>
+    {% endblock %}
+
+
+    {% block footer %}
+    <p>父模版:页尾</p>
+    {% endblock %}    
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>
+        {% block title %}
+            父模板
+        {% endblock %}
+    </title>
+</head>
+<body>
+    <!-- 定义一个名为extcss的代码块，用于插入外部CSS样式 -->
+    {% block extcss %}
+
+    {% endblock%}
+
+    <!-- 定义一个名为head的代码块，用于插入头部内容 -->
+    {% block head %}
+        这是父模版的头
+    {% endblock%}
+
+    <!-- 定义一个名为content的代码块，用于插入主体内容 -->
+    {% block content %}
+        这是父模版里面的内容
+    {% endblock%}
+
+    <!-- 定义一个名为foot的代码块，用于插入底部内容 -->
+    {% block foot %}
+        这是父模版的脚
+        <a href="{{ url_for('blue.show_child') }}">点击跳转子模版</a>
+    {% endblock%}
+
+    <!-- 定义一个名为extjs的代码块，用于插入外部JavaScript脚本 -->
+    {% block extjs %}
+        <script type="text/javascript" src="{{ url_for('static', filename='js/base.js') }}"></script>
+    {% endblock%}
+</body>
+</html>
