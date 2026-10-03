@@ -333,7 +333,7 @@ killall $0
 echo "拷贝完成"
 ```
 
-#### **16）进度条,动态时针版本；定义一个显示进度的函数,屏幕快速显示\|  / ‐ \**
+#### **16）进度条,动态时针版本；定义一个显示进度的函数,屏幕快速显示|  / ‐ \**
 
 ```Plain Text
 #!/bin/bash
@@ -693,7 +693,7 @@ done
 netstat -atn  |  awk  '{print $5}'  | awk  '{print $1}' | sort -nr  |  uniq -c
 ```
 
-#### **26）对 100 以内的所有正整数相加求和(1\+2\+3\+4…\+100)**
+#### **26）对 100 以内的所有正整数相加求和(1+2+3+4…+100)**
 
 ```Plain Text
 #!/bin/bash
@@ -1978,7 +1978,7 @@ guestmount -d $name -i $mountpoint
 sed -i "/^root/s/x//" $mountpoint/etc/passwd
 ```
 
-#### **87）Shell 脚本对信号的处理,执行脚本后,按键盘 Ctrl\+C 无法终止的脚本**
+#### **87）Shell 脚本对信号的处理,执行脚本后,按键盘 Ctrl+C 无法终止的脚本**
 
 ```Plain Text
 #!/bin/bash

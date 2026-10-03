@@ -98,7 +98,7 @@ lrwxrwxrwx. 1 root root      4 5月  27 2017 sh -> bash
 
 - **脚本格式**
 
-脚本以\#\!/bin/bash开头（指定解析器）。
+脚本以#!/bin/bash开头（指定解析器）。
 
 **第一个Shell脚本：helloworld.sh**
 
@@ -122,37 +122,37 @@ echo "helloworld"
 
 - 脚本的常用执行方式。
 
-第一种：采用bash或sh\+脚本的相对路径或绝对路径（不用赋予脚本\+x权限）。
+第一种：采用bash或sh+脚本的相对路径或绝对路径（不用赋予脚本+x权限）。
 
-sh\+脚本的相对路径。
+sh+脚本的相对路径。
 
 [atguigu@hadoop101 shells]$ sh ./helloworld.sh 
 
 Helloworld
 
-sh\+脚本的绝对路径。
+sh+脚本的绝对路径。
 
 [atguigu@hadoop101 shells]$ sh /home/atguigu/shells/helloworld.sh 
 
 helloworld
 
-bash\+脚本的相对路径。
+bash+脚本的相对路径。
 
 [atguigu@hadoop101 shells]$ bash ./helloworld.sh 
 
 Helloworld
 
-bash\+脚本的绝对路径。
+bash+脚本的绝对路径。
 
 [atguigu@hadoop101 shells]$ bash /home/atguigu/shells/helloworld.sh 
 
 Helloworld
 
-第二种：采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限\+x）。
+第二种：采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限+x）。
 
-① 首先要赋予helloworld.sh 脚本的\+x权限。
+① 首先要赋予helloworld.sh 脚本的+x权限。
 
-[atguigu@hadoop101 shells]$ chmod \+x helloworld.sh
+[atguigu@hadoop101 shells]$ chmod +x helloworld.sh
 
 ② 执行脚本。
 
@@ -492,21 +492,21 @@ BASH_ARGV=()
 
 - 在bash中，变量默认类型都是字符串类型，无法直接进行数值运算。
 
-[atguigu@hadoop102 \~]$ C=1\+2
+[atguigu@hadoop102 ~]$ C=1+2
 
-[atguigu@hadoop102 \~]$ echo $C
+[atguigu@hadoop102 ~]$ echo $C
 
-1\+2
+1+2
 
 - 变量的值如果有空格，需要使用双引号或单引号括起来。
 
-[atguigu@hadoop102 \~]$ D=I love banzhang
+[atguigu@hadoop102 ~]$ D=I love banzhang
 
 -bash: world: command not found
 
-[atguigu@hadoop102 \~]$ D="I love banzhang"
+[atguigu@hadoop102 ~]$ D="I love banzhang"
 
-[atguigu@hadoop102 \~]$ echo $D
+[atguigu@hadoop102 ~]$ echo $D
 
 I love banzhang
 
@@ -518,7 +518,7 @@ export 变量名
 
 在helloworld.sh文件中增加echo $B。
 
-\#\!/bin/bash
+#!/bin/bash
 
 
 
@@ -550,7 +550,7 @@ helloworld
 
     - **基本语法**
 
-$n （功能描述：n为数字，$0代表该脚本名称，$1-$9代表第一到第九个参数，十以上的参数需要用大括号包含，如$\{10\}。）
+$n （功能描述：n为数字，$0代表该脚本名称，$1-$9代表第一到第九个参数，十以上的参数需要用大括号包含，如${10}。）
 
 - **案例实操**
 
@@ -558,7 +558,7 @@ $n （功能描述：n为数字，$0代表该脚本名称，$1-$9代表第一到
 
 [atguigu@hadoop101 shells]$ vim parameter.sh
 
-\#\!/bin/bash
+#!/bin/bash
 
 echo '==========$n=========='
 
@@ -582,17 +582,17 @@ cls
 
 xz
 
-1. **$\#**
+1. **$#**
 
     - **基本语法**
 
-$\# （功能描述：获取所有输入参数个数，常用于循环，判断参数的个数是否正确以及加强脚本的健壮性）。
+$# （功能描述：获取所有输入参数个数，常用于循环，判断参数的个数是否正确以及加强脚本的健壮性）。
 
 - **案例实操**
 
 [atguigu@hadoop101 shells]$ vim parameter.sh
 
-\#\!/bin/bash
+#!/bin/bash
 
 echo '==========$n=========='
 
@@ -602,9 +602,9 @@ echo $1
 
 echo $2
 
-echo '==========$\#=========='
+echo '==========$#=========='
 
-echo $\#
+echo $#
 
 
 
@@ -620,7 +620,7 @@ cls
 
 xz
 
-==========$\#==========
+==========$#==========
 
 2
 
@@ -636,7 +636,7 @@ $@ （功能描述：这个变量也代表命令行中所有的参数，不过$@
 
 [atguigu@hadoop101 shells]$ vim parameter.sh
 
-\#\!/bin/bash
+#!/bin/bash
 
 echo '==========$n=========='
 
@@ -646,9 +646,9 @@ echo $1
 
 echo $2
 
-echo '==========$\#=========='
+echo '==========$#=========='
 
-echo $\#
+echo $#
 
 echo '==========$*=========='
 
@@ -668,7 +668,7 @@ a
 
 b
 
-==========$\#==========
+==========$#==========
 
 7
 
@@ -889,11 +889,11 @@ done
 
 - **案例实操： **
 
-计算（2\+3）* 4的值
+计算（2+3）* 4的值
 
-[atguigu@hadoop101 shells]\# S=$[(2\+3)*4]
+[atguigu@hadoop101 shells]# S=$[(2+3)*4]
 
-[atguigu@hadoop101 shells]\# echo $S
+[atguigu@hadoop101 shells]# echo $S
 
 - **条件判断**
 
@@ -963,13 +963,13 @@ done
 
 1
 
-- 多条件判断（\&\& 表示前一条命令执行成功时，才执行后一条命令，\|\| 表示上一条命令执行失败后，才执行下一条命令）。
+- 多条件判断（\&\& 表示前一条命令执行成功时，才执行后一条命令，|| 表示上一条命令执行失败后，才执行下一条命令）。
 
-[atguigu@hadoop101 \~]$ [ atguigu ] \&\& echo OK \|\| echo notOK
+[atguigu@hadoop101 ~]$ [ atguigu ] \&\& echo OK || echo notOK
 
 OK
 
-[atguigu@hadoop101 shells]$ [ ] \&\& echo OK \|\| echo notOK
+[atguigu@hadoop101 shells]$ [ ] \&\& echo OK || echo notOK
 
 notOK
 
@@ -1340,7 +1340,7 @@ fi
 
 
 
-\#\!/bin/bash
+#!/bin/bash
 
 
 
@@ -1682,17 +1682,17 @@ done
 
 
 
-\#\!/bin/bash
+#!/bin/bash
 
 
 
 sum=0
 
-for((i=0;i\<=100;i\+\+))
+for((i=0;i<=100;i++))
 
 do
 
-sum=$[$sum\+$i]
+sum=$[$sum+$i]
 
 done
 
@@ -1726,9 +1726,9 @@ done
 
 
 
-\#\!/bin/bash
+#!/bin/bash
 
-\#打印数字
+#打印数字
 
 
 
@@ -1762,7 +1762,7 @@ $*和$@都表示传递给函数或脚本的所有参数，不被双引号“”�
 
 
 
-\#\!/bin/bash 
+#!/bin/bash 
 
 echo '=============$*============='
 
@@ -1812,13 +1812,13 @@ banzhang love wls
 
 
 
-\#\!/bin/bash 
+#!/bin/bash 
 
 echo '=============$*============='
 
 for i in "$*" 
 
-\#$*中的所有参数看成是一个整体，所以这个for循环只会循环一次 
+#$*中的所有参数看成是一个整体，所以这个for循环只会循环一次 
 
 do
 
@@ -1832,7 +1832,7 @@ echo '=============$@============='
 
 for j in "$@" 
 
-\#$@中的每个参数都看成是独立的，所以“$@”中有几个参数，就会循环几次 
+#$@中的每个参数都看成是独立的，所以“$@”中有几个参数，就会循环几次 
 
 do
 
@@ -1900,7 +1900,7 @@ done
 
 
 
-\#\!/bin/bash
+#!/bin/bash
 
 sum=0
 
@@ -1910,8 +1910,8 @@ while [ $i -le 100 ]
 
 do
 
-sum=$[$sum\+$i]
-        i=$[$i\+1]
+sum=$[$sum+$i]
+        i=$[$i+1]
 
 done
 
@@ -1955,7 +1955,7 @@ read  （选项）  （参数）
 
 
 
-\#\!/bin/bash
+#!/bin/bash
 
 
 
@@ -3051,7 +3051,7 @@ dirname 可以理解为取文件路径的绝对路径名称。
 
 获取banzhang.txt文件的路径。
 
-[atguigu@hadoop101 \~]$ dirname /home/atguigu/banzhang.txt 
+[atguigu@hadoop101 ~]$ dirname /home/atguigu/banzhang.txt 
 
 /home/atguigu
 
@@ -3061,13 +3061,13 @@ dirname 可以理解为取文件路径的绝对路径名称。
 
 [ function ] funname[()]
 
-\{
+{
 
 Action;
 
 [return int;]
 
-\}
+}
 
 - **经验技巧**
 
@@ -3085,18 +3085,18 @@ Action;
 
 
 
-\#\!/bin/bash
+#!/bin/bash
 
 function sum()
 
-\{
+{
 
 s=0
 
-s=$[$1\+$2]
+s=$[$1+$2]
     echo "$s"
 
-\}
+}
 
 
 
@@ -3180,7 +3180,7 @@ Le
 
 - 在cut.txt文件中切割出guan。
 
-[atguigu@hadoop101 shells]$  cat cut.txt \|grep guan \| cut -d " " -f 1
+[atguigu@hadoop101 shells]$  cat cut.txt |grep guan | cut -d " " -f 1
 
 guan
 
@@ -3192,13 +3192,13 @@ guan
 
 
 
-[atguigu@hadoop101 shells]$ echo $PATH \| cut -d ":" -f 3-
+[atguigu@hadoop101 shells]$ echo $PATH | cut -d ":" -f 3-
 
 /usr/local/sbin:/usr/sbin:/home/atguigu/.local/bin:/home/atguigu/bin
 
 - 切割ifconfig 后打印的IP地址。
 
-[atguigu@hadoop101 shells]$ ifconfig ens33 \| grep netmask \| cut -d "i" -f 2 \| cut -d " " -f 2
+[atguigu@hadoop101 shells]$ ifconfig ens33 | grep netmask | cut -d "i" -f 2 | cut -d " " -f 2
 
 192.168.6.101
 
@@ -3208,7 +3208,7 @@ guan
 
 - **基本用法**
 
-awk  [选项参数] ‘/pattern1/\{action1\}  /pattern2/\{action2\}...’ filename
+awk  [选项参数] ‘/pattern1/{action1}  /pattern2/{action2}...’ filename
 
 pattern：表示awk在数据中查找的内容，就是匹配模式。
 
@@ -3228,13 +3228,13 @@ passwd数据的含义
 
 - 搜索passwd文件以root关键字开头的所有行，并输出该行的第7列。
 
-[atguigu@hadoop101 shells]$ awk -F : '/^root/\{print $7\}' passwd 
+[atguigu@hadoop101 shells]$ awk -F : '/^root/{print $7}' passwd 
 
 /bin/bash
 
 - 搜索passwd文件以root关键字开头的所有行，并输出该行的第1列和第7列，中间以“，”号分割。
 
-[atguigu@hadoop101 shells]$ awk -F : '/^root/\{print $1","$7\}' passwd 
+[atguigu@hadoop101 shells]$ awk -F : '/^root/{print $1","$7}' passwd 
 
 root,/bin/bash
 
@@ -3242,7 +3242,7 @@ root,/bin/bash
 
 - 只显示/etc/passwd的第一列和第七列，以逗号分割，且在所有行前面添加列名user，shell在最后一行添加"dahaige，/bin/zuishuai"。
 
-[atguigu@hadoop101 shells]$ awk -F : 'BEGIN\{print "user, shell"\} \{print $1","$7\} END\{print "dahaige,/bin/zuishuai"\}' passwd
+[atguigu@hadoop101 shells]$ awk -F : 'BEGIN{print "user, shell"} {print $1","$7} END{print "dahaige,/bin/zuishuai"}' passwd
 
 user, shell
 
@@ -3260,7 +3260,7 @@ dahaige,/bin/zuishuai
 
 - 将passwd文件中的用户id增加数值1并输出
 
-[atguigu@hadoop101 shells]$ awk -v i=1 -F : '\{print $3\+i\}' passwd
+[atguigu@hadoop101 shells]$ awk -v i=1 -F : '{print $3+i}' passwd
 
 1
 
@@ -3276,7 +3276,7 @@ dahaige,/bin/zuishuai
 
     - 统计passwd文件名，每行的行号，每行的列数。
 
-[atguigu@hadoop101 shells]$ awk -F : '\{print "filename:" FILENAME  ",linenum:" NR ",col:"NF\}' passwd 
+[atguigu@hadoop101 shells]$ awk -F : '{print "filename:" FILENAME  ",linenum:" NR ",col:"NF}' passwd 
 
 filename:passwd,linenum:1,col:7
 
@@ -3288,7 +3288,7 @@ filename:passwd,linenum:3,col:7
 
 - 查询ifconfig命令输出结果中的空行所在的行号。
 
-[atguigu@hadoop101 shells]$ ifconfig \| awk '/^$/\{print NR\}'
+[atguigu@hadoop101 shells]$ ifconfig | awk '/^$/{print NR}'
 
 9
 
@@ -3298,7 +3298,7 @@ filename:passwd,linenum:3,col:7
 
 - 切割IP。
 
-[atguigu@hadoop101 shells]$ ifconfig ens33 \| grep netmask \| awk -F "inet" '\{print $2\}' \| awk -F " " '\{print $1\}' 
+[atguigu@hadoop101 shells]$ ifconfig ens33 | grep netmask | awk -F "inet" '{print $2}' | awk -F " " '{print $1}' 
 
 192.168.6.101
 
@@ -3314,7 +3314,7 @@ filename:passwd,linenum:3,col:7
 
 一串不包含特殊字符的正则表达式匹配它自己，例如：
 
-[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep atguigu
+[atguigu@hadoop101 shells]$ cat /etc/passwd | grep atguigu
 
 就会匹配所有包含atguigu的行。
 
@@ -3324,7 +3324,7 @@ filename:passwd,linenum:3,col:7
 
 ^ 匹配一行的开头，例如：
 
-[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep ^a
+[atguigu@hadoop101 shells]$ cat /etc/passwd | grep ^a
 
 会匹配出所有以a开头的行。
 
@@ -3342,7 +3342,7 @@ $ 匹配一行的结束，例如：
 
 . 匹配一个任意的字符，例如：
 
-[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep r..t
+[atguigu@hadoop101 shells]$ cat /etc/passwd | grep r..t
 
 会匹配包含rabt,rbbt,rxdt,root等的所有行。
 
@@ -3350,7 +3350,7 @@ $ 匹配一行的结束，例如：
 
 * 不单独使用，他和上一个字符连用，表示匹配上一个字符0次或多次，例如：
 
-[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep ro*t
+[atguigu@hadoop101 shells]$ cat /etc/passwd | grep ro*t
 
 会匹配rt, rot, root, rooot, roooot等所有行。
 
@@ -3372,7 +3372,7 @@ $ 匹配一行的结束，例如：
 
 [a-c, e-f]-匹配a-c或者e-f之间的任意字符
 
-[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep r[a,b,c]*t
+[atguigu@hadoop101 shells]$ cat /etc/passwd | grep r[a,b,c]*t
 
 会匹配rt,rat, rbt, rabt, rbact,rabccbaaacbt等等所有行。
 
@@ -3380,7 +3380,7 @@ $ 匹配一行的结束，例如：
 
 \\ 表示转义，并不会单独使用。由于所有特殊字符都有其特定匹配模式，当我们想匹配某一特殊字符本身时（例如，我想找出所有包含 '$' 的行），就会碰到困难。此时我们就要将转义字符和特殊字符连用，来表示特殊字符本身，例如。
 
-[atguigu@hadoop101 shells]$ cat /etc/passwd \| grep a\\$b
+[atguigu@hadoop101 shells]$ cat /etc/passwd | grep a\\$b
 
 就会匹配所有包含 a$b 的行。
 
@@ -3467,7 +3467,7 @@ This's a test
 10 There are orange,apple,mongo
 ```
 
-- 用法1：`awk '{[pattern] action}' {filenames}`   \# 行匹配语句 awk '' 只能用单引号
+- 用法1：`awk '{[pattern] action}' {filenames}`   # 行匹配语句 awk '' 只能用单引号
 
 ```Shell
 # 1、每行按空格或TAB分割，输出文本中的1、4项
@@ -3491,7 +3491,7 @@ This's
 
 
 
-- 用法2：`awk -F`  \#-F相当于内置变量FS, 指定分割字符
+- 用法2：`awk -F`  #-F相当于内置变量FS, 指定分割字符
 
 ```Bash
 # 1、使用","分割
@@ -3519,7 +3519,7 @@ This's a
 10 There apple
 ```
 
-- 用法3：`awk -v`  \# 设置变量
+- 用法3：`awk -v`  # 设置变量
 
 ```Bash
 $ awk -va=1 '{print $1,$1+a}' test.log
@@ -3632,7 +3632,7 @@ There orange,apple,mongo
 
 - `-t`：表示先打印命令，然后再执行。
 
-- `-i`：或者是-I，这得看linux支持了，将xargs的每项名称，一般是一行一行赋值给 \{\}，可以用 \{\} 代替。
+- `-i`：或者是-I，这得看linux支持了，将xargs的每项名称，一般是一行一行赋值给 {}，可以用 {} 代替。
 
 - `-r`：no-run-if-empty 当xargs的输入为空的时候则停止xargs，不用再去执行了。
 
@@ -3771,7 +3771,7 @@ nl $TEST_LOG | sed -e '3,$d' -e 's/bash/blueshell/'
 
 # 修改文件内容
 # 将$TEST_LOG中每行结尾的.替换成！
-sed -i 's/.$/\!/g' $TEST_LOG
+sed -i 's/.$/!/g' $TEST_LOG
 # 在$TEST_LOG最后一行添加 #This is a test
 sed -i '$a # This is a test' $TEST_LOG
 
@@ -3795,7 +3795,7 @@ sed -i '$a # This is a test' $TEST_LOG
 
 （1）集群启动，分发脚本
 
-\#\!/bin/bash
+#!/bin/bash
 
 
 
@@ -3819,21 +3819,21 @@ done
 
 ;;
 
-（2）数仓层级内部的导入：ods-\>dwd-\>dws -\>ads
+（2）数仓层级内部的导入：ods->dwd->dws ->ads
 
-①\#\!/bin/bash 
+①#!/bin/bash 
 
 ②定义变量 APP=gmall
 
 ③获取时间    传入  按照传入时间
 
-不传  T\+1 
+不传  T+1 
 
 ④sql="
 
-先按照当前天 写sql =\> 遇到时间 $do_date  遇到表 \{$APP\}.
+先按照当前天 写sql => 遇到时间 $do_date  遇到表 {$APP}.
 
-自定义函数 UDF  UDTF    \{$APP\}.
+自定义函数 UDF  UDTF    {$APP}.
 
 "
 
@@ -3847,7 +3847,7 @@ done
 
 在文件中添加如下内容
 
-\#\!/bin/bash
+#!/bin/bash
 
 do_date=$1
 

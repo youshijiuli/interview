@@ -604,7 +604,7 @@ info
 
 
 
-(5) 主从复制不要用图状结构，用单向链表结构更为稳定，即：Master \<- Slave1 \<- Slave2 \<- Slave3...
+(5) 主从复制不要用图状结构，用单向链表结构更为稳定，即：Master <- Slave1 <- Slave2 <- Slave3...
 
 
 

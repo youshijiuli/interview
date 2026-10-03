@@ -263,7 +263,7 @@ print(sorted_d)
 ### 4. 正则表达式匹配手机号
 ```python
 import re
-pattern = re.compile(r'^(\+86|86)\d{9}$')
+pattern = re.compile(r'^(+86|86)\d{9}$')
 test_numbers = ["+86123456789", "86123456789", "123456789", "+86123456789"]
 for number in test_numbers:
     print(f"{number}: {pattern.match(number) is not None}")

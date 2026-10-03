@@ -339,7 +339,7 @@ mZ+AW4OZPnTPI89ZPmVMLuayrD2cE86Z/il8b+gw3r3+1nKatmIkjn2so1d01QraTlMqVSsbx
 NrRFi9wrf+M7Q== schacon@mylaptop.local
 ```
 
-在你的 Github 账户中，依次点击 Settings \> SSH and GPG keys \> New SSH key
+在你的 Github 账户中，依次点击 Settings > SSH and GPG keys > New SSH key
 
 然后，将上面生成的公钥内容粘贴到 `Key` 编辑框并保存。至此大功告成。
 
@@ -383,7 +383,7 @@ NrRFi9wrf+M7Q== schacon@mylaptop.local
 hs_err_pid*
 ```
 
-> 【推荐】这里推荐一个 Github 的开源项目：[gitignore](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fgithub%2Fgitignore)，在这里，你可以找到很多常用的 .gitignore 模板，如：Java、Nodejs、C\+\+ 的 `.gitignore` 模板等等。
+> 【推荐】这里推荐一个 Github 的开源项目：[gitignore](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Fgithub%2Fgitignore)，在这里，你可以找到很多常用的 .gitignore 模板，如：Java、Nodejs、C++ 的 `.gitignore` 模板等等。
 > 
 > 
 
@@ -429,7 +429,7 @@ hs_err_pid*
 *.exe binary
 ```
 
-> 【推荐】这里推荐一个 Github 的开源项目：[gitignore](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Falexkaratarakis%2Fgitattributes)，在这里，你可以找到很多常用的 .gitignore 模板，如：Java、Nodejs、C\+\+ 的 `.gitignore` 模板等等。
+> 【推荐】这里推荐一个 Github 的开源项目：[gitignore](https://gitee.com/link?target=https%3A%2F%2Fgithub.com%2Falexkaratarakis%2Fgitattributes)，在这里，你可以找到很多常用的 .gitignore 模板，如：Java、Nodejs、C++ 的 `.gitignore` 模板等等。
 > 
 > 
 

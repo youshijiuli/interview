@@ -170,7 +170,7 @@ Pymongo
 > 
 > 
 
-答：B\+tree
+答：B+tree
 
 ### 如何添加索引
 
@@ -196,7 +196,7 @@ MongoDB中支持以下几种索引类型：
 
 ### 如何查询集合中的文档
 
-db.collectionName.find(\{key:value\})
+db.collectionName.find({key:value})
 
 ### 用什么方法可以格式化输出结果
 
@@ -204,21 +204,21 @@ db.collectionName.find().pretty()
 
 ### 如何使用"AND"或"OR"条件循环查询集合中的文档
 
-db.mycol.find(\{     "$or": [key1: value1\}, \{key2:value2\}] \}).pretty()
+db.mycol.find({     "$or": [key1: value1}, {key2:value2}] }).pretty()
 
 ### 更新数据
 
-db.collectionName.update(\{key:value\},\{$set:\{newkey:newValue\}\})
+db.collectionName.update({key:value},{$set:{newkey:newValue}})
 
 ### 如何删除文档
 
-db.collectionName.remove(\{key:value\})
+db.collectionName.remove({key:value})
 
 ### 在MongoDB中如何排序
 
 使用 1 和 -1 来指定排序方式，其中 1 表示升序，而 -1 表示降序。
 
-db.connectionName.find(\{key:value\}).sort(\{columnName:1\})
+db.connectionName.find({key:value}).sort({columnName:1})
 
 ### 什么是聚合
 
@@ -314,13 +314,13 @@ mongodb 分片是基于区域(range)的.所以一个集合(collection)中的所�
 
 差别在多方面，例如：数据的表示、查询、关系、事务、模式的设计和定义、速度和性能。
 
-MongoDB 是由 C\+\+语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的
+MongoDB 是由 C++语言编写的，是一个基于分布式文件存储的开源数据库系统。在高负载的
 
 情况下，添加更多的节点，可以保证服务器性能。
 
 MongoDB 旨在为 WEB 应用提供可扩展的高性能数据存储解决方案。
 
-MongoDB 将数据存储为一个文档，数据结构由键值(key=\>value)对组成。MongoDB 文档类
+MongoDB 将数据存储为一个文档，数据结构由键值(key=>value)对组成。MongoDB 文档类
 
 似于 JSON 对象。字段值可以包含其他文档，数组及文档数组。
 

@@ -176,7 +176,7 @@ create table member(
 > 规避方法：
 > 1. 理语句法  (解析协议层面上完全规避SQL注入)
 > 2. 字符串转义（不要在sql中拼接字符）
-> \# query作为sql模板，args为将要传入的参数
+> # query作为sql模板，args为将要传入的参数
 > execute(query, args=None)
 
 ---

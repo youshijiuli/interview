@@ -72,7 +72,7 @@ git add 管理这个文件
 
 git add . 管理所有文件
 
-由被管理状态 ---\> 生成版本的被管理状态
+由被管理状态 ---> 生成版本的被管理状态
 
 git commit -m 'v1' 生成版本
 
@@ -408,7 +408,7 @@ dev只有到v6:
 
 git pull origin
 
-= git fetch origin dev \+ git merge origin/dev
+= git fetch origin dev + git merge origin/dev
 
 见视频16
 
@@ -472,9 +472,9 @@ bug修复再提交会dev,
 
 项目或者组织都可以设置权限（读或者写）
 
-小弟1------\> 斗地主分支
+小弟1------> 斗地主分支
 
-小弟2-------\> 炸金花
+小弟2-------> 炸金花
 
 代码review和测试这里就暂时省略了；
 

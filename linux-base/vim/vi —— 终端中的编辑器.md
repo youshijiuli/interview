@@ -2,7 +2,96 @@
 
 测试文件`profile`
 
-[profile](图片和附件/profile)
+```text
+
+# /etc/profile
+
+# /etc/profile.d/ to make custom changes to your environment, as this
+# will prevent the need for merging in future updates.
+# will prevent the need for merging in future updates.
+# will prevent the need for merging in future updates.
+# will prevent the need for merging in future updates.
+# will prevent the need for merging in future updates.
+# will prevent the need for merging in future updates.
+
+pathmunge () {
+    case ":${PATH}:" in
+        *:"$1":*)
+            ;;
+        *)
+            if [ "$2" = "after" ] ; then
+                PATH=$PATH:$1
+            else
+                PATH=$1:$PATH
+            fi
+    esac
+}
+
+
+if [ -x /usr/bin/id ]; then
+    if [ -z "$EUID" ]; then
+        # ksh workaround
+        EUID=`/usr/bin/id -u`
+        UID=`/usr/bin/id -ru`
+    fi
+    USER="`/usr/bin/id -un`"
+    LOGNAME=$USER
+    MAIL="/var/spool/mail/$USER"
+fi
+
+# Path manipulation
+if [ "$EUID" = "0" ]; then
+    pathmunge /usr/sbin
+    pathmunge /usr/local/sbin
+else
+    pathmunge /usr/local/sbin after
+    pathmunge /usr/sbin after
+fi
+
+HOSTNAME=`/usr/bin/hostname 2>/dev/null`
+HISTSIZE=1000
+if [ "$HISTCONTROL" = "ignorespace" ] ; then
+    export HISTCONTROL=ignoreboth
+else
+    export HISTCONTROL=ignoredups
+fi
+
+export PATH USER LOGNAME MAIL HOSTNAME HISTSIZE HISTCONTROL
+
+# By default, we want umask to get set. This sets it for login shell
+# Current threshold for system reserved uid/gids is 200
+# You could check uidgid reservation validity in
+# /usr/share/doc/setup-*/uidgid file
+if [ $UID -gt 199 ] && [ "`/usr/bin/id -gn`" = "`/usr/bin/id -un`" ]; then
+    umask 002
+else
+    umask 022
+fi
+
+for i in /etc/profile.d/*.sh /etc/profile.d/sh.local ; do
+    if [ -r "$i" ]; then
+        if [ "${-#*i}" != "$-" ]; then 
+            . "$i"
+        else
+            . "$i" >/dev/null
+        fi
+    fi
+done
+
+unset i
+unset -f pathmunge
+
+if [ -n "${BASH_VERSION-}" ] ; then
+        if [ -f /etc/bashrc ] ; then
+                # Bash login shells run only /etc/profile
+                # Bash non-login shells run only /etc/bashrc
+                # Check for double sourcing is done in /etc/bashrc.
+                . /etc/bashrc
+       fi
+fi
+
+
+```
 
 # 第4章 VI/VIM编辑器
 
@@ -16,9 +105,9 @@ VIM编辑器是从VI发展出来的一个性能更强大的文本编辑器。可
 
 （1）拷贝/etc/profile 数据到/root目录下
 
-[root@hadoop100 桌面]\# cp /etc/profile /root
+[root@hadoop100 桌面]# cp /etc/profile /root
 
-[root@hadoop100 桌面]\# cd /root/
+[root@hadoop100 桌面]# cd /root/
 
 ## 4.3 一般模式
 
@@ -38,11 +127,11 @@ VIM编辑器是从VI发展出来的一个性能更强大的文本编辑器。可
 |X   |剪切一个字母(当前光标的前一个)，相当于Backspace|
 |yw|复制一个词|
 |dw|删除一个词|
-|shift\+6(^)|移动到行头|
-|shift\+4($)|移动到行尾|
-|1\+shift\+g|移动到页头，数字|
-|shift\+g|移动到页尾|
-|数字N\+shift\+g|移动到目标行|
+|shift+6(^)|移动到行头|
+|shift+4($)|移动到行尾|
+|1+shift+g|移动到页头，数字|
+|shift+g|移动到页尾|
+|数字N+shift+g|移动到目标行|
 
 ****
 
@@ -81,7 +170,7 @@ VIM编辑器是从VI发展出来的一个性能更强大的文本编辑器。可
 |---|---|
 |:w|保存|
 |:q|退出|
-|:\!|强制执行|
+|:!|强制执行|
 |/要查找的词|n 查找下一个，N 往上查找|
 |:noh|取消高亮显示|
 |:set nu|显示行号|
@@ -92,7 +181,7 @@ VIM编辑器是从VI发展出来的一个性能更强大的文本编辑器。可
 
 （1）强制保存退出
 
-:wq\! 
+:wq! 
 
 ## 4.6 模式间转换
 
@@ -138,7 +227,7 @@ VIM编辑器是从VI发展出来的一个性能更强大的文本编辑器。可
 
 - `vi` 的核心设计思想 —— **让程序员的手指始终保持在键盘的核心区域，就能完成所有的编辑操作**
 
-![001_vi键盘.png](图片和附件/001_vi键盘.png)
+![001_vi键盘.png](images/001_vi键盘.png)
 
 
 
@@ -221,7 +310,7 @@ $ vi 文件名 +行数
 
 
 
-![002_删除交换文件.png](图片和附件/002_删除交换文件.png)
+![002_删除交换文件.png](images/002_删除交换文件.png)
 
 
 
@@ -251,7 +340,7 @@ $ vi 文件名 +行数
 
 
 
-![003_vi的模式.png](图片和附件/003_vi的模式.png)
+![003_vi的模式.png](images/003_vi的模式.png)
 
 
 
@@ -303,7 +392,7 @@ $ vi 文件名 +行数
 
 
 
-![005_移动光标.png](图片和附件/005_移动光标.png)
+![005_移动光标.png](images/005_移动光标.png)
 
 行内移动
 
@@ -500,7 +589,7 @@ d'a       # 从光标所在行 删除到 标记a 之间的所有代码
 
 
 
-![004_插入命令.png](图片和附件/004_插入命令.png)
+![004_插入命令.png](images/004_插入命令.png)
 
 
 
@@ -596,7 +685,7 @@ d'a       # 从光标所在行 删除到 标记a 之间的所有代码
 
 
 
-![vim.png](图片和附件/vim.png)
+![vim.png](images/vim.png)
 
 ### vimrc
 

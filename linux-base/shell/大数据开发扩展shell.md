@@ -70,9 +70,9 @@ echo "helloworld"
 
 （3）脚本的常用执行方式
 
-第一种：采用bash或sh\+脚本的相对路径或绝对路径（不用赋予脚本\+x权限）
+第一种：采用bash或sh+脚本的相对路径或绝对路径（不用赋予脚本+x权限）
 
-sh\+脚本的相对路径
+sh+脚本的相对路径
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ sh helloworld.sh 
@@ -80,7 +80,7 @@ sh\+脚本的相对路径
 Helloworld
 ```
 
-sh\+脚本的绝对路径
+sh+脚本的绝对路径
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ sh /home/atguigu/datas/helloworld.sh 
@@ -88,7 +88,7 @@ sh\+脚本的绝对路径
 helloworld
 ```
 
-bash\+脚本的相对路径
+bash+脚本的相对路径
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ bash helloworld.sh 
@@ -96,7 +96,7 @@ bash\+脚本的相对路径
 Helloworld
 ```
 
-bash\+脚本的绝对路径
+bash+脚本的绝对路径
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ bash /home/atguigu/datas/helloworld.sh 
@@ -104,9 +104,9 @@ bash\+脚本的绝对路径
 Helloworld
 ```
 
-第二种：采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限\+x）
+第二种：采用输入脚本的绝对路径或相对路径执行脚本（必须具有可执行权限+x）
 
-（a）首先要赋予helloworld.sh 脚本的\+x权限
+（a）首先要赋予helloworld.sh 脚本的+x权限
 
 ```Plain Text
 [atguigu@hadoop101 datas]$ chmod +x helloworld.sh
@@ -344,7 +344,7 @@ helloworld
 
 1）基本语法
 
-n（功能描述：n为数字，0代表该脚本名称，1−9代表第一到第九个参数，十以上的参数，十以上的参数需要用大括号包含，如$\{10\}）
+n（功能描述：n为数字，0代表该脚本名称，1−9代表第一到第九个参数，十以上的参数，十以上的参数需要用大括号包含，如${10}）
 
 2）案例实操
 
@@ -378,11 +378,11 @@ cls
 xz
 ```
 
-### 3.3.2 $\#
+### 3.3.2 $#
 
 1）基本语法
 
-$\# （功能描述：获取所有输入参数个数，常用于循环）。
+$# （功能描述：获取所有输入参数个数，常用于循环）。
 
 2）案例实操
 
@@ -508,7 +508,7 @@ hello world
 
 2）案例实操：
 
-计算（2\+3）* 4的值
+计算（2+3）* 4的值
 
 ```Plain Text
 [atguigu@hadoop101 datas]# S=$[(2+3)*4]
@@ -584,7 +584,7 @@ hello world
 1
 ```
 
-（4）多条件判断（\&\& 表示前一条命令执行成功时，才执行后一条命令，\|\| 表示上一条命令执行失败后，才执行下一条命令）
+（4）多条件判断（\&\& 表示前一条命令执行成功时，才执行后一条命令，|| 表示上一条命令执行失败后，才执行下一条命令）
 
 ```Plain Text
 [atguigu@hadoop101 ~]$ [ atguigu ] && echo OK || echo notOK
@@ -1122,13 +1122,13 @@ dirname 文件绝对路径 （功能描述：从给定的包含绝对路径的�
 
 [ function ] funname[()]
 
-\{
+{
 
 Action;
 
 [return int;]
 
-\}
+}
 
 2）经验技巧
 
@@ -1282,7 +1282,7 @@ guan
 
 1）基本用法
 
-awk [选项参数] ‘/pattern1/\{action1\} /pattern2/\{action2\}...’ filename
+awk [选项参数] ‘/pattern1/{action1} /pattern2/{action2}...’ filename
 
 pattern：表示awk在数据中查找的内容，就是匹配模式
 

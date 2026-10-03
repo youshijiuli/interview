@@ -2001,7 +2001,7 @@ print(re.split("(\d+)", "dream1dream2dream3dream"))
 
 ```python
 # 手机号码
-pattern_phone = r"^(?:\+86)?1[3-9]\d{9}$"
+pattern_phone = r"^(?:+86)?1[3-9]\d{9}$"
 
 # 邮箱
 pattern_email = r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+.[a-zA-Z]{2,}$"
