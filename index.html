@@ -422,10 +422,11 @@ function doSearch(q) {
       e.preventDefault();
       openDoc(el.dataset.id);
       searchInput.value = "";
-      box.remove();
+      const box2 = document.querySelector(".search-results");
+      if (box2) box2.remove();
     });
   });
-  readerEl.parentElement.insertBefore(box, readerEl);
+  readerEl.insertBefore(box, readerEl.firstChild);
 }
 
 let searchTimer = null;
